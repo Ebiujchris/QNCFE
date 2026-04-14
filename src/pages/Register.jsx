@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { useToast } from '../contexts/ToastContext'
 import LoadingSpinner from '../components/LoadingSpinner'
-import axios from 'axios'
+import api from '../config/api'
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -41,7 +41,7 @@ function Register() {
     }
 
     try {
-      await axios.post('/api/auth/register', formData)
+      await api.post('/auth/register', formData)
       showSuccess('Account created successfully! Please login to continue.')
       navigate('/login')
     } catch (error) {

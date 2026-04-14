@@ -11,5 +11,9 @@ export default defineConfig({
         changeOrigin: true
       }
     }
+  },
+  // Environment variable handling
+  define: {
+    'process.env': process.env
   }
 })

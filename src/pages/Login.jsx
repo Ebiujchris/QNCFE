@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { useToast } from '../contexts/ToastContext'
 import LoadingSpinner from '../components/LoadingSpinner'
-import axios from 'axios'
+import api from '../config/api'
 
 function Login({ setUser }) {
   const [formData, setFormData] = useState({
@@ -25,7 +25,7 @@ function Login({ setUser }) {
     setLoading(true)
 
     try {
-      const response = await axios.post('/api/auth/login', formData)
+      const response = await api.post('/auth/login', formData)
       const { user, token } = response.data
 
       localStorage.setItem('user', JSON.stringify(user))

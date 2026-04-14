@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useToast } from '../../contexts/ToastContext'
 import LoadingSpinner from '../LoadingSpinner'
-import axios from 'axios'
+import api from '../../config/api'
 
 function ProviderDashboard({ user }) {
   const [assignments, setAssignments] = useState([])
@@ -16,12 +16,9 @@ function ProviderDashboard({ user }) {
 
   const fetchData = async () => {
     try {
-      const token = localStorage.getItem('token')
-      const headers = { Authorization: `Bearer ${token}` }
-
       const [assignmentsRes, notificationsRes] = await Promise.all([
-        axios.get('/api/bookings/my-assignments', { headers }),
-        axios.get('/api/notifications', { headers })
+        api.get('/bookings/my-assignments'),
+        api.get('/notifications')
       ])
 
       setAssignments(assignmentsRes.data)

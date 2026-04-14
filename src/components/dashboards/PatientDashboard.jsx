@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useToast } from '../../contexts/ToastContext'
 import LoadingSpinner from '../LoadingSpinner'
-import axios from 'axios'
+import api from '../../config/api'
 
 function PatientDashboard({ user }) {
   const [bookings, setBookings] = useState([])
@@ -17,12 +17,9 @@ function PatientDashboard({ user }) {
 
   const fetchData = async () => {
     try {
-      const token = localStorage.getItem('token')
-      const headers = { Authorization: `Bearer ${token}` }
-
       const [bookingsRes, notificationsRes] = await Promise.all([
-        axios.get('/api/bookings/my-bookings', { headers }),
-        axios.get('/api/notifications', { headers })
+        api.get('/bookings/my-bookings'),
+        api.get('/notifications')
       ])
 
       setBookings(bookingsRes.data)

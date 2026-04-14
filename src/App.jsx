@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { ToastProvider } from './contexts/ToastContext'
+import ErrorBoundary from './components/ErrorBoundary'
 import Navbar from './components/Navbar'
 import LoadingSpinner from './components/LoadingSpinner'
 import Home from './pages/Home'
@@ -55,28 +56,30 @@ function App() {
 
   return (
     <ToastProvider>
-      <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
-        <div className="App">
-          <Navbar user={user} logout={logout} />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login setUser={setUser} />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/book" element={<BookService user={user} />} />
-            <Route path="/dashboard" element={<Dashboard user={user} />} />
-            
-            {/* Admin Routes */}
-            <Route path="/admin/login" element={<AdminLogin setUser={setUser} />} />
-            <Route path="/admin/register" element={<AdminRegister />} />
-            <Route path="/admin/dashboard" element={<AdminDashboard user={user} />} />
-            
-            {/* Legacy Routes - Redirect to unified dashboard */}
-            <Route path="/patient-dashboard" element={<Dashboard user={user} />} />
-            <Route path="/provider-dashboard" element={<Dashboard user={user} />} />
-            <Route path="/admin-dashboard" element={<Dashboard user={user} />} />
-          </Routes>
-        </div>
-      </Router>
+      <ErrorBoundary>
+        <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+          <div className="App">
+            <Navbar user={user} logout={logout} />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/login" element={<Login setUser={setUser} />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/book" element={<BookService user={user} />} />
+              <Route path="/dashboard" element={<Dashboard user={user} />} />
+              
+              {/* Admin Routes */}
+              <Route path="/admin/login" element={<AdminLogin setUser={setUser} />} />
+              <Route path="/admin/register" element={<AdminRegister />} />
+              <Route path="/admin/dashboard" element={<AdminDashboard user={user} />} />
+              
+              {/* Legacy Routes - Redirect to unified dashboard */}
+              <Route path="/patient-dashboard" element={<Dashboard user={user} />} />
+              <Route path="/provider-dashboard" element={<Dashboard user={user} />} />
+              <Route path="/admin-dashboard" element={<Dashboard user={user} />} />
+            </Routes>
+          </div>
+        </Router>
+      </ErrorBoundary>
     </ToastProvider>
   )
 }

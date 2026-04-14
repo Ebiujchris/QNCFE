@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useToast } from '../../contexts/ToastContext'
 import LoadingSpinner from '../LoadingSpinner'
-import axios from 'axios'
+import api from '../../config/api'
 
 function AdminDashboard({ user }) {
   const [pendingBookings, setPendingBookings] = useState([])
@@ -20,14 +20,11 @@ function AdminDashboard({ user }) {
 
   const fetchData = async () => {
     try {
-      const token = localStorage.getItem('token')
-      const headers = { Authorization: `Bearer ${token}` }
-
       const [pendingRes, allRes, providersRes, statsRes] = await Promise.all([
-        axios.get('/api/admin/bookings/pending', { headers }),
-        axios.get('/api/admin/bookings', { headers }),
-        axios.get('/api/admin/providers', { headers }),
-        axios.get('/api/admin/stats', { headers })
+        api.get('/admin/bookings/pending'),
+        api.get('/admin/bookings'),
+        api.get('/admin/providers'),
+        api.get('/admin/stats')
       ])
 
       setPendingBookings(pendingRes.data)

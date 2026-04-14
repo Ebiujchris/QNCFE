@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { useToast } from '../contexts/ToastContext'
 import LoadingSpinner from '../components/LoadingSpinner'
-import axios from 'axios'
+import api from '../config/api'
 
 function BookService({ user }) {
   const [formData, setFormData] = useState({
@@ -71,10 +71,7 @@ function BookService({ user }) {
     }
 
     try {
-      const token = localStorage.getItem('token')
-      await axios.post('/api/bookings', formData, {
-        headers: { Authorization: `Bearer ${token}` }
-      })
+      await api.post('/bookings', formData)
       
       showSuccess('Booking request submitted successfully! You will be notified once a provider is assigned.')
       

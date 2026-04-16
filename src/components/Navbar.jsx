@@ -7,6 +7,26 @@ function Navbar({ user, logout }) {
         <Link to="/" className="logo">
           QNC SOLUTIONS
         </Link>
+        
+        {/* Navigation Links */}
+        <div className="nav-links" style={{display: 'flex', alignItems: 'center', gap: '24px'}}>
+          <Link to="/">
+            Home
+          </Link>
+          <Link to="/about">
+            About Us
+          </Link>
+          <Link to="/services">
+            Services
+          </Link>
+          <Link to="/careers">
+            Careers
+          </Link>
+          <Link to="/contact">
+            Contact Us
+          </Link>
+        </div>
+
         <div style={{display: 'flex', alignItems: 'center', gap: '12px'}}>
           {user ? (
             <>

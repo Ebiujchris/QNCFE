@@ -5,6 +5,10 @@ import ErrorBoundary from './components/ErrorBoundary'
 import Navbar from './components/Navbar'
 import LoadingSpinner from './components/LoadingSpinner'
 import Home from './pages/Home'
+import About from './pages/About'
+import Services from './pages/Services'
+import Careers from './pages/Careers'
+import Contact from './pages/Contact'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import Dashboard from './pages/Dashboard'
@@ -62,6 +66,10 @@ function App() {
             <Navbar user={user} logout={logout} />
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/careers" element={<Careers />} />
+              <Route path="/contact" element={<Contact />} />
               <Route path="/login" element={<Login setUser={setUser} />} />
               <Route path="/register" element={<Register />} />
               <Route path="/book" element={<BookService user={user} />} />

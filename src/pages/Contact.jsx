@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { useToast } from '../contexts/ToastContext'
 import api from '../config/api'
 
@@ -167,16 +168,7 @@ function Contact() {
               </div>
             </div>
 
-            {/* Emergency Contact */}
-            <div className="card card-elevated" style={{padding: '25px', backgroundColor: '#fef3c7', border: '1px solid #fbbf24'}}>
-              <h4 style={{color: '#92400e', marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '10px'}}>
-                🚨 Emergency Services
-              </h4>
-              <p style={{color: '#92400e', margin: 0, fontSize: '0.9rem'}}>
-                For medical emergencies, please call 911 or 999 immediately. For urgent healthcare needs outside business hours, 
-                call our emergency line: <strong><a href="tel:+256791785931" style={{color: '#92400e'}}>+256-791-785931</a></strong>
-              </p>
-            </div>
+            {/* Emergency Contact - REMOVED */}
 
             {/* Social Media Links */}
             <div style={{marginTop: '30px'}}>
@@ -388,45 +380,98 @@ function Contact() {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section style={{backgroundColor: '#f8fafc', padding: '60px 0'}}>
+      {/* Footer Section with Links and Map */}
+      <section style={{backgroundColor: '#1f2937', color: 'white', padding: '40px 0'}}>
         <div className="container">
-          <h2 style={{textAlign: 'center', fontSize: '2.5rem', fontWeight: '700', color: '#1f2937', marginBottom: '50px'}}>
-            Frequently Asked Questions
-          </h2>
-          
-          <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '30px'}}>
-            <div className="card card-elevated" style={{padding: '30px'}}>
-              <h4 style={{color: '#f59e0b', marginBottom: '15px'}}>How do I book a service?</h4>
-              <p style={{color: '#6b7280', fontSize: '0.95rem', lineHeight: '1.6'}}>
-                You can book any of our services through our online booking system. Simply select your needed service, 
-                fill out the form, and we'll match you with a qualified healthcare professional.
-              </p>
+          <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '30px'}}>
+            
+            {/* Quick Links */}
+            <div>
+              <h4 style={{fontSize: '1.2rem', marginBottom: '15px', color: '#f3f4f6'}}>Quick Links</h4>
+              <ul style={{listStyle: 'none', padding: 0, margin: 0}}>
+                <li style={{marginBottom: '10px'}}>
+                  <Link to="/about" style={{color: '#d1d5db', textDecoration: 'none', fontSize: '0.9rem'}}>About Us</Link>
+                </li>
+                <li style={{marginBottom: '10px'}}>
+                  <Link to="/services" style={{color: '#d1d5db', textDecoration: 'none', fontSize: '0.9rem'}}>Our Services</Link>
+                </li>
+                <li style={{marginBottom: '10px'}}>
+                  <Link to="/careers" style={{color: '#d1d5db', textDecoration: 'none', fontSize: '0.9rem'}}>Careers</Link>
+                </li>
+                <li style={{marginBottom: '10px'}}>
+                  <Link to="/contact" style={{color: '#d1d5db', textDecoration: 'none', fontSize: '0.9rem'}}>Contact Us</Link>
+                </li>
+              </ul>
             </div>
 
-            <div className="card card-elevated" style={{padding: '30px'}}>
-              <h4 style={{color: '#f59e0b', marginBottom: '15px'}}>What areas do you serve?</h4>
-              <p style={{color: '#6b7280', fontSize: '0.95rem', lineHeight: '1.6'}}>
-                We currently serve the greater metropolitan area and surrounding communities. Contact us to confirm 
-                service availability in your specific location.
-              </p>
+            {/* Services */}
+            <div>
+              <h4 style={{fontSize: '1.2rem', marginBottom: '15px', color: '#f3f4f6'}}>Our Services</h4>
+              <ul style={{listStyle: 'none', padding: 0, margin: 0}}>
+                <li style={{marginBottom: '10px'}}>
+                  <Link to="/book" style={{color: '#d1d5db', textDecoration: 'none', fontSize: '0.9rem'}}>Nursing Care</Link>
+                </li>
+                <li style={{marginBottom: '10px'}}>
+                  <Link to="/book" style={{color: '#d1d5db', textDecoration: 'none', fontSize: '0.9rem'}}>Medical Consultation</Link>
+                </li>
+                <li style={{marginBottom: '10px'}}>
+                  <Link to="/book" style={{color: '#d1d5db', textDecoration: 'none', fontSize: '0.9rem'}}>Caregiver Support</Link>
+                </li>
+                <li style={{marginBottom: '10px'}}>
+                  <Link to="/book" style={{color: '#d1d5db', textDecoration: 'none', fontSize: '0.9rem'}}>Mobile Health</Link>
+                </li>
+              </ul>
             </div>
 
-            <div className="card card-elevated" style={{padding: '30px'}}>
-              <h4 style={{color: '#f59e0b', marginBottom: '15px'}}>Are your providers licensed?</h4>
-              <p style={{color: '#6b7280', fontSize: '0.95rem', lineHeight: '1.6'}}>
-                Yes, all our healthcare providers are fully licensed, certified, and undergo thorough background checks. 
-                We maintain the highest standards for professional qualifications.
-              </p>
+            {/* Contact Info */}
+            <div>
+              <h4 style={{fontSize: '1.2rem', marginBottom: '15px', color: '#f3f4f6'}}>Contact Info</h4>
+              <div style={{fontSize: '0.9rem', color: '#d1d5db', lineHeight: '1.6'}}>
+                <p style={{marginBottom: '10px'}}>📍 Buziga Katuso<br />P.O. Box: 201036 Kampala GPO, Uganda</p>
+                <p style={{marginBottom: '10px'}}>📞 <a href="tel:+256791785931" style={{color: '#d1d5db'}}>+256-791-785931</a></p>
+                <p style={{marginBottom: '10px'}}>✉️ <a href="mailto:qncsolutions3@gmail.com" style={{color: '#d1d5db'}}>qncsolutions3@gmail.com</a></p>
+              </div>
             </div>
 
-            <div className="card card-elevated" style={{padding: '30px'}}>
-              <h4 style={{color: '#f59e0b', marginBottom: '15px'}}>How do I become a provider?</h4>
-              <p style={{color: '#6b7280', fontSize: '0.95rem', lineHeight: '1.6'}}>
-                Visit our Careers page and click "Enlist as Provider" to start the application process. We'll guide you 
-                through registration, verification, and onboarding.
-              </p>
+            {/* Location Map */}
+            <div>
+              <h4 style={{fontSize: '1.2rem', marginBottom: '15px', color: '#f3f4f6'}}>Our Location</h4>
+              <div style={{
+                width: '100%',
+                height: '180px',
+                backgroundColor: '#374151',
+                borderRadius: '8px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                border: '2px solid #4b5563'
+              }}>
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7520895823944!2d32.6078!3d0.2619!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbc0f9c3b5555%3A0x1234567890abcdef!2sBuziga%2C%20Kampala%2C%20Uganda!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+                  width="100%"
+                  height="100%"
+                  style={{border: 0, borderRadius: '8px'}}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="QNC Solutions Location"
+                ></iframe>
+              </div>
             </div>
+          </div>
+
+          {/* Bottom Bar */}
+          <div style={{
+            borderTop: '1px solid #374151',
+            marginTop: '30px',
+            paddingTop: '15px',
+            textAlign: 'center',
+            fontSize: '0.85rem',
+            color: '#9ca3af'
+          }}>
+            <p style={{margin: 0}}>
+              © 2026 QNC Solutions. All rights reserved. | Professional Healthcare Services in Uganda
+            </p>
           </div>
         </div>
       </section>

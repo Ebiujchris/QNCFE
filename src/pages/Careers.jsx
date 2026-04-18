@@ -4,7 +4,12 @@ function Careers() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="hero" style={{background: 'linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%)', padding: '80px 0'}}>
+      <section className="hero" style={{
+        background: `linear-gradient(rgba(30, 64, 175, 0.8), rgba(124, 45, 18, 0.8)), url('/images/photo-1666887360680-9dc27a1d2753.avif')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        padding: '80px 0'
+      }}>
         <div className="container">
           <div style={{textAlign: 'center', color: 'white'}}>
             <h1 style={{fontSize: '3rem', fontWeight: '700', marginBottom: '20px'}}>Join Our Team</h1>

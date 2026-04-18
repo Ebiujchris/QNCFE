@@ -18,6 +18,16 @@ body {
   padding: 0 24px;
 }
 
+/* Color Variables */
+:root {
+  --primary-blue: #1e40af;
+  --primary-maroon: #7c2d12;
+  --light-blue: #3b82f6;
+  --light-maroon: #991b1b;
+  --dark-blue: #1e3a8a;
+  --dark-maroon: #7c2d12;
+}
+
 /* Modern Button Styles */
 .btn {
   padding: 12px 24px;
@@ -39,32 +49,32 @@ body {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, var(--primary-maroon) 0%, var(--light-maroon) 100%);
   color: white;
   border: none;
 }
 
 .btn-primary:hover {
-  background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+  background: linear-gradient(135deg, var(--dark-maroon) 0%, var(--primary-maroon) 100%);
 }
 
 .btn-success {
-  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--light-blue) 100%);
   color: white;
 }
 
 .btn-success:hover {
-  background: linear-gradient(135deg, #0f8a7e 0%, #32d96b 100%);
+  background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 100%);
 }
 
 .btn-outline {
   background: transparent;
-  color: #667eea;
-  border: 2px solid #667eea;
+  color: var(--primary-maroon);
+  border: 2px solid var(--primary-maroon);
 }
 
 .btn-outline:hover {
-  background: #667eea;
+  background: var(--primary-maroon);
   color: white;
 }
 
@@ -122,8 +132,8 @@ body {
 .form-group select:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
 }
 
 /* Navigation */
@@ -160,7 +170,7 @@ body {
 }
 
 .navbar .nav-links a:hover {
-  color: #667eea;
+  color: var(--primary-blue);
 }
 
 .navbar .nav-links a::after {
@@ -170,7 +180,7 @@ body {
   height: 2px;
   bottom: -4px;
   left: 50%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-maroon) 100%);
   transition: all 0.2s ease;
   transform: translateX(-50%);
 }
@@ -187,13 +197,29 @@ body {
 }
 
 .navbar .logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   font-size: 24px;
   font-weight: 700;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-maroon) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-decoration: none;
+}
+
+.logo-image {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+.logo-text {
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-maroon) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .navbar nav {
@@ -211,7 +237,7 @@ body {
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-maroon) 100%);
   color: white;
   padding: 80px 0;
   text-align: center;
@@ -321,7 +347,7 @@ body {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-maroon) 100%);
   color: white;
   display: flex;
   align-items: center;
@@ -444,7 +470,7 @@ body {
 
 .spinner {
   border: 3px solid #f3f4f6;
-  border-top: 3px solid #667eea;
+  border-top: 3px solid var(--primary-blue);
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
@@ -566,6 +592,18 @@ body {
     flex-direction: column;
     gap: 16px;
   }
+
+  .page-header {
+    height: 300px;
+  }
+
+  .page-header h1 {
+    font-size: 2.5rem;
+  }
+
+  .page-header p {
+    font-size: 1.1rem;
+  }
 }
 
 /* Dashboard Specific Styles */
@@ -600,7 +638,7 @@ body {
 .stat-number {
   font-size: 2rem;
   font-weight: 700;
-  color: #667eea;
+  color: var(--primary-blue);
   display: block;
   margin-bottom: 4px;
 }
@@ -650,7 +688,7 @@ body {
 .stat-number {
   font-size: 2rem;
   font-weight: 700;
-  color: #667eea;
+  color: var(--primary-blue);
   display: block;
 }
 
@@ -680,6 +718,53 @@ body {
   .image-showcase {
     grid-template-columns: 1fr !important;
   }
+}
+
+/* Page Header with Background Images */
+.page-header {
+  position: relative;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.page-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-maroon) 100%);
+  opacity: 0.8;
+  z-index: 1;
+}
+
+.page-header-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+  max-width: 800px;
+  padding: 0 24px;
+}
+
+.page-header h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.page-header p {
+  font-size: 1.25rem;
+  opacity: 0.95;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 /* Hero Background Animation */

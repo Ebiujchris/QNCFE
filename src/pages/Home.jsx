@@ -15,9 +15,45 @@ function Home() {
             <h1>QNC SOLUTIONS</h1>
             <p>Professional healthcare services delivered to your doorstep. Connect with qualified nurses, doctors, and caregivers in your community.</p>
             <div className="hero-buttons">
-              <Link to="/book" className="btn btn-success btn-large">
+              <Link to="/book" className="btn btn-primary btn-large">
                 📅 Book Now
               </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Company Bio Section */}
+      <section className="container" style={{padding: '60px 0'}}>
+        <div className="card card-elevated" style={{padding: '50px'}}>
+          <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '40px', alignItems: 'center'}}>
+            <div>
+              <h2 style={{fontSize: '2.5rem', fontWeight: '700', color: 'var(--primary-blue)', marginBottom: '30px'}}>
+                About QNC Solutions Ltd
+              </h2>
+              <p style={{fontSize: '1.1rem', lineHeight: '1.8', color: '#374151', marginBottom: '25px'}}>
+                QNC Solutions Ltd is a professional healthcare services company dedicated to delivering quality, reliable, and compassionate nursing and medical support services across Uganda and beyond. Founded on the principle of Quality Nursing Care, QNC exists to bridge the gap between professional healthcare delivery and accessibility, ensuring individuals, families, organizations, and projects receive expert care when and where it is needed most.
+              </p>
+              <p style={{fontSize: '1.1rem', lineHeight: '1.8', color: '#374151'}}>
+                We recognize that healthcare needs extend beyond hospitals to homes, workplaces, construction sites, communities, and travel environments. QNC responds to this need by providing professional nursing care, home-based services, field medical support, corporate first aid services, training, mobile health services, travel nursing, and nutrition support, all delivered by qualified and licensed healthcare professionals.
+              </p>
+            </div>
+            <div style={{textAlign: 'center'}}>
+              <img 
+                src="/images/postnatal-care1.jpeg" 
+                alt="Postnatal Care Services" 
+                style={{
+                  width: '100%', 
+                  maxWidth: '450px', 
+                  height: '350px', 
+                  objectFit: 'cover', 
+                  borderRadius: '16px',
+                  boxShadow: '0 15px 35px rgba(0,0,0,0.1)'
+                }} 
+              />
+              <p style={{fontSize: '0.9rem', color: '#6b7280', marginTop: '15px', fontStyle: 'italic'}}>
+                Professional postnatal care and support services
+              </p>
             </div>
           </div>
         </div>
@@ -28,25 +64,156 @@ function Home() {
         <h2 style={{textAlign: 'center', margin: '30px 0 20px', fontSize: '2.25rem', fontWeight: '700', color: '#1f2937'}}>
           Our Healthcare Services
         </h2>
-        <div className="services">
-          <div className="card service-card card-elevated">
-            <span className="service-icon">🏥</span>
-            <h3>Professional Nursing Care</h3>
-            <p>Certified nurses providing comprehensive home healthcare, medication management, and post-operative support.</p>
-            <Link to="/book" className="btn btn-primary">Book Nursing Care</Link>
+        <div style={{position: 'relative'}}>
+          <div 
+            id="servicesCarousel"
+            style={{
+              display: 'flex',
+              overflowX: 'auto',
+              gap: '20px',
+              padding: '20px 0',
+              scrollBehavior: 'smooth',
+              scrollbarWidth: 'none',
+              msOverflowStyle: 'none'
+            }}
+          >
+            <div className="card service-card card-elevated" style={{
+              width: '250px',
+              height: '250px',
+              flex: '0 0 auto',
+              textAlign: 'center',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+              padding: '20px'
+            }}>
+              <span className="service-icon" style={{fontSize: '3rem', marginBottom: '10px'}}>🏥</span>
+              <h3 style={{fontSize: '1.1rem', margin: '10px 0', lineHeight: '1.3'}}>Professional Nursing Care</h3>
+              <p style={{fontSize: '0.85rem', margin: '10px 0', lineHeight: '1.4', flex: '1'}}>Certified nurses providing comprehensive home healthcare and support.</p>
+              <Link to="/book" className="btn btn-primary" style={{fontSize: '0.9rem', padding: '10px 16px', marginTop: 'auto'}}>Book Now</Link>
+            </div>
+            <div className="card service-card card-elevated" style={{
+              width: '250px',
+              height: '250px',
+              flex: '0 0 auto',
+              textAlign: 'center',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+              padding: '20px'
+            }}>
+              <span className="service-icon" style={{fontSize: '3rem', marginBottom: '10px'}}>👨‍⚕️</span>
+              <h3 style={{fontSize: '1.1rem', margin: '10px 0', lineHeight: '1.3'}}>General Practice</h3>
+              <p style={{fontSize: '0.85rem', margin: '10px 0', lineHeight: '1.4', flex: '1'}}>Licensed doctors offering medical consultations at your home.</p>
+              <Link to="/book" className="btn btn-primary" style={{fontSize: '0.9rem', padding: '10px 16px', marginTop: 'auto'}}>Book Now</Link>
+            </div>
+            <div className="card service-card card-elevated" style={{
+              width: '250px',
+              height: '250px',
+              flex: '0 0 auto',
+              textAlign: 'center',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+              padding: '20px'
+            }}>
+              <span className="service-icon" style={{fontSize: '3rem', marginBottom: '10px'}}>🥗</span>
+              <h3 style={{fontSize: '1.1rem', margin: '10px 0', lineHeight: '1.3'}}>Nutritional Services</h3>
+              <p style={{fontSize: '0.85rem', margin: '10px 0', lineHeight: '1.4', flex: '1'}}>Professional nutrition assessment and dietary guidance.</p>
+              <Link to="/book" className="btn btn-primary" style={{fontSize: '0.9rem', padding: '10px 16px', marginTop: 'auto'}}>Book Now</Link>
+            </div>
+            <div className="card service-card card-elevated" style={{
+              width: '250px',
+              height: '250px',
+              flex: '0 0 auto',
+              textAlign: 'center',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+              padding: '20px'
+            }}>
+              <span className="service-icon" style={{fontSize: '3rem', marginBottom: '10px'}}>🧠</span>
+              <h3 style={{fontSize: '1.1rem', margin: '10px 0', lineHeight: '1.3'}}>Mental Health</h3>
+              <p style={{fontSize: '0.85rem', margin: '10px 0', lineHeight: '1.4', flex: '1'}}>Comprehensive mental health and psychosocial support services.</p>
+              <Link to="/book" className="btn btn-primary" style={{fontSize: '0.9rem', padding: '10px 16px', marginTop: 'auto'}}>Book Now</Link>
+            </div>
+            <div className="card service-card card-elevated" style={{
+              width: '250px',
+              height: '250px',
+              flex: '0 0 auto',
+              textAlign: 'center',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+              padding: '20px'
+            }}>
+              <span className="service-icon" style={{fontSize: '3rem', marginBottom: '10px'}}>🏗️</span>
+              <h3 style={{fontSize: '1.1rem', margin: '10px 0', lineHeight: '1.3'}}>Occupational Health</h3>
+              <p style={{fontSize: '0.85rem', margin: '10px 0', lineHeight: '1.4', flex: '1'}}>Workplace health services and safety training.</p>
+              <Link to="/book" className="btn btn-primary" style={{fontSize: '0.9rem', padding: '10px 16px', marginTop: 'auto'}}>Book Now</Link>
+            </div>
           </div>
-          <div className="card service-card card-elevated">
-            <span className="service-icon">👨‍⚕️</span>
-            <h3>General Practice Consultation</h3>
-            <p>Licensed general practitioners offering medical consultations and health assessments at your home.</p>
-            <Link to="/book" className="btn btn-primary">Book Consultation</Link>
-          </div>
-          <div className="card service-card card-elevated">
-            <span className="service-icon">🤝</span>
-            <h3>Caregiver Support</h3>
-            <p>Compassionate caregivers providing daily assistance, companionship, and personal care for all ages.</p>
-            <Link to="/book" className="btn btn-primary">Book Caregiver</Link>
-          </div>
+          
+          {/* Navigation Arrows */}
+          <button 
+            onClick={() => {
+              const carousel = document.getElementById('servicesCarousel');
+              carousel.scrollBy({ left: -270, behavior: 'smooth' });
+            }}
+            style={{
+              position: 'absolute',
+              left: '-20px',
+              top: '50%',
+              transform: 'translateY(-50%)',
+              width: '40px',
+              height: '40px',
+              borderRadius: '50%',
+              border: 'none',
+              backgroundColor: 'var(--primary-maroon)',
+              color: 'white',
+              fontSize: '18px',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+              zIndex: 10
+            }}
+            onMouseOver={(e) => e.target.style.backgroundColor = 'var(--dark-maroon)'}
+            onMouseOut={(e) => e.target.style.backgroundColor = 'var(--primary-maroon)'}
+          >
+            ←
+          </button>
+          
+          <button 
+            onClick={() => {
+              const carousel = document.getElementById('servicesCarousel');
+              carousel.scrollBy({ left: 270, behavior: 'smooth' });
+            }}
+            style={{
+              position: 'absolute',
+              right: '-20px',
+              top: '50%',
+              transform: 'translateY(-50%)',
+              width: '40px',
+              height: '40px',
+              borderRadius: '50%',
+              border: 'none',
+              backgroundColor: 'var(--primary-maroon)',
+              color: 'white',
+              fontSize: '18px',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+              zIndex: 10
+            }}
+            onMouseOver={(e) => e.target.style.backgroundColor = 'var(--dark-maroon)'}
+            onMouseOut={(e) => e.target.style.backgroundColor = 'var(--primary-maroon)'}
+          >
+            →
+          </button>
         </div>
       </section>
 

@@ -2,7 +2,12 @@ function About() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="hero" style={{background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', padding: '80px 0'}}>
+      <section className="hero" style={{
+        background: `linear-gradient(rgba(30, 64, 175, 0.8), rgba(124, 45, 18, 0.8)), url('/images/home page image 2.avif')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        padding: '80px 0'
+      }}>
         <div className="container">
           <div style={{textAlign: 'center', color: 'white'}}>
             <h1 style={{fontSize: '3rem', fontWeight: '700', marginBottom: '20px'}}>About QNC Solutions</h1>

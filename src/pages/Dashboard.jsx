@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useToast } from '../contexts/ToastContext'
 import LoadingSpinner from '../components/LoadingSpinner'
 import PatientDashboard from '../components/dashboards/PatientDashboard'
@@ -8,17 +8,15 @@ import AdminDashboard from '../components/dashboards/AdminDashboard'
 
 function Dashboard({ user }) {
   const [loading, setLoading] = useState(true)
-  const navigate = useNavigate()
   const { showError } = useToast()
 
   useEffect(() => {
     if (!user) {
       showError('Please login to access your dashboard')
-      navigate('/login')
       return
     }
     setLoading(false)
-  }, [user, navigate, showError])
+  }, [user, showError])
 
   if (loading) {
     return (

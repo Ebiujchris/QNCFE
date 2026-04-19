@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { ToastProvider } from './contexts/ToastContext'
 import ErrorBoundary from './components/ErrorBoundary'
 import Navbar from './components/Navbar'
@@ -17,9 +18,22 @@ import AdminLogin from './pages/admin/AdminLogin'
 import AdminRegister from './pages/admin/AdminRegister'
 import AdminDashboard from './pages/admin/AdminDashboard'
 
-function App() {
+// Custom hook for logout with navigation
+function useLogout(setUser) {
+  const navigate = useNavigate()
+  
+  return () => {
+    localStorage.removeItem('user')
+    localStorage.removeItem('token')
+    setUser(null)
+    navigate('/login')
+  }
+}
+
+function AppContent() {
   const [user, setUser] = useState(null)
   const [loading, setLoading] = useState(true)
+  const logout = useLogout(setUser)
 
   useEffect(() => {
     // Check for existing user session
@@ -38,12 +52,6 @@ function App() {
     setLoading(false)
   }, [])
 
-  const logout = () => {
-    localStorage.removeItem('user')
-    localStorage.removeItem('token')
-    setUser(null)
-  }
-
   if (loading) {
     return (
       <div style={{
@@ -59,33 +67,39 @@ function App() {
   }
 
   return (
+    <div className="App">
+      <Navbar user={user} logout={logout} />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/careers" element={<Careers />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/login" element={<Login setUser={setUser} />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/book" element={<BookService user={user} />} />
+        <Route path="/dashboard" element={<Dashboard user={user} />} />
+        
+        {/* Admin Routes */}
+        <Route path="/admin/login" element={<AdminLogin setUser={setUser} />} />
+        <Route path="/admin/register" element={<AdminRegister />} />
+        <Route path="/admin/dashboard" element={<AdminDashboard user={user} />} />
+        
+        {/* Legacy Routes - Redirect to unified dashboard */}
+        <Route path="/patient-dashboard" element={<Dashboard user={user} />} />
+        <Route path="/provider-dashboard" element={<Dashboard user={user} />} />
+        <Route path="/admin-dashboard" element={<Dashboard user={user} />} />
+      </Routes>
+    </div>
+  )
+}
+
+function App() {
+  return (
     <ToastProvider>
       <ErrorBoundary>
         <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
-          <div className="App">
-            <Navbar user={user} logout={logout} />
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/services" element={<Services />} />
-              <Route path="/careers" element={<Careers />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/login" element={<Login setUser={setUser} />} />
-              <Route path="/register" element={<Register />} />
-              <Route path="/book" element={<BookService user={user} />} />
-              <Route path="/dashboard" element={<Dashboard user={user} />} />
-              
-              {/* Admin Routes */}
-              <Route path="/admin/login" element={<AdminLogin setUser={setUser} />} />
-              <Route path="/admin/register" element={<AdminRegister />} />
-              <Route path="/admin/dashboard" element={<AdminDashboard user={user} />} />
-              
-              {/* Legacy Routes - Redirect to unified dashboard */}
-              <Route path="/patient-dashboard" element={<Dashboard user={user} />} />
-              <Route path="/provider-dashboard" element={<Dashboard user={user} />} />
-              <Route path="/admin-dashboard" element={<Dashboard user={user} />} />
-            </Routes>
-          </div>
+          <AppContent />
         </Router>
       </ErrorBoundary>
     </ToastProvider>

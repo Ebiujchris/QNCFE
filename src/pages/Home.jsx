@@ -112,7 +112,14 @@ function Home() {
           </div>
 
           {/* Image Grid */}
-          <div className="image-showcase" style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px', marginBottom: '35px'}}>
+          <div className="image-showcase" style={{
+            display: 'grid', 
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
+            gap: '20px', 
+            marginBottom: '35px',
+            width: '100%',
+            overflow: 'hidden'
+          }}>
             
             {/* Main Feature Image */}
             <div style={{position: 'relative', borderRadius: '20px', overflow: 'hidden', height: '280px', boxShadow: '0 15px 30px rgba(0,0,0,0.1)'}}>

@@ -24,7 +24,7 @@ function Services() {
       <section className="container" style={{padding: '60px 0'}}>
         <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '30px', marginBottom: '60px'}}>
           
-          {/* Nursing Care */}
+          {/* Professional Nursing Care */}
           <div className="card service-card card-elevated" style={{padding: '30px', textAlign: 'center'}}>
             <span style={{fontSize: '4rem', marginBottom: '20px', display: 'block'}}>🏥</span>
             <h3 style={{color: '#1f2937', marginBottom: '15px', fontSize: '1.5rem'}}>Professional Nursing Care</h3>
@@ -40,10 +40,10 @@ function Services() {
             <Link to="/book" className="btn btn-primary">Book Nursing Care</Link>
           </div>
 
-          {/* Medical Consultation */}
+          {/* General Practice Consultation */}
           <div className="card service-card card-elevated" style={{padding: '30px', textAlign: 'center'}}>
             <span style={{fontSize: '4rem', marginBottom: '20px', display: 'block'}}>👨‍⚕️</span>
-            <h3 style={{color: '#1f2937', marginBottom: '15px', fontSize: '1.5rem'}}>Medical Consultation</h3>
+            <h3 style={{color: '#1f2937', marginBottom: '15px', fontSize: '1.5rem'}}>General Practice Consultation</h3>
             <p style={{color: '#6b7280', marginBottom: '20px', lineHeight: '1.6'}}>
               Licensed general practitioners offering medical consultations and health assessments at your home.
             </p>
@@ -56,20 +56,52 @@ function Services() {
             <Link to="/book" className="btn btn-primary">Book Consultation</Link>
           </div>
 
-          {/* Caregiver Support */}
+          {/* Nutritional Services */}
           <div className="card service-card card-elevated" style={{padding: '30px', textAlign: 'center'}}>
-            <span style={{fontSize: '4rem', marginBottom: '20px', display: 'block'}}>🤝</span>
-            <h3 style={{color: '#1f2937', marginBottom: '15px', fontSize: '1.5rem'}}>Caregiver Support</h3>
+            <span style={{fontSize: '4rem', marginBottom: '20px', display: 'block'}}>🥗</span>
+            <h3 style={{color: '#1f2937', marginBottom: '15px', fontSize: '1.5rem'}}>Nutritional Services</h3>
             <p style={{color: '#6b7280', marginBottom: '20px', lineHeight: '1.6'}}>
-              Compassionate caregivers providing daily assistance, companionship, and personal care for all ages.
+              Professional nutrition assessment, dietary guidance, and meal planning for optimal health and recovery.
             </p>
             <ul style={{textAlign: 'left', color: '#6b7280', fontSize: '0.9rem', marginBottom: '25px', paddingLeft: '20px'}}>
-              <li>Personal care assistance</li>
-              <li>Companionship services</li>
-              <li>Daily living support</li>
-              <li>Emotional care and support</li>
+              <li>Nutrition assessment and counseling</li>
+              <li>Dietary guidance and meal planning</li>
+              <li>Maternal and child nutrition</li>
+              <li>Nutritional status monitoring</li>
             </ul>
-            <Link to="/book" className="btn btn-primary">Book Caregiver</Link>
+            <Link to="/book" className="btn btn-primary">Book Nutrition</Link>
+          </div>
+
+          {/* Mental Health Support */}
+          <div className="card service-card card-elevated" style={{padding: '30px', textAlign: 'center'}}>
+            <span style={{fontSize: '4rem', marginBottom: '20px', display: 'block'}}>🧠</span>
+            <h3 style={{color: '#1f2937', marginBottom: '15px', fontSize: '1.5rem'}}>Mental Health Support</h3>
+            <p style={{color: '#6b7280', marginBottom: '20px', lineHeight: '1.6'}}>
+              Comprehensive mental health and psychosocial support services for emotional wellbeing and counseling.
+            </p>
+            <ul style={{textAlign: 'left', color: '#6b7280', fontSize: '0.9rem', marginBottom: '25px', paddingLeft: '20px'}}>
+              <li>Mental health assessments</li>
+              <li>Psychosocial support and counseling</li>
+              <li>Emotional wellbeing programs</li>
+              <li>Crisis intervention support</li>
+            </ul>
+            <Link to="/book" className="btn btn-primary">Book Mental Health</Link>
+          </div>
+
+          {/* Occupational Health */}
+          <div className="card service-card card-elevated" style={{padding: '30px', textAlign: 'center'}}>
+            <span style={{fontSize: '4rem', marginBottom: '20px', display: 'block'}}>🏗️</span>
+            <h3 style={{color: '#1f2937', marginBottom: '15px', fontSize: '1.5rem'}}>Occupational Health</h3>
+            <p style={{color: '#6b7280', marginBottom: '20px', lineHeight: '1.6'}}>
+              Workplace health services, safety training, and occupational health assessments for organizations.
+            </p>
+            <ul style={{textAlign: 'left', color: '#6b7280', fontSize: '0.9rem', marginBottom: '25px', paddingLeft: '20px'}}>
+              <li>Workplace health assessments</li>
+              <li>Safety and first aid training</li>
+              <li>Health monitoring and surveillance</li>
+              <li>Occupational safety advisory</li>
+            </ul>
+            <Link to="/book" className="btn btn-primary">Book Occupational Health</Link>
           </div>
         </div>
       </section>

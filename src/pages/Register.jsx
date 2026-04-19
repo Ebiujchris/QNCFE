@@ -165,12 +165,6 @@ function Register() {
             </ul>
           </div>
         )}
-
-        <div style={{textAlign: 'center', marginTop: '16px'}}>
-          <Link to="/admin/register" style={{color: '#6b7280', fontSize: '0.875rem'}}>
-            Need admin access? →
-          </Link>
-        </div>
       </div>
     </div>
   )

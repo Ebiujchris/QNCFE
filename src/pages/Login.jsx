@@ -99,18 +99,6 @@ function Login({ setUser }) {
             Create Account
           </Link>
         </div>
-
-        <div style={{textAlign: 'center', marginTop: '20px', padding: '16px', backgroundColor: '#f8fafc', borderRadius: '8px'}}>
-          <p style={{fontSize: '0.875rem', color: '#6b7280', marginBottom: '8px'}}>
-            <strong>Demo Accounts:</strong>
-          </p>
-          <p style={{fontSize: '0.875rem', color: '#6b7280'}}>
-            Admin: admin@qnc.com / admin123
-          </p>
-          <Link to="/admin/login" style={{fontSize: '0.875rem', color: '#667eea', textDecoration: 'none'}}>
-            → Admin Login
-          </Link>
-        </div>
       </div>
     </div>
   )

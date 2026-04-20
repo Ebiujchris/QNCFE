@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useToast } from '../contexts/ToastContext'
 import LoadingSpinner from '../components/LoadingSpinner'
 import PatientDashboard from '../components/dashboards/PatientDashboard'
@@ -8,26 +8,30 @@ import AdminDashboard from '../components/dashboards/AdminDashboard'
 
 function Dashboard({ user }) {
   const [loading, setLoading] = useState(true)
+  const navigate = useNavigate()
   const { showError } = useToast()
 
   useEffect(() => {
     if (!user) {
       showError('Please login to access your dashboard')
-      // Don't set loading to false if user is null - let the navigation handle it
+      navigate('/login')
       return
     }
     setLoading(false)
-  }, [user, showError])
-
-  // If no user, don't render anything - let the navigation redirect handle it
-  if (!user) {
-    return null
-  }
+  }, [user, navigate, showError])
 
   if (loading) {
     return (
       <div className="container" style={{marginTop: '100px'}}>
         <LoadingSpinner size="large" text="Loading your dashboard..." />
+      </div>
+    )
+  }
+
+  if (!user) {
+    return (
+      <div className="container" style={{marginTop: '100px'}}>
+        <LoadingSpinner size="large" text="Redirecting to login..." />
       </div>
     )
   }

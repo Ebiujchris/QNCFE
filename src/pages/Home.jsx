@@ -339,7 +339,7 @@ function Home() {
       </section>
 
       {/* Footer Section with Links and Map */}
-      <section style={{backgroundColor: '#1f2937', color: 'white', padding: '40px 0'}}>
+      <section style={{backgroundColor: 'var(--primary-blue)', color: 'white', padding: '40px 0'}}>
         <div className="container">
           <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '30px'}}>
             

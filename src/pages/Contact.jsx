@@ -68,7 +68,7 @@ function Contact() {
           
           {/* Contact Information */}
           <div>
-            <h2 style={{fontSize: '2rem', fontWeight: '700', color: '#1f2937', marginBottom: '30px'}}>
+            <h2 style={{fontSize: '2rem', fontWeight: '700', color: 'var(--primary-blue)', marginBottom: '30px'}}>
               Get In Touch
             </h2>
             <p style={{fontSize: '1.1rem', color: '#6b7280', marginBottom: '40px', lineHeight: '1.6'}}>
@@ -80,7 +80,7 @@ function Contact() {
                 <div style={{
                   width: '50px', 
                   height: '50px', 
-                  backgroundColor: '#f59e0b', 
+                  backgroundColor: 'var(--primary-blue)', 
                   borderRadius: '50%', 
                   display: 'flex', 
                   alignItems: 'center', 
@@ -102,7 +102,7 @@ function Contact() {
                 <div style={{
                   width: '50px', 
                   height: '50px', 
-                  backgroundColor: '#f59e0b', 
+                  backgroundColor: 'var(--primary-blue)', 
                   borderRadius: '50%', 
                   display: 'flex', 
                   alignItems: 'center', 
@@ -125,7 +125,7 @@ function Contact() {
                 <div style={{
                   width: '50px', 
                   height: '50px', 
-                  backgroundColor: '#f59e0b', 
+                  backgroundColor: 'var(--primary-blue)', 
                   borderRadius: '50%', 
                   display: 'flex', 
                   alignItems: 'center', 
@@ -148,7 +148,7 @@ function Contact() {
                 <div style={{
                   width: '50px', 
                   height: '50px', 
-                  backgroundColor: '#f59e0b', 
+                  backgroundColor: 'var(--primary-blue)', 
                   borderRadius: '50%', 
                   display: 'flex', 
                   alignItems: 'center', 
@@ -291,7 +291,7 @@ function Contact() {
           {/* Contact Form */}
           <div>
             <div className="card card-elevated" style={{padding: '40px'}}>
-              <h3 style={{fontSize: '1.8rem', fontWeight: '700', color: '#1f2937', marginBottom: '25px'}}>
+              <h3 style={{fontSize: '1.8rem', fontWeight: '700', color: 'var(--primary-blue)', marginBottom: '25px'}}>
                 Send Us a Message
               </h3>
               
@@ -381,7 +381,7 @@ function Contact() {
       </section>
 
       {/* Footer Section with Links and Map */}
-      <section style={{backgroundColor: '#1f2937', color: 'white', padding: '40px 0'}}>
+      <section style={{backgroundColor: 'var(--primary-blue)', color: 'white', padding: '40px 0'}}>
         <div className="container">
           <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '30px'}}>
             

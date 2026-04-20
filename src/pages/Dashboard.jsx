@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { useToast } from '../contexts/ToastContext'
 import LoadingSpinner from '../components/LoadingSpinner'
 import PatientDashboard from '../components/dashboards/PatientDashboard'
 import ProviderDashboard from '../components/dashboards/ProviderDashboard'
@@ -8,30 +6,18 @@ import AdminDashboard from '../components/dashboards/AdminDashboard'
 
 function Dashboard({ user }) {
   const [loading, setLoading] = useState(true)
-  const navigate = useNavigate()
-  const { showError } = useToast()
 
   useEffect(() => {
-    if (!user) {
-      showError('Please login to access your dashboard')
-      navigate('/login')
-      return
+    // Since we're now protected by the route guard, user should always exist here
+    if (user) {
+      setLoading(false)
     }
-    setLoading(false)
-  }, [user, navigate, showError])
+  }, [user])
 
   if (loading) {
     return (
       <div className="container" style={{marginTop: '100px'}}>
         <LoadingSpinner size="large" text="Loading your dashboard..." />
-      </div>
-    )
-  }
-
-  if (!user) {
-    return (
-      <div className="container" style={{marginTop: '100px'}}>
-        <LoadingSpinner size="large" text="Redirecting to login..." />
       </div>
     )
   }

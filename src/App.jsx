@@ -78,7 +78,9 @@ function AppContent() {
         <Route path="/login" element={<Login setUser={setUser} />} />
         <Route path="/register" element={<Register />} />
         <Route path="/book" element={<BookService user={user} />} />
-        <Route path="/dashboard" element={<Dashboard user={user} />} />
+        <Route path="/dashboard" element={
+          user ? <Dashboard user={user} /> : <Login setUser={setUser} />
+        } />
         
         {/* Admin Routes */}
         <Route path="/admin/login" element={<AdminLogin setUser={setUser} />} />

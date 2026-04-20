@@ -22,7 +22,7 @@ function Careers() {
 
       {/* Why Join Us */}
       <section className="container" style={{padding: '60px 0'}}>
-        <h2 style={{textAlign: 'center', fontSize: '2.5rem', fontWeight: '700', color: '#1f2937', marginBottom: '50px'}}>
+        <h2 style={{textAlign: 'center', fontSize: '2.5rem', fontWeight: '700', color: 'var(--primary-blue)', marginBottom: '50px'}}>
           Why Choose QNC Solutions?
         </h2>
         
@@ -56,7 +56,7 @@ function Careers() {
       {/* Career Opportunities */}
       <section style={{backgroundColor: '#f8fafc', padding: '60px 0'}}>
         <div className="container">
-          <h2 style={{textAlign: 'center', fontSize: '2.5rem', fontWeight: '700', color: '#1f2937', marginBottom: '50px'}}>
+          <h2 style={{textAlign: 'center', fontSize: '2.5rem', fontWeight: '700', color: 'var(--primary-blue)', marginBottom: '50px'}}>
             Career Opportunities
           </h2>
           
@@ -154,7 +154,7 @@ function Careers() {
 
       {/* Application Process */}
       <section className="container" style={{padding: '60px 0'}}>
-        <h2 style={{textAlign: 'center', fontSize: '2.5rem', fontWeight: '700', color: '#1f2937', marginBottom: '50px'}}>
+        <h2 style={{textAlign: 'center', fontSize: '2.5rem', fontWeight: '700', color: 'var(--primary-blue)', marginBottom: '50px'}}>
           How to Apply
         </h2>
         
@@ -163,7 +163,7 @@ function Careers() {
             <div style={{
               width: '80px', 
               height: '80px', 
-              backgroundColor: '#8b5cf6', 
+              backgroundColor: 'var(--primary-blue)', 
               borderRadius: '50%', 
               display: 'flex', 
               alignItems: 'center', 
@@ -182,7 +182,7 @@ function Careers() {
             <div style={{
               width: '80px', 
               height: '80px', 
-              backgroundColor: '#8b5cf6', 
+              backgroundColor: 'var(--primary-blue)', 
               borderRadius: '50%', 
               display: 'flex', 
               alignItems: 'center', 
@@ -201,7 +201,7 @@ function Careers() {
             <div style={{
               width: '80px', 
               height: '80px', 
-              backgroundColor: '#8b5cf6', 
+              backgroundColor: 'var(--primary-blue)', 
               borderRadius: '50%', 
               display: 'flex', 
               alignItems: 'center', 
@@ -220,7 +220,7 @@ function Careers() {
             <div style={{
               width: '80px', 
               height: '80px', 
-              backgroundColor: '#8b5cf6', 
+              backgroundColor: 'var(--primary-blue)', 
               borderRadius: '50%', 
               display: 'flex', 
               alignItems: 'center', 
@@ -238,13 +238,13 @@ function Careers() {
       </section>
 
       {/* CTA Section */}
-      <section style={{backgroundColor: '#8b5cf6', padding: '60px 0'}}>
+      <section style={{backgroundColor: 'var(--primary-blue)', padding: '60px 0'}}>
         <div className="container" style={{textAlign: 'center'}}>
           <h2 style={{fontSize: '2.5rem', marginBottom: '20px', color: 'white'}}>Ready to Join Our Team?</h2>
           <p style={{fontSize: '1.2rem', marginBottom: '30px', color: 'white', maxWidth: '600px', margin: '0 auto 30px'}}>
             Start your journey with QNC Solutions and become part of a team that's transforming healthcare delivery.
           </p>
-          <Link to="/register" className="btn btn-success btn-large" style={{backgroundColor: 'white', color: '#8b5cf6'}}>
+          <Link to="/register" className="btn btn-success btn-large" style={{backgroundColor: 'var(--primary-maroon)', color: 'white', border: 'none'}}>
             👩‍⚕️ Enlist as Provider
           </Link>
         </div>

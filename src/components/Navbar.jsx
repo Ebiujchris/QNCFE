@@ -5,7 +5,7 @@ function Navbar({ user, logout }) {
     <nav className="navbar">
       <div className="container">
         <Link to="/" className="logo">
-          <img src="/images/QNC logo.png" alt="QNC Solutions" className="logo-image" />
+          <img src="/images/new site logo.jpg" alt="QNC Solutions" className="logo-image" />
           <span className="logo-text">QNC SOLUTIONS</span>
         </Link>
         

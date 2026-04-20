@@ -32,16 +32,21 @@ function Home() {
                 About QNC Solutions Ltd
               </h2>
               <p style={{fontSize: '1.1rem', lineHeight: '1.8', color: '#374151', marginBottom: '25px'}}>
-                QNC Solutions Ltd is a professional healthcare services company dedicated to delivering quality, reliable, and compassionate nursing and medical support services across Uganda and beyond. Founded on the principle of Quality Nursing Care, QNC exists to bridge the gap between professional healthcare delivery and accessibility, ensuring individuals, families, organizations, and projects receive expert care when and where it is needed most.
+                QNC Solutions Ltd is a professional healthcare services provider committed to delivering high-quality, reliable, and compassionate nursing and medical support services across Uganda and beyond. Founded on the principle of Quality Nursing Care, QNC bridges the gap between professional healthcare delivery and accessibility, ensuring that individuals, families, organizations, and field-based projects receive timely, expert care wherever it is needed.
               </p>
-              <p style={{fontSize: '1.1rem', lineHeight: '1.8', color: '#374151'}}>
-                We recognize that healthcare needs extend beyond hospitals to homes, workplaces, construction sites, communities, and travel environments. QNC responds to this need by providing professional nursing care, home-based services, field medical support, corporate first aid services, training, mobile health services, travel nursing, and nutrition support, all delivered by qualified and licensed healthcare professionals.
+              <p style={{fontSize: '1.1rem', lineHeight: '1.8', color: '#374151', marginBottom: '25px'}}>
+                Recognizing that healthcare needs extend beyond traditional clinical settings, QNC provides integrated services across homes, workplaces, construction sites, communities, and remote environments. Our service delivery model promotes continuity of care, strengthens health and safety compliance, and improves overall health outcomes through responsive, client-centered solutions delivered by qualified and licensed healthcare professionals.
               </p>
+              <div style={{marginTop: '30px'}}>
+                <Link to="/about" className="btn btn-primary btn-large">
+                  Learn More About Us
+                </Link>
+              </div>
             </div>
             <div style={{textAlign: 'center'}}>
               <img 
                 src="/images/postnatal-care1.jpeg" 
-                alt="Postnatal Care Services" 
+                alt="Professional Healthcare Services" 
                 style={{
                   width: '100%', 
                   maxWidth: '450px', 
@@ -53,7 +58,7 @@ function Home() {
                 className="postnatal-image"
               />
               <p style={{fontSize: '0.9rem', color: '#6b7280', marginTop: '15px', fontStyle: 'italic'}}>
-                Professional postnatal care and support services
+                Professional healthcare services delivered with compassion
               </p>
             </div>
           </div>
@@ -62,7 +67,7 @@ function Home() {
 
       {/* Services Section */}
       <section className="container">
-        <h2 style={{textAlign: 'center', margin: '30px 0 20px', fontSize: '2.25rem', fontWeight: '700', color: '#1f2937'}}>
+        <h2 style={{textAlign: 'center', margin: '30px 0 20px', fontSize: '2.25rem', fontWeight: '700', color: 'var(--primary-blue)'}}>
           Our Healthcare Services
         </h2>
         <div className="services">
@@ -103,7 +108,7 @@ function Home() {
       <section style={{backgroundColor: '#f8fafc', padding: '50px 0', overflow: 'hidden'}}>
         <div className="container">
           <div style={{textAlign: 'center', marginBottom: '40px'}}>
-            <h2 style={{fontSize: '2.5rem', fontWeight: '700', color: '#1f2937', marginBottom: '15px'}}>
+            <h2 style={{fontSize: '2.5rem', fontWeight: '700', color: 'var(--primary-blue)', marginBottom: '15px'}}>
               Healthcare Excellence in Action
             </h2>
             <p style={{fontSize: '1.2rem', color: '#6b7280', maxWidth: '600px', margin: '0 auto'}}>
@@ -307,7 +312,7 @@ function Home() {
       {/* How It Works - Simplified */}
       <section className="how-it-works">
         <div className="container">
-          <h2 style={{textAlign: 'center', fontSize: '2rem', fontWeight: '700', color: '#1f2937', marginBottom: '10px'}}>
+          <h2 style={{textAlign: 'center', fontSize: '2rem', fontWeight: '700', color: 'var(--primary-blue)', marginBottom: '10px'}}>
             How It Works
           </h2>
           <p style={{textAlign: 'center', fontSize: '1rem', color: '#6b7280', maxWidth: '500px', margin: '0 auto 20px'}}>

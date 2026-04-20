@@ -109,7 +109,7 @@ function Services() {
       {/* Comprehensive Services */}
       <section style={{backgroundColor: '#f8fafc', padding: '60px 0'}}>
         <div className="container">
-          <h2 style={{textAlign: 'center', fontSize: '2.5rem', fontWeight: '700', color: '#1f2937', marginBottom: '50px'}}>
+          <h2 style={{textAlign: 'center', fontSize: '2.5rem', fontWeight: '700', color: 'var(--primary-blue)', marginBottom: '50px'}}>
             Our Comprehensive Services
           </h2>
 

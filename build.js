@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import { execSync } from 'child_process';
+import { existsSync } from 'fs';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 
@@ -10,10 +11,41 @@ const __dirname = dirname(__filename);
 try {
   console.log('🚀 Starting Vite build...');
   
-  // Use execSync to run vite directly with node
-  const vitePath = join(__dirname, 'node_modules', 'vite', 'bin', 'vite.js');
+  // Try multiple possible paths for vite
+  const possibleVitePaths = [
+    join(__dirname, 'node_modules', 'vite', 'bin', 'vite.js'),
+    join(__dirname, 'node_modules', '.bin', 'vite'),
+    'npx vite',
+    './node_modules/.bin/vite'
+  ];
   
-  execSync(`node "${vitePath}" build`, {
+  let buildCommand = null;
+  
+  // Check which vite path exists
+  for (const vitePath of possibleVitePaths) {
+    if (vitePath.includes('npx')) {
+      buildCommand = 'npx vite build';
+      console.log('📦 Using npx vite build');
+      break;
+    } else if (existsSync(vitePath)) {
+      if (vitePath.endsWith('.js')) {
+        buildCommand = `node "${vitePath}" build`;
+      } else {
+        buildCommand = `"${vitePath}" build`;
+      }
+      console.log(`📁 Found vite at: ${vitePath}`);
+      break;
+    }
+  }
+  
+  if (!buildCommand) {
+    console.log('🔄 Fallback to npx vite build');
+    buildCommand = 'npx vite build';
+  }
+  
+  console.log(`🔨 Running: ${buildCommand}`);
+  
+  execSync(buildCommand, {
     stdio: 'inherit',
     cwd: __dirname
   });

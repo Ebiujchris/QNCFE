@@ -258,11 +258,13 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    gap: 30px;
+    gap: 25px;
     padding-top: 120px;
+    padding-bottom: 40px;
     transition: left 0.3s ease;
     z-index: 100;
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
   }
 
   .navbar .nav-links.nav-links-mobile-open {
@@ -284,31 +286,56 @@ body {
     border-bottom-color: var(--primary-maroon);
   }
 
-  /* Mobile Actions Integration */
-  .mobile-nav-actions {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    margin-top: 20px;
-    padding-top: 20px;
-    border-top: 1px solid #e5e7eb;
+  /* Mobile Navigation Separator */
+  .mobile-nav-separator {
     width: 80%;
+    height: 1px;
+    background: #e5e7eb;
+    margin: 10px 0;
   }
 
-  .mobile-user-info {
+  /* Mobile User Welcome */
+  .mobile-user-welcome {
     font-size: 16px;
     color: var(--primary-blue);
     font-weight: 500;
     text-align: center;
+    padding: 10px 0;
   }
 
-  .mobile-nav-btn {
-    width: 180px;
-    text-align: center;
-    font-size: 14px;
-    padding: 12px 20px;
-    text-decoration: none;
+  /* Mobile Navigation Links (Login/Register/Dashboard) */
+  .mobile-nav-link {
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    color: var(--primary-maroon) !important;
+    text-decoration: none !important;
+    padding: 15px 0 !important;
+    border-bottom: 2px solid transparent !important;
+    transition: all 0.3s ease !important;
+  }
+
+  .mobile-nav-link:hover {
+    color: var(--primary-blue) !important;
+    border-bottom-color: var(--primary-blue) !important;
+  }
+
+  /* Mobile Navigation Button (Logout) */
+  .mobile-nav-button {
+    background: var(--primary-maroon);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 5px;
+  }
+
+  .mobile-nav-button:hover {
+    background: var(--dark-maroon);
+    transform: translateY(-1px);
   }
 
   /* Hide desktop nav-actions on mobile */
@@ -323,7 +350,10 @@ body {
 
 /* Desktop - Show nav-actions */
 @media (min-width: 769px) {
-  .mobile-nav-actions {
+  .mobile-nav-separator,
+  .mobile-user-welcome,
+  .mobile-nav-link,
+  .mobile-nav-button {
     display: none;
   }
   

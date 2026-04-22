@@ -52,47 +52,46 @@ function Navbar({ user, logout }) {
               Contact Us
             </Link>
             
-            {/* Mobile Actions - Integrated into nav-links */}
-            <div className="mobile-nav-actions">
-              {user ? (
-                <>
-                  <span className="mobile-user-info">Welcome, {user.name}</span>
-                  <Link 
-                    to="/dashboard" 
-                    className="btn btn-outline mobile-nav-btn" 
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    Dashboard
-                  </Link>
-                  <button 
-                    onClick={() => {
-                      logout()
-                      setIsMobileMenuOpen(false)
-                    }} 
-                    className="btn btn-primary mobile-nav-btn"
-                  >
-                    Logout
-                  </button>
-                </>
-              ) : (
-                <>
-                  <Link 
-                    to="/login" 
-                    className="btn btn-outline mobile-nav-btn" 
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    Login
-                  </Link>
-                  <Link 
-                    to="/register" 
-                    className="btn btn-primary mobile-nav-btn" 
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    Register
-                  </Link>
-                </>
-              )}
-            </div>
+            {/* Mobile Actions - Integrated as navigation items */}
+            <div className="mobile-nav-separator"></div>
+            {user ? (
+              <>
+                <span className="mobile-user-welcome">Welcome, {user.name}</span>
+                <Link 
+                  to="/dashboard" 
+                  className="mobile-nav-link" 
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Dashboard
+                </Link>
+                <button 
+                  onClick={() => {
+                    logout()
+                    setIsMobileMenuOpen(false)
+                  }} 
+                  className="mobile-nav-button"
+                >
+                  Logout
+                </button>
+              </>
+            ) : (
+              <>
+                <Link 
+                  to="/login" 
+                  className="mobile-nav-link" 
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Login
+                </Link>
+                <Link 
+                  to="/register" 
+                  className="mobile-nav-link" 
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Register
+                </Link>
+              </>
+            )}
           </div>
 
           {/* Desktop Actions */}

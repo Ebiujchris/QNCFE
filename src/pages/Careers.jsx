@@ -1,6 +1,12 @@
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 
 function Careers() {
+  const [expandedOpportunity, setExpandedOpportunity] = useState(null)
+
+  const toggleOpportunity = (opportunityId) => {
+    setExpandedOpportunity(expandedOpportunity === opportunityId ? null : opportunityId)
+  }
   return (
     <div>
       {/* Hero Section */}
@@ -71,24 +77,46 @@ function Careers() {
               <p style={{color: '#6b7280', marginBottom: '20px', lineHeight: '1.6'}}>
                 Provide professional nursing care and support patients in their homes with your expertise and compassion.
               </p>
-              <div style={{marginBottom: '25px'}}>
-                <h4 style={{color: '#8b5cf6', fontSize: '1.1rem', marginBottom: '10px'}}>Requirements:</h4>
-                <ul style={{color: '#6b7280', fontSize: '0.9rem', paddingLeft: '20px'}}>
-                  <li>Valid nursing license</li>
-                  <li>2+ years clinical experience</li>
-                  <li>CPR certification</li>
-                  <li>Excellent communication skills</li>
-                </ul>
-              </div>
-              <div>
-                <h4 style={{color: '#8b5cf6', fontSize: '1.1rem', marginBottom: '10px'}}>Benefits:</h4>
-                <ul style={{color: '#6b7280', fontSize: '0.9rem', paddingLeft: '20px'}}>
-                  <li>Flexible scheduling</li>
-                  <li>Competitive compensation</li>
-                  <li>Professional development</li>
-                  <li>Health insurance support</li>
-                </ul>
-              </div>
+              
+              {expandedOpportunity === 'nurses' && (
+                <>
+                  <div style={{marginBottom: '25px'}}>
+                    <h4 style={{color: 'var(--primary-blue)', fontSize: '1.1rem', marginBottom: '10px'}}>Requirements:</h4>
+                    <ul style={{color: '#6b7280', fontSize: '0.9rem', paddingLeft: '20px'}}>
+                      <li>Valid nursing license</li>
+                      <li>2+ years clinical experience</li>
+                      <li>CPR certification</li>
+                      <li>Excellent communication skills</li>
+                    </ul>
+                  </div>
+                  <div style={{marginBottom: '20px'}}>
+                    <h4 style={{color: 'var(--primary-blue)', fontSize: '1.1rem', marginBottom: '10px'}}>Benefits:</h4>
+                    <ul style={{color: '#6b7280', fontSize: '0.9rem', paddingLeft: '20px'}}>
+                      <li>Flexible scheduling</li>
+                      <li>Competitive compensation</li>
+                      <li>Professional development</li>
+                      <li>Health insurance support</li>
+                    </ul>
+                  </div>
+                </>
+              )}
+              
+              <button 
+                onClick={() => toggleOpportunity('nurses')}
+                style={{
+                  background: 'none',
+                  border: 'none',
+                  color: 'var(--primary-blue)',
+                  fontSize: '0.95rem',
+                  fontWeight: '600',
+                  cursor: 'pointer',
+                  textDecoration: 'underline',
+                  padding: '0',
+                  marginBottom: '15px'
+                }}
+              >
+                {expandedOpportunity === 'nurses' ? 'Read Less' : 'Read More'}
+              </button>
             </div>
 
             {/* General Practitioners */}
@@ -100,24 +128,46 @@ function Careers() {
               <p style={{color: '#6b7280', marginBottom: '20px', lineHeight: '1.6'}}>
                 Offer medical consultations and health assessments in comfortable home settings for diverse patient populations.
               </p>
-              <div style={{marginBottom: '25px'}}>
-                <h4 style={{color: '#8b5cf6', fontSize: '1.1rem', marginBottom: '10px'}}>Requirements:</h4>
-                <ul style={{color: '#6b7280', fontSize: '0.9rem', paddingLeft: '20px'}}>
-                  <li>Medical degree and license</li>
-                  <li>Board certification preferred</li>
-                  <li>Home care experience a plus</li>
-                  <li>Strong diagnostic skills</li>
-                </ul>
-              </div>
-              <div>
-                <h4 style={{color: '#8b5cf6', fontSize: '1.1rem', marginBottom: '10px'}}>Benefits:</h4>
-                <ul style={{color: '#6b7280', fontSize: '0.9rem', paddingLeft: '20px'}}>
-                  <li>Work-life balance</li>
-                  <li>Modern technology support</li>
-                  <li>Growing patient network</li>
-                  <li>Continuing education support</li>
-                </ul>
-              </div>
+              
+              {expandedOpportunity === 'doctors' && (
+                <>
+                  <div style={{marginBottom: '25px'}}>
+                    <h4 style={{color: 'var(--primary-blue)', fontSize: '1.1rem', marginBottom: '10px'}}>Requirements:</h4>
+                    <ul style={{color: '#6b7280', fontSize: '0.9rem', paddingLeft: '20px'}}>
+                      <li>Medical degree and license</li>
+                      <li>Board certification preferred</li>
+                      <li>Home care experience a plus</li>
+                      <li>Strong diagnostic skills</li>
+                    </ul>
+                  </div>
+                  <div style={{marginBottom: '20px'}}>
+                    <h4 style={{color: 'var(--primary-blue)', fontSize: '1.1rem', marginBottom: '10px'}}>Benefits:</h4>
+                    <ul style={{color: '#6b7280', fontSize: '0.9rem', paddingLeft: '20px'}}>
+                      <li>Work-life balance</li>
+                      <li>Modern technology support</li>
+                      <li>Growing patient network</li>
+                      <li>Continuing education support</li>
+                    </ul>
+                  </div>
+                </>
+              )}
+              
+              <button 
+                onClick={() => toggleOpportunity('doctors')}
+                style={{
+                  background: 'none',
+                  border: 'none',
+                  color: 'var(--primary-blue)',
+                  fontSize: '0.95rem',
+                  fontWeight: '600',
+                  cursor: 'pointer',
+                  textDecoration: 'underline',
+                  padding: '0',
+                  marginBottom: '15px'
+                }}
+              >
+                {expandedOpportunity === 'doctors' ? 'Read Less' : 'Read More'}
+              </button>
             </div>
 
             {/* Professional Caregivers */}
@@ -129,24 +179,46 @@ function Careers() {
               <p style={{color: '#6b7280', marginBottom: '20px', lineHeight: '1.6'}}>
                 Provide compassionate care and daily assistance to patients who need support with daily living activities.
               </p>
-              <div style={{marginBottom: '25px'}}>
-                <h4 style={{color: '#8b5cf6', fontSize: '1.1rem', marginBottom: '10px'}}>Requirements:</h4>
-                <ul style={{color: '#6b7280', fontSize: '0.9rem', paddingLeft: '20px'}}>
-                  <li>High school diploma or equivalent</li>
-                  <li>Caregiving experience preferred</li>
-                  <li>First aid certification</li>
-                  <li>Compassionate and patient nature</li>
-                </ul>
-              </div>
-              <div>
-                <h4 style={{color: '#8b5cf6', fontSize: '1.1rem', marginBottom: '10px'}}>Benefits:</h4>
-                <ul style={{color: '#6b7280', fontSize: '0.9rem', paddingLeft: '20px'}}>
-                  <li>Meaningful work</li>
-                  <li>Training provided</li>
-                  <li>Supportive team environment</li>
-                  <li>Flexible hours</li>
-                </ul>
-              </div>
+              
+              {expandedOpportunity === 'caregivers' && (
+                <>
+                  <div style={{marginBottom: '25px'}}>
+                    <h4 style={{color: 'var(--primary-blue)', fontSize: '1.1rem', marginBottom: '10px'}}>Requirements:</h4>
+                    <ul style={{color: '#6b7280', fontSize: '0.9rem', paddingLeft: '20px'}}>
+                      <li>High school diploma or equivalent</li>
+                      <li>Caregiving experience preferred</li>
+                      <li>First aid certification</li>
+                      <li>Compassionate and patient nature</li>
+                    </ul>
+                  </div>
+                  <div style={{marginBottom: '20px'}}>
+                    <h4 style={{color: 'var(--primary-blue)', fontSize: '1.1rem', marginBottom: '10px'}}>Benefits:</h4>
+                    <ul style={{color: '#6b7280', fontSize: '0.9rem', paddingLeft: '20px'}}>
+                      <li>Meaningful work</li>
+                      <li>Training provided</li>
+                      <li>Supportive team environment</li>
+                      <li>Flexible hours</li>
+                    </ul>
+                  </div>
+                </>
+              )}
+              
+              <button 
+                onClick={() => toggleOpportunity('caregivers')}
+                style={{
+                  background: 'none',
+                  border: 'none',
+                  color: 'var(--primary-blue)',
+                  fontSize: '0.95rem',
+                  fontWeight: '600',
+                  cursor: 'pointer',
+                  textDecoration: 'underline',
+                  padding: '0',
+                  marginBottom: '15px'
+                }}
+              >
+                {expandedOpportunity === 'caregivers' ? 'Read Less' : 'Read More'}
+              </button>
             </div>
           </div>
         </div>

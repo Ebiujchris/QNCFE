@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useToast } from '../contexts/ToastContext'
 import LoadingSpinner from '../components/LoadingSpinner'
 import api from '../config/api'
@@ -9,6 +9,7 @@ function Login({ setUser }) {
     email: '',
     password: ''
   })
+  const [showPassword, setShowPassword] = useState(false)
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
   const { showSuccess, showError } = useToast()
@@ -18,6 +19,10 @@ function Login({ setUser }) {
       ...formData,
       [e.target.name]: e.target.value
     })
+  }
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword)
   }
 
   const handleSubmit = async (e) => {
@@ -70,15 +75,25 @@ function Login({ setUser }) {
 
           <div className="form-group">
             <label>Password</label>
-            <input
-              type="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              placeholder="Enter your password"
-              required
-              disabled={loading}
-            />
+            <div className="password-input-container">
+              <input
+                type={showPassword ? "text" : "password"}
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+                placeholder="Enter your password"
+                required
+                disabled={loading}
+              />
+              <button
+                type="button"
+                className="password-toggle-btn"
+                onClick={togglePasswordVisibility}
+                disabled={loading}
+              >
+                {showPassword ? '👁️' : '👁️‍🗨️'}
+              </button>
+            </div>
           </div>
 
           <button 
@@ -90,15 +105,6 @@ function Login({ setUser }) {
             {loading ? <LoadingSpinner size="small" text="Signing in..." /> : 'Sign In'}
           </button>
         </form>
-
-        <div style={{textAlign: 'center', marginTop: '24px', padding: '20px 0', borderTop: '1px solid #e5e7eb'}}>
-          <p style={{color: '#6b7280', marginBottom: '16px'}}>
-            Don't have an account?
-          </p>
-          <Link to="/register" className="btn btn-outline" style={{textDecoration: 'none'}}>
-            Create Account
-          </Link>
-        </div>
       </div>
     </div>
   )

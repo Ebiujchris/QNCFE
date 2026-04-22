@@ -75,22 +75,13 @@ function Navbar({ user, logout }) {
                 </button>
               </>
             ) : (
-              <>
-                <Link 
-                  to="/login" 
-                  className="nav-action-link" 
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Login
-                </Link>
-                <Link 
-                  to="/register" 
-                  className="nav-action-link" 
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Register
-                </Link>
-              </>
+              <Link 
+                to="/login" 
+                className="nav-action-link" 
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Login
+              </Link>
             )}
           </div>
         </div>

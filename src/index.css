@@ -286,16 +286,16 @@ body {
     border-bottom-color: var(--primary-maroon);
   }
 
-  /* Mobile Navigation Separator */
-  .mobile-nav-separator {
+  /* Navigation Separator */
+  .nav-separator {
     width: 80%;
     height: 1px;
     background: #e5e7eb;
     margin: 10px 0;
   }
 
-  /* Mobile User Welcome */
-  .mobile-user-welcome {
+  /* User Welcome */
+  .nav-user-welcome {
     font-size: 16px;
     color: var(--primary-blue);
     font-weight: 500;
@@ -303,8 +303,8 @@ body {
     padding: 10px 0;
   }
 
-  /* Mobile Navigation Links (Login/Register/Dashboard) */
-  .mobile-nav-link {
+  /* Navigation Action Links (Login/Register/Dashboard) */
+  .nav-action-link {
     font-size: 20px !important;
     font-weight: 600 !important;
     color: var(--primary-maroon) !important;
@@ -314,13 +314,13 @@ body {
     transition: all 0.3s ease !important;
   }
 
-  .mobile-nav-link:hover {
+  .nav-action-link:hover {
     color: var(--primary-blue) !important;
     border-bottom-color: var(--primary-blue) !important;
   }
 
-  /* Mobile Navigation Button (Logout) */
-  .mobile-nav-button {
+  /* Navigation Action Button (Logout) */
+  .nav-action-button {
     background: var(--primary-maroon);
     color: white;
     border: none;
@@ -333,14 +333,9 @@ body {
     margin-top: 5px;
   }
 
-  .mobile-nav-button:hover {
+  .nav-action-button:hover {
     background: var(--dark-maroon);
     transform: translateY(-1px);
-  }
-
-  /* Hide desktop nav-actions on mobile */
-  .navbar .nav-actions {
-    display: none;
   }
 
   .navbar .container {
@@ -348,19 +343,77 @@ body {
   }
 }
 
-/* Desktop - Show nav-actions */
+/* Desktop Navigation */
 @media (min-width: 769px) {
-  .mobile-nav-separator,
-  .mobile-user-welcome,
-  .mobile-nav-link,
-  .mobile-nav-button {
-    display: none;
-  }
-  
-  .navbar .nav-actions {
+  .navbar .nav-links {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 24px;
+  }
+
+  /* Hide separator on desktop */
+  .nav-separator {
+    display: none;
+  }
+
+  /* Desktop user welcome styling */
+  .nav-user-welcome {
+    color: #374151;
+    font-weight: 500;
+    margin-right: 8px;
+    font-size: 14px;
+  }
+
+  /* Desktop action links styling */
+  .nav-action-link {
+    color: #374151 !important;
+    text-decoration: none !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    transition: color 0.2s ease !important;
+    position: relative !important;
+    padding: 0 !important;
+    border-bottom: none !important;
+  }
+
+  .nav-action-link:hover {
+    color: var(--primary-blue) !important;
+    border-bottom: none !important;
+  }
+
+  .nav-action-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 50%;
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-maroon) 100%);
+    transition: all 0.2s ease;
+    transform: translateX(-50%);
+  }
+
+  .nav-action-link:hover::after {
+    width: 100%;
+  }
+
+  /* Desktop action button styling */
+  .nav-action-button {
+    background: var(--primary-maroon);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-left: 8px;
+  }
+
+  .nav-action-button:hover {
+    background: var(--dark-maroon);
+    transform: translateY(-1px);
   }
 }
 
@@ -388,12 +441,6 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
-
-.navbar .nav-actions {
-  display: flex;
-  align-items: center;
-  gap: 16px;
 }
 
 .navbar .user-info {

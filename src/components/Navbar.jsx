@@ -52,14 +52,14 @@ function Navbar({ user, logout }) {
               Contact Us
             </Link>
             
-            {/* Mobile Actions - Integrated as navigation items */}
-            <div className="mobile-nav-separator"></div>
+            {/* Navigation Actions - Integrated for all screen sizes */}
+            <div className="nav-separator"></div>
             {user ? (
               <>
-                <span className="mobile-user-welcome">Welcome, {user.name}</span>
+                <span className="nav-user-welcome">Welcome, {user.name}</span>
                 <Link 
                   to="/dashboard" 
-                  className="mobile-nav-link" 
+                  className="nav-action-link" 
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Dashboard
@@ -69,7 +69,7 @@ function Navbar({ user, logout }) {
                     logout()
                     setIsMobileMenuOpen(false)
                   }} 
-                  className="mobile-nav-button"
+                  className="nav-action-button"
                 >
                   Logout
                 </button>
@@ -78,55 +78,15 @@ function Navbar({ user, logout }) {
               <>
                 <Link 
                   to="/login" 
-                  className="mobile-nav-link" 
+                  className="nav-action-link" 
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Login
                 </Link>
                 <Link 
                   to="/register" 
-                  className="mobile-nav-link" 
+                  className="nav-action-link" 
                   onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Register
-                </Link>
-              </>
-            )}
-          </div>
-
-          {/* Desktop Actions */}
-          <div className="nav-actions">
-            {user ? (
-              <>
-                <span className="user-info">Welcome, {user.name}</span>
-                <Link 
-                  to="/dashboard" 
-                  className="btn btn-outline" 
-                  style={{padding: '8px 16px', fontSize: '14px', textDecoration: 'none'}}
-                >
-                  Dashboard
-                </Link>
-                <button 
-                  onClick={logout} 
-                  className="btn btn-primary" 
-                  style={{padding: '8px 16px', fontSize: '14px'}}
-                >
-                  Logout
-                </button>
-              </>
-            ) : (
-              <>
-                <Link 
-                  to="/login" 
-                  className="btn btn-outline" 
-                  style={{padding: '8px 16px', fontSize: '14px', textDecoration: 'none'}}
-                >
-                  Login
-                </Link>
-                <Link 
-                  to="/register" 
-                  className="btn btn-primary" 
-                  style={{padding: '8px 16px', fontSize: '14px', textDecoration: 'none'}}
                 >
                   Register
                 </Link>

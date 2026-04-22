@@ -196,10 +196,96 @@ body {
   width: 100%;
 }
 
-/* Responsive navbar */
+/* Mobile Menu Button (Hamburger) */
+.mobile-menu-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 101;
+}
+
+.mobile-menu-btn span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: var(--primary-blue);
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.mobile-menu-btn:hover span {
+  background: var(--primary-maroon);
+}
+
+/* Mobile Menu Backdrop */
+.mobile-menu-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.mobile-menu-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Mobile Navigation */
 @media (max-width: 768px) {
+  .mobile-menu-btn {
+    display: flex;
+  }
+
   .navbar .nav-links {
-    display: none;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    background: white;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 30px;
+    padding-top: 120px;
+    transition: left 0.3s ease;
+    z-index: 100;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .navbar .nav-links.nav-links-mobile-open {
+    left: 0;
+  }
+
+  .navbar .nav-links a {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--primary-blue);
+    text-decoration: none;
+    padding: 15px 0;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+  }
+
+  .navbar .nav-links a:hover {
+    color: var(--primary-maroon);
+    border-bottom-color: var(--primary-maroon);
+  }
+
+  .navbar .container {
+    position: relative;
   }
 }
 
@@ -229,10 +315,46 @@ body {
   background-clip: text;
 }
 
-.navbar nav {
+.navbar .nav-actions {
   display: flex;
   align-items: center;
   gap: 16px;
+}
+
+/* Mobile Navigation Actions */
+@media (max-width: 768px) {
+  .navbar .nav-actions {
+    position: fixed;
+    bottom: 100px;
+    left: -100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background: white;
+    padding: 30px 20px;
+    transition: left 0.3s ease;
+    z-index: 100;
+  }
+
+  .navbar .nav-actions.nav-actions-mobile-open {
+    left: 0;
+  }
+
+  .navbar .nav-actions .user-info {
+    font-size: 16px;
+    color: var(--primary-blue);
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .navbar .nav-actions .btn {
+    width: 180px;
+    text-align: center;
+    font-size: 14px;
+    padding: 10px 20px;
+  }
 }
 
 .navbar .user-info {
@@ -802,6 +924,94 @@ body {
     width: 50px !important;
     height: 50px !important;
     font-size: 20px !important;
+  }
+}
+
+/* Services Carousel Responsive Styles */
+@media (max-width: 1024px) {
+  .services-carousel-container {
+    max-width: 800px !important;
+    padding: 0 50px !important;
+  }
+  
+  .services-carousel-container > div[style*="grid-template-columns"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-carousel-container {
+    padding: 0 20px !important;
+    max-width: 400px !important;
+  }
+  
+  .services-carousel-nav {
+    display: none !important;
+  }
+  
+  .services-carousel-container > div[style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .services-carousel-card {
+    padding: 25px 20px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .services-carousel-container {
+    padding: 0 10px !important;
+  }
+  
+  .services-carousel-card {
+    padding: 20px 15px !important;
+  }
+}
+
+/* Team Carousel Responsive Styles */
+@media (max-width: 768px) {
+  .team-carousel-container {
+    padding: 0 20px;
+  }
+  
+  .team-carousel-nav {
+    display: none !important;
+  }
+  
+  .team-carousel-card {
+    padding: 30px 20px !important;
+  }
+  
+  .team-member-image {
+    width: 150px !important;
+    height: 150px !important;
+  }
+  
+  .team-member-emoji {
+    width: 150px !important;
+    height: 150px !important;
+    font-size: 3rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .team-carousel-container {
+    padding: 0 10px;
+  }
+  
+  .team-carousel-card {
+    padding: 20px 15px !important;
+  }
+  
+  .team-member-image {
+    width: 120px !important;
+    height: 120px !important;
+  }
+  
+  .team-member-emoji {
+    width: 120px !important;
+    height: 120px !important;
+    font-size: 2.5rem !important;
   }
 }
 

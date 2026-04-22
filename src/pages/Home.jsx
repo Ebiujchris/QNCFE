@@ -1,6 +1,62 @@
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 
 function Home() {
+  const [currentServiceIndex, setCurrentServiceIndex] = useState(0)
+  const [isProfileExpanded, setIsProfileExpanded] = useState(false)
+
+  const toggleProfile = () => {
+    setIsProfileExpanded(!isProfileExpanded)
+  }
+
+  const services = [
+    {
+      id: 'nursing',
+      icon: '🏥',
+      title: 'Professional Nursing Care',
+      description: 'Certified nurses providing comprehensive home healthcare, medication management, and post-operative support.'
+    },
+    {
+      id: 'consultation',
+      icon: '👨‍⚕️',
+      title: 'General Practice Consultation',
+      description: 'Licensed general practitioners offering medical consultations and health assessments at your home.'
+    },
+    {
+      id: 'nutrition',
+      icon: '🥗',
+      title: 'Nutritional Services',
+      description: 'Professional nutrition assessment, dietary guidance, and meal planning for optimal health and recovery.'
+    },
+    {
+      id: 'mental-health',
+      icon: '🧠',
+      title: 'Mental Health Support',
+      description: 'Comprehensive mental health and psychosocial support services for emotional wellbeing and counseling.'
+    },
+    {
+      id: 'occupational',
+      icon: '🏗️',
+      title: 'Occupational Health',
+      description: 'Workplace health services, safety training, and occupational health assessments for organizations.'
+    }
+  ]
+
+  const servicesPerPage = 3
+  const totalPages = Math.ceil(services.length / servicesPerPage)
+
+  const nextService = () => {
+    setCurrentServiceIndex((prev) => (prev + 1) % totalPages)
+  }
+
+  const prevService = () => {
+    setCurrentServiceIndex((prev) => (prev - 1 + totalPages) % totalPages)
+  }
+
+  const getCurrentServices = () => {
+    const startIndex = currentServiceIndex * servicesPerPage
+    return services.slice(startIndex, startIndex + servicesPerPage)
+  }
   return (
     <div>
       {/* Hero Section */}
@@ -32,12 +88,31 @@ function Home() {
                 About QNC Solutions Ltd
               </h2>
               <p style={{fontSize: '1.1rem', lineHeight: '1.8', color: '#374151', marginBottom: '25px'}}>
-                QNC Solutions Ltd is a professional healthcare services provider committed to delivering high-quality, reliable, and compassionate nursing and medical support services across Uganda and beyond. Founded on the principle of Quality Nursing Care, QNC bridges the gap between professional healthcare delivery and accessibility, ensuring that individuals, families, organizations, and field-based projects receive timely, expert care wherever it is needed.
+                QNC Solutions Ltd is a professional healthcare services provider committed to delivering high-quality, reliable, and compassionate nursing and medical support services across Uganda and beyond. Founded on the principle of Quality Nursing Care, QNC bridges the gap between professional healthcare delivery and accessibility.
               </p>
-              <p style={{fontSize: '1.1rem', lineHeight: '1.8', color: '#374151', marginBottom: '25px'}}>
-                Recognizing that healthcare needs extend beyond traditional clinical settings, QNC provides integrated services across homes, workplaces, construction sites, communities, and remote environments. Our service delivery model promotes continuity of care, strengthens health and safety compliance, and improves overall health outcomes through responsive, client-centered solutions delivered by qualified and licensed healthcare professionals.
-              </p>
-              <div style={{marginTop: '30px'}}>
+              
+              {isProfileExpanded && (
+                <p style={{fontSize: '1.1rem', lineHeight: '1.8', color: '#374151', marginBottom: '25px'}}>
+                  Recognizing that healthcare needs extend beyond traditional clinical settings, QNC provides integrated services across homes, workplaces, construction sites, communities, and remote environments. Our service delivery model promotes continuity of care, strengthens health and safety compliance, and improves overall health outcomes through responsive, client-centered solutions delivered by qualified and licensed healthcare professionals.
+                </p>
+              )}
+              
+              <div style={{marginTop: '20px', display: 'flex', gap: '15px', alignItems: 'center', flexWrap: 'wrap'}}>
+                <button 
+                  onClick={toggleProfile}
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    color: 'var(--primary-blue)',
+                    fontSize: '1rem',
+                    fontWeight: '600',
+                    cursor: 'pointer',
+                    textDecoration: 'underline',
+                    padding: '0'
+                  }}
+                >
+                  {isProfileExpanded ? 'Read Less' : 'Read More'}
+                </button>
                 <Link to="/about" className="btn btn-primary btn-large">
                   Learn More About Us
                 </Link>
@@ -70,37 +145,112 @@ function Home() {
         <h2 style={{textAlign: 'center', margin: '30px 0 20px', fontSize: '2.25rem', fontWeight: '700', color: 'var(--primary-blue)'}}>
           Our Healthcare Services
         </h2>
-        <div className="services">
-          <div className="card service-card card-elevated">
-            <span className="service-icon">🏥</span>
-            <h3>Professional Nursing Care</h3>
-            <p>Certified nurses providing comprehensive home healthcare, medication management, and post-operative support.</p>
-            <Link to="/book" className="btn btn-primary">Book Nursing Care</Link>
+        
+        <div className="services-carousel-container" style={{position: 'relative', maxWidth: '1200px', margin: '0 auto', padding: '0 60px'}}>
+          {/* Navigation Arrows */}
+          <button
+            className="services-carousel-nav"
+            onClick={prevService}
+            style={{
+              position: 'absolute',
+              left: '10px',
+              top: '50%',
+              transform: 'translateY(-50%)',
+              background: 'var(--primary-blue)',
+              color: 'white',
+              border: 'none',
+              borderRadius: '50%',
+              width: '40px',
+              height: '40px',
+              cursor: 'pointer',
+              fontSize: '18px',
+              zIndex: 10,
+              boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+              transition: 'all 0.2s ease',
+              display: totalPages > 1 ? 'flex' : 'none',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
+            onMouseOver={(e) => e.target.style.background = 'var(--primary-maroon)'}
+            onMouseOut={(e) => e.target.style.background = 'var(--primary-blue)'}
+          >
+            ‹
+          </button>
+
+          <button
+            className="services-carousel-nav"
+            onClick={nextService}
+            style={{
+              position: 'absolute',
+              right: '10px',
+              top: '50%',
+              transform: 'translateY(-50%)',
+              background: 'var(--primary-blue)',
+              color: 'white',
+              border: 'none',
+              borderRadius: '50%',
+              width: '40px',
+              height: '40px',
+              cursor: 'pointer',
+              fontSize: '18px',
+              zIndex: 10,
+              boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+              transition: 'all 0.2s ease',
+              display: totalPages > 1 ? 'flex' : 'none',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
+            onMouseOver={(e) => e.target.style.background = 'var(--primary-maroon)'}
+            onMouseOut={(e) => e.target.style.background = 'var(--primary-blue)'}
+          >
+            ›
+          </button>
+
+          {/* Service Cards Grid */}
+          <div style={{
+            display: 'grid', 
+            gridTemplateColumns: `repeat(${getCurrentServices().length}, 1fr)`, 
+            gap: '20px',
+            transition: 'all 0.3s ease'
+          }}>
+            {getCurrentServices().map((service, index) => (
+              <div key={service.id} className="card service-card card-elevated services-carousel-card" style={{padding: '30px', textAlign: 'center'}}>
+                <span className="service-icon" style={{fontSize: '3.5rem', marginBottom: '15px', display: 'block'}}>
+                  {service.icon}
+                </span>
+                <h3 style={{color: '#1f2937', marginBottom: '12px', fontSize: '1.3rem'}}>
+                  {service.title}
+                </h3>
+                <p style={{color: '#6b7280', marginBottom: '20px', lineHeight: '1.5', fontSize: '0.9rem'}}>
+                  {service.description}
+                </p>
+                <Link to="/book" className="btn btn-primary" style={{fontSize: '0.85rem', padding: '10px 16px'}}>
+                  Book {service.title.split(' ')[0]}
+                </Link>
+              </div>
+            ))}
           </div>
-          <div className="card service-card card-elevated">
-            <span className="service-icon">👨‍⚕️</span>
-            <h3>General Practice Consultation</h3>
-            <p>Licensed general practitioners offering medical consultations and health assessments at your home.</p>
-            <Link to="/book" className="btn btn-primary">Book Consultation</Link>
-          </div>
-          <div className="card service-card card-elevated">
-            <span className="service-icon">🥗</span>
-            <h3>Nutritional Services</h3>
-            <p>Professional nutrition assessment, dietary guidance, and meal planning for optimal health and recovery.</p>
-            <Link to="/book" className="btn btn-primary">Book Nutrition</Link>
-          </div>
-          <div className="card service-card card-elevated">
-            <span className="service-icon">🧠</span>
-            <h3>Mental Health Support</h3>
-            <p>Comprehensive mental health and psychosocial support services for emotional wellbeing and counseling.</p>
-            <Link to="/book" className="btn btn-primary">Book Mental Health</Link>
-          </div>
-          <div className="card service-card card-elevated">
-            <span className="service-icon">🏗️</span>
-            <h3>Occupational Health</h3>
-            <p>Workplace health services, safety training, and occupational health assessments for organizations.</p>
-            <Link to="/book" className="btn btn-primary">Book Occupational Health</Link>
-          </div>
+
+          {/* Carousel Indicators */}
+          {totalPages > 1 && (
+            <div style={{display: 'flex', justifyContent: 'center', gap: '8px', marginTop: '20px'}}>
+              {Array.from({length: totalPages}).map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentServiceIndex(index)}
+                  style={{
+                    width: '12px',
+                    height: '12px',
+                    borderRadius: '50%',
+                    border: 'none',
+                    background: index === currentServiceIndex ? 'var(--primary-blue)' : '#d1d5db',
+                    cursor: 'pointer',
+                    transition: 'all 0.2s ease'
+                  }}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </section>
 

@@ -51,9 +51,52 @@ function Navbar({ user, logout }) {
             <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
               Contact Us
             </Link>
+            
+            {/* Mobile Actions - Integrated into nav-links */}
+            <div className="mobile-nav-actions">
+              {user ? (
+                <>
+                  <span className="mobile-user-info">Welcome, {user.name}</span>
+                  <Link 
+                    to="/dashboard" 
+                    className="btn btn-outline mobile-nav-btn" 
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Dashboard
+                  </Link>
+                  <button 
+                    onClick={() => {
+                      logout()
+                      setIsMobileMenuOpen(false)
+                    }} 
+                    className="btn btn-primary mobile-nav-btn"
+                  >
+                    Logout
+                  </button>
+                </>
+              ) : (
+                <>
+                  <Link 
+                    to="/login" 
+                    className="btn btn-outline mobile-nav-btn" 
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Login
+                  </Link>
+                  <Link 
+                    to="/register" 
+                    className="btn btn-primary mobile-nav-btn" 
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Register
+                  </Link>
+                </>
+              )}
+            </div>
           </div>
 
-          <div className={`nav-actions ${isMobileMenuOpen ? 'nav-actions-mobile-open' : ''}`}>
+          {/* Desktop Actions */}
+          <div className="nav-actions">
             {user ? (
               <>
                 <span className="user-info">Welcome, {user.name}</span>
@@ -61,15 +104,11 @@ function Navbar({ user, logout }) {
                   to="/dashboard" 
                   className="btn btn-outline" 
                   style={{padding: '8px 16px', fontSize: '14px', textDecoration: 'none'}}
-                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Dashboard
                 </Link>
                 <button 
-                  onClick={() => {
-                    logout()
-                    setIsMobileMenuOpen(false)
-                  }} 
+                  onClick={logout} 
                   className="btn btn-primary" 
                   style={{padding: '8px 16px', fontSize: '14px'}}
                 >
@@ -82,7 +121,6 @@ function Navbar({ user, logout }) {
                   to="/login" 
                   className="btn btn-outline" 
                   style={{padding: '8px 16px', fontSize: '14px', textDecoration: 'none'}}
-                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Login
                 </Link>
@@ -90,7 +128,6 @@ function Navbar({ user, logout }) {
                   to="/register" 
                   className="btn btn-primary" 
                   style={{padding: '8px 16px', fontSize: '14px', textDecoration: 'none'}}
-                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Register
                 </Link>

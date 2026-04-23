@@ -171,7 +171,7 @@ function Services() {
                   {expandedService === 'bedside' ? 'Read Less' : 'Read More'}
                 </button>
                 <Link to="/book" style={{
-                  background: 'linear-gradient(135deg, #10b981, #059669)',
+                  background: 'linear-gradient(135deg, #7c2d12, #991b1b)',
                   color: 'white',
                   textDecoration: 'none',
                   fontSize: '0.8rem',
@@ -179,7 +179,7 @@ function Services() {
                   borderRadius: '20px',
                   fontWeight: '600',
                   transition: 'all 0.3s ease',
-                  boxShadow: '0 2px 8px rgba(16, 185, 129, 0.3)'
+                  boxShadow: '0 2px 8px rgba(124, 45, 18, 0.3)'
                 }}>
                   Schedule Service
                 </Link>
@@ -269,7 +269,7 @@ function Services() {
                   {expandedService === 'field' ? 'Read Less' : 'Read More'}
                 </button>
                 <Link to="/book" style={{
-                  background: 'linear-gradient(135deg, #10b981, #059669)',
+                  background: 'linear-gradient(135deg, #7c2d12, #991b1b)',
                   color: 'white',
                   textDecoration: 'none',
                   fontSize: '0.8rem',
@@ -277,7 +277,7 @@ function Services() {
                   borderRadius: '20px',
                   fontWeight: '600',
                   transition: 'all 0.3s ease',
-                  boxShadow: '0 2px 8px rgba(16, 185, 129, 0.3)'
+                  boxShadow: '0 2px 8px rgba(124, 45, 18, 0.3)'
                 }}>
                   Schedule Service
                 </Link>
@@ -367,7 +367,7 @@ function Services() {
                   {expandedService === 'nutrition' ? 'Read Less' : 'Read More'}
                 </button>
                 <Link to="/book" style={{
-                  background: 'linear-gradient(135deg, #10b981, #059669)',
+                  background: 'linear-gradient(135deg, #7c2d12, #991b1b)',
                   color: 'white',
                   textDecoration: 'none',
                   fontSize: '0.8rem',
@@ -375,7 +375,7 @@ function Services() {
                   borderRadius: '20px',
                   fontWeight: '600',
                   transition: 'all 0.3s ease',
-                  boxShadow: '0 2px 8px rgba(16, 185, 129, 0.3)'
+                  boxShadow: '0 2px 8px rgba(124, 45, 18, 0.3)'
                 }}>
                   Schedule Service
                 </Link>
@@ -465,7 +465,7 @@ function Services() {
                   {expandedService === 'research' ? 'Read Less' : 'Read More'}
                 </button>
                 <Link to="/book" style={{
-                  background: 'linear-gradient(135deg, #10b981, #059669)',
+                  background: 'linear-gradient(135deg, #7c2d12, #991b1b)',
                   color: 'white',
                   textDecoration: 'none',
                   fontSize: '0.8rem',
@@ -473,7 +473,7 @@ function Services() {
                   borderRadius: '20px',
                   fontWeight: '600',
                   transition: 'all 0.3s ease',
-                  boxShadow: '0 2px 8px rgba(16, 185, 129, 0.3)'
+                  boxShadow: '0 2px 8px rgba(124, 45, 18, 0.3)'
                 }}>
                   Schedule Service
                 </Link>
@@ -573,7 +573,7 @@ function Services() {
                 {expandedService === 'mobile' ? 'Read Less' : 'Read More'}
               </button>
               <Link to="/book" style={{
-                background: 'linear-gradient(135deg, #10b981, #059669)',
+                background: 'linear-gradient(135deg, #7c2d12, #991b1b)',
                 color: 'white',
                 textDecoration: 'none',
                 fontSize: '0.85rem',
@@ -581,7 +581,7 @@ function Services() {
                 borderRadius: '25px',
                 fontWeight: '600',
                 transition: 'all 0.3s ease',
-                boxShadow: '0 4px 12px rgba(16, 185, 129, 0.3)'
+                boxShadow: '0 4px 12px rgba(124, 45, 18, 0.3)'
               }}>
                 Schedule Service
               </Link>

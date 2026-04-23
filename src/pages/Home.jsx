@@ -1,8 +1,32 @@
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 function Home() {
   const [isProfileExpanded, setIsProfileExpanded] = useState(false)
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+
+  // Array of background images
+  const backgroundImages = [
+    '/images/horizontal homepage image put i n the background.avif',
+    '/images/home page image.avif',
+    '/images/home page image 2.avif',
+    '/images/homepage photo new.jpg',
+    '/images/homepage backgorund photo 2.jpg',
+    '/images/homepage background photo 3.jpg',
+    '/images/healthcare.avif',
+    '/images/new background image.avif'
+  ]
+
+  // Rotate background images every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => 
+        (prevIndex + 1) % backgroundImages.length
+      )
+    }, 5000) // Change image every 5 seconds
+
+    return () => clearInterval(interval)
+  }, [backgroundImages.length])
 
   const toggleProfile = () => {
     setIsProfileExpanded(!isProfileExpanded)
@@ -11,12 +35,13 @@ function Home() {
     <div style={{background: 'linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)', minHeight: '100vh'}}>
       {/* Hero Section */}
       <section className="hero" style={{
-        background: `linear-gradient(135deg, rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.8)), url('/images/horizontal homepage image put i n the background.avif')`,
+        background: `linear-gradient(135deg, rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.8)), url('${backgroundImages[currentImageIndex]}')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed',
         position: 'relative',
-        overflow: 'hidden'
+        overflow: 'hidden',
+        transition: 'background-image 1s ease-in-out'
       }}>
         <div className="container" style={{position: 'relative', zIndex: 2}}>
           <div className="hero-content" style={{
@@ -101,6 +126,45 @@ function Home() {
           borderRadius: '50%',
           animation: 'float 10s ease-in-out infinite'
         }}></div>
+
+        {/* Image Rotation Indicators */}
+        <div style={{
+          position: 'absolute',
+          bottom: '30px',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          display: 'flex',
+          gap: '10px',
+          zIndex: 3
+        }}>
+          {backgroundImages.map((_, index) => (
+            <div
+              key={index}
+              onClick={() => setCurrentImageIndex(index)}
+              style={{
+                width: '12px',
+                height: '12px',
+                borderRadius: '50%',
+                background: index === currentImageIndex 
+                  ? 'rgba(255, 255, 255, 0.9)' 
+                  : 'rgba(255, 255, 255, 0.4)',
+                cursor: 'pointer',
+                transition: 'all 0.3s ease',
+                boxShadow: '0 2px 8px rgba(0, 0, 0, 0.2)'
+              }}
+              onMouseEnter={(e) => {
+                if (index !== currentImageIndex) {
+                  e.target.style.background = 'rgba(255, 255, 255, 0.7)';
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (index !== currentImageIndex) {
+                  e.target.style.background = 'rgba(255, 255, 255, 0.4)';
+                }
+              }}
+            />
+          ))}
+        </div>
       </section>
 
       {/* Company Bio Section */}

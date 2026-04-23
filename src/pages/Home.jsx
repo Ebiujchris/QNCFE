@@ -383,10 +383,10 @@ function Home() {
                 textAlign: 'left'
               }}>
                 <h4 style={{fontSize: '1.2rem', marginBottom: '6px', fontWeight: '600'}}>
-                  Professional Care
+                  Field Medical Support Services
                 </h4>
                 <p style={{fontSize: '0.85rem', opacity: '0.9', margin: 0}}>
-                  Quality healthcare delivered with expertise
+                  Professional medical support in field environments
                 </p>
               </div>
             </div>
@@ -432,10 +432,10 @@ function Home() {
                 textAlign: 'left'
               }}>
                 <h4 style={{fontSize: '1.2rem', marginBottom: '6px', fontWeight: '600'}}>
-                  Home Healthcare
+                  Professional Nursing & Home-Based Care Services
                 </h4>
                 <p style={{fontSize: '0.85rem', opacity: '0.9', margin: 0}}>
-                  Comfort and care in your own home
+                  Comprehensive nursing care in the comfort of your home
                 </p>
               </div>
             </div>
@@ -481,10 +481,10 @@ function Home() {
                 textAlign: 'left'
               }}>
                 <h4 style={{fontSize: '1.2rem', marginBottom: '6px', fontWeight: '600'}}>
-                  Compassionate Care
+                  Mobile Health Services
                 </h4>
                 <p style={{fontSize: '0.85rem', opacity: '0.9', margin: 0}}>
-                  Dedicated professionals who care
+                  Healthcare services delivered wherever you are
                 </p>
               </div>
             </div>

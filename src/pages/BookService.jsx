@@ -22,11 +22,16 @@ function BookService({ user }) {
     return (
       <div className="container" style={{maxWidth: '500px', marginTop: '100px'}}>
         <div className="card card-elevated" style={{textAlign: 'center'}}>
-          <h2>Login Required</h2>
-          <p style={{marginBottom: '20px'}}>Please login to schedule healthcare services.</p>
-          <Link to="/login" className="btn btn-primary">
-            Login to Continue
-          </Link>
+          <h2>Please Create Account or Login</h2>
+          <p style={{marginBottom: '20px'}}>To schedule healthcare services, please create an account or login to your existing account.</p>
+          <div style={{display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap'}}>
+            <Link to="/register" className="btn btn-primary">
+              Create Account
+            </Link>
+            <Link to="/login" className="btn btn-outline">
+              Login
+            </Link>
+          </div>
         </div>
       </div>
     )

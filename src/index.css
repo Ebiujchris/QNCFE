@@ -207,7 +207,7 @@ body {
 }
 
 .navbar .nav-links a {
-  color: #374151;
+  color: var(--primary-maroon);
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
@@ -216,7 +216,7 @@ body {
 }
 
 .navbar .nav-links a:hover {
-  color: var(--primary-blue);
+  color: var(--dark-maroon);
 }
 
 .navbar .nav-links a::after {
@@ -226,7 +226,7 @@ body {
   height: 2px;
   bottom: -4px;
   left: 50%;
-  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-maroon) 100%);
+  background: var(--primary-maroon);
   transition: all 0.2s ease;
   transform: translateX(-50%);
 }
@@ -253,7 +253,7 @@ body {
   display: block;
   height: 3px;
   width: 100%;
-  background: var(--primary-blue);
+  background: var(--primary-maroon);
   border-radius: 3px;
   transition: all 0.3s ease;
 }
@@ -281,81 +281,61 @@ body {
   visibility: visible;
 }
 
-/* Mobile Navigation */
+/* Mobile Navigation - Always show links */
 @media (max-width: 768px) {
   .mobile-menu-btn {
-    display: flex;
+    display: none; /* Hide hamburger button */
   }
 
   .navbar .nav-links {
-    position: fixed;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100vh;
-    background: white;
-    flex-direction: column;
-    justify-content: flex-start;
+    display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    gap: 25px;
-    padding-top: 120px;
-    padding-bottom: 40px;
-    transition: left 0.3s ease;
-    z-index: 100;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-    overflow-y: auto;
-  }
-
-  .navbar .nav-links.nav-links-mobile-open {
-    left: 0;
+    gap: 16px;
+    font-size: 12px;
   }
 
   .navbar .nav-links a {
-    font-size: 20px;
-    font-weight: 600;
-    color: var(--primary-blue);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--primary-maroon);
     text-decoration: none;
-    padding: 15px 0;
-    border-bottom: 2px solid transparent;
-    transition: all 0.3s ease;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
   }
 
   .navbar .nav-links a:hover {
-    color: var(--primary-maroon);
-    border-bottom-color: var(--primary-maroon);
+    color: var(--dark-maroon);
+    background-color: #f3f4f6;
   }
 
   /* Navigation Separator */
   .nav-separator {
-    width: 80%;
-    height: 1px;
-    background: #e5e7eb;
-    margin: 10px 0;
+    display: none;
   }
 
   /* User Welcome */
   .nav-user-welcome {
-    font-size: 16px;
+    font-size: 12px;
     color: var(--primary-blue);
     font-weight: 500;
-    text-align: center;
-    padding: 10px 0;
   }
 
   /* Navigation Action Links (Login/Register/Dashboard) */
   .nav-action-link {
-    font-size: 20px !important;
-    font-weight: 600 !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
     color: var(--primary-maroon) !important;
     text-decoration: none !important;
-    padding: 15px 0 !important;
-    border-bottom: 2px solid transparent !important;
-    transition: all 0.3s ease !important;
+    padding: 8px 12px !important;
+    border-radius: 6px !important;
+    transition: all 0.2s ease !important;
   }
 
   .nav-action-link:hover {
-    color: var(--primary-blue) !important;
-    border-bottom-color: var(--primary-blue) !important;
+    color: var(--dark-maroon) !important;
+    background-color: #f3f4f6 !important;
   }
 
   /* Navigation Action Button (Logout) */
@@ -363,22 +343,24 @@ body {
     background: var(--primary-maroon);
     color: white;
     border: none;
-    border-radius: 8px;
-    padding: 12px 24px;
-    font-size: 16px;
-    font-weight: 600;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 500;
     cursor: pointer;
     transition: all 0.2s ease;
-    margin-top: 5px;
   }
 
   .nav-action-button:hover {
     background: var(--dark-maroon);
-    transform: translateY(-1px);
   }
 
   .navbar .container {
-    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
   }
 }
 
@@ -405,7 +387,7 @@ body {
 
   /* Desktop action links styling */
   .nav-action-link {
-    color: #374151 !important;
+    color: var(--primary-maroon) !important;
     text-decoration: none !important;
     font-size: 14px !important;
     font-weight: 500 !important;
@@ -416,7 +398,7 @@ body {
   }
 
   .nav-action-link:hover {
-    color: var(--primary-blue) !important;
+    color: var(--dark-maroon) !important;
     border-bottom: none !important;
   }
 
@@ -427,7 +409,7 @@ body {
     height: 2px;
     bottom: -4px;
     left: 50%;
-    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-maroon) 100%);
+    background: var(--primary-maroon);
     transition: all 0.2s ease;
     transform: translateX(-50%);
   }
@@ -1394,6 +1376,31 @@ body {
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.05); opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes progressBar {
+  0% { width: 0%; }
+  100% { width: 100%; }
 }
 
 /* Stats Animation */

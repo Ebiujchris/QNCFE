@@ -5,6 +5,7 @@ import api from '../../config/api'
 
 function ProviderDashboard({ user }) {
   const [assignments, setAssignments] = useState([])
+  const [earnings, setEarnings] = useState([])
   const [notifications, setNotifications] = useState([])
   const [loading, setLoading] = useState(true)
   const [completionLoading, setCompletionLoading] = useState({})
@@ -16,12 +17,14 @@ function ProviderDashboard({ user }) {
 
   const fetchData = async () => {
     try {
-      const [assignmentsRes, notificationsRes] = await Promise.all([
+      const [assignmentsRes, earningsRes, notificationsRes] = await Promise.all([
         api.get('/bookings/my-assignments'),
+        api.get('/provider/earnings'),
         api.get('/notifications')
       ])
 
       setAssignments(assignmentsRes.data)
+      setEarnings(earningsRes.data)
       setNotifications(notificationsRes.data)
     } catch (error) {
       showError('Failed to load dashboard data')
@@ -34,10 +37,7 @@ function ProviderDashboard({ user }) {
   const completeService = async (bookingId) => {
     setCompletionLoading(prev => ({ ...prev, [bookingId]: true }))
     try {
-      const token = localStorage.getItem('token')
-      await axios.post(`/api/bookings/${bookingId}/complete`, {}, {
-        headers: { Authorization: `Bearer ${token}` }
-      })
+      await api.post(`/bookings/${bookingId}/complete`)
       
       showSuccess('Service marked as completed! Patient has been notified.')
       fetchData() // Refresh data
@@ -73,7 +73,10 @@ function ProviderDashboard({ user }) {
 
   const completedServices = assignments.filter(a => a.status === 'completed').length
   const pendingServices = assignments.filter(a => a.status === 'paid').length
-  const totalEarnings = completedServices * 100 // $100 per service
+  const totalEarnings = earnings.reduce((sum, earning) => sum + parseFloat(earning.amount || 0), 0)
+  const monthlyEarnings = earnings
+    .filter(e => new Date(e.payment_date).getMonth() === new Date().getMonth())
+    .reduce((sum, earning) => sum + parseFloat(earning.amount || 0), 0)
 
   return (
     <div>
@@ -104,8 +107,12 @@ function ProviderDashboard({ user }) {
           <span className="stat-label">Completed Services</span>
         </div>
         <div className="stat-card">
-          <span className="stat-number">${totalEarnings}</span>
+          <span className="stat-number">UGX {totalEarnings.toLocaleString()}</span>
           <span className="stat-label">Total Earnings</span>
+        </div>
+        <div className="stat-card">
+          <span className="stat-number">UGX {monthlyEarnings.toLocaleString()}</span>
+          <span className="stat-label">This Month</span>
         </div>
       </div>
 
@@ -120,6 +127,101 @@ function ProviderDashboard({ user }) {
             📊 View Earnings Report
           </button>
         </div>
+      </div>
+
+      {/* My Earnings */}
+      <div className="card" style={{marginBottom: '32px'}}>
+        <h3 style={{color: '#1f2937', marginBottom: '20px'}}>
+          💰 My Earnings ({earnings.length} completed services)
+        </h3>
+        {earnings.length === 0 ? (
+          <div style={{textAlign: 'center', padding: '40px 20px'}}>
+            <span style={{fontSize: '3rem', display: 'block', marginBottom: '16px'}}>💸</span>
+            <h4 style={{color: '#1f2937', marginBottom: '8px'}}>No earnings yet</h4>
+            <p style={{color: '#6b7280'}}>Complete your first service to start earning!</p>
+          </div>
+        ) : (
+          <div>
+            <div style={{
+              display: 'grid', 
+              gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', 
+              gap: '16px', 
+              marginBottom: '24px',
+              padding: '16px',
+              backgroundColor: '#f0f9ff',
+              borderRadius: '8px'
+            }}>
+              <div style={{textAlign: 'center'}}>
+                <div style={{fontSize: '1.5rem', fontWeight: '700', color: '#059669'}}>
+                  UGX {totalEarnings.toLocaleString()}
+                </div>
+                <div style={{fontSize: '0.875rem', color: '#6b7280', fontWeight: '500'}}>TOTAL EARNED</div>
+              </div>
+              <div style={{textAlign: 'center'}}>
+                <div style={{fontSize: '1.5rem', fontWeight: '700', color: '#3b82f6'}}>
+                  UGX {monthlyEarnings.toLocaleString()}
+                </div>
+                <div style={{fontSize: '0.875rem', color: '#6b7280', fontWeight: '500'}}>THIS MONTH</div>
+              </div>
+              <div style={{textAlign: 'center'}}>
+                <div style={{fontSize: '1.5rem', fontWeight: '700', color: '#8b5cf6'}}>
+                  {earnings.length}
+                </div>
+                <div style={{fontSize: '0.875rem', color: '#6b7280', fontWeight: '500'}}>SERVICES</div>
+              </div>
+            </div>
+            
+            <div style={{maxHeight: '300px', overflowY: 'auto'}}>
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: '1fr 150px 120px 100px',
+                gap: '12px',
+                padding: '12px 16px',
+                backgroundColor: '#f1f5f9',
+                borderRadius: '8px',
+                marginBottom: '8px',
+                fontSize: '0.875rem',
+                fontWeight: '600',
+                color: '#374151'
+              }}>
+                <div>Service & Patient</div>
+                <div>Amount</div>
+                <div>Date</div>
+                <div>Status</div>
+              </div>
+              
+              {earnings.map(earning => (
+                <div key={earning.id} style={{
+                  display: 'grid',
+                  gridTemplateColumns: '1fr 150px 120px 100px',
+                  gap: '12px',
+                  padding: '12px 16px',
+                  borderBottom: '1px solid #e5e7eb',
+                  fontSize: '0.875rem',
+                  alignItems: 'center'
+                }}>
+                  <div>
+                    <div style={{fontWeight: '500', color: '#1f2937', marginBottom: '2px'}}>
+                      {earning.service_type?.charAt(0).toUpperCase() + earning.service_type?.slice(1)} Service
+                    </div>
+                    <div style={{color: '#6b7280', fontSize: '0.8rem'}}>
+                      Patient: {earning.patient_name}
+                    </div>
+                  </div>
+                  <div style={{fontWeight: '600', color: '#059669'}}>
+                    UGX {parseFloat(earning.amount || 0).toLocaleString()}
+                  </div>
+                  <div style={{color: '#6b7280'}}>
+                    {new Date(earning.payment_date).toLocaleDateString()}
+                  </div>
+                  <div>
+                    <span className="status-badge status-completed">Paid</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Recent Notifications */}
@@ -189,6 +291,20 @@ function ProviderDashboard({ user }) {
                       <strong style={{color: '#374151'}}>Service Description:</strong>
                       <p style={{color: '#6b7280', margin: '4px 0', lineHeight: '1.5'}}>{assignment.description}</p>
                     </div>
+
+                    {assignment.price && (
+                      <div style={{
+                        marginTop: '16px',
+                        padding: '12px',
+                        backgroundColor: '#ecfdf5',
+                        borderRadius: '6px',
+                        border: '1px solid #d1fae5'
+                      }}>
+                        <p style={{color: '#065f46', fontWeight: '600', fontSize: '1rem', margin: 0}}>
+                          💰 Service Fee: UGX {parseFloat(assignment.price).toLocaleString()}
+                        </p>
+                      </div>
+                    )}
                   </div>
                   
                   <div style={{textAlign: 'right', minWidth: '150px'}}>

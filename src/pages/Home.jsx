@@ -2,266 +2,268 @@ import { Link } from 'react-router-dom'
 import { useState } from 'react'
 
 function Home() {
-  const [currentServiceIndex, setCurrentServiceIndex] = useState(0)
   const [isProfileExpanded, setIsProfileExpanded] = useState(false)
 
   const toggleProfile = () => {
     setIsProfileExpanded(!isProfileExpanded)
   }
-
-  const services = [
-    {
-      id: 'nursing',
-      icon: '🏥',
-      title: 'Professional Nursing Care',
-      description: 'Certified nurses providing comprehensive home healthcare, medication management, and post-operative support.'
-    },
-    {
-      id: 'consultation',
-      icon: '👨‍⚕️',
-      title: 'General Practice Consultation',
-      description: 'Licensed general practitioners offering medical consultations and health assessments at your home.'
-    },
-    {
-      id: 'nutrition',
-      icon: '🥗',
-      title: 'Nutritional Services',
-      description: 'Professional nutrition assessment, dietary guidance, and meal planning for optimal health and recovery.'
-    },
-    {
-      id: 'mental-health',
-      icon: '🧠',
-      title: 'Mental Health Support',
-      description: 'Comprehensive mental health and psychosocial support services for emotional wellbeing and counseling.'
-    },
-    {
-      id: 'occupational',
-      icon: '🏗️',
-      title: 'Occupational Health',
-      description: 'Workplace health services, safety training, and occupational health assessments for organizations.'
-    }
-  ]
-
-  const servicesPerPage = 3
-  const totalPages = Math.ceil(services.length / servicesPerPage)
-
-  const nextService = () => {
-    setCurrentServiceIndex((prev) => (prev + 1) % totalPages)
-  }
-
-  const prevService = () => {
-    setCurrentServiceIndex((prev) => (prev - 1 + totalPages) % totalPages)
-  }
-
-  const getCurrentServices = () => {
-    const startIndex = currentServiceIndex * servicesPerPage
-    return services.slice(startIndex, startIndex + servicesPerPage)
-  }
   return (
-    <div>
+    <div style={{background: 'linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)', minHeight: '100vh'}}>
       {/* Hero Section */}
       <section className="hero" style={{
-        background: `linear-gradient(rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.8)), url('/images/horizontal homepage image put i n the background.avif')`,
+        background: `linear-gradient(135deg, rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.8)), url('/images/horizontal homepage image put i n the background.avif')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        backgroundAttachment: 'fixed'
+        backgroundAttachment: 'fixed',
+        position: 'relative',
+        overflow: 'hidden'
       }}>
-        <div className="container">
-          <div className="hero-content">
-            <h1>QNC SOLUTIONS</h1>
-            <p>Professional healthcare services delivered to your doorstep. Connect with qualified nurses, doctors, and caregivers in your community.</p>
+        <div className="container" style={{position: 'relative', zIndex: 2}}>
+          <div className="hero-content" style={{
+            textAlign: 'center',
+            color: 'white',
+            padding: '80px 0'
+          }}>
+            <h1 style={{
+              fontSize: '3.5rem',
+              fontWeight: '800',
+              marginBottom: '20px',
+              background: 'linear-gradient(135deg, #ffffff 0%, #e0e7ff 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              textShadow: '0 4px 20px rgba(0,0,0,0.3)'
+            }}>QNC SOLUTIONS</h1>
+            <p style={{
+              fontSize: '1.3rem',
+              maxWidth: '700px',
+              margin: '0 auto 30px',
+              opacity: '0.95',
+              textShadow: '0 2px 10px rgba(0,0,0,0.3)',
+              lineHeight: '1.6'
+            }}>Professional healthcare services delivered to your doorstep. Connect with qualified nurses, doctors, and caregivers in your community.</p>
             <div className="hero-buttons">
-              <Link to="/book" className="btn btn-primary btn-large">
-                📅 Book Now
+              <Link to="/book" style={{
+                background: 'linear-gradient(135deg, #7c2d12, #991b1b)',
+                color: 'white',
+                textDecoration: 'none',
+                padding: '15px 30px',
+                borderRadius: '30px',
+                fontSize: '1.1rem',
+                fontWeight: '600',
+                display: 'inline-block',
+                transition: 'all 0.3s ease',
+                boxShadow: '0 8px 25px rgba(124, 45, 18, 0.4)',
+                backdropFilter: 'blur(10px)',
+                border: '1px solid rgba(255, 255, 255, 0.2)'
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.transform = 'translateY(-3px)';
+                e.target.style.boxShadow = '0 12px 35px rgba(124, 45, 18, 0.5)';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.transform = 'translateY(0)';
+                e.target.style.boxShadow = '0 8px 25px rgba(124, 45, 18, 0.4)';
+              }}>
+                📅 Make an Appointment
               </Link>
             </div>
           </div>
         </div>
+        {/* Floating elements */}
+        <div style={{
+          position: 'absolute',
+          top: '15%',
+          left: '8%',
+          width: '100px',
+          height: '100px',
+          background: 'rgba(255,255,255,0.1)',
+          borderRadius: '50%',
+          animation: 'float 6s ease-in-out infinite'
+        }}></div>
+        <div style={{
+          position: 'absolute',
+          bottom: '20%',
+          right: '10%',
+          width: '80px',
+          height: '80px',
+          background: 'rgba(16, 185, 129, 0.2)',
+          borderRadius: '50%',
+          animation: 'float 8s ease-in-out infinite reverse'
+        }}></div>
+        <div style={{
+          position: 'absolute',
+          top: '60%',
+          left: '15%',
+          width: '60px',
+          height: '60px',
+          background: 'rgba(118, 75, 162, 0.3)',
+          borderRadius: '50%',
+          animation: 'float 10s ease-in-out infinite'
+        }}></div>
       </section>
 
       {/* Company Bio Section */}
-      <section className="container" style={{padding: '60px 0'}}>
-        <div className="card card-elevated" style={{padding: '50px'}}>
-          <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '40px', alignItems: 'center'}}>
+      <section className="container" style={{padding: '40px 0'}}>
+        <div style={{
+          background: 'rgba(255, 255, 255, 0.3)',
+          backdropFilter: 'blur(15px)',
+          border: '1px solid rgba(255, 255, 255, 0.4)',
+          borderRadius: '24px',
+          padding: '40px',
+          boxShadow: '0 15px 50px rgba(0, 0, 0, 0.15)',
+          position: 'relative',
+          overflow: 'hidden'
+        }}>
+          {/* Background decorations */}
+          <div style={{
+            position: 'absolute',
+            top: '-50px',
+            right: '-50px',
+            width: '150px',
+            height: '150px',
+            background: 'rgba(102, 126, 234, 0.1)',
+            borderRadius: '50%',
+            backdropFilter: 'blur(10px)'
+          }}></div>
+          <div style={{
+            position: 'absolute',
+            bottom: '-30px',
+            left: '-30px',
+            width: '100px',
+            height: '100px',
+            background: 'rgba(16, 185, 129, 0.1)',
+            borderRadius: '50%',
+            backdropFilter: 'blur(10px)'
+          }}></div>
+          
+          <div style={{
+            display: 'grid', 
+            gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', 
+            gap: '30px', 
+            alignItems: 'center',
+            position: 'relative',
+            zIndex: 2
+          }}>
             <div>
-              <h2 style={{fontSize: '2.5rem', fontWeight: '700', color: 'var(--primary-blue)', marginBottom: '30px'}}>
+              <h2 style={{
+                fontSize: '2.2rem', 
+                fontWeight: '700', 
+                background: 'linear-gradient(135deg, var(--primary-blue) 0%, #6366f1 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                marginBottom: '25px'
+              }}>
                 About QNC Solutions Ltd
               </h2>
-              <p style={{fontSize: '1.1rem', lineHeight: '1.8', color: '#374151', marginBottom: '25px'}}>
+              <p style={{fontSize: '1rem', lineHeight: '1.6', color: '#374151', marginBottom: '20px', fontWeight: '300'}}>
                 QNC Solutions Ltd is a professional healthcare services provider committed to delivering high-quality, reliable, and compassionate nursing and medical support services across Uganda and beyond. Founded on the principle of Quality Nursing Care, QNC bridges the gap between professional healthcare delivery and accessibility.
               </p>
               
               {isProfileExpanded && (
-                <p style={{fontSize: '1.1rem', lineHeight: '1.8', color: '#374151', marginBottom: '25px'}}>
-                  Recognizing that healthcare needs extend beyond traditional clinical settings, QNC provides integrated services across homes, workplaces, construction sites, communities, and remote environments. Our service delivery model promotes continuity of care, strengthens health and safety compliance, and improves overall health outcomes through responsive, client-centered solutions delivered by qualified and licensed healthcare professionals.
-                </p>
+                <div style={{
+                  background: 'rgba(255,255,255,0.2)',
+                  borderRadius: '12px',
+                  padding: '20px',
+                  border: '1px solid rgba(255,255,255,0.3)',
+                  marginBottom: '20px'
+                }}>
+                  <p style={{fontSize: '1rem', lineHeight: '1.6', color: '#374151', margin: 0, fontWeight: '300'}}>
+                    Recognizing that healthcare needs extend beyond traditional clinical settings, QNC provides integrated services across homes, workplaces, construction sites, communities, and remote environments. Our service delivery model promotes continuity of care, strengthens health and safety compliance, and improves overall health outcomes through responsive, client-centered solutions delivered by qualified and licensed healthcare professionals.
+                  </p>
+                </div>
               )}
               
-              <div style={{marginTop: '20px', display: 'flex', gap: '15px', alignItems: 'center', flexWrap: 'wrap'}}>
+              <div style={{marginTop: '20px'}}>
                 <button 
                   onClick={toggleProfile}
                   style={{
-                    background: 'none',
-                    border: 'none',
+                    background: 'rgba(102, 126, 234, 0.1)',
+                    border: '1px solid rgba(102, 126, 234, 0.3)',
+                    borderRadius: '20px',
                     color: 'var(--primary-blue)',
-                    fontSize: '1rem',
+                    fontSize: '0.95rem',
                     fontWeight: '600',
                     cursor: 'pointer',
-                    textDecoration: 'underline',
-                    padding: '0'
+                    padding: '8px 16px',
+                    transition: 'all 0.3s ease'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.background = 'rgba(102, 126, 234, 0.2)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.background = 'rgba(102, 126, 234, 0.1)';
                   }}
                 >
                   {isProfileExpanded ? 'Read Less' : 'Read More'}
                 </button>
-                <Link to="/about" className="btn btn-primary btn-large">
-                  Learn More About Us
-                </Link>
               </div>
             </div>
             <div style={{textAlign: 'center'}}>
-              <img 
-                src="/images/postnatal-care1.jpeg" 
-                alt="Professional Healthcare Services" 
-                style={{
-                  width: '100%', 
-                  maxWidth: '450px', 
-                  height: '350px', 
-                  objectFit: 'cover', 
-                  borderRadius: '16px',
-                  boxShadow: '0 15px 35px rgba(0,0,0,0.1)'
-                }} 
-                className="postnatal-image"
-              />
-              <p style={{fontSize: '0.9rem', color: '#6b7280', marginTop: '15px', fontStyle: 'italic'}}>
-                Professional healthcare services delivered with compassion
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Services Section */}
-      <section className="container">
-        <h2 style={{textAlign: 'center', margin: '30px 0 20px', fontSize: '2.25rem', fontWeight: '700', color: 'var(--primary-blue)'}}>
-          Our Healthcare Services
-        </h2>
-        
-        <div className="services-carousel-container" style={{position: 'relative', maxWidth: '1200px', margin: '0 auto', padding: '0 60px'}}>
-          {/* Navigation Arrows */}
-          <button
-            className="services-carousel-nav"
-            onClick={prevService}
-            style={{
-              position: 'absolute',
-              left: '10px',
-              top: '50%',
-              transform: 'translateY(-50%)',
-              background: 'var(--primary-blue)',
-              color: 'white',
-              border: 'none',
-              borderRadius: '50%',
-              width: '40px',
-              height: '40px',
-              cursor: 'pointer',
-              fontSize: '18px',
-              zIndex: 10,
-              boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
-              transition: 'all 0.2s ease',
-              display: totalPages > 1 ? 'flex' : 'none',
-              alignItems: 'center',
-              justifyContent: 'center'
-            }}
-            onMouseOver={(e) => e.target.style.background = 'var(--primary-maroon)'}
-            onMouseOut={(e) => e.target.style.background = 'var(--primary-blue)'}
-          >
-            ‹
-          </button>
-
-          <button
-            className="services-carousel-nav"
-            onClick={nextService}
-            style={{
-              position: 'absolute',
-              right: '10px',
-              top: '50%',
-              transform: 'translateY(-50%)',
-              background: 'var(--primary-blue)',
-              color: 'white',
-              border: 'none',
-              borderRadius: '50%',
-              width: '40px',
-              height: '40px',
-              cursor: 'pointer',
-              fontSize: '18px',
-              zIndex: 10,
-              boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
-              transition: 'all 0.2s ease',
-              display: totalPages > 1 ? 'flex' : 'none',
-              alignItems: 'center',
-              justifyContent: 'center'
-            }}
-            onMouseOver={(e) => e.target.style.background = 'var(--primary-maroon)'}
-            onMouseOut={(e) => e.target.style.background = 'var(--primary-blue)'}
-          >
-            ›
-          </button>
-
-          {/* Service Cards Grid */}
-          <div style={{
-            display: 'grid', 
-            gridTemplateColumns: `repeat(${getCurrentServices().length}, 1fr)`, 
-            gap: '20px',
-            transition: 'all 0.3s ease'
-          }}>
-            {getCurrentServices().map((service, index) => (
-              <div key={service.id} className="card service-card card-elevated services-carousel-card" style={{padding: '30px', textAlign: 'center'}}>
-                <span className="service-icon" style={{fontSize: '3.5rem', marginBottom: '15px', display: 'block'}}>
-                  {service.icon}
-                </span>
-                <h3 style={{color: '#1f2937', marginBottom: '12px', fontSize: '1.3rem'}}>
-                  {service.title}
-                </h3>
-                <p style={{color: '#6b7280', marginBottom: '20px', lineHeight: '1.5', fontSize: '0.9rem'}}>
-                  {service.description}
-                </p>
-                <Link to="/book" className="btn btn-primary" style={{fontSize: '0.85rem', padding: '10px 16px'}}>
-                  Book {service.title.split(' ')[0]}
-                </Link>
-              </div>
-            ))}
-          </div>
-
-          {/* Carousel Indicators */}
-          {totalPages > 1 && (
-            <div style={{display: 'flex', justifyContent: 'center', gap: '8px', marginTop: '20px'}}>
-              {Array.from({length: totalPages}).map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentServiceIndex(index)}
+              <div style={{
+                position: 'relative',
+                display: 'inline-block',
+                borderRadius: '20px',
+                overflow: 'hidden',
+                boxShadow: '0 20px 40px rgba(0,0,0,0.15)',
+                border: '2px solid rgba(255,255,255,0.3)'
+              }}>
+                <img 
+                  src="/images/postnatal-care1.jpeg" 
+                  alt="Professional Healthcare Services" 
                   style={{
-                    width: '12px',
-                    height: '12px',
-                    borderRadius: '50%',
-                    border: 'none',
-                    background: index === currentServiceIndex ? 'var(--primary-blue)' : '#d1d5db',
-                    cursor: 'pointer',
-                    transition: 'all 0.2s ease'
+                    width: '100%', 
+                    maxWidth: '400px', 
+                    height: '300px', 
+                    objectFit: 'cover',
+                    transition: 'transform 0.3s ease'
                   }}
+                  onMouseEnter={(e) => e.target.style.transform = 'scale(1.05)'}
+                  onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
                 />
-              ))}
+                <div style={{
+                  position: 'absolute',
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  background: 'linear-gradient(transparent, rgba(0,0,0,0.7))',
+                  color: 'white',
+                  padding: '20px',
+                  textAlign: 'left'
+                }}>
+                  <p style={{fontSize: '0.9rem', margin: 0, fontStyle: 'italic', opacity: '0.95'}}>
+                    Professional healthcare services delivered with compassion
+                  </p>
+                </div>
+              </div>
             </div>
-          )}
+          </div>
         </div>
       </section>
 
       {/* Modern Image Showcase */}
-      <section style={{backgroundColor: '#f8fafc', padding: '50px 0', overflow: 'hidden'}}>
-        <div className="container">
-          <div style={{textAlign: 'center', marginBottom: '40px'}}>
-            <h2 style={{fontSize: '2.5rem', fontWeight: '700', color: 'var(--primary-blue)', marginBottom: '15px'}}>
+      <section style={{
+        background: 'linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)',
+        padding: '40px 0',
+        overflow: 'hidden',
+        position: 'relative'
+      }}>
+        <div className="container" style={{position: 'relative', zIndex: 2}}>
+          <div style={{textAlign: 'center', marginBottom: '30px'}}>
+            <h2 style={{
+              fontSize: '2.2rem', 
+              fontWeight: '700', 
+              background: 'linear-gradient(135deg, var(--primary-blue) 0%, #6366f1 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              marginBottom: '12px',
+              textShadow: '0 2px 4px rgba(0,0,0,0.1)'
+            }}>
               Healthcare Excellence in Action
             </h2>
-            <p style={{fontSize: '1.2rem', color: '#6b7280', maxWidth: '600px', margin: '0 auto'}}>
+            <p style={{fontSize: '1.1rem', color: '#6b7280', maxWidth: '500px', margin: '0 auto'}}>
               See how we deliver compassionate, professional healthcare services directly to your home
             </p>
           </div>
@@ -269,15 +271,34 @@ function Home() {
           {/* Image Grid */}
           <div className="image-showcase" style={{
             display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 
             gap: '20px', 
-            marginBottom: '35px',
+            marginBottom: '25px',
             width: '100%',
             overflow: 'hidden'
           }}>
             
             {/* Main Feature Image */}
-            <div style={{position: 'relative', borderRadius: '20px', overflow: 'hidden', height: '280px', boxShadow: '0 15px 30px rgba(0,0,0,0.1)'}}>
+            <div style={{
+              position: 'relative', 
+              borderRadius: '20px', 
+              overflow: 'hidden', 
+              height: '250px', 
+              background: 'rgba(255, 255, 255, 0.2)',
+              backdropFilter: 'blur(10px)',
+              border: '1px solid rgba(255, 255, 255, 0.3)',
+              boxShadow: '0 15px 35px rgba(0,0,0,0.15)',
+              transition: 'all 0.3s ease',
+              cursor: 'pointer'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'translateY(-5px)';
+              e.currentTarget.style.boxShadow = '0 20px 45px rgba(0,0,0,0.2)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = '0 15px 35px rgba(0,0,0,0.15)';
+            }}>
               <img 
                 src="/images/homepage photo new.jpg" 
                 alt="Professional Healthcare Services" 
@@ -292,22 +313,41 @@ function Home() {
                 bottom: '0',
                 left: '0',
                 right: '0',
-                background: 'linear-gradient(transparent, rgba(0,0,0,0.7))',
+                background: 'linear-gradient(transparent, rgba(0,0,0,0.8))',
                 color: 'white',
-                padding: '25px 20px 20px',
+                padding: '20px 15px 15px',
                 textAlign: 'left'
               }}>
-                <h4 style={{fontSize: '1.4rem', marginBottom: '8px', fontWeight: '600'}}>
+                <h4 style={{fontSize: '1.2rem', marginBottom: '6px', fontWeight: '600'}}>
                   Professional Care
                 </h4>
-                <p style={{fontSize: '0.9rem', opacity: '0.9', margin: 0}}>
+                <p style={{fontSize: '0.85rem', opacity: '0.9', margin: 0}}>
                   Quality healthcare delivered with expertise
                 </p>
               </div>
             </div>
 
             {/* Home Care Image */}
-            <div style={{position: 'relative', borderRadius: '20px', overflow: 'hidden', height: '280px', boxShadow: '0 15px 30px rgba(0,0,0,0.1)'}}>
+            <div style={{
+              position: 'relative', 
+              borderRadius: '20px', 
+              overflow: 'hidden', 
+              height: '250px', 
+              background: 'rgba(255, 255, 255, 0.2)',
+              backdropFilter: 'blur(10px)',
+              border: '1px solid rgba(255, 255, 255, 0.3)',
+              boxShadow: '0 15px 35px rgba(0,0,0,0.15)',
+              transition: 'all 0.3s ease',
+              cursor: 'pointer'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'translateY(-5px)';
+              e.currentTarget.style.boxShadow = '0 20px 45px rgba(0,0,0,0.2)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = '0 15px 35px rgba(0,0,0,0.15)';
+            }}>
               <img 
                 src="/images/home page image.avif" 
                 alt="Home Healthcare Services" 
@@ -322,22 +362,41 @@ function Home() {
                 bottom: '0',
                 left: '0',
                 right: '0',
-                background: 'linear-gradient(transparent, rgba(102, 126, 234, 0.8))',
+                background: 'linear-gradient(transparent, rgba(102, 126, 234, 0.9))',
                 color: 'white',
-                padding: '25px 20px 20px',
+                padding: '20px 15px 15px',
                 textAlign: 'left'
               }}>
-                <h4 style={{fontSize: '1.4rem', marginBottom: '8px', fontWeight: '600'}}>
+                <h4 style={{fontSize: '1.2rem', marginBottom: '6px', fontWeight: '600'}}>
                   Home Healthcare
                 </h4>
-                <p style={{fontSize: '0.9rem', opacity: '0.9', margin: 0}}>
+                <p style={{fontSize: '0.85rem', opacity: '0.9', margin: 0}}>
                   Comfort and care in your own home
                 </p>
               </div>
             </div>
 
             {/* Compassionate Care Image */}
-            <div style={{position: 'relative', borderRadius: '20px', overflow: 'hidden', height: '280px', boxShadow: '0 15px 30px rgba(0,0,0,0.1)'}}>
+            <div style={{
+              position: 'relative', 
+              borderRadius: '20px', 
+              overflow: 'hidden', 
+              height: '250px', 
+              background: 'rgba(255, 255, 255, 0.2)',
+              backdropFilter: 'blur(10px)',
+              border: '1px solid rgba(255, 255, 255, 0.3)',
+              boxShadow: '0 15px 35px rgba(0,0,0,0.15)',
+              transition: 'all 0.3s ease',
+              cursor: 'pointer'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'translateY(-5px)';
+              e.currentTarget.style.boxShadow = '0 20px 45px rgba(0,0,0,0.2)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = '0 15px 35px rgba(0,0,0,0.15)';
+            }}>
               <img 
                 src="/images/home page image 2.avif" 
                 alt="Compassionate Healthcare" 
@@ -352,22 +411,41 @@ function Home() {
                 bottom: '0',
                 left: '0',
                 right: '0',
-                background: 'linear-gradient(transparent, rgba(16, 185, 129, 0.8))',
+                background: 'linear-gradient(transparent, rgba(16, 185, 129, 0.9))',
                 color: 'white',
-                padding: '25px 20px 20px',
+                padding: '20px 15px 15px',
                 textAlign: 'left'
               }}>
-                <h4 style={{fontSize: '1.4rem', marginBottom: '8px', fontWeight: '600'}}>
+                <h4 style={{fontSize: '1.2rem', marginBottom: '6px', fontWeight: '600'}}>
                   Compassionate Care
                 </h4>
-                <p style={{fontSize: '0.9rem', opacity: '0.9', margin: 0}}>
+                <p style={{fontSize: '0.85rem', opacity: '0.9', margin: 0}}>
                   Dedicated professionals who care
                 </p>
               </div>
             </div>
 
-            {/* Background Photo 2 */}
-            <div style={{position: 'relative', borderRadius: '20px', overflow: 'hidden', height: '280px', boxShadow: '0 15px 30px rgba(0,0,0,0.1)'}}>
+            {/* Healthcare Excellence */}
+            <div style={{
+              position: 'relative', 
+              borderRadius: '20px', 
+              overflow: 'hidden', 
+              height: '250px', 
+              background: 'rgba(255, 255, 255, 0.2)',
+              backdropFilter: 'blur(10px)',
+              border: '1px solid rgba(255, 255, 255, 0.3)',
+              boxShadow: '0 15px 35px rgba(0,0,0,0.15)',
+              transition: 'all 0.3s ease',
+              cursor: 'pointer'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'translateY(-5px)';
+              e.currentTarget.style.boxShadow = '0 20px 45px rgba(0,0,0,0.2)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = '0 15px 35px rgba(0,0,0,0.15)';
+            }}>
               <img 
                 src="/images/homepage backgorund photo 2.jpg" 
                 alt="Healthcare Excellence" 
@@ -382,22 +460,41 @@ function Home() {
                 bottom: '0',
                 left: '0',
                 right: '0',
-                background: 'linear-gradient(transparent, rgba(245, 158, 11, 0.8))',
+                background: 'linear-gradient(transparent, rgba(245, 158, 11, 0.9))',
                 color: 'white',
-                padding: '25px 20px 20px',
+                padding: '20px 15px 15px',
                 textAlign: 'left'
               }}>
-                <h4 style={{fontSize: '1.4rem', marginBottom: '8px', fontWeight: '600'}}>
+                <h4 style={{fontSize: '1.2rem', marginBottom: '6px', fontWeight: '600'}}>
                   Healthcare Excellence
                 </h4>
-                <p style={{fontSize: '0.9rem', opacity: '0.9', margin: 0}}>
+                <p style={{fontSize: '0.85rem', opacity: '0.9', margin: 0}}>
                   Setting the standard for quality care
                 </p>
               </div>
             </div>
 
-            {/* Background Photo 3 */}
-            <div style={{position: 'relative', borderRadius: '20px', overflow: 'hidden', height: '280px', boxShadow: '0 15px 30px rgba(0,0,0,0.1)'}}>
+            {/* Community Care */}
+            <div style={{
+              position: 'relative', 
+              borderRadius: '20px', 
+              overflow: 'hidden', 
+              height: '250px', 
+              background: 'rgba(255, 255, 255, 0.2)',
+              backdropFilter: 'blur(10px)',
+              border: '1px solid rgba(255, 255, 255, 0.3)',
+              boxShadow: '0 15px 35px rgba(0,0,0,0.15)',
+              transition: 'all 0.3s ease',
+              cursor: 'pointer'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'translateY(-5px)';
+              e.currentTarget.style.boxShadow = '0 20px 45px rgba(0,0,0,0.2)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = '0 15px 35px rgba(0,0,0,0.15)';
+            }}>
               <img 
                 src="/images/homepage background photo 3.jpg" 
                 alt="Community Healthcare" 
@@ -412,22 +509,41 @@ function Home() {
                 bottom: '0',
                 left: '0',
                 right: '0',
-                background: 'linear-gradient(transparent, rgba(139, 69, 19, 0.8))',
+                background: 'linear-gradient(transparent, rgba(139, 69, 19, 0.9))',
                 color: 'white',
-                padding: '25px 20px 20px',
+                padding: '20px 15px 15px',
                 textAlign: 'left'
               }}>
-                <h4 style={{fontSize: '1.4rem', marginBottom: '8px', fontWeight: '600'}}>
+                <h4 style={{fontSize: '1.2rem', marginBottom: '6px', fontWeight: '600'}}>
                   Community Care
                 </h4>
-                <p style={{fontSize: '0.9rem', opacity: '0.9', margin: 0}}>
+                <p style={{fontSize: '0.85rem', opacity: '0.9', margin: 0}}>
                   Serving our community with dedication
                 </p>
               </div>
             </div>
 
             {/* Modern Technology Image */}
-            <div style={{position: 'relative', borderRadius: '20px', overflow: 'hidden', height: '280px', boxShadow: '0 15px 30px rgba(0,0,0,0.1)'}}>
+            <div style={{
+              position: 'relative', 
+              borderRadius: '20px', 
+              overflow: 'hidden', 
+              height: '250px', 
+              background: 'rgba(255, 255, 255, 0.2)',
+              backdropFilter: 'blur(10px)',
+              border: '1px solid rgba(255, 255, 255, 0.3)',
+              boxShadow: '0 15px 35px rgba(0,0,0,0.15)',
+              transition: 'all 0.3s ease',
+              cursor: 'pointer'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'translateY(-5px)';
+              e.currentTarget.style.boxShadow = '0 20px 45px rgba(0,0,0,0.2)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = '0 15px 35px rgba(0,0,0,0.15)';
+            }}>
               <img 
                 src="/images/photo-1666887360680-9dc27a1d2753.avif" 
                 alt="Modern Healthcare Technology" 
@@ -442,47 +558,263 @@ function Home() {
                 bottom: '0',
                 left: '0',
                 right: '0',
-                background: 'linear-gradient(transparent, rgba(99, 102, 241, 0.8))',
+                background: 'linear-gradient(transparent, rgba(99, 102, 241, 0.9))',
                 color: 'white',
-                padding: '25px 20px 20px',
+                padding: '20px 15px 15px',
                 textAlign: 'left'
               }}>
-                <h4 style={{fontSize: '1.4rem', marginBottom: '8px', fontWeight: '600'}}>
+                <h4 style={{fontSize: '1.2rem', marginBottom: '6px', fontWeight: '600'}}>
                   Modern Technology
                 </h4>
-                <p style={{fontSize: '0.9rem', opacity: '0.9', margin: 0}}>
+                <p style={{fontSize: '0.85rem', opacity: '0.9', margin: 0}}>
                   Advanced tools for better outcomes
                 </p>
               </div>
             </div>
           </div>
         </div>
+        
+        {/* Background floating elements */}
+        <div style={{
+          position: 'absolute',
+          top: '10%',
+          left: '5%',
+          width: '80px',
+          height: '80px',
+          background: 'rgba(102, 126, 234, 0.1)',
+          borderRadius: '50%',
+          animation: 'float 8s ease-in-out infinite'
+        }}></div>
+        <div style={{
+          position: 'absolute',
+          bottom: '15%',
+          right: '8%',
+          width: '60px',
+          height: '60px',
+          background: 'rgba(16, 185, 129, 0.1)',
+          borderRadius: '50%',
+          animation: 'float 6s ease-in-out infinite reverse'
+        }}></div>
       </section>
 
-      {/* How It Works - Simplified */}
-      <section className="how-it-works">
-        <div className="container">
-          <h2 style={{textAlign: 'center', fontSize: '2rem', fontWeight: '700', color: 'var(--primary-blue)', marginBottom: '10px'}}>
-            How It Works
-          </h2>
-          <p style={{textAlign: 'center', fontSize: '1rem', color: '#6b7280', maxWidth: '500px', margin: '0 auto 20px'}}>
-            Getting quality healthcare at home in 3 simple steps
-          </p>
-          <div className="steps">
-            <div className="step">
-              <div className="step-number">1</div>
-              <h4>Book Service</h4>
-              <p>Choose your needed service and fill out our simple booking form.</p>
+      {/* How It Works - Modern */}
+      <section style={{
+        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+        padding: '50px 0',
+        position: 'relative',
+        overflow: 'hidden'
+      }}>
+        {/* Background decorations */}
+        <div style={{
+          position: 'absolute',
+          top: '-100px',
+          left: '-100px',
+          width: '200px',
+          height: '200px',
+          background: 'rgba(255,255,255,0.1)',
+          borderRadius: '50%',
+          animation: 'float 12s ease-in-out infinite'
+        }}></div>
+        <div style={{
+          position: 'absolute',
+          bottom: '-80px',
+          right: '-80px',
+          width: '160px',
+          height: '160px',
+          background: 'rgba(16, 185, 129, 0.2)',
+          borderRadius: '50%',
+          animation: 'float 10s ease-in-out infinite reverse'
+        }}></div>
+        
+        <div className="container" style={{position: 'relative', zIndex: 2}}>
+          <div style={{textAlign: 'center', marginBottom: '40px'}}>
+            <h2 style={{
+              fontSize: '2.5rem', 
+              fontWeight: '800', 
+              color: 'white',
+              marginBottom: '15px',
+              textShadow: '0 4px 20px rgba(0,0,0,0.3)'
+            }}>
+              How It Works
+            </h2>
+            <p style={{
+              fontSize: '1.2rem', 
+              color: 'rgba(255,255,255,0.9)', 
+              maxWidth: '600px', 
+              margin: '0 auto',
+              textShadow: '0 2px 10px rgba(0,0,0,0.2)'
+            }}>
+              Getting quality healthcare at home in 3 simple steps
+            </p>
+          </div>
+          
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: '30px',
+            maxWidth: '1000px',
+            margin: '0 auto'
+          }}>
+            {/* Step 1 */}
+            <div style={{
+              background: 'rgba(255, 255, 255, 0.15)',
+              backdropFilter: 'blur(15px)',
+              border: '1px solid rgba(255, 255, 255, 0.2)',
+              borderRadius: '20px',
+              padding: '30px 25px',
+              textAlign: 'center',
+              color: 'white',
+              position: 'relative',
+              transition: 'all 0.3s ease',
+              cursor: 'pointer'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'translateY(-8px)';
+              e.currentTarget.style.background = 'rgba(255, 255, 255, 0.2)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.background = 'rgba(255, 255, 255, 0.15)';
+            }}>
+              <div style={{
+                width: '60px',
+                height: '60px',
+                background: 'linear-gradient(135deg, #10b981, #059669)',
+                borderRadius: '50%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                margin: '0 auto 20px',
+                fontSize: '1.5rem',
+                fontWeight: '700',
+                boxShadow: '0 8px 25px rgba(16, 185, 129, 0.4)'
+              }}>
+                1
+              </div>
+              <h4 style={{
+                fontSize: '1.3rem',
+                fontWeight: '600',
+                marginBottom: '12px',
+                textShadow: '0 2px 8px rgba(0,0,0,0.2)'
+              }}>
+                Schedule Service
+              </h4>
+              <p style={{
+                fontSize: '0.95rem',
+                opacity: '0.9',
+                lineHeight: '1.5',
+                margin: 0
+              }}>
+                Choose your needed service and fill out our simple appointment form.
+              </p>
             </div>
-            <div className="step">
-              <div className="step-number">2</div>
-              <h4>Get Matched</h4>
-              <p>Our team assigns the most qualified healthcare provider for you.</p>
+
+            {/* Step 2 */}
+            <div style={{
+              background: 'rgba(255, 255, 255, 0.15)',
+              backdropFilter: 'blur(15px)',
+              border: '1px solid rgba(255, 255, 255, 0.2)',
+              borderRadius: '20px',
+              padding: '30px 25px',
+              textAlign: 'center',
+              color: 'white',
+              position: 'relative',
+              transition: 'all 0.3s ease',
+              cursor: 'pointer'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'translateY(-8px)';
+              e.currentTarget.style.background = 'rgba(255, 255, 255, 0.2)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.background = 'rgba(255, 255, 255, 0.15)';
+            }}>
+              <div style={{
+                width: '60px',
+                height: '60px',
+                background: 'linear-gradient(135deg, #667eea, #764ba2)',
+                borderRadius: '50%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                margin: '0 auto 20px',
+                fontSize: '1.5rem',
+                fontWeight: '700',
+                boxShadow: '0 8px 25px rgba(102, 126, 234, 0.4)'
+              }}>
+                2
+              </div>
+              <h4 style={{
+                fontSize: '1.3rem',
+                fontWeight: '600',
+                marginBottom: '12px',
+                textShadow: '0 2px 8px rgba(0,0,0,0.2)'
+              }}>
+                Get Matched
+              </h4>
+              <p style={{
+                fontSize: '0.95rem',
+                opacity: '0.9',
+                lineHeight: '1.5',
+                margin: 0
+              }}>
+                Our team assigns the most qualified healthcare provider for you.
+              </p>
             </div>
-            <div className="step">
-              <div className="step-number">3</div>
-              <h4>Receive Care</h4>
-              <p>Meet your assigned professional and receive quality care at home.</p>
+
+            {/* Step 3 */}
+            <div style={{
+              background: 'rgba(255, 255, 255, 0.15)',
+              backdropFilter: 'blur(15px)',
+              border: '1px solid rgba(255, 255, 255, 0.2)',
+              borderRadius: '20px',
+              padding: '30px 25px',
+              textAlign: 'center',
+              color: 'white',
+              position: 'relative',
+              transition: 'all 0.3s ease',
+              cursor: 'pointer'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'translateY(-8px)';
+              e.currentTarget.style.background = 'rgba(255, 255, 255, 0.2)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.background = 'rgba(255, 255, 255, 0.15)';
+            }}>
+              <div style={{
+                width: '60px',
+                height: '60px',
+                background: 'linear-gradient(135deg, #f59e0b, #d97706)',
+                borderRadius: '50%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                margin: '0 auto 20px',
+                fontSize: '1.5rem',
+                fontWeight: '700',
+                boxShadow: '0 8px 25px rgba(245, 158, 11, 0.4)'
+              }}>
+                3
+              </div>
+              <h4 style={{
+                fontSize: '1.3rem',
+                fontWeight: '600',
+                marginBottom: '12px',
+                textShadow: '0 2px 8px rgba(0,0,0,0.2)'
+              }}>
+                Receive Care
+              </h4>
+              <p style={{
+                fontSize: '0.95rem',
+                opacity: '0.9',
+                lineHeight: '1.5',
+                margin: 0
+              }}>
+                Meet your assigned professional and receive quality care at home.
+              </p>
             </div>
           </div>
         </div>

@@ -92,7 +92,7 @@ function PatientDashboard({ user }) {
         <h3 style={{marginBottom: '20px', color: '#1f2937'}}>Quick Actions</h3>
         <div style={{display: 'flex', gap: '16px', flexWrap: 'wrap'}}>
           <Link to="/book" className="btn btn-success btn-large">
-            📅 Book New Service
+            📅 Schedule New Service
           </Link>
           <button className="btn btn-outline" onClick={fetchNotifications}>
             🔔 Refresh Notifications
@@ -123,8 +123,8 @@ function PatientDashboard({ user }) {
           <div style={{textAlign: 'center', padding: '60px 20px'}}>
             <span style={{fontSize: '4rem', display: 'block', marginBottom: '16px'}}>🏥</span>
             <h4 style={{color: '#1f2937', marginBottom: '8px'}}>No bookings yet</h4>
-            <p style={{color: '#6b7280', marginBottom: '24px'}}>Ready to book your first healthcare service?</p>
-            <Link to="/book" className="btn btn-success">Book Your First Service</Link>
+            <p style={{color: '#6b7280', marginBottom: '24px'}}>Ready to schedule your first healthcare service?</p>
+            <Link to="/book" className="btn btn-success">Schedule Your First Service</Link>
           </div>
         ) : (
           <div>

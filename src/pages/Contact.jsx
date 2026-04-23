@@ -44,76 +44,146 @@ function Contact() {
   }
 
   return (
-    <div>
+    <div style={{background: 'linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)', minHeight: '100vh'}}>
       {/* Hero Section */}
       <section className="hero" style={{
-        background: `linear-gradient(rgba(245, 158, 11, 0.8), rgba(217, 119, 6, 0.8)), url('/images/contact us background image.avif')`,
+        background: `linear-gradient(135deg, rgba(245, 158, 11, 0.9), rgba(217, 119, 6, 0.8)), url('/images/contact us background image.avif')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        padding: '80px 0'
+        padding: '50px 0',
+        position: 'relative',
+        overflow: 'hidden'
       }}>
-        <div className="container">
+        <div className="container" style={{position: 'relative', zIndex: 2}}>
           <div style={{textAlign: 'center', color: 'white'}}>
-            <h1 style={{fontSize: '3rem', fontWeight: '700', marginBottom: '20px'}}>Contact Us</h1>
-            <p style={{fontSize: '1.25rem', maxWidth: '800px', margin: '0 auto'}}>
+            <h1 style={{
+              fontSize: '2.5rem', 
+              fontWeight: '700', 
+              marginBottom: '15px',
+              background: 'linear-gradient(135deg, #ffffff, #fef3c7)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              textShadow: '0 2px 10px rgba(0,0,0,0.3)'
+            }}>Contact Us</h1>
+            <p style={{
+              fontSize: '1.1rem', 
+              maxWidth: '600px', 
+              margin: '0 auto',
+              opacity: '0.95',
+              textShadow: '0 1px 3px rgba(0,0,0,0.3)'
+            }}>
               Get in touch with our team for any questions, support, or partnership opportunities
             </p>
           </div>
         </div>
+        {/* Floating elements */}
+        <div style={{
+          position: 'absolute',
+          top: '20%',
+          left: '10%',
+          width: '70px',
+          height: '70px',
+          background: 'rgba(255,255,255,0.1)',
+          borderRadius: '50%',
+          animation: 'float 6s ease-in-out infinite'
+        }}></div>
+        <div style={{
+          position: 'absolute',
+          bottom: '20%',
+          right: '15%',
+          width: '50px',
+          height: '50px',
+          background: 'rgba(245, 158, 11, 0.2)',
+          borderRadius: '50%',
+          animation: 'float 8s ease-in-out infinite reverse'
+        }}></div>
       </section>
 
       {/* Contact Information & Form */}
-      <section className="container" style={{padding: '60px 0'}}>
-        <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '50px'}}>
+      <section className="container" style={{padding: '40px 0'}}>
+        <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(380px, 1fr))', gap: '30px'}}>
           
           {/* Contact Information */}
-          <div>
-            <h2 style={{fontSize: '2rem', fontWeight: '700', color: 'var(--primary-blue)', marginBottom: '30px'}}>
+          <div style={{
+            background: 'rgba(255, 255, 255, 0.3)',
+            backdropFilter: 'blur(15px)',
+            border: '1px solid rgba(255, 255, 255, 0.4)',
+            borderRadius: '20px',
+            padding: '30px',
+            boxShadow: '0 12px 40px rgba(0, 0, 0, 0.15)',
+            position: 'relative',
+            overflow: 'hidden'
+          }}>
+            {/* Background decoration */}
+            <div style={{
+              position: 'absolute',
+              top: '-30px',
+              right: '-30px',
+              width: '100px',
+              height: '100px',
+              background: 'rgba(245, 158, 11, 0.1)',
+              borderRadius: '50%',
+              backdropFilter: 'blur(10px)'
+            }}></div>
+            
+            <h2 style={{
+              fontSize: '1.8rem', 
+              fontWeight: '700', 
+              background: 'linear-gradient(135deg, var(--primary-blue) 0%, #f59e0b 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              marginBottom: '20px',
+              position: 'relative',
+              zIndex: 2
+            }}>
               Get In Touch
             </h2>
-            <p style={{fontSize: '1.1rem', color: '#6b7280', marginBottom: '40px', lineHeight: '1.6'}}>
+            <p style={{fontSize: '1rem', color: '#6b7280', marginBottom: '25px', lineHeight: '1.5', position: 'relative', zIndex: 2}}>
               We're here to help and answer any questions you might have. We look forward to hearing from you.
             </p>
 
-            <div style={{marginBottom: '60px'}}>
-              <div style={{display: 'flex', alignItems: 'center', marginBottom: '25px'}}>
+            <div style={{marginBottom: '40px', position: 'relative', zIndex: 2}}>
+              <div style={{display: 'flex', alignItems: 'center', marginBottom: '20px'}}>
                 <div style={{
-                  width: '50px', 
-                  height: '50px', 
-                  backgroundColor: 'var(--primary-blue)', 
+                  width: '45px', 
+                  height: '45px', 
+                  background: 'linear-gradient(135deg, var(--primary-blue), #1e40af)', 
                   borderRadius: '50%', 
                   display: 'flex', 
                   alignItems: 'center', 
                   justifyContent: 'center', 
-                  marginRight: '20px',
+                  marginRight: '15px',
                   color: 'white',
-                  fontSize: '1.2rem'
+                  fontSize: '1.1rem',
+                  boxShadow: '0 4px 15px rgba(30, 64, 175, 0.3)'
                 }}>📍</div>
                 <div>
-                  <h4 style={{color: '#1f2937', marginBottom: '5px'}}>Our Location</h4>
-                  <p style={{color: '#6b7280', margin: 0}}>
+                  <h4 style={{color: '#1f2937', marginBottom: '4px', fontSize: '1rem', fontWeight: '600'}}>Our Location</h4>
+                  <p style={{color: '#6b7280', margin: 0, fontSize: '0.9rem'}}>
                     Buziga Katuso<br />
                     P.O. Box: 201036 Kampala GPO, Uganda
                   </p>
                 </div>
               </div>
 
-              <div style={{display: 'flex', alignItems: 'center', marginBottom: '25px'}}>
+              <div style={{display: 'flex', alignItems: 'center', marginBottom: '20px'}}>
                 <div style={{
-                  width: '50px', 
-                  height: '50px', 
-                  backgroundColor: 'var(--primary-blue)', 
+                  width: '45px', 
+                  height: '45px', 
+                  background: 'linear-gradient(135deg, var(--primary-blue), #1e40af)', 
                   borderRadius: '50%', 
                   display: 'flex', 
                   alignItems: 'center', 
                   justifyContent: 'center', 
-                  marginRight: '20px',
+                  marginRight: '15px',
                   color: 'white',
-                  fontSize: '1.2rem'
+                  fontSize: '1.1rem',
+                  boxShadow: '0 4px 15px rgba(30, 64, 175, 0.3)'
                 }}>📞</div>
                 <div>
-                  <h4 style={{color: '#1f2937', marginBottom: '5px'}}>Phone Number</h4>
-                  <p style={{color: '#6b7280', margin: 0}}>
+                  <h4 style={{color: '#1f2937', marginBottom: '4px', fontSize: '1rem', fontWeight: '600'}}>Phone Number</h4>
+                  <p style={{color: '#6b7280', margin: 0, fontSize: '0.9rem'}}>
                     <a href="tel:+256791785931" style={{color: '#6b7280', textDecoration: 'none'}}>
                       +256-791-785931
                     </a>
@@ -121,22 +191,23 @@ function Contact() {
                 </div>
               </div>
 
-              <div style={{display: 'flex', alignItems: 'center', marginBottom: '25px'}}>
+              <div style={{display: 'flex', alignItems: 'center', marginBottom: '20px'}}>
                 <div style={{
-                  width: '50px', 
-                  height: '50px', 
-                  backgroundColor: 'var(--primary-blue)', 
+                  width: '45px', 
+                  height: '45px', 
+                  background: 'linear-gradient(135deg, var(--primary-blue), #1e40af)', 
                   borderRadius: '50%', 
                   display: 'flex', 
                   alignItems: 'center', 
                   justifyContent: 'center', 
-                  marginRight: '20px',
+                  marginRight: '15px',
                   color: 'white',
-                  fontSize: '1.2rem'
+                  fontSize: '1.1rem',
+                  boxShadow: '0 4px 15px rgba(30, 64, 175, 0.3)'
                 }}>✉️</div>
                 <div>
-                  <h4 style={{color: '#1f2937', marginBottom: '5px'}}>Email Address</h4>
-                  <p style={{color: '#6b7280', margin: 0}}>
+                  <h4 style={{color: '#1f2937', marginBottom: '4px', fontSize: '1rem', fontWeight: '600'}}>Email Address</h4>
+                  <p style={{color: '#6b7280', margin: 0, fontSize: '0.9rem'}}>
                     <a href="mailto:qncsolutions3@gmail.com" style={{color: '#6b7280', textDecoration: 'none'}}>
                       qncsolutions3@gmail.com
                     </a>
@@ -144,22 +215,23 @@ function Contact() {
                 </div>
               </div>
 
-              <div style={{display: 'flex', alignItems: 'center', marginBottom: '25px'}}>
+              <div style={{display: 'flex', alignItems: 'center', marginBottom: '20px'}}>
                 <div style={{
-                  width: '50px', 
-                  height: '50px', 
-                  backgroundColor: 'var(--primary-blue)', 
+                  width: '45px', 
+                  height: '45px', 
+                  background: 'linear-gradient(135deg, var(--primary-blue), #1e40af)', 
                   borderRadius: '50%', 
                   display: 'flex', 
                   alignItems: 'center', 
                   justifyContent: 'center', 
-                  marginRight: '20px',
+                  marginRight: '15px',
                   color: 'white',
-                  fontSize: '1.2rem'
+                  fontSize: '1.1rem',
+                  boxShadow: '0 4px 15px rgba(30, 64, 175, 0.3)'
                 }}>🕒</div>
                 <div>
-                  <h4 style={{color: '#1f2937', marginBottom: '5px'}}>Business Hours</h4>
-                  <p style={{color: '#6b7280', margin: 0}}>
+                  <h4 style={{color: '#1f2937', marginBottom: '4px', fontSize: '1rem', fontWeight: '600'}}>Business Hours</h4>
+                  <p style={{color: '#6b7280', margin: 0, fontSize: '0.9rem'}}>
                     Monday - Friday: 8:00 AM - 6:00 PM (EAT)<br />
                     Saturday: 9:00 AM - 4:00 PM (EAT)<br />
                     Sunday: Emergency services only
@@ -168,31 +240,36 @@ function Contact() {
               </div>
             </div>
 
-            {/* Emergency Contact - REMOVED */}
-
             {/* Social Media Links */}
-            <div style={{marginTop: '30px'}}>
-              <h4 style={{color: '#1f2937', marginBottom: '20px', textAlign: 'center'}}>Connect With Us</h4>
-              <div style={{display: 'flex', justifyContent: 'center', gap: '20px'}}>
+            <div style={{marginTop: '25px', position: 'relative', zIndex: 2}}>
+              <h4 style={{color: '#1f2937', marginBottom: '15px', textAlign: 'center', fontSize: '1.1rem', fontWeight: '600'}}>Connect With Us</h4>
+              <div style={{display: 'flex', justifyContent: 'center', gap: '15px', flexWrap: 'wrap'}}>
                 <a 
                   href="https://facebook.com/qncsolutions" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   style={{
-                    width: '50px',
-                    height: '50px',
-                    backgroundColor: '#1877f2',
+                    width: '45px',
+                    height: '45px',
+                    background: 'linear-gradient(135deg, #1877f2, #166fe5)',
                     borderRadius: '50%',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     color: 'white',
-                    fontSize: '1.5rem',
+                    fontSize: '1.3rem',
                     textDecoration: 'none',
-                    transition: 'transform 0.2s ease'
+                    transition: 'all 0.3s ease',
+                    boxShadow: '0 4px 15px rgba(24, 119, 242, 0.3)'
                   }}
-                  onMouseOver={(e) => e.target.style.transform = 'scale(1.1)'}
-                  onMouseOut={(e) => e.target.style.transform = 'scale(1)'}
+                  onMouseEnter={(e) => {
+                    e.target.style.transform = 'scale(1.1)';
+                    e.target.style.boxShadow = '0 6px 20px rgba(24, 119, 242, 0.4)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.transform = 'scale(1)';
+                    e.target.style.boxShadow = '0 4px 15px rgba(24, 119, 242, 0.3)';
+                  }}
                 >
                   📘
                 </a>
@@ -201,20 +278,27 @@ function Contact() {
                   target="_blank" 
                   rel="noopener noreferrer"
                   style={{
-                    width: '50px',
-                    height: '50px',
-                    backgroundColor: '#1da1f2',
+                    width: '45px',
+                    height: '45px',
+                    background: 'linear-gradient(135deg, #1da1f2, #1a91da)',
                     borderRadius: '50%',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     color: 'white',
-                    fontSize: '1.5rem',
+                    fontSize: '1.3rem',
                     textDecoration: 'none',
-                    transition: 'transform 0.2s ease'
+                    transition: 'all 0.3s ease',
+                    boxShadow: '0 4px 15px rgba(29, 161, 242, 0.3)'
                   }}
-                  onMouseOver={(e) => e.target.style.transform = 'scale(1.1)'}
-                  onMouseOut={(e) => e.target.style.transform = 'scale(1)'}
+                  onMouseEnter={(e) => {
+                    e.target.style.transform = 'scale(1.1)';
+                    e.target.style.boxShadow = '0 6px 20px rgba(29, 161, 242, 0.4)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.transform = 'scale(1)';
+                    e.target.style.boxShadow = '0 4px 15px rgba(29, 161, 242, 0.3)';
+                  }}
                 >
                   🐦
                 </a>
@@ -223,20 +307,27 @@ function Contact() {
                   target="_blank" 
                   rel="noopener noreferrer"
                   style={{
-                    width: '50px',
-                    height: '50px',
-                    backgroundColor: '#0077b5',
+                    width: '45px',
+                    height: '45px',
+                    background: 'linear-gradient(135deg, #0077b5, #006fa6)',
                     borderRadius: '50%',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     color: 'white',
-                    fontSize: '1.5rem',
+                    fontSize: '1.3rem',
                     textDecoration: 'none',
-                    transition: 'transform 0.2s ease'
+                    transition: 'all 0.3s ease',
+                    boxShadow: '0 4px 15px rgba(0, 119, 181, 0.3)'
                   }}
-                  onMouseOver={(e) => e.target.style.transform = 'scale(1.1)'}
-                  onMouseOut={(e) => e.target.style.transform = 'scale(1)'}
+                  onMouseEnter={(e) => {
+                    e.target.style.transform = 'scale(1.1)';
+                    e.target.style.boxShadow = '0 6px 20px rgba(0, 119, 181, 0.4)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.transform = 'scale(1)';
+                    e.target.style.boxShadow = '0 4px 15px rgba(0, 119, 181, 0.3)';
+                  }}
                 >
                   💼
                 </a>
@@ -245,20 +336,27 @@ function Contact() {
                   target="_blank" 
                   rel="noopener noreferrer"
                   style={{
-                    width: '50px',
-                    height: '50px',
-                    backgroundColor: '#e4405f',
+                    width: '45px',
+                    height: '45px',
+                    background: 'linear-gradient(135deg, #e4405f, #d73447)',
                     borderRadius: '50%',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     color: 'white',
-                    fontSize: '1.5rem',
+                    fontSize: '1.3rem',
                     textDecoration: 'none',
-                    transition: 'transform 0.2s ease'
+                    transition: 'all 0.3s ease',
+                    boxShadow: '0 4px 15px rgba(228, 64, 95, 0.3)'
                   }}
-                  onMouseOver={(e) => e.target.style.transform = 'scale(1.1)'}
-                  onMouseOut={(e) => e.target.style.transform = 'scale(1)'}
+                  onMouseEnter={(e) => {
+                    e.target.style.transform = 'scale(1.1)';
+                    e.target.style.boxShadow = '0 6px 20px rgba(228, 64, 95, 0.4)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.transform = 'scale(1)';
+                    e.target.style.boxShadow = '0 4px 15px rgba(228, 64, 95, 0.3)';
+                  }}
                 >
                   📷
                 </a>
@@ -267,20 +365,27 @@ function Contact() {
                   target="_blank" 
                   rel="noopener noreferrer"
                   style={{
-                    width: '50px',
-                    height: '50px',
-                    backgroundColor: '#25d366',
+                    width: '45px',
+                    height: '45px',
+                    background: 'linear-gradient(135deg, #25d366, #20ba5a)',
                     borderRadius: '50%',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     color: 'white',
-                    fontSize: '1.5rem',
+                    fontSize: '1.3rem',
                     textDecoration: 'none',
-                    transition: 'transform 0.2s ease'
+                    transition: 'all 0.3s ease',
+                    boxShadow: '0 4px 15px rgba(37, 211, 102, 0.3)'
                   }}
-                  onMouseOver={(e) => e.target.style.transform = 'scale(1.1)'}
-                  onMouseOut={(e) => e.target.style.transform = 'scale(1)'}
+                  onMouseEnter={(e) => {
+                    e.target.style.transform = 'scale(1.1)';
+                    e.target.style.boxShadow = '0 6px 20px rgba(37, 211, 102, 0.4)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.transform = 'scale(1)';
+                    e.target.style.boxShadow = '0 4px 15px rgba(37, 211, 102, 0.3)';
+                  }}
                 >
                   💬
                 </a>
@@ -290,12 +395,43 @@ function Contact() {
 
           {/* Contact Form */}
           <div>
-            <div className="card card-elevated" style={{padding: '40px'}}>
-              <h3 style={{fontSize: '1.8rem', fontWeight: '700', color: 'var(--primary-blue)', marginBottom: '25px'}}>
+            <div style={{
+              background: 'rgba(255, 255, 255, 0.3)',
+              backdropFilter: 'blur(15px)',
+              border: '1px solid rgba(255, 255, 255, 0.4)',
+              borderRadius: '20px',
+              padding: '30px',
+              boxShadow: '0 12px 40px rgba(0, 0, 0, 0.15)',
+              position: 'relative',
+              overflow: 'hidden'
+            }}>
+              {/* Background decoration */}
+              <div style={{
+                position: 'absolute',
+                top: '-30px',
+                right: '-30px',
+                width: '100px',
+                height: '100px',
+                background: 'rgba(30, 64, 175, 0.1)',
+                borderRadius: '50%',
+                backdropFilter: 'blur(10px)'
+              }}></div>
+              
+              <h3 style={{
+                fontSize: '1.6rem', 
+                fontWeight: '700', 
+                background: 'linear-gradient(135deg, var(--primary-blue) 0%, #f59e0b 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                marginBottom: '20px',
+                position: 'relative',
+                zIndex: 2
+              }}>
                 Send Us a Message
               </h3>
               
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit} style={{position: 'relative', zIndex: 2}}>
                 <div className="form-group">
                   <label>Full Name *</label>
                   <input
@@ -306,6 +442,12 @@ function Contact() {
                     placeholder="Enter your full name"
                     required
                     disabled={loading}
+                    style={{
+                      background: 'rgba(255, 255, 255, 0.2)',
+                      backdropFilter: 'blur(10px)',
+                      border: '1px solid rgba(255, 255, 255, 0.3)',
+                      borderRadius: '10px'
+                    }}
                   />
                 </div>
 
@@ -319,6 +461,12 @@ function Contact() {
                     placeholder="Enter your email address"
                     required
                     disabled={loading}
+                    style={{
+                      background: 'rgba(255, 255, 255, 0.2)',
+                      backdropFilter: 'blur(10px)',
+                      border: '1px solid rgba(255, 255, 255, 0.3)',
+                      borderRadius: '10px'
+                    }}
                   />
                 </div>
 
@@ -331,6 +479,12 @@ function Contact() {
                     onChange={handleChange}
                     placeholder="Enter your phone number"
                     disabled={loading}
+                    style={{
+                      background: 'rgba(255, 255, 255, 0.2)',
+                      backdropFilter: 'blur(10px)',
+                      border: '1px solid rgba(255, 255, 255, 0.3)',
+                      borderRadius: '10px'
+                    }}
                   />
                 </div>
 
@@ -342,6 +496,12 @@ function Contact() {
                     onChange={handleChange}
                     required
                     disabled={loading}
+                    style={{
+                      background: 'rgba(255, 255, 255, 0.2)',
+                      backdropFilter: 'blur(10px)',
+                      border: '1px solid rgba(255, 255, 255, 0.3)',
+                      borderRadius: '10px'
+                    }}
                   >
                     <option value="">Select a subject</option>
                     <option value="general">General Inquiry</option>
@@ -360,17 +520,46 @@ function Contact() {
                     value={formData.message}
                     onChange={handleChange}
                     placeholder="Please describe your inquiry or message in detail..."
-                    rows="5"
+                    rows="4"
                     required
                     disabled={loading}
+                    style={{
+                      background: 'rgba(255, 255, 255, 0.2)',
+                      backdropFilter: 'blur(10px)',
+                      border: '1px solid rgba(255, 255, 255, 0.3)',
+                      borderRadius: '10px'
+                    }}
                   />
                 </div>
 
                 <button 
                   type="submit" 
-                  className="btn btn-primary btn-large" 
-                  style={{width: '100%'}}
+                  style={{
+                    width: '100%',
+                    background: loading ? 'rgba(156, 163, 175, 0.5)' : 'linear-gradient(135deg, #7c2d12, #991b1b)',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '15px',
+                    padding: '12px 20px',
+                    fontSize: '0.95rem',
+                    fontWeight: '600',
+                    cursor: loading ? 'not-allowed' : 'pointer',
+                    transition: 'all 0.3s ease',
+                    boxShadow: loading ? 'none' : '0 4px 15px rgba(124, 45, 18, 0.3)'
+                  }}
                   disabled={loading}
+                  onMouseEnter={(e) => {
+                    if (!loading) {
+                      e.target.style.transform = 'translateY(-2px)';
+                      e.target.style.boxShadow = '0 6px 20px rgba(124, 45, 18, 0.4)';
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (!loading) {
+                      e.target.style.transform = 'translateY(0)';
+                      e.target.style.boxShadow = '0 4px 15px rgba(124, 45, 18, 0.3)';
+                    }
+                  }}
                 >
                   {loading ? '📤 Sending...' : '📤 Send Message'}
                 </button>
@@ -381,76 +570,100 @@ function Contact() {
       </section>
 
       {/* Footer Section with Links and Map */}
-      <section style={{backgroundColor: 'var(--primary-blue)', color: 'white', padding: '40px 0'}}>
-        <div className="container">
-          <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '30px'}}>
+      <section style={{
+        background: 'linear-gradient(135deg, var(--primary-blue), #1e40af)', 
+        color: 'white', 
+        padding: '30px 0',
+        position: 'relative',
+        overflow: 'hidden'
+      }}>
+        <div className="container" style={{position: 'relative', zIndex: 2}}>
+          <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '25px'}}>
             
             {/* Quick Links */}
             <div>
-              <h4 style={{fontSize: '1.2rem', marginBottom: '15px', color: '#f3f4f6'}}>Quick Links</h4>
+              <h4 style={{fontSize: '1.1rem', marginBottom: '12px', color: '#f3f4f6', fontWeight: '600'}}>Quick Links</h4>
               <ul style={{listStyle: 'none', padding: 0, margin: 0}}>
-                <li style={{marginBottom: '10px'}}>
-                  <Link to="/about" style={{color: '#d1d5db', textDecoration: 'none', fontSize: '0.9rem'}}>About Us</Link>
+                <li style={{marginBottom: '8px'}}>
+                  <Link to="/about" style={{color: '#d1d5db', textDecoration: 'none', fontSize: '0.85rem', transition: 'color 0.3s ease'}}
+                    onMouseEnter={(e) => e.target.style.color = '#ffffff'}
+                    onMouseLeave={(e) => e.target.style.color = '#d1d5db'}>About Us</Link>
                 </li>
-                <li style={{marginBottom: '10px'}}>
-                  <Link to="/services" style={{color: '#d1d5db', textDecoration: 'none', fontSize: '0.9rem'}}>Our Services</Link>
+                <li style={{marginBottom: '8px'}}>
+                  <Link to="/services" style={{color: '#d1d5db', textDecoration: 'none', fontSize: '0.85rem', transition: 'color 0.3s ease'}}
+                    onMouseEnter={(e) => e.target.style.color = '#ffffff'}
+                    onMouseLeave={(e) => e.target.style.color = '#d1d5db'}>Our Services</Link>
                 </li>
-                <li style={{marginBottom: '10px'}}>
-                  <Link to="/careers" style={{color: '#d1d5db', textDecoration: 'none', fontSize: '0.9rem'}}>Careers</Link>
+                <li style={{marginBottom: '8px'}}>
+                  <Link to="/careers" style={{color: '#d1d5db', textDecoration: 'none', fontSize: '0.85rem', transition: 'color 0.3s ease'}}
+                    onMouseEnter={(e) => e.target.style.color = '#ffffff'}
+                    onMouseLeave={(e) => e.target.style.color = '#d1d5db'}>Careers</Link>
                 </li>
-                <li style={{marginBottom: '10px'}}>
-                  <Link to="/contact" style={{color: '#d1d5db', textDecoration: 'none', fontSize: '0.9rem'}}>Contact Us</Link>
+                <li style={{marginBottom: '8px'}}>
+                  <Link to="/contact" style={{color: '#d1d5db', textDecoration: 'none', fontSize: '0.85rem', transition: 'color 0.3s ease'}}
+                    onMouseEnter={(e) => e.target.style.color = '#ffffff'}
+                    onMouseLeave={(e) => e.target.style.color = '#d1d5db'}>Contact Us</Link>
                 </li>
               </ul>
             </div>
 
             {/* Services */}
             <div>
-              <h4 style={{fontSize: '1.2rem', marginBottom: '15px', color: '#f3f4f6'}}>Our Services</h4>
+              <h4 style={{fontSize: '1.1rem', marginBottom: '12px', color: '#f3f4f6', fontWeight: '600'}}>Our Services</h4>
               <ul style={{listStyle: 'none', padding: 0, margin: 0}}>
-                <li style={{marginBottom: '10px'}}>
-                  <Link to="/book" style={{color: '#d1d5db', textDecoration: 'none', fontSize: '0.9rem'}}>Nursing Care</Link>
+                <li style={{marginBottom: '8px'}}>
+                  <Link to="/book" style={{color: '#d1d5db', textDecoration: 'none', fontSize: '0.85rem', transition: 'color 0.3s ease'}}
+                    onMouseEnter={(e) => e.target.style.color = '#ffffff'}
+                    onMouseLeave={(e) => e.target.style.color = '#d1d5db'}>Nursing Care</Link>
                 </li>
-                <li style={{marginBottom: '10px'}}>
-                  <Link to="/book" style={{color: '#d1d5db', textDecoration: 'none', fontSize: '0.9rem'}}>Medical Consultation</Link>
+                <li style={{marginBottom: '8px'}}>
+                  <Link to="/book" style={{color: '#d1d5db', textDecoration: 'none', fontSize: '0.85rem', transition: 'color 0.3s ease'}}
+                    onMouseEnter={(e) => e.target.style.color = '#ffffff'}
+                    onMouseLeave={(e) => e.target.style.color = '#d1d5db'}>Medical Consultation</Link>
                 </li>
-                <li style={{marginBottom: '10px'}}>
-                  <Link to="/book" style={{color: '#d1d5db', textDecoration: 'none', fontSize: '0.9rem'}}>Caregiver Support</Link>
+                <li style={{marginBottom: '8px'}}>
+                  <Link to="/book" style={{color: '#d1d5db', textDecoration: 'none', fontSize: '0.85rem', transition: 'color 0.3s ease'}}
+                    onMouseEnter={(e) => e.target.style.color = '#ffffff'}
+                    onMouseLeave={(e) => e.target.style.color = '#d1d5db'}>Caregiver Support</Link>
                 </li>
-                <li style={{marginBottom: '10px'}}>
-                  <Link to="/book" style={{color: '#d1d5db', textDecoration: 'none', fontSize: '0.9rem'}}>Mobile Health</Link>
+                <li style={{marginBottom: '8px'}}>
+                  <Link to="/book" style={{color: '#d1d5db', textDecoration: 'none', fontSize: '0.85rem', transition: 'color 0.3s ease'}}
+                    onMouseEnter={(e) => e.target.style.color = '#ffffff'}
+                    onMouseLeave={(e) => e.target.style.color = '#d1d5db'}>Mobile Health</Link>
                 </li>
               </ul>
             </div>
 
             {/* Contact Info */}
             <div>
-              <h4 style={{fontSize: '1.2rem', marginBottom: '15px', color: '#f3f4f6'}}>Contact Info</h4>
-              <div style={{fontSize: '0.9rem', color: '#d1d5db', lineHeight: '1.6'}}>
-                <p style={{marginBottom: '10px'}}>📍 Buziga Katuso<br />P.O. Box: 201036 Kampala GPO, Uganda</p>
-                <p style={{marginBottom: '10px'}}>📞 <a href="tel:+256791785931" style={{color: '#d1d5db'}}>+256-791-785931</a></p>
-                <p style={{marginBottom: '10px'}}>✉️ <a href="mailto:qncsolutions3@gmail.com" style={{color: '#d1d5db'}}>qncsolutions3@gmail.com</a></p>
+              <h4 style={{fontSize: '1.1rem', marginBottom: '12px', color: '#f3f4f6', fontWeight: '600'}}>Contact Info</h4>
+              <div style={{fontSize: '0.85rem', color: '#d1d5db', lineHeight: '1.5'}}>
+                <p style={{marginBottom: '8px'}}>📍 Buziga Katuso<br />P.O. Box: 201036 Kampala GPO, Uganda</p>
+                <p style={{marginBottom: '8px'}}>📞 <a href="tel:+256791785931" style={{color: '#d1d5db', textDecoration: 'none'}}>+256-791-785931</a></p>
+                <p style={{marginBottom: '8px'}}>✉️ <a href="mailto:qncsolutions3@gmail.com" style={{color: '#d1d5db', textDecoration: 'none'}}>qncsolutions3@gmail.com</a></p>
               </div>
             </div>
 
             {/* Location Map */}
             <div>
-              <h4 style={{fontSize: '1.2rem', marginBottom: '15px', color: '#f3f4f6'}}>Our Location</h4>
+              <h4 style={{fontSize: '1.1rem', marginBottom: '12px', color: '#f3f4f6', fontWeight: '600'}}>Our Location</h4>
               <div style={{
                 width: '100%',
-                height: '180px',
-                backgroundColor: '#374151',
-                borderRadius: '8px',
+                height: '150px',
+                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                borderRadius: '12px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                border: '2px solid #4b5563'
+                border: '1px solid rgba(255, 255, 255, 0.2)',
+                backdropFilter: 'blur(10px)',
+                overflow: 'hidden'
               }}>
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7520895823944!2d32.6078!3d0.2619!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbc0f9c3b5555%3A0x1234567890abcdef!2sBuziga%2C%20Kampala%2C%20Uganda!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
                   width="100%"
                   height="100%"
-                  style={{border: 0, borderRadius: '8px'}}
+                  style={{border: 0, borderRadius: '12px'}}
                   allowFullScreen=""
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
@@ -462,18 +675,40 @@ function Contact() {
 
           {/* Bottom Bar */}
           <div style={{
-            borderTop: '1px solid #374151',
-            marginTop: '30px',
-            paddingTop: '15px',
+            borderTop: '1px solid rgba(255, 255, 255, 0.2)',
+            marginTop: '25px',
+            paddingTop: '12px',
             textAlign: 'center',
-            fontSize: '0.85rem',
-            color: '#9ca3af'
+            fontSize: '0.8rem',
+            color: '#d1d5db'
           }}>
             <p style={{margin: 0}}>
               © 2026 QNC Solutions. All rights reserved. | Professional Healthcare Services in Uganda
             </p>
           </div>
         </div>
+        
+        {/* Floating elements */}
+        <div style={{
+          position: 'absolute',
+          top: '10%',
+          left: '5%',
+          width: '60px',
+          height: '60px',
+          background: 'rgba(255,255,255,0.05)',
+          borderRadius: '50%',
+          animation: 'float 8s ease-in-out infinite'
+        }}></div>
+        <div style={{
+          position: 'absolute',
+          bottom: '15%',
+          right: '8%',
+          width: '40px',
+          height: '40px',
+          background: 'rgba(245, 158, 11, 0.2)',
+          borderRadius: '50%',
+          animation: 'float 6s ease-in-out infinite reverse'
+        }}></div>
       </section>
     </div>
   )

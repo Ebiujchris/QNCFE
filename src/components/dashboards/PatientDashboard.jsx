@@ -112,7 +112,7 @@ function PatientDashboard({ user }) {
         <h3 style={{marginBottom: '20px', color: '#1f2937'}}>Quick Actions</h3>
         <div style={{display: 'flex', gap: '16px', flexWrap: 'wrap'}}>
           <Link to="/book" className="btn btn-success btn-large">
-            📅 Book New Service
+            📅 Schedule New Service
           </Link>
           <button className="btn btn-outline" onClick={fetchData}>
             🔄 Refresh Data
@@ -142,8 +142,8 @@ function PatientDashboard({ user }) {
           <div style={{textAlign: 'center', padding: '60px 20px'}}>
             <span style={{fontSize: '4rem', display: 'block', marginBottom: '16px'}}>🏥</span>
             <h4 style={{color: '#1f2937', marginBottom: '8px'}}>No bookings yet</h4>
-            <p style={{color: '#6b7280', marginBottom: '24px'}}>Ready to book your first healthcare service?</p>
-            <Link to="/book" className="btn btn-success">Book Your First Service</Link>
+            <p style={{color: '#6b7280', marginBottom: '24px'}}>Ready to schedule your first healthcare service?</p>
+            <Link to="/book" className="btn btn-success">Schedule Your First Service</Link>
           </div>
         ) : (
           <div>
@@ -190,6 +190,19 @@ function PatientDashboard({ user }) {
                         <p><strong>Name:</strong> {booking.assignedProvider.name}</p>
                         <p><strong>Specialization:</strong> {booking.assignedProvider.providerType}</p>
                         <p><strong>Contact:</strong> {booking.assignedProvider.email}</p>
+                        {booking.price && (
+                          <div style={{
+                            marginTop: '12px',
+                            padding: '12px',
+                            backgroundColor: '#ecfdf5',
+                            borderRadius: '6px',
+                            border: '1px solid #d1fae5'
+                          }}>
+                            <p style={{color: '#065f46', fontWeight: '600', fontSize: '1.1rem', margin: 0}}>
+                              💰 Service Price: UGX {parseFloat(booking.price).toLocaleString()}
+                            </p>
+                          </div>
+                        )}
                       </div>
                     )}
                   </div>
@@ -199,8 +212,19 @@ function PatientDashboard({ user }) {
                       {booking.status}
                     </span>
                     
-                    {booking.status === 'assigned' && (
+                    {booking.status === 'assigned' && booking.price && (
                       <div style={{marginTop: '16px'}}>
+                        <div style={{
+                          marginBottom: '12px',
+                          padding: '8px 12px',
+                          backgroundColor: '#fef3c7',
+                          borderRadius: '6px',
+                          border: '1px solid #fbbf24'
+                        }}>
+                          <p style={{color: '#92400e', fontWeight: '500', margin: 0, fontSize: '0.9rem'}}>
+                            💳 Amount to Pay: UGX {parseFloat(booking.price).toLocaleString()}
+                          </p>
+                        </div>
                         <button 
                           onClick={() => markAsPaid(booking.id)}
                           className="btn btn-success"

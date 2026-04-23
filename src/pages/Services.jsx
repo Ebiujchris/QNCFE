@@ -3,542 +3,660 @@ import { useState } from 'react'
 
 function Services() {
   const [expandedService, setExpandedService] = useState(null)
-  const [currentServiceIndex, setCurrentServiceIndex] = useState(0)
 
   const toggleService = (serviceId) => {
     setExpandedService(expandedService === serviceId ? null : serviceId)
-  }
-
-  const services = [
-    {
-      id: 'nursing',
-      icon: '🏥',
-      title: 'Professional Nursing Care',
-      description: 'Certified nurses providing comprehensive home healthcare, medication management, and post-operative support.',
-      features: [
-        'Elderly care and long-term support',
-        'Post-surgical recovery monitoring',
-        'Chronic condition management',
-        'Medication administration'
-      ]
-    },
-    {
-      id: 'consultation',
-      icon: '👨‍⚕️',
-      title: 'General Practice Consultation',
-      description: 'Licensed general practitioners offering medical consultations and health assessments at your home.',
-      features: [
-        'General health assessments',
-        'Vital sign monitoring',
-        'Health education and counseling',
-        'Referral coordination'
-      ]
-    },
-    {
-      id: 'nutrition',
-      icon: '🥗',
-      title: 'Nutritional Services',
-      description: 'Professional nutrition assessment, dietary guidance, and meal planning for optimal health and recovery.',
-      features: [
-        'Nutrition assessment and counseling',
-        'Dietary guidance and meal planning',
-        'Maternal and child nutrition',
-        'Nutritional status monitoring'
-      ]
-    },
-    {
-      id: 'mental-health',
-      icon: '🧠',
-      title: 'Mental Health Support',
-      description: 'Comprehensive mental health and psychosocial support services for emotional wellbeing and counseling.',
-      features: [
-        'Mental health assessments',
-        'Psychosocial support and counseling',
-        'Emotional wellbeing programs',
-        'Crisis intervention support'
-      ]
-    },
-    {
-      id: 'occupational',
-      icon: '🏗️',
-      title: 'Occupational Health',
-      description: 'Workplace health services, safety training, and occupational health assessments for organizations.',
-      features: [
-        'Workplace health assessments',
-        'Safety and first aid training',
-        'Health monitoring and surveillance',
-        'Occupational safety advisory'
-      ]
-    }
-  ]
-
-  const servicesPerPage = 3
-  const totalPages = Math.ceil(services.length / servicesPerPage)
-
-  const nextService = () => {
-    setCurrentServiceIndex((prev) => (prev + 1) % totalPages)
-  }
-
-  const prevService = () => {
-    setCurrentServiceIndex((prev) => (prev - 1 + totalPages) % totalPages)
-  }
-
-  const getCurrentServices = () => {
-    const startIndex = currentServiceIndex * servicesPerPage
-    return services.slice(startIndex, startIndex + servicesPerPage)
   }
   return (
     <div>
       {/* Hero Section */}
       <section className="hero" style={{
-        background: `linear-gradient(rgba(30, 64, 175, 0.8), rgba(124, 45, 18, 0.8)), url('/images/horizontal homepage image put i n the background.avif')`,
+        background: `linear-gradient(135deg, rgba(30, 64, 175, 0.9), rgba(124, 45, 18, 0.8)), url('/images/horizontal homepage image put i n the background.avif')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        padding: '80px 0'
+        padding: '50px 0',
+        position: 'relative',
+        overflow: 'hidden'
       }}>
-        <div className="container">
+        <div className="container" style={{position: 'relative', zIndex: 2}}>
           <div style={{textAlign: 'center', color: 'white'}}>
-            <h1 style={{fontSize: '3rem', fontWeight: '700', marginBottom: '20px'}}>Our Services</h1>
-            <p style={{fontSize: '1.25rem', maxWidth: '800px', margin: '0 auto'}}>
+            <h1 style={{
+              fontSize: '2.5rem', 
+              fontWeight: '700', 
+              marginBottom: '15px',
+              background: 'linear-gradient(135deg, #ffffff, #e0e7ff)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              textShadow: '0 2px 10px rgba(0,0,0,0.3)'
+            }}>Our Services</h1>
+            <p style={{
+              fontSize: '1.1rem', 
+              maxWidth: '600px', 
+              margin: '0 auto',
+              opacity: '0.95',
+              textShadow: '0 1px 3px rgba(0,0,0,0.3)'
+            }}>
               Comprehensive healthcare solutions delivered with professionalism and compassion
             </p>
           </div>
         </div>
-      </section>
-
-      {/* Main Services Carousel */}
-      <section className="container" style={{padding: '30px 0'}}>
-        <div className="services-carousel-container" style={{position: 'relative', maxWidth: '1200px', margin: '0 auto', padding: '0 60px'}}>
-          {/* Navigation Arrows */}
-          <button
-            className="services-carousel-nav"
-            onClick={prevService}
-            style={{
-              position: 'absolute',
-              left: '10px',
-              top: '50%',
-              transform: 'translateY(-50%)',
-              background: 'var(--primary-blue)',
-              color: 'white',
-              border: 'none',
-              borderRadius: '50%',
-              width: '40px',
-              height: '40px',
-              cursor: 'pointer',
-              fontSize: '18px',
-              zIndex: 10,
-              boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
-              transition: 'all 0.2s ease',
-              display: totalPages > 1 ? 'flex' : 'none',
-              alignItems: 'center',
-              justifyContent: 'center'
-            }}
-            onMouseOver={(e) => e.target.style.background = 'var(--primary-maroon)'}
-            onMouseOut={(e) => e.target.style.background = 'var(--primary-blue)'}
-          >
-            ‹
-          </button>
-
-          <button
-            className="services-carousel-nav"
-            onClick={nextService}
-            style={{
-              position: 'absolute',
-              right: '10px',
-              top: '50%',
-              transform: 'translateY(-50%)',
-              background: 'var(--primary-blue)',
-              color: 'white',
-              border: 'none',
-              borderRadius: '50%',
-              width: '40px',
-              height: '40px',
-              cursor: 'pointer',
-              fontSize: '18px',
-              zIndex: 10,
-              boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
-              transition: 'all 0.2s ease',
-              display: totalPages > 1 ? 'flex' : 'none',
-              alignItems: 'center',
-              justifyContent: 'center'
-            }}
-            onMouseOver={(e) => e.target.style.background = 'var(--primary-maroon)'}
-            onMouseOut={(e) => e.target.style.background = 'var(--primary-blue)'}
-          >
-            ›
-          </button>
-
-          {/* Service Cards Grid */}
-          <div style={{
-            display: 'grid', 
-            gridTemplateColumns: `repeat(${getCurrentServices().length}, 1fr)`, 
-            gap: '20px',
-            transition: 'all 0.3s ease'
-          }}>
-            {getCurrentServices().map((service, index) => (
-              <div key={service.id} className="card service-card card-elevated services-carousel-card" style={{padding: '30px', textAlign: 'center'}}>
-                <span style={{fontSize: '3.5rem', marginBottom: '15px', display: 'block'}}>
-                  {service.icon}
-                </span>
-                <h3 style={{color: '#1f2937', marginBottom: '12px', fontSize: '1.3rem'}}>
-                  {service.title}
-                </h3>
-                <p style={{color: '#6b7280', marginBottom: '15px', lineHeight: '1.5', fontSize: '0.9rem'}}>
-                  {service.description}
-                </p>
-                <ul style={{textAlign: 'left', color: '#6b7280', fontSize: '0.8rem', marginBottom: '20px', paddingLeft: '20px'}}>
-                  {service.features.map((feature, featureIndex) => (
-                    <li key={featureIndex}>{feature}</li>
-                  ))}
-                </ul>
-                <Link to="/book" className="btn btn-primary" style={{fontSize: '0.85rem', padding: '10px 16px'}}>
-                  Book {service.title.split(' ')[0]}
-                </Link>
-              </div>
-            ))}
-          </div>
-
-          {/* Carousel Indicators */}
-          {totalPages > 1 && (
-            <div style={{display: 'flex', justifyContent: 'center', gap: '8px', marginTop: '20px'}}>
-              {Array.from({length: totalPages}).map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentServiceIndex(index)}
-                  style={{
-                    width: '12px',
-                    height: '12px',
-                    borderRadius: '50%',
-                    border: 'none',
-                    background: index === currentServiceIndex ? 'var(--primary-blue)' : '#d1d5db',
-                    cursor: 'pointer',
-                    transition: 'all 0.2s ease'
-                  }}
-                />
-              ))}
-            </div>
-          )}
-        </div>
+        {/* Floating elements */}
+        <div style={{
+          position: 'absolute',
+          top: '20%',
+          left: '10%',
+          width: '100px',
+          height: '100px',
+          background: 'rgba(255,255,255,0.1)',
+          borderRadius: '50%',
+          animation: 'float 6s ease-in-out infinite'
+        }}></div>
+        <div style={{
+          position: 'absolute',
+          bottom: '20%',
+          right: '15%',
+          width: '80px',
+          height: '80px',
+          background: 'rgba(16, 185, 129, 0.2)',
+          borderRadius: '50%',
+          animation: 'float 8s ease-in-out infinite reverse'
+        }}></div>
       </section>
 
       {/* Comprehensive Services */}
-      <section style={{backgroundColor: '#f8fafc', padding: '30px 0'}}>
+      <section style={{
+        background: 'linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)',
+        padding: '40px 0',
+        position: 'relative'
+      }}>
         <div className="container">
-          <h2 style={{textAlign: 'center', fontSize: '2rem', fontWeight: '700', color: 'var(--primary-blue)', marginBottom: '30px'}}>
+          <h2 style={{
+            textAlign: 'center', 
+            fontSize: '2rem', 
+            fontWeight: '700', 
+            color: 'var(--primary-blue)', 
+            marginBottom: '30px',
+            textShadow: '0 2px 4px rgba(0,0,0,0.1)'
+          }}>
             Our Comprehensive Services
           </h2>
 
-          {/* Bedside Nursing */}
-          <div className="service-section" style={{marginBottom: '25px'}}>
-            <div className="card card-elevated" style={{padding: '25px'}}>
-              <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px', alignItems: 'center'}}>
-                <div>
-                  <h3 style={{color: '#10b981', fontSize: '1.5rem', marginBottom: '15px', display: 'flex', alignItems: 'center', gap: '10px'}}>
-                    🏥 BEDSIDE NURSING & HOME-BASED CARE SERVICES
-                  </h3>
-                  <p style={{fontSize: '0.95rem', lineHeight: '1.5', color: '#374151', marginBottom: '15px'}}>
-                    QNC offers professional home-based nursing care that ensures patients receive quality support in the comfort of their homes 
-                    while maintaining continuity of care beyond health facilities.
-                  </p>
-                  
-                  {expandedService === 'bedside' && (
-                    <ul style={{fontSize: '0.9rem', lineHeight: '1.6', color: '#4b5563', paddingLeft: '20px', marginBottom: '15px'}}>
-                      <li>Elderly care and long-term support</li>
-                      <li>Post-surgical care and recovery monitoring</li>
-                      <li>Post-delivery and postnatal care for mothers and newborns</li>
-                      <li>Palliative and chronic care support</li>
-                      <li>Physiotherapy and rehabilitation services</li>
-                      <li>Bedside nursing and continuous patient monitoring</li>
-                      <li>Mental health and psychosocial support, including emotional care and counselling for patients and caregivers</li>
-                    </ul>
-                  )}
-                  
-                  <div style={{display: 'flex', gap: '15px', alignItems: 'center', flexWrap: 'wrap'}}>
-                    <button 
-                      onClick={() => toggleService('bedside')}
-                      style={{
-                        background: 'none',
-                        border: 'none',
-                        color: 'var(--primary-blue)',
-                        fontSize: '0.9rem',
-                        fontWeight: '600',
-                        cursor: 'pointer',
-                        textDecoration: 'underline',
-                        padding: '0'
-                      }}
-                    >
-                      {expandedService === 'bedside' ? 'Read Less' : 'Read More'}
-                    </button>
-                    <Link to="/book" className="btn btn-primary" style={{fontSize: '0.85rem', padding: '8px 16px'}}>
-                      Book This Service
-                    </Link>
-                  </div>
-                </div>
-                <div style={{textAlign: 'center'}}>
-                  <img 
-                    src="/images/bedside nursing pic.jpg" 
-                    alt="Bedside Nursing Care" 
-                    style={{
-                      width: '100%', 
-                      maxWidth: '350px', 
-                      height: '250px', 
-                      objectFit: 'cover', 
-                      borderRadius: '12px',
-                      boxShadow: '0 10px 25px rgba(0,0,0,0.1)'
-                    }} 
-                  />
-                </div>
+          {/* 2x2 Grid for Main Services */}
+          <div style={{
+            display: 'grid', 
+            gridTemplateColumns: 'repeat(auto-fit, minmax(450px, 1fr))', 
+            gap: '20px', 
+            marginBottom: '30px'
+          }}>
+            {/* Bedside Nursing */}
+            <div style={{
+              background: 'rgba(255, 255, 255, 0.25)',
+              backdropFilter: 'blur(10px)',
+              border: '1px solid rgba(255, 255, 255, 0.3)',
+              borderRadius: '16px',
+              padding: '20px',
+              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
+              transition: 'all 0.3s ease',
+              cursor: 'pointer'
+            }}
+            className="glass-card"
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'translateY(-5px)';
+              e.currentTarget.style.boxShadow = '0 12px 40px rgba(0, 0, 0, 0.15)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.1)';
+            }}>
+              <div style={{textAlign: 'center', marginBottom: '15px'}}>
+                <img 
+                  src="/images/bedside nursing pic.jpg" 
+                  alt="Bedside Nursing Care" 
+                  style={{
+                    width: '100%', 
+                    height: '160px', 
+                    objectFit: 'cover', 
+                    borderRadius: '12px',
+                    boxShadow: '0 4px 15px rgba(0,0,0,0.2)'
+                  }} 
+                />
+              </div>
+              <h3 style={{
+                color: '#10b981', 
+                fontSize: '1.1rem', 
+                marginBottom: '10px', 
+                display: 'flex', 
+                alignItems: 'center', 
+                gap: '8px',
+                fontWeight: '600'
+              }}>
+                🏥 BEDSIDE NURSING & HOME-BASED CARE
+              </h3>
+              <p style={{fontSize: '0.85rem', lineHeight: '1.4', color: '#374151', marginBottom: '12px'}}>
+                Professional home-based nursing care ensuring quality support in the comfort of your home.
+              </p>
+              
+              {expandedService === 'bedside' && (
+                <ul style={{fontSize: '0.8rem', lineHeight: '1.4', color: '#4b5563', paddingLeft: '16px', marginBottom: '12px'}}>
+                  <li>Elderly care and long-term support</li>
+                  <li>Post-surgical care and recovery monitoring</li>
+                  <li>Post-delivery and postnatal care</li>
+                  <li>Palliative and chronic care support</li>
+                  <li>Physiotherapy and rehabilitation services</li>
+                  <li>Mental health and psychosocial support</li>
+                </ul>
+              )}
+              
+              <div style={{display: 'flex', gap: '10px', alignItems: 'center', flexWrap: 'wrap'}}>
+                <button 
+                  onClick={() => toggleService('bedside')}
+                  style={{
+                    background: 'rgba(30, 64, 175, 0.1)',
+                    border: '1px solid rgba(30, 64, 175, 0.3)',
+                    borderRadius: '20px',
+                    color: 'var(--primary-blue)',
+                    fontSize: '0.8rem',
+                    fontWeight: '600',
+                    cursor: 'pointer',
+                    padding: '6px 12px',
+                    transition: 'all 0.3s ease'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.background = 'rgba(30, 64, 175, 0.2)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.background = 'rgba(30, 64, 175, 0.1)';
+                  }}
+                >
+                  {expandedService === 'bedside' ? 'Read Less' : 'Read More'}
+                </button>
+                <Link to="/book" style={{
+                  background: 'linear-gradient(135deg, #10b981, #059669)',
+                  color: 'white',
+                  textDecoration: 'none',
+                  fontSize: '0.8rem',
+                  padding: '6px 12px',
+                  borderRadius: '20px',
+                  fontWeight: '600',
+                  transition: 'all 0.3s ease',
+                  boxShadow: '0 2px 8px rgba(16, 185, 129, 0.3)'
+                }}>
+                  Schedule Service
+                </Link>
               </div>
             </div>
-          </div>
 
-          {/* Field Medical Support */}
-          <div className="service-section" style={{marginBottom: '25px'}}>
-            <div className="card card-elevated" style={{padding: '25px'}}>
-              <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px', alignItems: 'center'}}>
-                <div style={{textAlign: 'center'}}>
-                  <img 
-                    src="/images/medical services pic.jpg" 
-                    alt="Field Medical Support Services" 
-                    style={{
-                      width: '100%', 
-                      maxWidth: '350px', 
-                      height: '250px', 
-                      objectFit: 'cover', 
-                      borderRadius: '12px',
-                      boxShadow: '0 10px 25px rgba(0,0,0,0.1)'
-                    }} 
-                  />
-                </div>
-                <div>
-                  <h3 style={{color: '#10b981', fontSize: '1.5rem', marginBottom: '15px', display: 'flex', alignItems: 'center', gap: '10px'}}>
-                    🚑 FIELD MEDICAL SUPPORT SERVICES
-                  </h3>
-                  <p style={{fontSize: '0.95rem', lineHeight: '1.5', color: '#374151', marginBottom: '15px'}}>
-                    QNC delivers integrated Field Medical Support Services for construction projects, industrial operations, and remote assignments, 
-                    ensuring compliance with occupational health, safety, and community health standards.
-                  </p>
-                  
-                  {expandedService === 'field' && (
-                    <ul style={{fontSize: '0.9rem', lineHeight: '1.6', color: '#4b5563', paddingLeft: '20px', marginBottom: '15px'}}>
-                      <li>Deployment of multidisciplinary field teams, including qualified site nurses and technical experts</li>
-                      <li>On-site first aid and emergency medical response</li>
-                      <li>Safety and First Aid training</li>
-                      <li>Health monitoring and medical surveillance of workers</li>
-                      <li>Occupational health and safety advisory and support services</li>
-                      <li>Mental health and psychosocial support (MHPSS)</li>
-                    </ul>
-                  )}
-                  
-                  <div style={{display: 'flex', gap: '15px', alignItems: 'center', flexWrap: 'wrap'}}>
-                    <button 
-                      onClick={() => toggleService('field')}
-                      style={{
-                        background: 'none',
-                        border: 'none',
-                        color: 'var(--primary-blue)',
-                        fontSize: '0.9rem',
-                        fontWeight: '600',
-                        cursor: 'pointer',
-                        textDecoration: 'underline',
-                        padding: '0'
-                      }}
-                    >
-                      {expandedService === 'field' ? 'Read Less' : 'Read More'}
-                    </button>
-                    <Link to="/book" className="btn btn-primary" style={{fontSize: '0.85rem', padding: '8px 16px'}}>
-                      Book This Service
-                    </Link>
-                  </div>
-                </div>
+            {/* Field Medical Support */}
+            <div style={{
+              background: 'rgba(255, 255, 255, 0.25)',
+              backdropFilter: 'blur(10px)',
+              border: '1px solid rgba(255, 255, 255, 0.3)',
+              borderRadius: '16px',
+              padding: '20px',
+              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
+              transition: 'all 0.3s ease',
+              cursor: 'pointer'
+            }}
+            className="glass-card"
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'translateY(-5px)';
+              e.currentTarget.style.boxShadow = '0 12px 40px rgba(0, 0, 0, 0.15)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.1)';
+            }}>
+              <div style={{textAlign: 'center', marginBottom: '15px'}}>
+                <img 
+                  src="/images/medical services pic.jpg" 
+                  alt="Field Medical Support Services" 
+                  style={{
+                    width: '100%', 
+                    height: '160px', 
+                    objectFit: 'cover', 
+                    borderRadius: '12px',
+                    boxShadow: '0 4px 15px rgba(0,0,0,0.2)'
+                  }} 
+                />
+              </div>
+              <h3 style={{
+                color: '#10b981', 
+                fontSize: '1.1rem', 
+                marginBottom: '10px', 
+                display: 'flex', 
+                alignItems: 'center', 
+                gap: '8px',
+                fontWeight: '600'
+              }}>
+                🚑 FIELD MEDICAL SUPPORT SERVICES
+              </h3>
+              <p style={{fontSize: '0.85rem', lineHeight: '1.4', color: '#374151', marginBottom: '12px'}}>
+                Integrated medical support for construction projects, industrial operations, and remote assignments.
+              </p>
+              
+              {expandedService === 'field' && (
+                <ul style={{fontSize: '0.8rem', lineHeight: '1.4', color: '#4b5563', paddingLeft: '16px', marginBottom: '12px'}}>
+                  <li>Deployment of multidisciplinary field teams</li>
+                  <li>On-site first aid and emergency response</li>
+                  <li>Safety and First Aid training</li>
+                  <li>Health monitoring and medical surveillance</li>
+                  <li>Occupational health and safety advisory</li>
+                  <li>Mental health and psychosocial support</li>
+                </ul>
+              )}
+              
+              <div style={{display: 'flex', gap: '10px', alignItems: 'center', flexWrap: 'wrap'}}>
+                <button 
+                  onClick={() => toggleService('field')}
+                  style={{
+                    background: 'rgba(30, 64, 175, 0.1)',
+                    border: '1px solid rgba(30, 64, 175, 0.3)',
+                    borderRadius: '20px',
+                    color: 'var(--primary-blue)',
+                    fontSize: '0.8rem',
+                    fontWeight: '600',
+                    cursor: 'pointer',
+                    padding: '6px 12px',
+                    transition: 'all 0.3s ease'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.background = 'rgba(30, 64, 175, 0.2)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.background = 'rgba(30, 64, 175, 0.1)';
+                  }}
+                >
+                  {expandedService === 'field' ? 'Read Less' : 'Read More'}
+                </button>
+                <Link to="/book" style={{
+                  background: 'linear-gradient(135deg, #10b981, #059669)',
+                  color: 'white',
+                  textDecoration: 'none',
+                  fontSize: '0.8rem',
+                  padding: '6px 12px',
+                  borderRadius: '20px',
+                  fontWeight: '600',
+                  transition: 'all 0.3s ease',
+                  boxShadow: '0 2px 8px rgba(16, 185, 129, 0.3)'
+                }}>
+                  Schedule Service
+                </Link>
               </div>
             </div>
-          </div>
 
-          {/* Nutrition Support */}
-          <div className="service-section" style={{marginBottom: '25px'}}>
-            <div className="card card-elevated" style={{padding: '25px'}}>
-              <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px', alignItems: 'center'}}>
-                <div>
-                  <h3 style={{color: '#10b981', fontSize: '1.5rem', marginBottom: '15px', display: 'flex', alignItems: 'center', gap: '10px'}}>
-                    🥗 NUTRITION SUPPORT SERVICES
-                  </h3>
-                  <p style={{fontSize: '0.95rem', lineHeight: '1.5', color: '#374151', marginBottom: '15px'}}>
-                    QNC provides integrated nutrition support services as part of holistic patient care, promoting recovery, improved health outcomes, 
-                    and overall wellbeing across all life stages.
-                  </p>
-                  
-                  {expandedService === 'nutrition' && (
-                    <ul style={{fontSize: '0.9rem', lineHeight: '1.6', color: '#4b5563', paddingLeft: '20px', marginBottom: '15px'}}>
-                      <li>Nutrition assessment and individualized lifestyle counselling</li>
-                      <li>Dietary guidance and meal planning</li>
-                      <li>Nutrition support for post-surgical and recovering patients</li>
-                      <li>Maternal and child nutrition counselling</li>
-                      <li>Monitoring and evaluation of nutritional status as part of ongoing care</li>
-                      <li>Nutrition-related psychosocial support to encourage healthy behaviours and adherence</li>
-                    </ul>
-                  )}
-                  
-                  <div style={{display: 'flex', gap: '15px', alignItems: 'center', flexWrap: 'wrap'}}>
-                    <button 
-                      onClick={() => toggleService('nutrition')}
-                      style={{
-                        background: 'none',
-                        border: 'none',
-                        color: 'var(--primary-blue)',
-                        fontSize: '0.9rem',
-                        fontWeight: '600',
-                        cursor: 'pointer',
-                        textDecoration: 'underline',
-                        padding: '0'
-                      }}
-                    >
-                      {expandedService === 'nutrition' ? 'Read Less' : 'Read More'}
-                    </button>
-                    <Link to="/book" className="btn btn-primary" style={{fontSize: '0.85rem', padding: '8px 16px'}}>
-                      Book This Service
-                    </Link>
-                  </div>
-                </div>
-                <div style={{textAlign: 'center'}}>
-                  <img 
-                    src="/images/nutrition pic.jpg" 
-                    alt="Nutrition Support Services" 
-                    style={{
-                      width: '100%', 
-                      maxWidth: '350px', 
-                      height: '250px', 
-                      objectFit: 'cover', 
-                      borderRadius: '12px',
-                      boxShadow: '0 10px 25px rgba(0,0,0,0.1)'
-                    }} 
-                  />
-                </div>
+            {/* Nutrition Support */}
+            <div style={{
+              background: 'rgba(255, 255, 255, 0.25)',
+              backdropFilter: 'blur(10px)',
+              border: '1px solid rgba(255, 255, 255, 0.3)',
+              borderRadius: '16px',
+              padding: '20px',
+              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
+              transition: 'all 0.3s ease',
+              cursor: 'pointer'
+            }}
+            className="glass-card"
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'translateY(-5px)';
+              e.currentTarget.style.boxShadow = '0 12px 40px rgba(0, 0, 0, 0.15)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.1)';
+            }}>
+              <div style={{textAlign: 'center', marginBottom: '15px'}}>
+                <img 
+                  src="/images/nutrition pic.jpg" 
+                  alt="Nutrition Support Services" 
+                  style={{
+                    width: '100%', 
+                    height: '160px', 
+                    objectFit: 'cover', 
+                    borderRadius: '12px',
+                    boxShadow: '0 4px 15px rgba(0,0,0,0.2)'
+                  }} 
+                />
+              </div>
+              <h3 style={{
+                color: '#10b981', 
+                fontSize: '1.1rem', 
+                marginBottom: '10px', 
+                display: 'flex', 
+                alignItems: 'center', 
+                gap: '8px',
+                fontWeight: '600'
+              }}>
+                🥗 NUTRITION SUPPORT SERVICES
+              </h3>
+              <p style={{fontSize: '0.85rem', lineHeight: '1.4', color: '#374151', marginBottom: '12px'}}>
+                Integrated nutrition support promoting recovery, improved health outcomes, and overall wellbeing.
+              </p>
+              
+              {expandedService === 'nutrition' && (
+                <ul style={{fontSize: '0.8rem', lineHeight: '1.4', color: '#4b5563', paddingLeft: '16px', marginBottom: '12px'}}>
+                  <li>Nutrition assessment and lifestyle counselling</li>
+                  <li>Dietary guidance and meal planning</li>
+                  <li>Post-surgical nutrition support</li>
+                  <li>Maternal and child nutrition counselling</li>
+                  <li>Nutritional status monitoring</li>
+                  <li>Psychosocial support for healthy behaviors</li>
+                </ul>
+              )}
+              
+              <div style={{display: 'flex', gap: '10px', alignItems: 'center', flexWrap: 'wrap'}}>
+                <button 
+                  onClick={() => toggleService('nutrition')}
+                  style={{
+                    background: 'rgba(30, 64, 175, 0.1)',
+                    border: '1px solid rgba(30, 64, 175, 0.3)',
+                    borderRadius: '20px',
+                    color: 'var(--primary-blue)',
+                    fontSize: '0.8rem',
+                    fontWeight: '600',
+                    cursor: 'pointer',
+                    padding: '6px 12px',
+                    transition: 'all 0.3s ease'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.background = 'rgba(30, 64, 175, 0.2)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.background = 'rgba(30, 64, 175, 0.1)';
+                  }}
+                >
+                  {expandedService === 'nutrition' ? 'Read Less' : 'Read More'}
+                </button>
+                <Link to="/book" style={{
+                  background: 'linear-gradient(135deg, #10b981, #059669)',
+                  color: 'white',
+                  textDecoration: 'none',
+                  fontSize: '0.8rem',
+                  padding: '6px 12px',
+                  borderRadius: '20px',
+                  fontWeight: '600',
+                  transition: 'all 0.3s ease',
+                  boxShadow: '0 2px 8px rgba(16, 185, 129, 0.3)'
+                }}>
+                  Schedule Service
+                </Link>
               </div>
             </div>
-          </div>
 
-          {/* Research Services */}
-          <div className="service-section" style={{marginBottom: '25px'}}>
-            <div className="card card-elevated" style={{padding: '25px'}}>
-              <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px', alignItems: 'center'}}>
-                <div style={{textAlign: 'center'}}>
-                  <img 
-                    src="/images/social medical research pic.jpg" 
-                    alt="Social and Medical Research" 
-                    style={{
-                      width: '100%', 
-                      maxWidth: '350px', 
-                      height: '250px', 
-                      objectFit: 'cover', 
-                      borderRadius: '12px',
-                      boxShadow: '0 10px 25px rgba(0,0,0,0.1)'
-                    }} 
-                  />
-                </div>
-                <div>
-                  <h3 style={{color: '#10b981', fontSize: '1.5rem', marginBottom: '15px', display: 'flex', alignItems: 'center', gap: '10px'}}>
-                    📊 SOCIAL AND MEDICAL RESEARCH
-                  </h3>
-                  <p style={{fontSize: '0.95rem', lineHeight: '1.5', color: '#374151', marginBottom: '15px'}}>
-                    QNC Solutions Ltd provides Project Evaluation and Research Services to support evidence-based planning, performance monitoring, 
-                    safeguard compliance, and learning across health, infrastructure, and community development projects.
+            {/* Research Services */}
+            <div style={{
+              background: 'rgba(255, 255, 255, 0.25)',
+              backdropFilter: 'blur(10px)',
+              border: '1px solid rgba(255, 255, 255, 0.3)',
+              borderRadius: '16px',
+              padding: '20px',
+              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
+              transition: 'all 0.3s ease',
+              cursor: 'pointer'
+            }}
+            className="glass-card"
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'translateY(-5px)';
+              e.currentTarget.style.boxShadow = '0 12px 40px rgba(0, 0, 0, 0.15)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.1)';
+            }}>
+              <div style={{textAlign: 'center', marginBottom: '15px'}}>
+                <img 
+                  src="/images/social medical research pic.jpg" 
+                  alt="Social and Medical Research" 
+                  style={{
+                    width: '100%', 
+                    height: '160px', 
+                    objectFit: 'cover', 
+                    borderRadius: '12px',
+                    boxShadow: '0 4px 15px rgba(0,0,0,0.2)'
+                  }} 
+                />
+              </div>
+              <h3 style={{
+                color: '#10b981', 
+                fontSize: '1.1rem', 
+                marginBottom: '10px', 
+                display: 'flex', 
+                alignItems: 'center', 
+                gap: '8px',
+                fontWeight: '600'
+              }}>
+                📊 SOCIAL AND MEDICAL RESEARCH
+              </h3>
+              <p style={{fontSize: '0.85rem', lineHeight: '1.4', color: '#374151', marginBottom: '12px'}}>
+                Project evaluation and research services supporting evidence-based planning and performance monitoring.
+              </p>
+              
+              {expandedService === 'research' && (
+                <div style={{fontSize: '0.8rem', lineHeight: '1.4', color: '#4b5563', marginBottom: '12px'}}>
+                  <p style={{marginBottom: '6px'}}>
+                    Services include baseline, mid-term, and end-line evaluations; health and social impact assessments; community surveys.
                   </p>
-                  
-                  {expandedService === 'research' && (
-                    <>
-                      <p style={{fontSize: '0.9rem', lineHeight: '1.6', color: '#4b5563', marginBottom: '10px'}}>
-                        Services include baseline, mid-term, and end-line evaluations; health and social impact assessments; community and workforce surveys; 
-                        and qualitative and mixed-methods research in project sites and affected communities.
-                      </p>
-                      <p style={{fontSize: '0.9rem', lineHeight: '1.6', color: '#4b5563', marginBottom: '15px'}}>
-                        <strong>Key thematic areas include:</strong> occupational and community health, mental health and psychosocial wellbeing, 
-                        SRHR and HIV/AIDS, GBV and SEA/SH risk assessment, child protection, nutrition, road safety, and occupational health and safety.
-                      </p>
-                    </>
-                  )}
-                  
-                  <div style={{display: 'flex', gap: '15px', alignItems: 'center', flexWrap: 'wrap'}}>
-                    <button 
-                      onClick={() => toggleService('research')}
-                      style={{
-                        background: 'none',
-                        border: 'none',
-                        color: 'var(--primary-blue)',
-                        fontSize: '0.9rem',
-                        fontWeight: '600',
-                        cursor: 'pointer',
-                        textDecoration: 'underline',
-                        padding: '0'
-                      }}
-                    >
-                      {expandedService === 'research' ? 'Read Less' : 'Read More'}
-                    </button>
-                    <Link to="/book" className="btn btn-primary" style={{fontSize: '0.85rem', padding: '8px 16px'}}>
-                      Book This Service
-                    </Link>
-                  </div>
+                  <p>
+                    <strong>Key areas:</strong> occupational health, mental health, SRHR, GBV assessment, child protection, nutrition, road safety.
+                  </p>
                 </div>
+              )}
+              
+              <div style={{display: 'flex', gap: '10px', alignItems: 'center', flexWrap: 'wrap'}}>
+                <button 
+                  onClick={() => toggleService('research')}
+                  style={{
+                    background: 'rgba(30, 64, 175, 0.1)',
+                    border: '1px solid rgba(30, 64, 175, 0.3)',
+                    borderRadius: '20px',
+                    color: 'var(--primary-blue)',
+                    fontSize: '0.8rem',
+                    fontWeight: '600',
+                    cursor: 'pointer',
+                    padding: '6px 12px',
+                    transition: 'all 0.3s ease'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.background = 'rgba(30, 64, 175, 0.2)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.background = 'rgba(30, 64, 175, 0.1)';
+                  }}
+                >
+                  {expandedService === 'research' ? 'Read Less' : 'Read More'}
+                </button>
+                <Link to="/book" style={{
+                  background: 'linear-gradient(135deg, #10b981, #059669)',
+                  color: 'white',
+                  textDecoration: 'none',
+                  fontSize: '0.8rem',
+                  padding: '6px 12px',
+                  borderRadius: '20px',
+                  fontWeight: '600',
+                  transition: 'all 0.3s ease',
+                  boxShadow: '0 2px 8px rgba(16, 185, 129, 0.3)'
+                }}>
+                  Schedule Service
+                </Link>
               </div>
             </div>
           </div>
 
           {/* Mobile Health */}
-          <div className="service-section" style={{marginBottom: '25px'}}>
-            <div className="card card-elevated" style={{padding: '25px'}}>
-              <h3 style={{color: '#10b981', fontSize: '1.5rem', marginBottom: '15px', display: 'flex', alignItems: 'center', gap: '10px', justifyContent: 'center'}}>
-                📱 MOBILE HEALTH SERVICES
-              </h3>
-              <p style={{fontSize: '0.95rem', lineHeight: '1.5', color: '#374151', marginBottom: '15px', textAlign: 'center'}}>
-                QNC's Mobile Health Services extend professional healthcare to communities, workplaces, homes, and remote locations, 
-                improving access to essential services and continuity of care.
-              </p>
-              
-              {expandedService === 'mobile' && (
-                <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px', marginTop: '20px', marginBottom: '15px'}}>
-                  <div>
-                    <h4 style={{color: '#059669', marginBottom: '10px', fontSize: '1.1rem'}}>Core Services:</h4>
-                    <ul style={{fontSize: '0.9rem', lineHeight: '1.6', color: '#4b5563', paddingLeft: '20px'}}>
-                      <li>Medication and drug administration as prescribed</li>
-                      <li>Patient assessment, monitoring, and follow-up care</li>
-                      <li>Vital sign monitoring (blood pressure, temperature, pulse, respiration, oxygen saturation)</li>
-                      <li>Counseling, health education, and psychosocial support</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 style={{color: '#059669', marginBottom: '10px', fontSize: '1.1rem'}}>Specialized Support:</h4>
-                    <ul style={{fontSize: '0.9rem', lineHeight: '1.6', color: '#4b5563', paddingLeft: '20px'}}>
-                      <li>Chronic condition management and adherence support</li>
-                      <li>Referral and coordination with healthcare facilities</li>
-                      <li>Community-based mental health and psychosocial support (MHPSS) and referrals</li>
-                    </ul>
-                  </div>
+          <div style={{
+            background: 'rgba(255, 255, 255, 0.3)',
+            backdropFilter: 'blur(15px)',
+            border: '1px solid rgba(255, 255, 255, 0.4)',
+            borderRadius: '20px',
+            padding: '25px',
+            boxShadow: '0 12px 40px rgba(0, 0, 0, 0.15)',
+            transition: 'all 0.3s ease',
+            marginBottom: '20px'
+          }}
+          className="glass-card"
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = 'translateY(-3px)';
+            e.currentTarget.style.boxShadow = '0 16px 50px rgba(0, 0, 0, 0.2)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = 'translateY(0)';
+            e.currentTarget.style.boxShadow = '0 12px 40px rgba(0, 0, 0, 0.15)';
+          }}>
+            <h3 style={{
+              color: '#10b981', 
+              fontSize: '1.3rem', 
+              marginBottom: '15px', 
+              display: 'flex', 
+              alignItems: 'center', 
+              gap: '10px', 
+              justifyContent: 'center',
+              fontWeight: '700'
+            }}>
+              📱 MOBILE HEALTH SERVICES
+            </h3>
+            <p style={{fontSize: '0.9rem', lineHeight: '1.4', color: '#374151', marginBottom: '15px', textAlign: 'center'}}>
+              Professional healthcare extending to communities, workplaces, homes, and remote locations.
+            </p>
+            
+            {expandedService === 'mobile' && (
+              <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', marginTop: '20px', marginBottom: '15px'}}>
+                <div style={{
+                  background: 'rgba(16, 185, 129, 0.1)',
+                  borderRadius: '12px',
+                  padding: '15px',
+                  border: '1px solid rgba(16, 185, 129, 0.2)'
+                }}>
+                  <h4 style={{color: '#059669', marginBottom: '10px', fontSize: '1rem', fontWeight: '600'}}>Core Services:</h4>
+                  <ul style={{fontSize: '0.85rem', lineHeight: '1.5', color: '#4b5563', paddingLeft: '18px'}}>
+                    <li>Medication and drug administration</li>
+                    <li>Patient assessment and monitoring</li>
+                    <li>Vital sign monitoring</li>
+                    <li>Health education and counseling</li>
+                  </ul>
                 </div>
-              )}
-              
-              <div style={{display: 'flex', gap: '15px', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap'}}>
-                <button 
-                  onClick={() => toggleService('mobile')}
-                  style={{
-                    background: 'none',
-                    border: 'none',
-                    color: 'var(--primary-blue)',
-                    fontSize: '0.9rem',
-                    fontWeight: '600',
-                    cursor: 'pointer',
-                    textDecoration: 'underline',
-                    padding: '0'
-                  }}
-                >
-                  {expandedService === 'mobile' ? 'Read Less' : 'Read More'}
-                </button>
-                <Link to="/book" className="btn btn-primary" style={{fontSize: '0.85rem', padding: '8px 16px'}}>
-                  Book This Service
-                </Link>
+                <div style={{
+                  background: 'rgba(30, 64, 175, 0.1)',
+                  borderRadius: '12px',
+                  padding: '15px',
+                  border: '1px solid rgba(30, 64, 175, 0.2)'
+                }}>
+                  <h4 style={{color: 'var(--primary-blue)', marginBottom: '10px', fontSize: '1rem', fontWeight: '600'}}>Specialized Support:</h4>
+                  <ul style={{fontSize: '0.85rem', lineHeight: '1.5', color: '#4b5563', paddingLeft: '18px'}}>
+                    <li>Chronic condition management</li>
+                    <li>Healthcare facility coordination</li>
+                    <li>Mental health and psychosocial support</li>
+                  </ul>
+                </div>
               </div>
+            )}
+            
+            <div style={{display: 'flex', gap: '15px', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap'}}>
+              <button 
+                onClick={() => toggleService('mobile')}
+                style={{
+                  background: 'rgba(30, 64, 175, 0.1)',
+                  border: '1px solid rgba(30, 64, 175, 0.3)',
+                  borderRadius: '25px',
+                  color: 'var(--primary-blue)',
+                  fontSize: '0.85rem',
+                  fontWeight: '600',
+                  cursor: 'pointer',
+                  padding: '8px 16px',
+                  transition: 'all 0.3s ease'
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.background = 'rgba(30, 64, 175, 0.2)';
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.background = 'rgba(30, 64, 175, 0.1)';
+                }}
+              >
+                {expandedService === 'mobile' ? 'Read Less' : 'Read More'}
+              </button>
+              <Link to="/book" style={{
+                background: 'linear-gradient(135deg, #10b981, #059669)',
+                color: 'white',
+                textDecoration: 'none',
+                fontSize: '0.85rem',
+                padding: '8px 16px',
+                borderRadius: '25px',
+                fontWeight: '600',
+                transition: 'all 0.3s ease',
+                boxShadow: '0 4px 12px rgba(16, 185, 129, 0.3)'
+              }}>
+                Schedule Service
+              </Link>
             </div>
           </div>
         </div>
+      </section>
+
+      {/* Call to Action */}
+      <section style={{
+        background: 'linear-gradient(135deg, var(--primary-blue), #1e40af)',
+        color: 'white', 
+        padding: '35px 0', 
+        textAlign: 'center',
+        position: 'relative',
+        overflow: 'hidden'
+      }}>
+        <div className="container" style={{position: 'relative', zIndex: 2}}>
+          <h2 style={{
+            fontSize: '1.8rem', 
+            fontWeight: '700', 
+            marginBottom: '12px',
+            textShadow: '0 2px 4px rgba(0,0,0,0.3)'
+          }}>
+            Ready to Experience Quality Healthcare?
+          </h2>
+          <p style={{fontSize: '1rem', marginBottom: '20px', opacity: '0.95'}}>
+            Connect with our professional healthcare team today
+          </p>
+          <div style={{display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap'}}>
+            <Link to="/contact" style={{
+              background: 'rgba(255, 255, 255, 0.2)',
+              backdropFilter: 'blur(10px)',
+              border: '1px solid rgba(255, 255, 255, 0.3)',
+              color: 'white',
+              textDecoration: 'none',
+              padding: '10px 20px',
+              borderRadius: '25px',
+              fontWeight: '600',
+              transition: 'all 0.3s ease',
+              fontSize: '0.9rem'
+            }}
+            onMouseEnter={(e) => {
+              e.target.style.background = 'rgba(255, 255, 255, 0.3)';
+              e.target.style.transform = 'translateY(-2px)';
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.background = 'rgba(255, 255, 255, 0.2)';
+              e.target.style.transform = 'translateY(0)';
+            }}>
+              Contact Us
+            </Link>
+          </div>
+        </div>
+        {/* Floating elements */}
+        <div style={{
+          position: 'absolute',
+          top: '10%',
+          left: '5%',
+          width: '60px',
+          height: '60px',
+          background: 'rgba(255,255,255,0.1)',
+          borderRadius: '50%',
+          animation: 'float 8s ease-in-out infinite'
+        }}></div>
+        <div style={{
+          position: 'absolute',
+          bottom: '15%',
+          right: '10%',
+          width: '40px',
+          height: '40px',
+          background: 'rgba(16, 185, 129, 0.3)',
+          borderRadius: '50%',
+          animation: 'float 6s ease-in-out infinite reverse'
+        }}></div>
       </section>
     </div>
   )

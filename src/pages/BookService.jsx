@@ -9,6 +9,7 @@ function BookService({ user }) {
     serviceType: '',
     description: '',
     location: '',
+    phoneNumber: '',
     preferredDate: '',
     urgency: 'normal'
   })
@@ -22,7 +23,7 @@ function BookService({ user }) {
       <div className="container" style={{maxWidth: '500px', marginTop: '100px'}}>
         <div className="card card-elevated" style={{textAlign: 'center'}}>
           <h2>Login Required</h2>
-          <p style={{marginBottom: '20px'}}>Please login to book healthcare services.</p>
+          <p style={{marginBottom: '20px'}}>Please login to schedule healthcare services.</p>
           <Link to="/login" className="btn btn-primary">
             Login to Continue
           </Link>
@@ -37,7 +38,7 @@ function BookService({ user }) {
       <div className="container" style={{maxWidth: '500px', marginTop: '100px'}}>
         <div className="card card-elevated" style={{textAlign: 'center'}}>
           <h2>Access Denied</h2>
-          <p style={{marginBottom: '20px'}}>Only patients can book services. Please register as a patient.</p>
+          <p style={{marginBottom: '20px'}}>Only patients can schedule services. Please register as a patient.</p>
           <Link to="/register" className="btn btn-primary">
             Register as Patient
           </Link>
@@ -58,7 +59,7 @@ function BookService({ user }) {
     setLoading(true)
 
     // Validation
-    if (!formData.serviceType || !formData.description || !formData.location || !formData.preferredDate) {
+    if (!formData.serviceType || !formData.description || !formData.location || !formData.phoneNumber || !formData.preferredDate) {
       showError('Please fill in all required fields')
       setLoading(false)
       return
@@ -73,13 +74,14 @@ function BookService({ user }) {
     try {
       await api.post('/bookings', formData)
       
-      showSuccess('Booking request submitted successfully! You will be notified once a provider is assigned.')
+      showSuccess('Appointment request submitted successfully! You will be notified once a provider is assigned.')
       
       // Reset form
       setFormData({
         serviceType: '',
         description: '',
         location: '',
+        phoneNumber: '',
         preferredDate: '',
         urgency: 'normal'
       })
@@ -89,7 +91,7 @@ function BookService({ user }) {
         navigate('/dashboard')
       }, 2000)
     } catch (error) {
-      const message = error.response?.data?.message || 'Booking failed. Please try again.'
+      const message = error.response?.data?.message || 'Appointment scheduling failed. Please try again.'
       showError(message)
     } finally {
       setLoading(false)
@@ -113,7 +115,7 @@ function BookService({ user }) {
       <div className="card card-elevated">
         <div style={{textAlign: 'center', marginBottom: '32px'}}>
           <h2 style={{fontSize: '2rem', fontWeight: '700', marginBottom: '8px', color: '#1f2937'}}>
-            Book Healthcare Service
+            Make an Appointment
           </h2>
           <p style={{color: '#6b7280'}}>Tell us about your healthcare needs and we'll connect you with the right professional</p>
         </div>
@@ -167,6 +169,22 @@ function BookService({ user }) {
           </div>
 
           <div className="form-group">
+            <label>Phone Number *</label>
+            <input
+              type="tel"
+              name="phoneNumber"
+              value={formData.phoneNumber}
+              onChange={handleChange}
+              placeholder="Enter your phone number (e.g., +256 700 123 456)"
+              required
+              disabled={loading}
+            />
+            <small style={{color: '#6b7280', fontSize: '0.875rem'}}>
+              We'll use this number to contact you about your appointment
+            </small>
+          </div>
+
+          <div className="form-group">
             <label>Preferred Date *</label>
             <input
               type="date"
@@ -201,7 +219,7 @@ function BookService({ user }) {
             style={{width: '100%', marginTop: '16px'}}
             disabled={loading}
           >
-            {loading ? <LoadingSpinner size="small" text="Submitting Request..." /> : '📅 Submit Booking Request'}
+            {loading ? <LoadingSpinner size="small" text="Submitting Request..." /> : '📅 Submit Appointment Request'}
           </button>
         </form>
 

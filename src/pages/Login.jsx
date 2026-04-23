@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { useToast } from '../contexts/ToastContext'
 import LoadingSpinner from '../components/LoadingSpinner'
 import api from '../config/api'
@@ -105,6 +105,19 @@ function Login({ setUser }) {
             {loading ? <LoadingSpinner size="small" text="Signing in..." /> : 'Sign In'}
           </button>
         </form>
+
+        <div style={{textAlign: 'center', marginTop: '24px', paddingTop: '24px', borderTop: '1px solid #e5e7eb'}}>
+          <p style={{color: '#6b7280', marginBottom: '12px'}}>
+            Don't have an account?
+          </p>
+          <Link 
+            to="/register" 
+            className="btn btn-outline" 
+            style={{textDecoration: 'none'}}
+          >
+            Create Account
+          </Link>
+        </div>
       </div>
     </div>
   )

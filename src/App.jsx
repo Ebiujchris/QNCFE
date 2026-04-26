@@ -17,6 +17,7 @@ import BookService from './pages/BookService'
 import AdminLogin from './pages/admin/AdminLogin'
 import AdminRegister from './pages/admin/AdminRegister'
 import AdminDashboard from './pages/admin/AdminDashboard'
+import ProviderRegister from './pages/ProviderRegister'
 
 // Custom hook for logout with navigation
 function useLogout(setUser) {
@@ -77,6 +78,7 @@ function AppContent() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login setUser={setUser} />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/provider-register" element={<ProviderRegister />} />
         <Route path="/book" element={<BookService user={user} />} />
         <Route path="/dashboard" element={
           user ? <Dashboard user={user} /> : <Login setUser={setUser} />

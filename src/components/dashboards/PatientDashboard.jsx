@@ -184,12 +184,17 @@ function PatientDashboard({ user }) {
                         borderRadius: '8px',
                         border: '1px solid #e0f2fe'
                       }}>
-                        <h5 style={{color: '#0369a1', marginBottom: '8px', fontSize: '1rem'}}>
+                        <h5 style={{color: '#0369a1', marginBottom: '12px', fontSize: '1rem'}}>
                           👩‍⚕️ Assigned Healthcare Provider
                         </h5>
-                        <p><strong>Name:</strong> {booking.assignedProvider.name}</p>
-                        <p><strong>Specialization:</strong> {booking.assignedProvider.providerType}</p>
-                        <p><strong>Contact:</strong> {booking.assignedProvider.email}</p>
+                        <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '8px', marginBottom: '12px'}}>
+                          <p style={{margin: '4px 0'}}><strong>Name:</strong> {booking.assignedProvider.name}</p>
+                          <p style={{margin: '4px 0'}}><strong>Specialization:</strong> {booking.assignedProvider.providerType}</p>
+                          <p style={{margin: '4px 0'}}><strong>Email:</strong> {booking.assignedProvider.email}</p>
+                          {booking.assignedProvider.phone && (
+                            <p style={{margin: '4px 0'}}><strong>Phone:</strong> {booking.assignedProvider.phone}</p>
+                          )}
+                        </div>
                         {booking.price && (
                           <div style={{
                             marginTop: '12px',
@@ -199,7 +204,7 @@ function PatientDashboard({ user }) {
                             border: '1px solid #d1fae5'
                           }}>
                             <p style={{color: '#065f46', fontWeight: '600', fontSize: '1.1rem', margin: 0}}>
-                              💰 Service Price: UGX {parseFloat(booking.price).toLocaleString()}
+                              💰 Service Fee: UGX {parseFloat(booking.price).toLocaleString()}
                             </p>
                           </div>
                         )}

@@ -646,6 +646,92 @@ function Careers() {
         </div>
       </section>
 
+      {/* Enlist as Provider Section */}
+      <section style={{
+        background: 'linear-gradient(135deg, rgba(124, 45, 18, 0.05), rgba(124, 45, 18, 0.1))',
+        padding: '40px 0',
+        position: 'relative'
+      }}>
+        <div className="container">
+          <div style={{
+            background: 'rgba(255, 255, 255, 0.4)',
+            backdropFilter: 'blur(15px)',
+            border: '1px solid rgba(255, 255, 255, 0.5)',
+            borderRadius: '20px',
+            padding: '40px',
+            textAlign: 'center',
+            boxShadow: '0 15px 40px rgba(0, 0, 0, 0.1)',
+            maxWidth: '800px',
+            margin: '0 auto'
+          }}>
+            <div style={{
+              fontSize: '3rem',
+              marginBottom: '20px',
+              background: 'linear-gradient(135deg, var(--primary-maroon), #991b1b)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text'
+            }}>👩‍⚕️</div>
+            
+            <h2 style={{
+              fontSize: '2.2rem',
+              fontWeight: '700',
+              color: '#1f2937',
+              marginBottom: '16px'
+            }}>
+              Ready to Enlist as a Provider?
+            </h2>
+            
+            <p style={{
+              fontSize: '1.1rem',
+              color: '#6b7280',
+              marginBottom: '30px',
+              lineHeight: '1.6',
+              maxWidth: '600px',
+              margin: '0 auto 30px'
+            }}>
+              Join our network of healthcare professionals and start making a difference in patients' lives. 
+              Complete our comprehensive provider registration to get started.
+            </p>
+            
+            <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px'}}>
+              <Link to="/provider-register" style={{
+                background: 'linear-gradient(135deg, var(--primary-maroon), #991b1b)',
+                color: 'white',
+                textDecoration: 'none',
+                padding: '16px 32px',
+                borderRadius: '30px',
+                fontWeight: '600',
+                fontSize: '1.1rem',
+                transition: 'all 0.3s ease',
+                boxShadow: '0 6px 20px rgba(124, 45, 18, 0.3)',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px'
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.transform = 'translateY(-3px)';
+                e.target.style.boxShadow = '0 8px 25px rgba(124, 45, 18, 0.4)';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.transform = 'translateY(0)';
+                e.target.style.boxShadow = '0 6px 20px rgba(124, 45, 18, 0.3)';
+              }}>
+                🚀 Start Provider Application
+              </Link>
+              
+              <p style={{
+                fontSize: '0.9rem',
+                color: '#9ca3af',
+                fontStyle: 'italic'
+              }}>
+                Complete registration with document upload • Professional verification • Quick approval process
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section style={{
         background: 'linear-gradient(135deg, var(--primary-blue), #1e40af)',
@@ -690,7 +776,7 @@ function Careers() {
             e.target.style.transform = 'translateY(0)';
             e.target.style.boxShadow = '0 4px 15px rgba(124, 45, 18, 0.3)';
           }}>
-            👩‍⚕️ Enlist as Provider
+            🚀 Get Started
           </Link>
         </div>
         {/* Floating elements */}

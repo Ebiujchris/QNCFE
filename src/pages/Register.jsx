@@ -8,9 +8,9 @@ function Register() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
     password: '',
-    role: 'patient',
-    providerType: ''
+    role: 'patient'
   })
   const [showPassword, setShowPassword] = useState(false)
   const [loading, setLoading] = useState(false)
@@ -33,12 +33,6 @@ function Register() {
     setLoading(true)
 
     // Validation
-    if (formData.role === 'provider' && !formData.providerType) {
-      showError('Please select your provider specialization')
-      setLoading(false)
-      return
-    }
-
     if (formData.password.length < 6) {
       showError('Password must be at least 6 characters long')
       setLoading(false)
@@ -95,6 +89,35 @@ function Register() {
           </div>
 
           <div className="form-group">
+            <label>Phone Number</label>
+            <div style={{display: 'flex', alignItems: 'center'}}>
+              <span style={{
+                padding: '12px 16px',
+                backgroundColor: '#f3f4f6',
+                border: '1px solid #d1d5db',
+                borderRight: 'none',
+                borderRadius: '8px 0 0 8px',
+                fontSize: '0.9rem',
+                color: '#374151',
+                fontWeight: '500'
+              }}>+256</span>
+              <input
+                type="tel"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                placeholder="Enter your phone number (e.g., 791785931)"
+                required
+                disabled={loading}
+                style={{
+                  borderRadius: '0 8px 8px 0',
+                  borderLeft: 'none'
+                }}
+              />
+            </div>
+          </div>
+
+          <div className="form-group">
             <label>Password</label>
             <div className="password-input-container">
               <input
@@ -118,7 +141,7 @@ function Register() {
           </div>
 
           <div className="form-group">
-            <label>I want to register as:</label>
+            <label>Account Type</label>
             <select
               name="role"
               value={formData.role}
@@ -127,27 +150,8 @@ function Register() {
               disabled={loading}
             >
               <option value="patient">Patient - Book Healthcare Services</option>
-              <option value="provider">Healthcare Provider - Offer Services</option>
             </select>
           </div>
-
-          {formData.role === 'provider' && (
-            <div className="form-group">
-              <label>Provider Specialization</label>
-              <select
-                name="providerType"
-                value={formData.providerType}
-                onChange={handleChange}
-                required
-                disabled={loading}
-              >
-                <option value="">Select your specialization</option>
-                <option value="nurse">Registered Nurse</option>
-                <option value="doctor">General Practitioner</option>
-                <option value="caregiver">Professional Caregiver</option>
-              </select>
-            </div>
-          )}
 
           <button 
             type="submit" 
@@ -167,19 +171,6 @@ function Register() {
             Sign In
           </Link>
         </div>
-
-        {formData.role === 'provider' && (
-          <div style={{marginTop: '20px', padding: '16px', backgroundColor: '#eff6ff', borderRadius: '8px', border: '1px solid #dbeafe'}}>
-            <p style={{fontSize: '0.875rem', color: '#1e40af', marginBottom: '8px'}}>
-              <strong>Healthcare Provider Requirements:</strong>
-            </p>
-            <ul style={{fontSize: '0.875rem', color: '#1e40af', paddingLeft: '20px'}}>
-              <li>Valid professional license</li>
-              <li>Background verification required</li>
-              <li>Insurance coverage mandatory</li>
-            </ul>
-          </div>
-        )}
       </div>
     </div>
   )

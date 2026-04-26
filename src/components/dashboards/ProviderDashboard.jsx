@@ -269,9 +269,15 @@ function ProviderDashboard({ user }) {
                         <p style={{color: '#6b7280', margin: '4px 0'}}>{assignment.patient_name}</p>
                       </div>
                       <div>
-                        <strong style={{color: '#374151'}}>Contact:</strong>
+                        <strong style={{color: '#374151'}}>Email:</strong>
                         <p style={{color: '#6b7280', margin: '4px 0'}}>{assignment.patient_email}</p>
                       </div>
+                      {assignment.patient_phone && (
+                        <div>
+                          <strong style={{color: '#374151'}}>Phone:</strong>
+                          <p style={{color: '#6b7280', margin: '4px 0'}}>{assignment.patient_phone}</p>
+                        </div>
+                      )}
                       <div>
                         <strong style={{color: '#374151'}}>Date:</strong>
                         <p style={{color: '#6b7280', margin: '4px 0'}}>{new Date(assignment.preferred_date).toLocaleDateString()}</p>

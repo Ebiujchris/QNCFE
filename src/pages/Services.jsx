@@ -136,49 +136,25 @@ function Services() {
                 QNC offers holistic, patient-centered nursing and home-based care services that extend quality healthcare beyond health facilities.
               </p>
               
-              {expandedService === 'bedside' && (
-                <div style={{fontSize: '0.8rem', lineHeight: '1.4', color: '#4b5563', marginBottom: '12px'}}>
-                  <p style={{marginBottom: '8px', fontWeight: '500'}}>
-                    We support recovery, long-term care, and improved quality of life through personalized care delivered in the comfort and dignity of patients' homes.
-                  </p>
-                  <p style={{marginBottom: '6px', fontWeight: '500'}}>Services include:</p>
-                  <ul style={{paddingLeft: '16px', margin: 0}}>
-                    <li>Elderly care and long-term support</li>
-                    <li>Post-surgical care and recovery monitoring</li>
-                    <li>Post-delivery and postnatal care for mothers and newborns</li>
-                    <li>Chronic illness management and palliative care support</li>
-                    <li>Bedside nursing and continuous patient monitoring</li>
-                    <li>Physiotherapy and rehabilitation services</li>
-                    <li>Nutrition assessment, counseling, and individualized dietary planning</li>
-                    <li>Mental Health and Psychosocial Support for patients and caregivers</li>
-                    <li>Deployment of professional travel nursing teams</li>
-                  </ul>
-                </div>
-              )}
+              <div style={{fontSize: '0.8rem', lineHeight: '1.4', color: '#4b5563', marginBottom: '12px'}}>
+                <p style={{marginBottom: '8px', fontWeight: '500'}}>
+                  We support recovery, long-term care, and improved quality of life through personalized care delivered in the comfort and dignity of patients' homes.
+                </p>
+                <p style={{marginBottom: '6px', fontWeight: '500'}}>Services include:</p>
+                <ul style={{paddingLeft: '16px', margin: 0}}>
+                  <li>Elderly care and long-term support</li>
+                  <li>Post-surgical care and recovery monitoring</li>
+                  <li>Post-delivery and postnatal care for mothers and newborns</li>
+                  <li>Chronic illness management and palliative care support</li>
+                  <li>Bedside nursing and continuous patient monitoring</li>
+                  <li>Physiotherapy and rehabilitation services</li>
+                  <li>Nutrition assessment, counseling, and individualized dietary planning</li>
+                  <li>Mental Health and Psychosocial Support for patients and caregivers</li>
+                  <li>Deployment of professional travel nursing teams</li>
+                </ul>
+              </div>
               
               <div style={{display: 'flex', gap: '10px', alignItems: 'center', flexWrap: 'wrap'}}>
-                <button 
-                  onClick={() => toggleService('bedside')}
-                  style={{
-                    background: 'rgba(30, 64, 175, 0.1)',
-                    border: '1px solid rgba(30, 64, 175, 0.3)',
-                    borderRadius: '20px',
-                    color: 'var(--primary-blue)',
-                    fontSize: '0.8rem',
-                    fontWeight: '600',
-                    cursor: 'pointer',
-                    padding: '6px 12px',
-                    transition: 'all 0.3s ease'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.target.style.background = 'rgba(30, 64, 175, 0.2)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.background = 'rgba(30, 64, 175, 0.1)';
-                  }}
-                >
-                  {expandedService === 'bedside' ? 'Read Less' : 'Read More'}
-                </button>
                 <Link to="/book" style={{
                   background: 'linear-gradient(135deg, #7c2d12, #991b1b)',
                   color: 'white',
@@ -190,7 +166,7 @@ function Services() {
                   transition: 'all 0.3s ease',
                   boxShadow: '0 2px 8px rgba(124, 45, 18, 0.3)'
                 }}>
-                  Schedule Service
+                  Book an Appointment
                 </Link>
               </div>
             </div>
@@ -243,49 +219,25 @@ function Services() {
                 QNC delivers comprehensive and integrated field medical support tailored to construction, industrial, infrastructure, and remote operations.
               </p>
               
-              {expandedService === 'field' && (
-                <div style={{fontSize: '0.8rem', lineHeight: '1.4', color: '#4b5563', marginBottom: '12px'}}>
-                  <p style={{marginBottom: '8px', fontWeight: '500'}}>
-                    Our services ensure compliance with occupational health and safety standards while strengthening on-site medical preparedness, risk management, and emergency response systems.
-                  </p>
-                  <p style={{marginBottom: '6px', fontWeight: '500'}}>Services include:</p>
-                  <ul style={{paddingLeft: '16px', margin: 0}}>
-                    <li>Deployment of qualified field medical teams (nurses and allied professionals)</li>
-                    <li>On-site first aid and emergency medical response</li>
-                    <li>Occupational health screening, monitoring, and medical surveillance</li>
-                    <li>Incident documentation, reporting, and referral coordination</li>
-                    <li>Occupational Health and Safety (OHS) advisory and support services</li>
-                    <li>First Aid and safety training for staff</li>
-                    <li>Mental Health and Psychosocial Support (MHPSS), including psychological first aid, stress management, and referral pathways</li>
-                    <li>Referral coordination with healthcare facilities</li>
-                    <li>Community-based health support and MHPSS referrals</li>
-                  </ul>
-                </div>
-              )}
+              <div style={{fontSize: '0.8rem', lineHeight: '1.4', color: '#4b5563', marginBottom: '12px'}}>
+                <p style={{marginBottom: '8px', fontWeight: '500'}}>
+                  Our services ensure compliance with occupational health and safety standards while strengthening on-site medical preparedness, risk management, and emergency response systems.
+                </p>
+                <p style={{marginBottom: '6px', fontWeight: '500'}}>Services include:</p>
+                <ul style={{paddingLeft: '16px', margin: 0}}>
+                  <li>Deployment of qualified field medical teams (nurses and allied professionals)</li>
+                  <li>On-site first aid and emergency medical response</li>
+                  <li>Occupational health screening, monitoring, and medical surveillance</li>
+                  <li>Incident documentation, reporting, and referral coordination</li>
+                  <li>Occupational Health and Safety (OHS) advisory and support services</li>
+                  <li>First Aid and safety training for staff</li>
+                  <li>Mental Health and Psychosocial Support (MHPSS), including psychological first aid, stress management, and referral pathways</li>
+                  <li>Referral coordination with healthcare facilities</li>
+                  <li>Community-based health support and MHPSS referrals</li>
+                </ul>
+              </div>
               
               <div style={{display: 'flex', gap: '10px', alignItems: 'center', flexWrap: 'wrap'}}>
-                <button 
-                  onClick={() => toggleService('field')}
-                  style={{
-                    background: 'rgba(30, 64, 175, 0.1)',
-                    border: '1px solid rgba(30, 64, 175, 0.3)',
-                    borderRadius: '20px',
-                    color: 'var(--primary-blue)',
-                    fontSize: '0.8rem',
-                    fontWeight: '600',
-                    cursor: 'pointer',
-                    padding: '6px 12px',
-                    transition: 'all 0.3s ease'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.target.style.background = 'rgba(30, 64, 175, 0.2)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.background = 'rgba(30, 64, 175, 0.1)';
-                  }}
-                >
-                  {expandedService === 'field' ? 'Read Less' : 'Read More'}
-                </button>
                 <Link to="/book" style={{
                   background: 'linear-gradient(135deg, #7c2d12, #991b1b)',
                   color: 'white',
@@ -297,7 +249,7 @@ function Services() {
                   transition: 'all 0.3s ease',
                   boxShadow: '0 2px 8px rgba(124, 45, 18, 0.3)'
                 }}>
-                  Schedule Service
+                  Book an Appointment
                 </Link>
               </div>
             </div>
@@ -339,45 +291,21 @@ function Services() {
               QNC's Mobile Health Services expand access to essential healthcare by delivering services directly to communities, workplaces, and underserved or hard-to-reach areas.
             </p>
             
-            {expandedService === 'mobile' && (
-              <div style={{fontSize: '0.8rem', lineHeight: '1.4', color: '#4b5563', marginBottom: '15px'}}>
-                <p style={{marginBottom: '8px', fontWeight: '500', textAlign: 'center'}}>
-                  This model strengthens preventive care, early detection, and continuity of treatment.
-                </p>
-                <p style={{marginBottom: '6px', fontWeight: '500'}}>Services include:</p>
-                <ul style={{paddingLeft: '16px', margin: 0}}>
-                  <li>Patient assessment, monitoring, and follow-up care</li>
-                  <li>Administration of prescribed medications</li>
-                  <li>Vital signs monitoring (blood pressure, temperature, pulse, respiration, oxygen saturation)</li>
-                  <li>Chronic disease management and treatment adherence support</li>
-                  <li>Health education, counseling, and psychosocial support</li>
-                </ul>
-              </div>
-            )}
+            <div style={{fontSize: '0.8rem', lineHeight: '1.4', color: '#4b5563', marginBottom: '15px'}}>
+              <p style={{marginBottom: '8px', fontWeight: '500', textAlign: 'center'}}>
+                This model strengthens preventive care, early detection, and continuity of treatment.
+              </p>
+              <p style={{marginBottom: '6px', fontWeight: '500'}}>Services include:</p>
+              <ul style={{paddingLeft: '16px', margin: 0}}>
+                <li>Patient assessment, monitoring, and follow-up care</li>
+                <li>Administration of prescribed medications</li>
+                <li>Vital signs monitoring (blood pressure, temperature, pulse, respiration, oxygen saturation)</li>
+                <li>Chronic disease management and treatment adherence support</li>
+                <li>Health education, counseling, and psychosocial support</li>
+              </ul>
+            </div>
             
             <div style={{display: 'flex', gap: '15px', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap'}}>
-              <button 
-                onClick={() => toggleService('mobile')}
-                style={{
-                  background: 'rgba(30, 64, 175, 0.1)',
-                  border: '1px solid rgba(30, 64, 175, 0.3)',
-                  borderRadius: '25px',
-                  color: 'var(--primary-blue)',
-                  fontSize: '0.85rem',
-                  fontWeight: '600',
-                  cursor: 'pointer',
-                  padding: '8px 16px',
-                  transition: 'all 0.3s ease'
-                }}
-                onMouseEnter={(e) => {
-                  e.target.style.background = 'rgba(30, 64, 175, 0.2)';
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.background = 'rgba(30, 64, 175, 0.1)';
-                }}
-              >
-                {expandedService === 'mobile' ? 'Read Less' : 'Read More'}
-              </button>
               <Link to="/book" style={{
                 background: 'linear-gradient(135deg, #7c2d12, #991b1b)',
                 color: 'white',
@@ -389,7 +317,7 @@ function Services() {
                 transition: 'all 0.3s ease',
                 boxShadow: '0 4px 12px rgba(124, 45, 18, 0.3)'
               }}>
-                Schedule Service
+                Book an Appointment
               </Link>
             </div>
           </div>

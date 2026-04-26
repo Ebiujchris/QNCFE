@@ -31,7 +31,6 @@ function Navbar({ user, logout }) {
           <div className="nav-separator"></div>
           {user ? (
             <>
-              <span className="nav-user-welcome">Welcome, {user.name}</span>
               <Link 
                 to="/dashboard" 
                 className="nav-action-link"

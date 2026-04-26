@@ -19,7 +19,7 @@ function ProviderDashboard({ user }) {
     try {
       const [assignmentsRes, earningsRes, notificationsRes] = await Promise.all([
         api.get('/bookings/my-assignments'),
-        api.get('/provider/earnings'),
+        api.get('/bookings/provider/earnings'),
         api.get('/notifications')
       ])
 

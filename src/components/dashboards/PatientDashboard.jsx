@@ -6,16 +6,14 @@ import Sidebar from '../Sidebar'
 import api from '../../config/api'
 
 function PatientDashboard({ user }) {
-  const [activeTab, setActiveTab] = useState('bookings')
+  const [activeTab, setActiveTab] = useState('overview')
   const [bookings, setBookings] = useState([])
   const [notifications, setNotifications] = useState([])
   const [loading, setLoading] = useState(true)
   const [paymentLoading, setPaymentLoading] = useState({})
   const { showSuccess, showError } = useToast()
 
-  useEffect(() => {
-    fetchData()
-  }, [])
+  useEffect(() => { fetchData() }, [])
 
   const fetchData = async () => {
     try {
@@ -23,7 +21,6 @@ function PatientDashboard({ user }) {
         api.get('/bookings/my-bookings'),
         api.get('/notifications')
       ])
-
       setBookings(bookingsRes.data)
       setNotifications(notificationsRes.data)
     } catch (error) {
@@ -37,38 +34,29 @@ function PatientDashboard({ user }) {
   const markAsPaid = async (bookingId) => {
     setPaymentLoading(prev => ({ ...prev, [bookingId]: true }))
     try {
-      const token = localStorage.getItem('token')
-      await axios.post(`/api/payments/${bookingId}/mark-paid`, {}, {
-        headers: { Authorization: `Bearer ${token}` }
-      })
-      
+      await api.post(`/payments/${bookingId}/mark-paid`)
       showSuccess('Payment marked successfully! Your provider has been notified.')
-      fetchData() // Refresh data
+      fetchData()
     } catch (error) {
       showError('Failed to process payment. Please try again.')
-      console.error('Payment error:', error)
     } finally {
       setPaymentLoading(prev => ({ ...prev, [bookingId]: false }))
     }
   }
 
   const getStatusBadge = (status) => {
-    const statusClasses = {
+    const map = {
       'pending': 'status-badge status-pending',
       'assigned': 'status-badge status-assigned',
       'paid': 'status-badge status-paid',
       'completed': 'status-badge status-completed'
     }
-    return statusClasses[status] || 'status-badge'
+    return map[status] || 'status-badge'
   }
 
   const getServiceIcon = (serviceType) => {
-    const icons = {
-      'nursing': '🏥',
-      'doctor': '👨‍⚕️',
-      'caregiver': '🤝'
-    }
-    return icons[serviceType] || '🏥'
+    const map = { 'nursing': '🏥', 'doctor': '👨‍⚕️', 'caregiver': '🤝' }
+    return map[serviceType] || '🏥'
   }
 
   const logout = () => {
@@ -77,269 +65,237 @@ function PatientDashboard({ user }) {
   }
 
   const tabs = [
-    { id: 'bookings', label: 'My Bookings', icon: '📋', count: 0 },
+    { id: 'overview', label: 'Overview', icon: '📊', count: 0 },
+    { id: 'bookings', label: 'My Bookings', icon: '📋', count: bookings.length },
     { id: 'notifications', label: 'Notifications', icon: '🔔', count: notifications.filter(n => !n.read).length },
     { id: 'book', label: 'Book Service', icon: '📅', count: 0 }
   ]
 
-  if (loading) {
-    return <LoadingSpinner size="large" text="Loading your bookings..." />
-  }
+  if (loading) return <LoadingSpinner size="large" text="Loading your dashboard..." />
 
   return (
-    <div style={{display: 'flex', minHeight: '100vh'}}>
-      <Sidebar 
-        user={user} 
-        activeTab={activeTab} 
-        setActiveTab={setActiveTab} 
-        tabs={tabs}
-        logout={logout}
-      />
-      
-      <div style={{
-        marginLeft: '280px',
-        flex: 1,
-        padding: '32px',
-        backgroundColor: '#f8fafc',
-        minHeight: '100vh',
+    <div style={{ display: 'flex', minHeight: '100vh' }}>
+      <Sidebar user={user} activeTab={activeTab} setActiveTab={setActiveTab} tabs={tabs} logout={logout} />
+
+      <div className="dashboard-main-content" style={{
+        marginLeft: '280px', flex: 1, padding: '32px',
+        backgroundColor: '#f8fafc', minHeight: '100vh',
         transition: 'margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
-      }}
-      className="dashboard-main-content"
-      >
-      {activeTab === 'book' && (
-        <div>
-          <div className="dashboard-header">
-            <div style={{textAlign: 'center'}}>
-              <h1 style={{fontSize: '2.5rem', fontWeight: '700', color: '#1f2937', marginBottom: '8px'}}>
-                Book a Service 📅
-              </h1>
-              <p style={{color: '#6b7280', fontSize: '1.125rem'}}>
-                Schedule your healthcare service
-              </p>
-            </div>
-          </div>
-          <div className="card" style={{textAlign: 'center', padding: '60px 20px'}}>
-            <span style={{fontSize: '4rem', display: 'block', marginBottom: '16px'}}>📅</span>
-            <h3 style={{color: '#1f2937', marginBottom: '16px'}}>Ready to book a service?</h3>
-            <p style={{color: '#6b7280', marginBottom: '24px'}}>Click below to schedule your healthcare appointment</p>
-            <Link to="/book" className="btn btn-success btn-large">
-              Schedule New Service
-            </Link>
-          </div>
-        </div>
-      )}
+      }}>
 
-      {activeTab === 'notifications' && (
-        <div>
-          <div className="dashboard-header">
-            <div style={{textAlign: 'center'}}>
-              <h1 style={{fontSize: '2.5rem', fontWeight: '700', color: '#1f2937', marginBottom: '8px'}}>
-                Notifications 🔔
-              </h1>
-              <p style={{color: '#6b7280', fontSize: '1.125rem'}}>
-                Stay updated with your healthcare activities
-              </p>
-            </div>
-          </div>
-          
-          <div className="card">
-            <h3 style={{marginBottom: '24px', color: '#1f2937'}}>All Notifications</h3>
-            {notifications.length === 0 ? (
-              <div style={{textAlign: 'center', padding: '60px 20px'}}>
-                <span style={{fontSize: '4rem', display: 'block', marginBottom: '16px'}}>🔔</span>
-                <h4 style={{color: '#1f2937', marginBottom: '8px'}}>No notifications yet</h4>
-                <p style={{color: '#6b7280'}}>You'll be notified about your bookings and services here</p>
-              </div>
-            ) : (
-              notifications.map(notification => (
-                <div key={notification.id} className="notification info" style={{marginBottom: '12px'}}>
-                  {notification.message}
-                  <small style={{display: 'block', marginTop: '4px', opacity: 0.7}}>
-                    {new Date(notification.created_at).toLocaleDateString()}
-                  </small>
-                </div>
-              ))
-            )}
-          </div>
-        </div>
-      )}
-
-      {activeTab === 'bookings' && (
-        <div>
-          {/* Dashboard Header */}
-          <div className="dashboard-header">
-            <div style={{textAlign: 'center'}}>
-              <h1 style={{fontSize: '2.5rem', fontWeight: '700', color: '#1f2937', marginBottom: '8px'}}>
+        {/* OVERVIEW TAB */}
+        {activeTab === 'overview' && (
+          <div>
+            {/* Welcome Header */}
+            <div style={{
+              background: 'linear-gradient(135deg, #1e40af 0%, #7c2d12 100%)',
+              borderRadius: '20px',
+              padding: '40px',
+              marginBottom: '32px',
+              color: 'white',
+              textAlign: 'center'
+            }}>
+              <h1 style={{ fontSize: '2rem', fontWeight: '700', marginBottom: '8px' }}>
                 Welcome back, {user.name}! 👋
               </h1>
-              <p style={{color: '#6b7280', fontSize: '1.125rem'}}>
-                Manage your healthcare bookings and track your services
+              <p style={{ opacity: 0.9, fontSize: '1.05rem' }}>
+                Here's a summary of your healthcare activity
               </p>
             </div>
-          </div>
 
-          {/* Stats Grid */}
-          <div className="stats-grid">
-            <div className="stat-card">
-              <span className="stat-number">{bookings.length}</span>
-              <span className="stat-label">Total Bookings</span>
-            </div>
-            <div className="stat-card">
-              <span className="stat-number">{bookings.filter(b => b.status === 'pending').length}</span>
-              <span className="stat-label">Pending</span>
-            </div>
-            <div className="stat-card">
-              <span className="stat-number">{bookings.filter(b => b.status === 'completed').length}</span>
-              <span className="stat-label">Completed</span>
-            </div>
-            <div className="stat-card">
-              <span className="stat-number">{notifications.filter(n => !n.read).length}</span>
-              <span className="stat-label">New Notifications</span>
-            </div>
-          </div>
-
-          {/* Quick Actions */}
-          <div className="card card-elevated" style={{marginBottom: '32px'}}>
-            <h3 style={{marginBottom: '20px', color: '#1f2937'}}>Quick Actions</h3>
-            <div style={{display: 'flex', gap: '16px', flexWrap: 'wrap'}}>
-              <Link to="/book" className="btn btn-success btn-large">
-                📅 Schedule New Service
-              </Link>
-              <button className="btn btn-outline" onClick={fetchData}>
-                🔄 Refresh Data
-              </button>
-            </div>
-          </div>
-
-          {/* Recent Notifications */}
-          {notifications.length > 0 && (
-            <div className="card" style={{marginBottom: '32px'}}>
-              <h3 style={{marginBottom: '20px', color: '#1f2937'}}>Recent Notifications</h3>
-              {notifications.slice(0, 3).map(notification => (
-                <div key={notification.id} className="notification info" style={{marginBottom: '12px'}}>
-                  {notification.message}
-                  <small style={{display: 'block', marginTop: '4px', opacity: 0.7}}>
-                    {new Date(notification.created_at).toLocaleDateString()}
-                  </small>
-                </div>
-              ))}
-            </div>
-          )}
-
-          {/* My Bookings */}
-          <div className="card">
-            <h3 style={{marginBottom: '24px', color: '#1f2937', fontSize: '1.5rem'}}>My Healthcare Bookings</h3>
-            {bookings.length === 0 ? (
-              <div style={{textAlign: 'center', padding: '60px 20px'}}>
-                <span style={{fontSize: '4rem', display: 'block', marginBottom: '16px'}}>🏥</span>
-                <h4 style={{color: '#1f2937', marginBottom: '8px'}}>No bookings yet</h4>
-                <p style={{color: '#6b7280', marginBottom: '24px'}}>Ready to schedule your first healthcare service?</p>
-                <Link to="/book" className="btn btn-success">Schedule Your First Service</Link>
+            {/* Stats — centered, no gaps */}
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(4, 1fr)',
+              gap: '20px',
+              marginBottom: '32px'
+            }}>
+              <div className="stat-card">
+                <span style={{ fontSize: '2rem', display: 'block', marginBottom: '8px' }}>📋</span>
+                <span className="stat-number">{bookings.length}</span>
+                <span className="stat-label">Total Bookings</span>
               </div>
-            ) : (
-              <div>
-                {bookings.map(booking => (
-                  <div key={booking.id} className="card" style={{marginBottom: '20px', border: '1px solid #e5e7eb'}}>
-                    <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '20px'}}>
-                      <div style={{flex: '1', minWidth: '300px'}}>
-                        <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px'}}>
-                          <span style={{fontSize: '1.5rem'}}>
-                            {getServiceIcon(booking.service_type)}
-                          </span>
-                          <h4 style={{color: '#1f2937', fontSize: '1.25rem', fontWeight: '600'}}>
-                            {booking.service_type.charAt(0).toUpperCase() + booking.service_type.slice(1)} Service
-                          </h4>
-                        </div>
-                        
-                        <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '12px', marginBottom: '16px'}}>
-                          <div>
-                            <strong style={{color: '#374151'}}>Date:</strong>
-                            <p style={{color: '#6b7280', margin: '4px 0'}}>{new Date(booking.preferred_date).toLocaleDateString()}</p>
-                          </div>
-                          <div>
-                            <strong style={{color: '#374151'}}>Location:</strong>
-                            <p style={{color: '#6b7280', margin: '4px 0'}}>{booking.location}</p>
-                          </div>
-                        </div>
-                        
-                        <div style={{marginBottom: '16px'}}>
-                          <strong style={{color: '#374151'}}>Description:</strong>
-                          <p style={{color: '#6b7280', margin: '4px 0', lineHeight: '1.5'}}>{booking.description}</p>
-                        </div>
-                        
-                        {booking.assignedProvider && (
-                          <div style={{
-                            marginTop: '16px', 
-                            padding: '16px', 
-                            backgroundColor: '#f0f9ff', 
-                            borderRadius: '8px',
-                            border: '1px solid #e0f2fe'
-                          }}>
-                            <h5 style={{color: '#0369a1', marginBottom: '12px', fontSize: '1rem'}}>
-                              👩‍⚕️ Assigned Healthcare Provider
-                            </h5>
-                            <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '8px', marginBottom: '12px'}}>
-                              <p style={{margin: '4px 0'}}><strong>Name:</strong> {booking.assignedProvider.name}</p>
-                              <p style={{margin: '4px 0'}}><strong>Specialization:</strong> {booking.assignedProvider.providerType}</p>
-                              <p style={{margin: '4px 0'}}><strong>Email:</strong> {booking.assignedProvider.email}</p>
-                              {booking.assignedProvider.phone && (
-                                <p style={{margin: '4px 0'}}><strong>Phone:</strong> {booking.assignedProvider.phone}</p>
-                              )}
-                            </div>
-                            {booking.price && (
-                              <div style={{
-                                marginTop: '12px',
-                                padding: '12px',
-                                backgroundColor: '#ecfdf5',
-                                borderRadius: '6px',
-                                border: '1px solid #d1fae5'
-                              }}>
-                                <p style={{color: '#065f46', fontWeight: '600', fontSize: '1.1rem', margin: 0}}>
-                                  💰 Service Fee: UGX {parseFloat(booking.price).toLocaleString()}
-                                </p>
-                              </div>
-                            )}
-                          </div>
-                        )}
-                      </div>
-                      
-                      <div style={{textAlign: 'right', minWidth: '150px'}}>
-                        <span className={getStatusBadge(booking.status)}>
-                          {booking.status}
-                        </span>
-                        
-                        {booking.status === 'assigned' && booking.price && (
-                          <div style={{marginTop: '16px'}}>
-                            <div style={{
-                              marginBottom: '12px',
-                              padding: '8px 12px',
-                              backgroundColor: '#fef3c7',
-                              borderRadius: '6px',
-                              border: '1px solid #fbbf24'
-                            }}>
-                              <p style={{color: '#92400e', fontWeight: '500', margin: 0, fontSize: '0.9rem'}}>
-                                💳 Amount to Pay: UGX {parseFloat(booking.price).toLocaleString()}
-                              </p>
-                            </div>
-                            <button 
-                              onClick={() => markAsPaid(booking.id)}
-                              className="btn btn-success"
-                              style={{fontSize: '0.9rem'}}
-                              disabled={paymentLoading[booking.id]}
-                            >
-                              {paymentLoading[booking.id] ? '⏳ Processing...' : '💳 Mark as Paid'}
-                            </button>
-                          </div>
-                        )}
-                      </div>
-                    </div>
+              <div className="stat-card">
+                <span style={{ fontSize: '2rem', display: 'block', marginBottom: '8px' }}>⏳</span>
+                <span className="stat-number">{bookings.filter(b => b.status === 'pending').length}</span>
+                <span className="stat-label">Pending</span>
+              </div>
+              <div className="stat-card">
+                <span style={{ fontSize: '2rem', display: 'block', marginBottom: '8px' }}>✅</span>
+                <span className="stat-number">{bookings.filter(b => b.status === 'completed').length}</span>
+                <span className="stat-label">Completed</span>
+              </div>
+              <div className="stat-card">
+                <span style={{ fontSize: '2rem', display: 'block', marginBottom: '8px' }}>🔔</span>
+                <span className="stat-number">{notifications.filter(n => !n.read).length}</span>
+                <span className="stat-label">Notifications</span>
+              </div>
+            </div>
+
+            {/* Quick Actions */}
+            <div className="card" style={{ marginBottom: '24px' }}>
+              <h3 style={{ marginBottom: '16px', color: '#1f2937', fontSize: '1.1rem', fontWeight: '600' }}>Quick Actions</h3>
+              <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+                <Link to="/book" className="btn btn-success">📅 Book New Service</Link>
+                <button className="btn btn-outline" onClick={fetchData}>🔄 Refresh</button>
+                <button className="btn btn-outline" onClick={() => setActiveTab('bookings')}>📋 View My Bookings</button>
+              </div>
+            </div>
+
+            {/* Recent Notifications */}
+            {notifications.length > 0 && (
+              <div className="card">
+                <h3 style={{ marginBottom: '16px', color: '#1f2937', fontSize: '1.1rem', fontWeight: '600' }}>Recent Notifications</h3>
+                {notifications.slice(0, 3).map(n => (
+                  <div key={n.id} className="notification info" style={{ marginBottom: '10px' }}>
+                    {n.message}
+                    <small style={{ display: 'block', marginTop: '4px', opacity: 0.7 }}>
+                      {new Date(n.created_at).toLocaleDateString()}
+                    </small>
                   </div>
                 ))}
               </div>
             )}
           </div>
-        </div>
-      )}
+        )}
+
+        {/* MY BOOKINGS TAB */}
+        {activeTab === 'bookings' && (
+          <div>
+            <div style={{ marginBottom: '24px' }}>
+              <h2 style={{ fontSize: '1.75rem', fontWeight: '700', color: '#1f2937', marginBottom: '4px' }}>My Bookings 📋</h2>
+              <p style={{ color: '#6b7280' }}>All your healthcare service bookings</p>
+            </div>
+
+            {bookings.length === 0 ? (
+              <div className="card" style={{ textAlign: 'center', padding: '60px 20px' }}>
+                <span style={{ fontSize: '4rem', display: 'block', marginBottom: '16px' }}>🏥</span>
+                <h4 style={{ color: '#1f2937', marginBottom: '8px' }}>No bookings yet</h4>
+                <p style={{ color: '#6b7280', marginBottom: '24px' }}>Ready to schedule your first healthcare service?</p>
+                <Link to="/book" className="btn btn-success">Schedule Your First Service</Link>
+              </div>
+            ) : (
+              bookings.map(booking => (
+                <div key={booking.id} className="card" style={{ marginBottom: '16px', border: '1px solid #e5e7eb' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '20px' }}>
+                    <div style={{ flex: '1', minWidth: '280px' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
+                        <span style={{ fontSize: '1.5rem' }}>{getServiceIcon(booking.service_type)}</span>
+                        <h4 style={{ color: '#1f2937', fontSize: '1.1rem', fontWeight: '600' }}>
+                          {booking.service_type.charAt(0).toUpperCase() + booking.service_type.slice(1)} Service
+                        </h4>
+                      </div>
+
+                      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '10px', marginBottom: '12px' }}>
+                        <div>
+                          <strong style={{ color: '#374151', fontSize: '0.85rem' }}>Date</strong>
+                          <p style={{ color: '#6b7280', margin: '2px 0', fontSize: '0.9rem' }}>{new Date(booking.preferred_date).toLocaleDateString()}</p>
+                        </div>
+                        <div>
+                          <strong style={{ color: '#374151', fontSize: '0.85rem' }}>Location</strong>
+                          <p style={{ color: '#6b7280', margin: '2px 0', fontSize: '0.9rem' }}>{booking.location}</p>
+                        </div>
+                      </div>
+
+                      <div style={{ marginBottom: '12px' }}>
+                        <strong style={{ color: '#374151', fontSize: '0.85rem' }}>Description</strong>
+                        <p style={{ color: '#6b7280', margin: '2px 0', lineHeight: '1.5', fontSize: '0.9rem' }}>{booking.description}</p>
+                      </div>
+
+                      {booking.assignedProvider && (
+                        <div style={{ padding: '14px', backgroundColor: '#f0f9ff', borderRadius: '8px', border: '1px solid #e0f2fe' }}>
+                          <h5 style={{ color: '#0369a1', marginBottom: '10px', fontSize: '0.95rem' }}>👩‍⚕️ Assigned Provider</h5>
+                          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '6px', marginBottom: '10px' }}>
+                            <p style={{ margin: '2px 0', fontSize: '0.9rem' }}><strong>Name:</strong> {booking.assignedProvider.name}</p>
+                            <p style={{ margin: '2px 0', fontSize: '0.9rem' }}><strong>Type:</strong> {booking.assignedProvider.providerType}</p>
+                            <p style={{ margin: '2px 0', fontSize: '0.9rem' }}><strong>Email:</strong> {booking.assignedProvider.email}</p>
+                            {booking.assignedProvider.phone && (
+                              <p style={{ margin: '2px 0', fontSize: '0.9rem' }}><strong>Phone:</strong> {booking.assignedProvider.phone}</p>
+                            )}
+                          </div>
+                          {booking.price && (
+                            <div style={{ padding: '10px', backgroundColor: '#ecfdf5', borderRadius: '6px', border: '1px solid #d1fae5' }}>
+                              <p style={{ color: '#065f46', fontWeight: '600', fontSize: '1rem', margin: 0 }}>
+                                💰 Service Fee: UGX {parseFloat(booking.price).toLocaleString()}
+                              </p>
+                            </div>
+                          )}
+                        </div>
+                      )}
+                    </div>
+
+                    <div style={{ textAlign: 'right', minWidth: '140px' }}>
+                      <span className={getStatusBadge(booking.status)}>{booking.status}</span>
+
+                      {booking.status === 'assigned' && booking.price && (
+                        <div style={{ marginTop: '14px' }}>
+                          <div style={{ marginBottom: '10px', padding: '8px 12px', backgroundColor: '#fef3c7', borderRadius: '6px', border: '1px solid #fbbf24' }}>
+                            <p style={{ color: '#92400e', fontWeight: '500', margin: 0, fontSize: '0.85rem' }}>
+                              💳 UGX {parseFloat(booking.price).toLocaleString()}
+                            </p>
+                          </div>
+                          <button
+                            onClick={() => markAsPaid(booking.id)}
+                            className="btn btn-success"
+                            style={{ fontSize: '0.85rem' }}
+                            disabled={paymentLoading[booking.id]}
+                          >
+                            {paymentLoading[booking.id] ? '⏳ Processing...' : '💳 Mark as Paid'}
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              ))
+            )}
+          </div>
+        )}
+
+        {/* NOTIFICATIONS TAB */}
+        {activeTab === 'notifications' && (
+          <div>
+            <div style={{ marginBottom: '24px' }}>
+              <h2 style={{ fontSize: '1.75rem', fontWeight: '700', color: '#1f2937', marginBottom: '4px' }}>Notifications 🔔</h2>
+              <p style={{ color: '#6b7280' }}>Stay updated with your healthcare activities</p>
+            </div>
+            <div className="card">
+              {notifications.length === 0 ? (
+                <div style={{ textAlign: 'center', padding: '60px 20px' }}>
+                  <span style={{ fontSize: '4rem', display: 'block', marginBottom: '16px' }}>🔔</span>
+                  <h4 style={{ color: '#1f2937', marginBottom: '8px' }}>No notifications yet</h4>
+                  <p style={{ color: '#6b7280' }}>You'll be notified about your bookings and services here</p>
+                </div>
+              ) : (
+                notifications.map(n => (
+                  <div key={n.id} className="notification info" style={{ marginBottom: '12px' }}>
+                    {n.message}
+                    <small style={{ display: 'block', marginTop: '4px', opacity: 0.7 }}>
+                      {new Date(n.created_at).toLocaleDateString()}
+                    </small>
+                  </div>
+                ))
+              )}
+            </div>
+          </div>
+        )}
+
+        {/* BOOK SERVICE TAB */}
+        {activeTab === 'book' && (
+          <div>
+            <div style={{ marginBottom: '24px' }}>
+              <h2 style={{ fontSize: '1.75rem', fontWeight: '700', color: '#1f2937', marginBottom: '4px' }}>Book a Service 📅</h2>
+              <p style={{ color: '#6b7280' }}>Schedule your healthcare appointment</p>
+            </div>
+            <div className="card" style={{ textAlign: 'center', padding: '60px 20px' }}>
+              <span style={{ fontSize: '4rem', display: 'block', marginBottom: '16px' }}>📅</span>
+              <h3 style={{ color: '#1f2937', marginBottom: '12px' }}>Ready to book a service?</h3>
+              <p style={{ color: '#6b7280', marginBottom: '24px' }}>Click below to schedule your healthcare appointment</p>
+              <Link to="/book" className="btn btn-success btn-large">Schedule New Service</Link>
+            </div>
+          </div>
+        )}
+
       </div>
     </div>
   )

@@ -41,7 +41,7 @@ function Dashboard({ user }) {
   }
 
   return (
-    <div className="container">
+    <div style={{ minHeight: '100vh' }}>
       {renderDashboard()}
     </div>
   )

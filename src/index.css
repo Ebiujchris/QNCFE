@@ -1907,11 +1907,14 @@ body {
 /* Dashboard Layout with Sidebar */
 .dashboard-main-content {
   transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  width: calc(100% - 280px);
+  max-width: none;
 }
 
 @media (max-width: 768px) {
   .dashboard-main-content {
     margin-left: 0 !important;
+    width: 100% !important;
     padding: 20px !important;
   }
   

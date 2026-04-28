@@ -85,7 +85,7 @@ function ProviderDashboard({ user }) {
       <Sidebar user={user} activeTab={activeTab} setActiveTab={setActiveTab} tabs={tabs} logout={logout} />
 
       <div className="dashboard-main-content" style={{
-        marginLeft: '280px', flex: 1, padding: '32px',
+        marginLeft: '280px', flex: 1, padding: '32px 40px',
         backgroundColor: '#f8fafc', minHeight: '100vh',
         transition: 'margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
       }}>

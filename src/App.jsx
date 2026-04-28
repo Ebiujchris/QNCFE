@@ -67,9 +67,13 @@ function AppContent() {
     )
   }
 
+  const isDashboardRoute = ['/dashboard', '/patient-dashboard', '/provider-dashboard', '/admin-dashboard'].some(
+    path => window.location.pathname.startsWith(path)
+  )
+
   return (
     <div className="App">
-      <Navbar user={user} logout={logout} />
+      {!isDashboardRoute && <Navbar user={user} logout={logout} />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />

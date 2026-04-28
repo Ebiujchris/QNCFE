@@ -1902,3 +1902,222 @@ body {
     width: 100%;
   }
 }
+
+
+/* Dashboard Layout with Sidebar */
+.dashboard-main-content {
+  transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (max-width: 768px) {
+  .dashboard-main-content {
+    margin-left: 0 !important;
+    padding: 20px !important;
+  }
+  
+  .dashboard-sidebar {
+    transform: translateX(-100%);
+  }
+  
+  .dashboard-sidebar.mobile-open {
+    transform: translateX(0);
+  }
+}
+
+@media (min-width: 769px) {
+  .dashboard-main-content {
+    margin-left: 280px;
+  }
+}
+
+/* Admin Dashboard Specific */
+.admin-header {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  color: white;
+  padding: 40px 0;
+  margin-bottom: 32px;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(139, 92, 246, 0.3);
+}
+
+.admin-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.admin-header p {
+  font-size: 1.125rem;
+  opacity: 0.95;
+}
+
+/* Tab Navigation */
+.tab-navigation {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+}
+
+.tab-button {
+  padding: 12px 20px;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  font-weight: 500;
+  color: #6b7280;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.tab-button:hover {
+  color: var(--primary-maroon);
+}
+
+.tab-button.active {
+  color: var(--primary-maroon);
+  border-bottom-color: var(--primary-maroon);
+}
+
+/* Booking Card Styles */
+.booking-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+  border-left: 4px solid var(--primary-blue);
+  transition: all 0.2s ease;
+}
+
+.booking-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  border-left-color: var(--primary-maroon);
+  transform: translateX(4px);
+}
+
+/* Assignment Card Styles */
+.assignment-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+  border-left: 4px solid var(--primary-blue);
+  transition: all 0.2s ease;
+}
+
+.assignment-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  border-left-color: var(--primary-maroon);
+  transform: translateX(4px);
+}
+
+/* Empty State Styles */
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.empty-state-icon {
+  font-size: 4rem;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.empty-state-title {
+  color: #1f2937;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.empty-state-text {
+  color: #6b7280;
+  margin-bottom: 24px;
+}
+
+/* Responsive Dashboard */
+@media (max-width: 1024px) {
+  .stats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+  }
+  
+  .card {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  
+  .stat-card {
+    padding: 16px;
+  }
+  
+  .stat-number {
+    font-size: 1.75rem;
+  }
+  
+  .stat-label {
+    font-size: 0.75rem;
+  }
+  
+  .card {
+    padding: 16px;
+    border-radius: 12px;
+  }
+  
+  .dashboard-header {
+    padding: 24px 0;
+    margin-bottom: 20px;
+  }
+  
+  .tab-navigation {
+    gap: 4px;
+    overflow-x: auto;
+    padding-bottom: 12px;
+  }
+  
+  .tab-button {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .stat-card {
+    padding: 12px;
+  }
+  
+  .stat-number {
+    font-size: 1.5rem;
+  }
+  
+  .stat-label {
+    font-size: 0.7rem;
+  }
+  
+  .card {
+    padding: 12px;
+  }
+  
+  .dashboard-header h1 {
+    font-size: 1.75rem;
+  }
+  
+  .dashboard-header p {
+    font-size: 0.95rem;
+  }
+}

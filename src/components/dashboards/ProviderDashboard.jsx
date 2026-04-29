@@ -4,7 +4,7 @@ import LoadingSpinner from '../LoadingSpinner'
 import Sidebar from '../Sidebar'
 import api from '../../config/api'
 
-function ProviderDashboard({ user }) {
+function ProviderDashboard({ user, logout }) {
   const [activeTab, setActiveTab] = useState('assignments')
   const [assignments, setAssignments] = useState([])
   const [earnings, setEarnings] = useState([])
@@ -58,11 +58,6 @@ function ProviderDashboard({ user }) {
   const getServiceIcon = (serviceType) => {
     const map = { 'nursing': '🏥', 'doctor': '👨‍⚕️', 'caregiver': '🤝' }
     return map[serviceType] || '🏥'
-  }
-
-  const logout = () => {
-    localStorage.removeItem('token')
-    localStorage.removeItem('user')
   }
 
   const tabs = [
@@ -184,8 +179,13 @@ function ProviderDashboard({ user }) {
                         </div>
                         {a.price && (
                           <div style={{ marginTop: '16px', padding: '12px', backgroundColor: '#ecfdf5', borderRadius: '6px', border: '1px solid #d1fae5' }}>
+                            {a.rate_per_day && a.days && (
+                              <p style={{ color: '#6b7280', fontSize: '0.85rem', margin: '0 0 4px' }}>
+                                UGX {parseFloat(a.rate_per_day).toLocaleString()}/day × {a.days} day(s)
+                              </p>
+                            )}
                             <p style={{ color: '#065f46', fontWeight: '600', fontSize: '1rem', margin: 0 }}>
-                              💰 Service Fee: UGX {parseFloat(a.price).toLocaleString()}
+                              💰 Total: UGX {parseFloat(a.price).toLocaleString()}
                             </p>
                           </div>
                         )}

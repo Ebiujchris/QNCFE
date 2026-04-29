@@ -18,6 +18,8 @@ import AdminLogin from './pages/admin/AdminLogin'
 import AdminRegister from './pages/admin/AdminRegister'
 import AdminDashboard from './pages/admin/AdminDashboard'
 import ProviderRegister from './pages/ProviderRegister'
+import ForgotPassword from './pages/ForgotPassword'
+import ResetPassword from './pages/ResetPassword'
 
 // Custom hook for logout with navigation
 function useLogout(setUser) {
@@ -83,9 +85,11 @@ function AppContent() {
         <Route path="/login" element={<Login setUser={setUser} />} />
         <Route path="/register" element={<Register />} />
         <Route path="/provider-register" element={<ProviderRegister />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/book" element={<BookService user={user} />} />
         <Route path="/dashboard" element={
-          user ? <Dashboard user={user} /> : <Login setUser={setUser} />
+          user ? <Dashboard user={user} logout={logout} /> : <Login setUser={setUser} />
         } />
         
         {/* Admin Routes */}
@@ -94,9 +98,9 @@ function AppContent() {
         <Route path="/admin/dashboard" element={<AdminDashboard user={user} />} />
         
         {/* Legacy Routes - Redirect to unified dashboard */}
-        <Route path="/patient-dashboard" element={<Dashboard user={user} />} />
-        <Route path="/provider-dashboard" element={<Dashboard user={user} />} />
-        <Route path="/admin-dashboard" element={<Dashboard user={user} />} />
+        <Route path="/patient-dashboard" element={<Dashboard user={user} logout={logout} />} />
+        <Route path="/provider-dashboard" element={<Dashboard user={user} logout={logout} />} />
+        <Route path="/admin-dashboard" element={<Dashboard user={user} logout={logout} />} />
       </Routes>
     </div>
   )

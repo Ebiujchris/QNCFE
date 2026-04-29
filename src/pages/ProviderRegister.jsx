@@ -93,38 +93,20 @@ function ProviderRegister() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    
-    if (!validateCurrentStep()) {
-      return
-    }
+    if (!validateCurrentStep()) return
 
     setLoading(true)
-
     try {
-      // Create FormData for file upload
       const submitData = new FormData()
-      
-      // Add form fields
-      Object.keys(formData).forEach(key => {
-        submitData.append(key, formData[key])
-      })
-      
-      // Add role
-      submitData.append('role', 'provider')
-      
-      // Add files
-      Object.keys(documents).forEach(key => {
-        if (documents[key]) {
-          submitData.append(key, documents[key])
-        }
+      Object.keys(formData).forEach(key => submitData.append(key, formData[key]))
+      if (documents.license) submitData.append('license', documents.license)
+      if (documents.certificate) submitData.append('certificate', documents.certificate)
+      if (documents.cv) submitData.append('cv', documents.cv)
+
+      await api.post('/auth/register-provider', submitData, {
+        headers: { 'Content-Type': 'multipart/form-data' }
       })
 
-      await api.post('/auth/register', submitData, {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
-      })
-      
       showSuccess('Provider application submitted successfully! We will review your application and contact you within 48 hours.')
       navigate('/login')
     } catch (error) {
@@ -295,13 +277,7 @@ function ProviderRegister() {
         >
           <option value="">Select your specialization</option>
           <option value="nurse">Registered Nurse</option>
-          <option value="doctor">General Practitioner</option>
-          <option value="midwife">Certified Midwife</option>
-          <option value="caregiver">Professional Caregiver</option>
-          <option value="physiotherapist">Physiotherapist</option>
-          <option value="nutritionist">Nutritionist</option>
-          <option value="mental-health">Mental Health Professional</option>
-          <option value="other">Other Healthcare Professional</option>
+          <option value="doctor">General Practitioner / Doctor</option>
         </select>
       </div>
 

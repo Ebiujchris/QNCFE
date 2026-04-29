@@ -94,6 +94,11 @@ function Login({ setUser }) {
                 {showPassword ? '👁️' : '👁️‍🗨️'}
               </button>
             </div>
+            <div style={{ textAlign: 'right', marginTop: '8px' }}>
+              <Link to="/forgot-password" style={{ color: '#7c2d12', fontSize: '0.875rem', textDecoration: 'none', fontWeight: '500' }}>
+                Forgot password?
+              </Link>
+            </div>
           </div>
 
           <button 

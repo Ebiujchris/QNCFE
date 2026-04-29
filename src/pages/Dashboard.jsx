@@ -4,7 +4,7 @@ import PatientDashboard from '../components/dashboards/PatientDashboard'
 import ProviderDashboard from '../components/dashboards/ProviderDashboard'
 import AdminDashboard from '../components/dashboards/AdminDashboard'
 
-function Dashboard({ user }) {
+function Dashboard({ user, logout }) {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -25,11 +25,11 @@ function Dashboard({ user }) {
   const renderDashboard = () => {
     switch (user.role) {
       case 'patient':
-        return <PatientDashboard user={user} />
+        return <PatientDashboard user={user} logout={logout} />
       case 'provider':
-        return <ProviderDashboard user={user} />
+        return <ProviderDashboard user={user} logout={logout} />
       case 'admin':
-        return <AdminDashboard user={user} />
+        return <AdminDashboard user={user} logout={logout} />
       default:
         return (
           <div className="card">

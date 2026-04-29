@@ -1,14 +1,12 @@
 import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 function Sidebar({ user, activeTab, setActiveTab, tabs, logout }) {
   const [isCollapsed, setIsCollapsed] = useState(false)
   const [isMobileOpen, setIsMobileOpen] = useState(false)
-  const navigate = useNavigate()
 
   const handleLogout = () => {
     logout()
-    navigate('/login')
   }
 
   const getRoleIcon = (role) => {

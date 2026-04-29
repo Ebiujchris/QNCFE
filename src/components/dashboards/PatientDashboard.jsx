@@ -5,7 +5,7 @@ import LoadingSpinner from '../LoadingSpinner'
 import Sidebar from '../Sidebar'
 import api from '../../config/api'
 
-function PatientDashboard({ user }) {
+function PatientDashboard({ user, logout }) {
   const [activeTab, setActiveTab] = useState('overview')
   const [bookings, setBookings] = useState([])
   const [notifications, setNotifications] = useState([])
@@ -57,11 +57,6 @@ function PatientDashboard({ user }) {
   const getServiceIcon = (serviceType) => {
     const map = { 'nursing': '🏥', 'doctor': '👨‍⚕️', 'caregiver': '🤝' }
     return map[serviceType] || '🏥'
-  }
-
-  const logout = () => {
-    localStorage.removeItem('token')
-    localStorage.removeItem('user')
   }
 
   const tabs = [
@@ -214,36 +209,23 @@ function PatientDashboard({ user }) {
                             )}
                           </div>
                           {booking.price && (
-                            <div style={{ padding: '10px', backgroundColor: '#ecfdf5', borderRadius: '6px', border: '1px solid #d1fae5' }}>
-                              <p style={{ color: '#065f46', fontWeight: '600', fontSize: '1rem', margin: 0 }}>
-                                💰 Service Fee: UGX {parseFloat(booking.price).toLocaleString()}
-                              </p>
-                            </div>
-                          )}
+                              <div style={{ padding: '10px', backgroundColor: '#ecfdf5', borderRadius: '6px', border: '1px solid #d1fae5' }}>
+                                {booking.rate_per_day && booking.days && (
+                                  <p style={{ color: '#6b7280', fontSize: '0.85rem', margin: '0 0 4px' }}>
+                                    UGX {parseFloat(booking.rate_per_day).toLocaleString()}/day × {booking.days} day(s)
+                                  </p>
+                                )}
+                                <p style={{ color: '#065f46', fontWeight: '600', fontSize: '1rem', margin: 0 }}>
+                                  💰 Total: UGX {parseFloat(booking.price).toLocaleString()}
+                                </p>
+                              </div>
+                            )}
                         </div>
                       )}
                     </div>
 
                     <div style={{ textAlign: 'right', minWidth: '140px' }}>
                       <span className={getStatusBadge(booking.status)}>{booking.status}</span>
-
-                      {booking.status === 'assigned' && booking.price && (
-                        <div style={{ marginTop: '14px' }}>
-                          <div style={{ marginBottom: '10px', padding: '8px 12px', backgroundColor: '#fef3c7', borderRadius: '6px', border: '1px solid #fbbf24' }}>
-                            <p style={{ color: '#92400e', fontWeight: '500', margin: 0, fontSize: '0.85rem' }}>
-                              💳 UGX {parseFloat(booking.price).toLocaleString()}
-                            </p>
-                          </div>
-                          <button
-                            onClick={() => markAsPaid(booking.id)}
-                            className="btn btn-success"
-                            style={{ fontSize: '0.85rem' }}
-                            disabled={paymentLoading[booking.id]}
-                          >
-                            {paymentLoading[booking.id] ? '⏳ Processing...' : '💳 Mark as Paid'}
-                          </button>
-                        </div>
-                      )}
                     </div>
                   </div>
                 </div>

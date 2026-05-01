@@ -66,6 +66,20 @@ function ProviderDashboard({ user, logout }) {
     { id: 'notifications', label: 'Notifications', icon: '🔔', count: notifications.filter(n => !n.read).length }
   ]
 
+  const markAllRead = async () => {
+    try {
+      await api.put('/notifications/mark-all-read')
+      setNotifications(prev => prev.map(n => ({ ...n, read: true })))
+    } catch (e) {
+      // silent
+    }
+  }
+
+  const handleTabChange = (tabId) => {
+    setActiveTab(tabId)
+    if (tabId === 'notifications') markAllRead()
+  }
+
   if (loading) return <LoadingSpinner size="large" text="Loading your assignments..." />
 
   const completedServices = assignments.filter(a => a.status === 'completed').length
@@ -77,7 +91,7 @@ function ProviderDashboard({ user, logout }) {
 
   return (
     <div style={{ display: 'flex', minHeight: '100vh' }}>
-      <Sidebar user={user} activeTab={activeTab} setActiveTab={setActiveTab} tabs={tabs} logout={logout} />
+      <Sidebar user={user} activeTab={activeTab} setActiveTab={handleTabChange} tabs={tabs} logout={logout} />
 
       <div className="dashboard-main-content" style={{
         marginLeft: '280px', flex: 1, padding: '32px 40px',

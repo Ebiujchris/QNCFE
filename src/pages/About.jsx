@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import SEO from '../components/SEO'
 
 function About() {
   const [expandedService, setExpandedService] = useState(null)
@@ -145,6 +146,12 @@ function About() {
   }, [services.length])
   return (
     <div style={{background: 'linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)', minHeight: '100vh'}}>
+      <SEO 
+        title="About QNC Solutions - Professional Healthcare Services"
+        description="Learn about QNC Solutions Ltd, a professional healthcare provider delivering quality nursing and medical support services across Uganda. Field medical support, home care, and community health services."
+        keywords="about QNC, healthcare provider Uganda, nursing services, field medical support, home healthcare, professional medical services"
+        canonical="https://www.qncsolutions.com/about"
+      />
       {/* Modern Hero Section */}
       <div 
         className="page-header" 

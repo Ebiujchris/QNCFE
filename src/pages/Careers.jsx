@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
+import SEO from '../components/SEO'
 
 function Careers() {
   const [expandedOpportunity, setExpandedOpportunity] = useState(null)
@@ -9,6 +10,12 @@ function Careers() {
   }
   return (
     <div style={{background: 'linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)', minHeight: '100vh'}}>
+      <SEO 
+        title="Careers - Join QNC Solutions Healthcare Team"
+        description="Join our team of healthcare professionals. Career opportunities for nurses, doctors, caregivers, and medical professionals. Make a difference in healthcare delivery across Uganda."
+        keywords="healthcare careers, nursing jobs, medical jobs Uganda, healthcare employment, nursing opportunities, caregiver jobs"
+        canonical="https://www.qncsolutions.com/careers"
+      />
       {/* Hero Section */}
       <section className="hero" style={{
         background: `linear-gradient(135deg, rgba(30, 64, 175, 0.9), rgba(124, 45, 18, 0.8)), url('/images/photo-1666887360680-9dc27a1d2753.avif')`,

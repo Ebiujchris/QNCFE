@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
+import SEO from '../components/SEO'
 
 function Services() {
   const [expandedService, setExpandedService] = useState(null)
@@ -9,6 +10,12 @@ function Services() {
   }
   return (
     <div>
+      <SEO 
+        title="Healthcare Services - QNC Solutions"
+        description="Comprehensive healthcare services including field medical support, home nursing care, postnatal care, nutrition counseling, and bedside nursing. Professional medical services delivered to your location."
+        keywords="healthcare services, nursing care, field medical support, home healthcare, postnatal care, nutrition counseling, bedside nursing, medical services Uganda"
+        canonical="https://www.qncsolutions.com/services"
+      />
       {/* Hero Section */}
       <section className="hero" style={{
         background: `linear-gradient(135deg, rgba(30, 64, 175, 0.9), rgba(124, 45, 18, 0.8)), url('/images/horizontal homepage image put i n the background.avif')`,

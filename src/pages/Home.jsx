@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import SEO from '../components/SEO'
 
 function Home() {
   const [isProfileExpanded, setIsProfileExpanded] = useState(false)
@@ -33,6 +34,12 @@ function Home() {
   }
   return (
     <div style={{background: 'linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)', minHeight: '100vh'}}>
+      <SEO 
+        title="QNC Solutions - Quality Healthcare Services at Home"
+        description="Professional healthcare services delivered to your home. Book qualified nurses, medical services, nutrition counseling, and postnatal care. Quality care when you need it."
+        keywords="home healthcare, nursing services, medical care, postnatal care, nutrition counseling, bedside nursing, healthcare Uganda"
+        canonical="https://www.qncsolutions.com/"
+      />
       {/* Hero Section */}
       <section className="hero" style={{
         background: `linear-gradient(135deg, rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.8)), url('${backgroundImages[currentImageIndex]}')`,

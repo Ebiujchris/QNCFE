@@ -1,0 +1,18 @@
+# Allow all search engines to crawl the site
+User-agent: *
+Allow: /
+
+# Disallow admin and dashboard pages from search engines
+Disallow: /admin/
+Disallow: /dashboard
+Disallow: /patient-dashboard
+Disallow: /provider-dashboard
+Disallow: /admin-dashboard
+Disallow: /login
+Disallow: /register
+Disallow: /provider-register
+Disallow: /forgot-password
+Disallow: /reset-password
+
+# Sitemap location
+Sitemap: https://qncsolutions.org/sitemap.xml

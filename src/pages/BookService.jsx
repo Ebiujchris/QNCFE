@@ -3,6 +3,7 @@ import { useNavigate, Link } from 'react-router-dom'
 import { useToast } from '../contexts/ToastContext'
 import LoadingSpinner from '../components/LoadingSpinner'
 import api from '../config/api'
+import SEO from '../components/SEO'
 
 function BookService({ user }) {
   const [formData, setFormData] = useState({
@@ -117,6 +118,12 @@ function BookService({ user }) {
 
   return (
     <div className="container" style={{maxWidth: '700px', marginTop: '40px'}}>
+      <SEO 
+        title="Book Healthcare Service - QNC Solutions"
+        description="Schedule professional healthcare services at home. Book qualified nurses, medical consultations, postnatal care, and nutrition counseling. Easy online booking available."
+        keywords="book healthcare, schedule nursing service, book nurse, medical appointment, home healthcare booking, nursing appointment"
+        canonical="https://www.qncsolutions.com/book"
+      />
       <div className="card card-elevated">
         <div style={{textAlign: 'center', marginBottom: '32px'}}>
           <h2 style={{fontSize: '2rem', fontWeight: '700', marginBottom: '8px', color: '#1f2937'}}>

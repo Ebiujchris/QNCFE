@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useToast } from '../contexts/ToastContext'
 import api from '../config/api'
+import SEO from '../components/SEO'
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -45,6 +46,12 @@ function Contact() {
 
   return (
     <div style={{background: 'linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)', minHeight: '100vh'}}>
+      <SEO 
+        title="Contact Us - QNC Solutions Healthcare Services"
+        description="Get in touch with QNC Solutions for professional healthcare services. Contact us for nursing care, medical support, and home healthcare services in Uganda. Available 24/7."
+        keywords="contact QNC, healthcare contact, nursing services contact, medical services Uganda, healthcare inquiry"
+        canonical="https://www.qncsolutions.com/contact"
+      />
       {/* Hero Section */}
       <section className="hero" style={{
         background: `linear-gradient(135deg, rgba(245, 158, 11, 0.9), rgba(217, 119, 6, 0.8)), url('/images/contact us background image.avif')`,

@@ -87,14 +87,7 @@ function AdminDashboard({ user }) {
     return statusClasses[status] || 'status-badge'
   }
 
-  const getServiceIcon = (serviceType) => {
-    const icons = {
-      'nursing': '🏥',
-      'doctor': '👨‍⚕️',
-      'caregiver': '🤝'
-    }
-    return icons[serviceType] || '🏥'
-  }
+
 
   const getFilteredProviders = () => {
     if (!selectedBooking) return providers
@@ -119,7 +112,7 @@ function AdminDashboard({ user }) {
       <div className="dashboard-header">
         <div style={{textAlign: 'center'}}>
           <h1 style={{fontSize: '2.5rem', fontWeight: '700', color: '#1f2937', marginBottom: '8px'}}>
-            🛡️ Admin Dashboard
+            Admin Dashboard
           </h1>
           <p style={{color: '#6b7280', fontSize: '1.125rem'}}>
             Welcome back, {user.name}! Manage QNC Solutions system operations
@@ -156,13 +149,13 @@ function AdminDashboard({ user }) {
         <h3 style={{marginBottom: '20px', color: '#1f2937'}}>Admin Actions</h3>
         <div style={{display: 'flex', gap: '16px', flexWrap: 'wrap'}}>
           <button className="btn btn-primary" onClick={fetchData}>
-            🔄 Refresh Data
+            Refresh Data
           </button>
           <button className="btn btn-outline">
-            📊 Generate Report
+            Generate Report
           </button>
           <button className="btn btn-outline">
-            👥 Manage Users
+            Manage Users
           </button>
         </div>
       </div>
@@ -290,10 +283,7 @@ function AdminDashboard({ user }) {
               }}>
                 <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '20px'}}>
                   <div style={{flex: '1', minWidth: '300px'}}>
-                    <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px'}}>
-                      <span style={{fontSize: '1.5rem'}}>
-                        {getServiceIcon(booking.service_type)}
-                      </span>
+                    <div style={{marginBottom: '16px'}}>
                       <h4 style={{color: '#1f2937', fontSize: '1.25rem', fontWeight: '600'}}>
                         {booking.service_type.charAt(0).toUpperCase() + booking.service_type.slice(1)} Service
                       </h4>
@@ -344,7 +334,7 @@ function AdminDashboard({ user }) {
                       className="btn btn-success"
                       style={{fontSize: '0.9rem'}}
                     >
-                      👩‍⚕️ Assign Provider
+                      Assign Provider
                     </button>
                   </div>
                 </div>
@@ -366,7 +356,6 @@ function AdminDashboard({ user }) {
                 <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px'}}>
                   <div style={{flex: '1', minWidth: '200px'}}>
                     <div style={{display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px'}}>
-                      <span>{getServiceIcon(booking.service_type)}</span>
                       <strong style={{color: '#1f2937'}}>{booking.service_type}</strong>
                       <span style={{color: '#6b7280'}}>- {booking.patient_name}</span>
                     </div>

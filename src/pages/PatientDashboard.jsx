@@ -79,7 +79,7 @@ function PatientDashboard({ user }) {
       <div className="dashboard-header">
         <div style={{textAlign: 'center'}}>
           <h1 style={{fontSize: '2.5rem', fontWeight: '700', color: '#1f2937', marginBottom: '8px'}}>
-            Welcome back, {user.name}! 👋
+            Welcome back, {user.name}!
           </h1>
           <p style={{color: '#6b7280', fontSize: '1.125rem'}}>
             Manage your healthcare bookings and track your services
@@ -92,10 +92,10 @@ function PatientDashboard({ user }) {
         <h3 style={{marginBottom: '20px', color: '#1f2937'}}>Quick Actions</h3>
         <div style={{display: 'flex', gap: '16px', flexWrap: 'wrap'}}>
           <Link to="/book" className="btn btn-success btn-large">
-            📅 Schedule New Service
+            Schedule New Service
           </Link>
           <button className="btn btn-outline" onClick={fetchNotifications}>
-            🔔 Refresh Notifications
+            Refresh Notifications
           </button>
         </div>
       </div>
@@ -132,11 +132,7 @@ function PatientDashboard({ user }) {
               <div key={booking.id} className="card" style={{marginBottom: '20px', border: '1px solid #e5e7eb'}}>
                 <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '20px'}}>
                   <div style={{flex: '1', minWidth: '300px'}}>
-                    <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px'}}>
-                      <span style={{fontSize: '1.5rem'}}>
-                        {booking.service_type === 'nursing' ? '🏥' : 
-                         booking.service_type === 'doctor' ? '👨‍⚕️' : '🤝'}
-                      </span>
+                    <div style={{marginBottom: '16px'}}>
                       <h4 style={{color: '#1f2937', fontSize: '1.25rem', fontWeight: '600'}}>
                         {booking.service_type.charAt(0).toUpperCase() + booking.service_type.slice(1)} Service
                       </h4>
@@ -167,7 +163,7 @@ function PatientDashboard({ user }) {
                         border: '1px solid #e0f2fe'
                       }}>
                         <h5 style={{color: '#0369a1', marginBottom: '8px', fontSize: '1rem'}}>
-                          👩‍⚕️ Assigned Healthcare Provider
+                          Assigned Healthcare Provider
                         </h5>
                         <p><strong>Name:</strong> {booking.assignedProvider.name}</p>
                         <p><strong>Specialization:</strong> {booking.assignedProvider.providerType}</p>
@@ -188,7 +184,7 @@ function PatientDashboard({ user }) {
                           className="btn btn-success"
                           style={{fontSize: '0.9rem'}}
                         >
-                          💳 Mark as Paid
+                          Mark as Paid
                         </button>
                       </div>
                     )}

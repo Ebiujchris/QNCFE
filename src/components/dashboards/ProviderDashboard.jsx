@@ -55,15 +55,12 @@ function ProviderDashboard({ user, logout }) {
     return map[status] || 'status-badge'
   }
 
-  const getServiceIcon = (serviceType) => {
-    const map = { 'nursing': '🏥', 'doctor': '👨‍⚕️', 'caregiver': '🤝' }
-    return map[serviceType] || '🏥'
-  }
+
 
   const tabs = [
-    { id: 'assignments', label: 'My Assignments', icon: '📋', count: 0 },
-    { id: 'earnings', label: 'Earnings', icon: '💰', count: 0 },
-    { id: 'notifications', label: 'Notifications', icon: '🔔', count: notifications.filter(n => !n.read).length }
+    { id: 'assignments', label: 'My Assignments', icon: '', count: 0 },
+    { id: 'earnings', label: 'Earnings', icon: '', count: 0 },
+    { id: 'notifications', label: 'Notifications', icon: '', count: notifications.filter(n => !n.read).length }
   ]
 
   const markAllRead = async () => {
@@ -105,7 +102,7 @@ function ProviderDashboard({ user, logout }) {
             <div className="dashboard-header">
               <div style={{ textAlign: 'center' }}>
                 <h1 style={{ fontSize: '2.5rem', fontWeight: '700', color: '#1f2937', marginBottom: '8px' }}>
-                  Welcome back, {user.name}! 👩‍⚕️
+                  Welcome back, {user.name}!
                 </h1>
                 <p style={{ color: '#6b7280', fontSize: '1.125rem' }}>
                   Manage your patient assignments and track your services
@@ -139,7 +136,7 @@ function ProviderDashboard({ user, logout }) {
             <div className="card card-elevated" style={{ marginBottom: '32px' }}>
               <h3 style={{ marginBottom: '20px', color: '#1f2937' }}>Quick Actions</h3>
               <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-                <button className="btn btn-primary" onClick={fetchData}>🔄 Refresh Assignments</button>
+                <button className="btn btn-primary" onClick={fetchData}>Refresh Assignments</button>
               </div>
             </div>
 
@@ -170,8 +167,7 @@ function ProviderDashboard({ user, logout }) {
                   <div key={a.id} className="card" style={{ marginBottom: '20px', border: '1px solid #e5e7eb' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '20px' }}>
                       <div style={{ flex: '1', minWidth: '300px' }}>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
-                          <span style={{ fontSize: '1.5rem' }}>{getServiceIcon(a.service_type)}</span>
+                        <div style={{ marginBottom: '16px' }}>
                           <h4 style={{ color: '#1f2937', fontSize: '1.25rem', fontWeight: '600' }}>
                             {a.service_type.charAt(0).toUpperCase() + a.service_type.slice(1)} Service
                           </h4>
@@ -214,7 +210,7 @@ function ProviderDashboard({ user, logout }) {
                               style={{ fontSize: '0.9rem' }}
                               disabled={completionLoading[a.id]}
                             >
-                              {completionLoading[a.id] ? '⏳ Processing...' : '✅ Mark as Completed'}
+                              {completionLoading[a.id] ? 'Processing...' : 'Mark as Completed'}
                             </button>
                           </div>
                         )}
@@ -233,7 +229,7 @@ function ProviderDashboard({ user, logout }) {
             <div className="dashboard-header">
               <div style={{ textAlign: 'center' }}>
                 <h1 style={{ fontSize: '2.5rem', fontWeight: '700', color: '#1f2937', marginBottom: '8px' }}>
-                  My Earnings 💰
+                  My Earnings
                 </h1>
                 <p style={{ color: '#6b7280', fontSize: '1.125rem' }}>Track your completed services and payments</p>
               </div>
@@ -241,11 +237,10 @@ function ProviderDashboard({ user, logout }) {
 
             <div className="card">
               <h3 style={{ color: '#1f2937', marginBottom: '20px' }}>
-                💰 My Earnings ({earnings.length} completed services)
+                My Earnings ({earnings.length} completed services)
               </h3>
               {earnings.length === 0 ? (
                 <div style={{ textAlign: 'center', padding: '40px 20px' }}>
-                  <span style={{ fontSize: '3rem', display: 'block', marginBottom: '16px' }}>💸</span>
                   <h4 style={{ color: '#1f2937', marginBottom: '8px' }}>No earnings yet</h4>
                   <p style={{ color: '#6b7280' }}>Complete your first service to start earning!</p>
                 </div>
@@ -295,7 +290,7 @@ function ProviderDashboard({ user, logout }) {
             <div className="dashboard-header">
               <div style={{ textAlign: 'center' }}>
                 <h1 style={{ fontSize: '2.5rem', fontWeight: '700', color: '#1f2937', marginBottom: '8px' }}>
-                  Notifications 🔔
+                  Notifications
                 </h1>
                 <p style={{ color: '#6b7280', fontSize: '1.125rem' }}>Stay updated with your assignments and services</p>
               </div>

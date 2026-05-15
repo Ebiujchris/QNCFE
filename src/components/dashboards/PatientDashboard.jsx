@@ -63,16 +63,13 @@ function PatientDashboard({ user, logout }) {
     return map[status] || 'status-badge'
   }
 
-  const getServiceIcon = (serviceType) => {
-    const map = { 'nursing': '🏥', 'doctor': '👨‍⚕️', 'caregiver': '🤝' }
-    return map[serviceType] || '🏥'
-  }
+
 
   const tabs = [
-    { id: 'overview', label: 'Overview', icon: '📊', count: 0 },
-    { id: 'bookings', label: 'My Bookings', icon: '📋', count: bookings.length },
-    { id: 'notifications', label: 'Notifications', icon: '🔔', count: notifications.filter(n => !n.read).length },
-    { id: 'book', label: 'Book Service', icon: '📅', count: 0 }
+    { id: 'overview', label: 'Overview', icon: '', count: 0 },
+    { id: 'bookings', label: 'My Bookings', icon: '', count: bookings.length },
+    { id: 'notifications', label: 'Notifications', icon: '', count: notifications.filter(n => !n.read).length },
+    { id: 'book', label: 'Book Service', icon: '', count: 0 }
   ]
 
   const handleTabChange = (tabId) => {
@@ -105,7 +102,7 @@ function PatientDashboard({ user, logout }) {
               textAlign: 'center'
             }}>
               <h1 style={{ fontSize: '2rem', fontWeight: '700', marginBottom: '8px' }}>
-                Welcome back, {user.name}! 👋
+                Welcome back, {user.name}!
               </h1>
               <p style={{ opacity: 0.9, fontSize: '1.05rem' }}>
                 Here's a summary of your healthcare activity
@@ -120,22 +117,18 @@ function PatientDashboard({ user, logout }) {
               marginBottom: '32px'
             }}>
               <div className="stat-card">
-                <span style={{ fontSize: '2rem', display: 'block', marginBottom: '8px' }}>📋</span>
                 <span className="stat-number">{bookings.length}</span>
                 <span className="stat-label">Total Bookings</span>
               </div>
               <div className="stat-card">
-                <span style={{ fontSize: '2rem', display: 'block', marginBottom: '8px' }}>⏳</span>
                 <span className="stat-number">{bookings.filter(b => b.status === 'pending').length}</span>
                 <span className="stat-label">Pending</span>
               </div>
               <div className="stat-card">
-                <span style={{ fontSize: '2rem', display: 'block', marginBottom: '8px' }}>✅</span>
                 <span className="stat-number">{bookings.filter(b => b.status === 'completed').length}</span>
                 <span className="stat-label">Completed</span>
               </div>
               <div className="stat-card">
-                <span style={{ fontSize: '2rem', display: 'block', marginBottom: '8px' }}>🔔</span>
                 <span className="stat-number">{notifications.filter(n => !n.read).length}</span>
                 <span className="stat-label">Notifications</span>
               </div>
@@ -145,9 +138,9 @@ function PatientDashboard({ user, logout }) {
             <div className="card" style={{ marginBottom: '24px' }}>
               <h3 style={{ marginBottom: '16px', color: '#1f2937', fontSize: '1.1rem', fontWeight: '600' }}>Quick Actions</h3>
               <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-                <Link to="/book" className="btn btn-success">📅 Book New Service</Link>
-                <button className="btn btn-outline" onClick={fetchData}>🔄 Refresh</button>
-                <button className="btn btn-outline" onClick={() => setActiveTab('bookings')}>📋 View My Bookings</button>
+                <Link to="/book" className="btn btn-success">Book New Service</Link>
+                <button className="btn btn-outline" onClick={fetchData}>Refresh</button>
+                <button className="btn btn-outline" onClick={() => setActiveTab('bookings')}>View My Bookings</button>
               </div>
             </div>
 
@@ -188,8 +181,7 @@ function PatientDashboard({ user, logout }) {
                 <div key={booking.id} className="card" style={{ marginBottom: '16px', border: '1px solid #e5e7eb' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '20px' }}>
                     <div style={{ flex: '1', minWidth: '280px' }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
-                        <span style={{ fontSize: '1.5rem' }}>{getServiceIcon(booking.service_type)}</span>
+                      <div style={{ marginBottom: '12px' }}>
                         <h4 style={{ color: '#1f2937', fontSize: '1.1rem', fontWeight: '600' }}>
                           {booking.service_type.charAt(0).toUpperCase() + booking.service_type.slice(1)} Service
                         </h4>
@@ -213,7 +205,7 @@ function PatientDashboard({ user, logout }) {
 
                       {booking.assignedProvider && (
                         <div style={{ padding: '14px', backgroundColor: '#f0f9ff', borderRadius: '8px', border: '1px solid #e0f2fe' }}>
-                          <h5 style={{ color: '#0369a1', marginBottom: '10px', fontSize: '0.95rem' }}>👩‍⚕️ Assigned Provider</h5>
+                          <h5 style={{ color: '#0369a1', marginBottom: '10px', fontSize: '0.95rem' }}>Assigned Provider</h5>
                           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '6px', marginBottom: '10px' }}>
                             <p style={{ margin: '2px 0', fontSize: '0.9rem' }}><strong>Name:</strong> {booking.assignedProvider.name}</p>
                             <p style={{ margin: '2px 0', fontSize: '0.9rem' }}><strong>Type:</strong> {booking.assignedProvider.providerType}</p>
@@ -230,7 +222,7 @@ function PatientDashboard({ user, logout }) {
                                   </p>
                                 )}
                                 <p style={{ color: '#065f46', fontWeight: '600', fontSize: '1rem', margin: 0 }}>
-                                  💰 Total: UGX {parseFloat(booking.price).toLocaleString()}
+                                  Total: UGX {parseFloat(booking.price).toLocaleString()}
                                 </p>
                               </div>
                             )}
@@ -252,13 +244,12 @@ function PatientDashboard({ user, logout }) {
         {activeTab === 'notifications' && (
           <div>
             <div style={{ marginBottom: '24px' }}>
-              <h2 style={{ fontSize: '1.75rem', fontWeight: '700', color: '#1f2937', marginBottom: '4px' }}>Notifications 🔔</h2>
+              <h2 style={{ fontSize: '1.75rem', fontWeight: '700', color: '#1f2937', marginBottom: '4px' }}>Notifications</h2>
               <p style={{ color: '#6b7280' }}>Stay updated with your healthcare activities</p>
             </div>
             <div className="card">
               {notifications.length === 0 ? (
                 <div style={{ textAlign: 'center', padding: '60px 20px' }}>
-                  <span style={{ fontSize: '4rem', display: 'block', marginBottom: '16px' }}>🔔</span>
                   <h4 style={{ color: '#1f2937', marginBottom: '8px' }}>No notifications yet</h4>
                   <p style={{ color: '#6b7280' }}>You'll be notified about your bookings and services here</p>
                 </div>

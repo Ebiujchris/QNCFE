@@ -21,17 +21,49 @@ function BookService({ user }) {
   // Redirect if not logged in
   if (!user) {
     return (
-      <div className="container" style={{maxWidth: '500px', marginTop: '100px'}}>
+      <div className="container" style={{maxWidth: '550px', marginTop: '100px'}}>
         <div className="card card-elevated" style={{textAlign: 'center'}}>
-          <h2>Please Create Account or Login</h2>
-          <p style={{marginBottom: '20px'}}>To schedule healthcare services, please create an account or login to your existing account.</p>
-          <div style={{display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap'}}>
+          <h2 style={{marginBottom: '15px'}}>Schedule Your Healthcare Service</h2>
+          <p style={{marginBottom: '25px', color: '#6b7280', lineHeight: '1.6'}}>
+            To book an appointment online, please create an account or login to your existing account. 
+            This helps us serve you better and keep track of your healthcare needs.
+          </p>
+          <div style={{display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '25px'}}>
             <Link to="/register" className="btn btn-primary">
               Create Account
             </Link>
             <Link to="/login" className="btn btn-outline">
               Login
             </Link>
+          </div>
+          
+          <div style={{
+            borderTop: '1px solid #e5e7eb',
+            paddingTop: '20px',
+            marginTop: '20px'
+          }}>
+            <p style={{color: '#6b7280', fontSize: '0.95rem', marginBottom: '15px'}}>
+              Prefer to speak with us directly?
+            </p>
+            <Link 
+              to="/contact" 
+              className="btn btn-outline"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px'
+              }}
+            >
+              <span>📞</span> Contact Us Instead
+            </Link>
+            <p style={{
+              fontSize: '0.85rem', 
+              color: '#9ca3af', 
+              marginTop: '12px',
+              lineHeight: '1.5'
+            }}>
+              We're happy to assist you over the phone or via email
+            </p>
           </div>
         </div>
       </div>

@@ -73,7 +73,7 @@ function Home() {
               opacity: '0.95',
               textShadow: '0 2px 10px rgba(0,0,0,0.3)',
               lineHeight: '1.6'
-            }}>Professional healthcare services delivered to your doorstep. Connect with qualified nurses, doctors, and caregivers in your community.</p>
+            }}>Professional healthcare services delivered to your doorstep. Connect with qualified nurses and care givers.</p>
             <div className="hero-buttons">
               <Link to="/book" style={{
                 background: 'linear-gradient(135deg, #7c2d12, #991b1b)',
@@ -390,10 +390,10 @@ function Home() {
                 textAlign: 'left'
               }}>
                 <h4 style={{fontSize: '1.2rem', marginBottom: '6px', fontWeight: '600'}}>
-                  Field Medical Support Services
+                  Elderly Care and Long-Term Support
                 </h4>
                 <p style={{fontSize: '0.85rem', opacity: '0.9', margin: 0}}>
-                  Professional medical support in field environments
+                  Compassionate care for seniors and ongoing health needs
                 </p>
               </div>
             </div>
@@ -439,7 +439,7 @@ function Home() {
                 textAlign: 'left'
               }}>
                 <h4 style={{fontSize: '1.2rem', marginBottom: '6px', fontWeight: '600'}}>
-                  Professional Nursing & Home-Based Care Services
+                  Nursing & Home-Based Care Services
                 </h4>
                 <p style={{fontSize: '0.85rem', opacity: '0.9', margin: 0}}>
                   Comprehensive nursing care in the comfort of your home
@@ -488,10 +488,10 @@ function Home() {
                 textAlign: 'left'
               }}>
                 <h4 style={{fontSize: '1.2rem', marginBottom: '6px', fontWeight: '600'}}>
-                  Mobile Health Services
+                  Post-Surgical Care and Recovery Monitoring
                 </h4>
                 <p style={{fontSize: '0.85rem', opacity: '0.9', margin: 0}}>
-                  Healthcare services delivered wherever you are
+                  Expert care during your recovery journey
                 </p>
               </div>
             </div>
@@ -537,10 +537,10 @@ function Home() {
                 textAlign: 'left'
               }}>
                 <h4 style={{fontSize: '1.2rem', marginBottom: '6px', fontWeight: '600'}}>
-                  Healthcare Excellence
+                  Post-Delivery and Postnatal Care
                 </h4>
                 <p style={{fontSize: '0.85rem', opacity: '0.9', margin: 0}}>
-                  Setting the standard for quality care
+                  Supporting mothers and newborns after delivery
                 </p>
               </div>
             </div>
@@ -586,10 +586,10 @@ function Home() {
                 textAlign: 'left'
               }}>
                 <h4 style={{fontSize: '1.2rem', marginBottom: '6px', fontWeight: '600'}}>
-                  Community Care
+                  Chronic Illness Management
                 </h4>
                 <p style={{fontSize: '0.85rem', opacity: '0.9', margin: 0}}>
-                  Serving our community with dedication
+                  Ongoing support and palliative care services
                 </p>
               </div>
             </div>
@@ -635,10 +635,10 @@ function Home() {
                 textAlign: 'left'
               }}>
                 <h4 style={{fontSize: '1.2rem', marginBottom: '6px', fontWeight: '600'}}>
-                  Modern Technology
+                  Physiotherapy and Rehabilitation Services
                 </h4>
                 <p style={{fontSize: '0.85rem', opacity: '0.9', margin: 0}}>
-                  Advanced tools for better outcomes
+                  Specialized therapy for recovery and mobility
                 </p>
               </div>
             </div>

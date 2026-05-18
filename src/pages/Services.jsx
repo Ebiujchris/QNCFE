@@ -137,7 +137,7 @@ function Services() {
                 gap: '8px',
                 fontWeight: '600'
               }}>
-                🏥 PROFESSIONAL NURSING & HOME-BASED CARE SERVICES
+                🏥 NURSING & HOME-BASED CARE SERVICES
               </h3>
               <p style={{fontSize: '0.85rem', lineHeight: '1.4', color: '#374151', marginBottom: '12px'}}>
                 QNC offers holistic, patient-centered nursing and home-based care services that extend quality healthcare beyond health facilities.

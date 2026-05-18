@@ -277,9 +277,9 @@ function Sidebar({ user, activeTab, setActiveTab, tabs, logout }) {
                     {tab.label}
                   </span>
                   
-                  {tab.count > 0 && (
+                  {tab.count > 0 && false && (
                     <span style={{
-                      background: 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)',
+                      background: 'linear-gradient(135deg, #3b82f6 0%, #2563eb 100%)',
                       color: 'white',
                       fontSize: '0.7rem',
                       fontWeight: '700',

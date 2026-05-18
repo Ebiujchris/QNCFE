@@ -14,9 +14,6 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import Dashboard from './pages/Dashboard'
 import BookService from './pages/BookService'
-import AdminLogin from './pages/admin/AdminLogin'
-import AdminRegister from './pages/admin/AdminRegister'
-import AdminDashboard from './pages/admin/AdminDashboard'
 import ProviderRegister from './pages/ProviderRegister'
 import ForgotPassword from './pages/ForgotPassword'
 import ResetPassword from './pages/ResetPassword'
@@ -92,15 +89,9 @@ function AppContent() {
           user ? <Dashboard user={user} logout={logout} /> : <Login setUser={setUser} />
         } />
         
-        {/* Admin Routes */}
-        <Route path="/admin/login" element={<AdminLogin setUser={setUser} />} />
-        <Route path="/admin/register" element={<AdminRegister />} />
-        <Route path="/admin/dashboard" element={<AdminDashboard user={user} />} />
-        
         {/* Legacy Routes - Redirect to unified dashboard */}
         <Route path="/patient-dashboard" element={<Dashboard user={user} logout={logout} />} />
         <Route path="/provider-dashboard" element={<Dashboard user={user} logout={logout} />} />
-        <Route path="/admin-dashboard" element={<Dashboard user={user} logout={logout} />} />
       </Routes>
     </div>
   )

@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import LoadingSpinner from '../components/LoadingSpinner'
 import PatientDashboard from '../components/dashboards/PatientDashboard'
 import ProviderDashboard from '../components/dashboards/ProviderDashboard'
-import AdminDashboard from '../components/dashboards/AdminDashboard'
 
 function Dashboard({ user, logout }) {
   const [loading, setLoading] = useState(true)
@@ -28,8 +27,6 @@ function Dashboard({ user, logout }) {
         return <PatientDashboard user={user} logout={logout} />
       case 'provider':
         return <ProviderDashboard user={user} logout={logout} />
-      case 'admin':
-        return <AdminDashboard user={user} logout={logout} />
       default:
         return (
           <div className="card">

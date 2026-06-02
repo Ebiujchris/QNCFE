@@ -143,19 +143,6 @@ function Services() {
                 Professional home-based nursing care for recovery, long-term support, and improved quality of life.
               </p>
               
-              <div style={{fontSize: '0.8rem', lineHeight: '1.4', color: '#4b5563', marginBottom: '12px'}}>
-                <p style={{marginBottom: '6px', fontWeight: '500'}}>Services include:</p>
-                <ul style={{paddingLeft: '16px', margin: 0}}>
-                  <li>Elderly & long-term care</li>
-                  <li>Post-surgical & postnatal care</li>
-                  <li>Chronic illness management</li>
-                  <li>Bedside nursing & monitoring</li>
-                  <li>Physiotherapy & rehabilitation</li>
-                  <li>Nutrition counseling</li>
-                  <li>Mental health support</li>
-                </ul>
-              </div>
-              
               <div style={{display: 'flex', gap: '10px', alignItems: 'center', flexWrap: 'wrap'}}>
                 <Link to="/book" style={{
                   background: 'linear-gradient(135deg, #7c2d12, #991b1b)',
@@ -221,17 +208,6 @@ function Services() {
                 Professional medical support for construction, industrial, and remote operations with OHS compliance.
               </p>
               
-              <div style={{fontSize: '0.8rem', lineHeight: '1.4', color: '#4b5563', marginBottom: '12px'}}>
-                <p style={{marginBottom: '6px', fontWeight: '500'}}>Services include:</p>
-                <ul style={{paddingLeft: '16px', margin: 0}}>
-                  <li>Qualified medical teams on-site</li>
-                  <li>Emergency response & first aid</li>
-                  <li>Health screening & surveillance</li>
-                  <li>OHS advisory services</li>
-                  <li>Safety training & MHPSS</li>
-                </ul>
-              </div>
-              
               <div style={{display: 'flex', gap: '10px', alignItems: 'center', flexWrap: 'wrap'}}>
                 <Link to="/book" style={{
                   background: 'linear-gradient(135deg, #7c2d12, #991b1b)',
@@ -285,17 +261,6 @@ function Services() {
             <p style={{fontSize: '0.9rem', lineHeight: '1.4', color: '#374151', marginBottom: '15px', textAlign: 'center'}}>
               Healthcare delivered directly to communities and underserved areas for preventive care and early detection.
             </p>
-            
-            <div style={{fontSize: '0.8rem', lineHeight: '1.4', color: '#4b5563', marginBottom: '15px'}}>
-              <p style={{marginBottom: '6px', fontWeight: '500'}}>Services include:</p>
-              <ul style={{paddingLeft: '16px', margin: 0}}>
-                <li>Patient monitoring & follow-up</li>
-                <li>Medication administration</li>
-                <li>Vital signs monitoring</li>
-                <li>Chronic disease management</li>
-                <li>Health education & support</li>
-              </ul>
-            </div>
             
             <div style={{display: 'flex', gap: '15px', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap'}}>
               <Link to="/book" style={{

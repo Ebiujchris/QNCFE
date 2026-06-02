@@ -43,7 +43,7 @@ function Careers() {
               opacity: '0.95',
               textShadow: '0 1px 3px rgba(0,0,0,0.3)'
             }}>
-              Make a difference in healthcare by joining our network of dedicated professionals
+              Join our healthcare team.
             </p>
           </div>
         </div>
@@ -114,7 +114,7 @@ function Careers() {
             }}>💼</span>
             <h3 style={{color: '#1f2937', marginBottom: '12px', fontSize: '1.2rem', fontWeight: '600'}}>Flexible Work</h3>
             <p style={{color: '#6b7280', fontSize: '0.9rem', lineHeight: '1.4'}}>
-              Choose your schedule and work-life balance while making a meaningful impact in healthcare.
+              Choose your schedule and make an impact.
             </p>
           </div>
           
@@ -148,7 +148,7 @@ function Careers() {
             }}>💰</span>
             <h3 style={{color: '#1f2937', marginBottom: '12px', fontSize: '1.2rem', fontWeight: '600'}}>Competitive Pay</h3>
             <p style={{color: '#6b7280', fontSize: '0.9rem', lineHeight: '1.4'}}>
-              Earn competitive compensation with opportunities for growth and professional development.
+              Competitive compensation with growth opportunities.
             </p>
           </div>
           
@@ -182,7 +182,7 @@ function Careers() {
             }}>🤝</span>
             <h3 style={{color: '#1f2937', marginBottom: '12px', fontSize: '1.2rem', fontWeight: '600'}}>Supportive Team</h3>
             <p style={{color: '#6b7280', fontSize: '0.9rem', lineHeight: '1.4'}}>
-              Join a collaborative environment with ongoing support, training, and professional mentorship.
+              Collaborative environment with training and mentorship.
             </p>
           </div>
         </div>
@@ -252,7 +252,7 @@ function Careers() {
                 <h3 style={{color: '#1f2937', fontSize: '1.3rem', fontWeight: '600'}}>Registered Nurses</h3>
               </div>
               <p style={{color: '#6b7280', marginBottom: '15px', lineHeight: '1.5', fontSize: '0.9rem', position: 'relative', zIndex: 2}}>
-                Provide professional nursing care and support patients in their homes with your expertise and compassion.
+                Deliver professional nursing care in homes.
               </p>
               
               {expandedOpportunity === 'nurses' && (
@@ -355,7 +355,7 @@ function Careers() {
                 <h3 style={{color: '#1f2937', fontSize: '1.3rem', fontWeight: '600'}}>General Practitioners</h3>
               </div>
               <p style={{color: '#6b7280', marginBottom: '15px', lineHeight: '1.5', fontSize: '0.9rem', position: 'relative', zIndex: 2}}>
-                Offer medical consultations and health assessments in comfortable home settings for diverse patient populations.
+                Provide medical consultations in home settings.
               </p>
               
               {expandedOpportunity === 'doctors' && (
@@ -458,7 +458,7 @@ function Careers() {
                 <h3 style={{color: '#1f2937', fontSize: '1.3rem', fontWeight: '600'}}>Professional Caregivers</h3>
               </div>
               <p style={{color: '#6b7280', marginBottom: '15px', lineHeight: '1.5', fontSize: '0.9rem', position: 'relative', zIndex: 2}}>
-                Provide compassionate care and daily assistance to patients who need support with daily living activities.
+                Provide daily care and assistance for patients.
               </p>
               
               {expandedOpportunity === 'caregivers' && (
@@ -697,8 +697,7 @@ function Careers() {
               maxWidth: '600px',
               margin: '0 auto 30px'
             }}>
-              Join our network of healthcare professionals and start making a difference in patients' lives. 
-              Complete our comprehensive provider registration to get started.
+              Complete our provider registration to get started.
             </p>
             
             <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px'}}>

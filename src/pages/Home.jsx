@@ -73,7 +73,7 @@ function Home() {
               opacity: '0.95',
               textShadow: '0 2px 10px rgba(0,0,0,0.3)',
               lineHeight: '1.6'
-            }}>Professional healthcare services delivered to your doorstep. Connect with qualified nurses and care givers.</p>
+            }}>Quality healthcare delivered to your home.</p>
             <div className="hero-buttons">
               <Link to="/book" style={{
                 background: 'linear-gradient(135deg, #7c2d12, #991b1b)',
@@ -210,15 +210,15 @@ function Home() {
           
           <div style={{
             display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', 
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 
             gap: '30px', 
             alignItems: 'center',
             position: 'relative',
             zIndex: 2
           }}>
-            <div>
+            <div style={{textAlign: 'center'}}>
               <h2 style={{
-                fontSize: '2.2rem', 
+                fontSize: 'clamp(1.5rem, 4vw, 2.2rem)', 
                 fontWeight: '700', 
                 background: 'linear-gradient(135deg, var(--primary-blue) 0%, #6366f1 100%)',
                 WebkitBackgroundClip: 'text',
@@ -228,8 +228,8 @@ function Home() {
               }}>
                 About QNC Solutions Ltd
               </h2>
-              <p style={{fontSize: '1rem', lineHeight: '1.6', color: '#374151', marginBottom: '20px', fontWeight: '300'}}>
-                QNC Solutions Ltd is a professional healthcare services provider committed to delivering high-quality, reliable, and compassionate nursing and medical support services across Uganda and beyond. Founded on the principle of Quality Nursing Care, QNC bridges the gap between professional healthcare delivery and accessibility.
+              <p style={{fontSize: 'clamp(0.9rem, 2vw, 1rem)', lineHeight: '1.6', color: '#374151', marginBottom: '20px', fontWeight: '300', textAlign: 'left'}}>
+                QNC Solutions is a professional healthcare services provider delivering high-quality, reliable nursing and medical support across Uganda and beyond. Founded on the principle of Quality Nursing Care, we bridge professional healthcare with accessibility.
               </p>
               
               {isProfileExpanded && (
@@ -240,13 +240,13 @@ function Home() {
                   border: '1px solid rgba(255,255,255,0.3)',
                   marginBottom: '20px'
                 }}>
-                  <p style={{fontSize: '1rem', lineHeight: '1.6', color: '#374151', margin: 0, fontWeight: '300'}}>
-                    Recognizing that healthcare needs extend beyond traditional clinical settings, QNC provides integrated services across homes, workplaces, construction sites, communities, and remote environments. Our service delivery model promotes continuity of care, strengthens health and safety compliance, and improves overall health outcomes through responsive, client-centered solutions delivered by qualified and licensed healthcare professionals.
+                  <p style={{fontSize: 'clamp(0.9rem, 2vw, 1rem)', lineHeight: '1.6', color: '#374151', margin: 0, fontWeight: '300', textAlign: 'left'}}>
+                    We provide integrated services across homes, workplaces, construction sites, and remote environments. Our client-centered services delivered by qualified professionals promote continuity of care, strengthen safety compliance, and improve health outcomes.
                   </p>
                 </div>
               )}
               
-              <div style={{marginTop: '20px'}}>
+              <div style={{marginTop: '20px', textAlign: 'left'}}>
                 <button 
                   onClick={toggleProfile}
                   style={{
@@ -271,21 +271,22 @@ function Home() {
                 </button>
               </div>
             </div>
-            <div style={{textAlign: 'center'}}>
+            <div style={{textAlign: 'center', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
               <div style={{
                 position: 'relative',
                 display: 'inline-block',
                 borderRadius: '20px',
                 overflow: 'hidden',
                 boxShadow: '0 20px 40px rgba(0,0,0,0.15)',
-                border: '2px solid rgba(255,255,255,0.3)'
+                border: '2px solid rgba(255,255,255,0.3)',
+                width: '100%',
+                maxWidth: '400px'
               }}>
                 <img 
                   src="/images/postnatal-care1.jpeg" 
                   alt="Professional Healthcare Services" 
                   style={{
                     width: '100%', 
-                    maxWidth: '400px', 
                     height: '300px', 
                     objectFit: 'cover',
                     transition: 'transform 0.3s ease'
@@ -980,8 +981,19 @@ function Home() {
             fontSize: '0.85rem',
             color: '#9ca3af'
           }}>
-            <p style={{margin: 0}}>
+            <p style={{margin: '0 0 8px 0'}}>
               © 2026 QNC Solutions. All rights reserved. | Professional Healthcare Services in Uganda
+            </p>
+            <p style={{
+              margin: 0,
+              fontSize: '0.85rem',
+              color: '#9ca3af',
+              fontStyle: 'italic'
+            }}>
+              Made by <span style={{
+                fontWeight: '700',
+                color: '#ffffff'
+              }}>INFINITI ANALYTICS</span>
             </p>
           </div>
         </div>

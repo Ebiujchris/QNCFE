@@ -21,49 +21,42 @@ function About() {
       id: 'field',
       title: '1. Field Medical Support Services',
       image: '/images/medical services pic.jpg',
-      shortDescription: 'QNC delivers comprehensive and integrated field medical support tailored to construction, industrial, infrastructure, and remote operations. Our services ensure compliance with occupational health and safety standards while strengthening on-site medical preparedness.',
-      fullDescription: 'We provide risk management and emergency response systems for various operational environments.',
+      shortDescription: 'Professional field medical support for construction, industrial, and remote operations with occupational health compliance.',
+      fullDescription: 'Risk management and emergency response for operational environments.',
       serviceList: [
-        'Deployment of qualified field medical teams (nurses and allied professionals)',
-        'On-site first aid and emergency medical response',
-        'Occupational health screening, monitoring, and medical surveillance',
-        'Incident documentation, reporting, and referral coordination',
-        'Occupational Health and Safety (OHS) advisory and support services',
-        'First Aid and safety training for staff',
-        'Mental Health and Psychosocial Support (MHPSS)',
-        'Community-based health support and MHPSS referrals'
+        'Qualified medical teams on-site',
+        'Emergency response & first aid',
+        'Health screening & surveillance',
+        'OHS advisory services',
+        'Safety training & MHPSS support'
       ]
     },
     {
       id: 'nursing',
-      title: '2. Professional Nursing & Home-Based Care Services',
+      title: '2. Professional Nursing & Home-Based Care',
       image: '/images/bedside nursing pic.jpg',
-      shortDescription: 'QNC offers holistic, patient-centered nursing and home-based care services that extend quality healthcare beyond health facilities. We support recovery, long-term care, and improved quality of life through personalized care delivered in the comfort and dignity of patients\' homes.',
+      shortDescription: 'Personalized home-based nursing care for recovery, long-term support, and improved quality of life.',
       fullDescription: '',
       serviceList: [
-        'Elderly care and long-term support',
-        'Post-surgical care and recovery monitoring',
-        'Post-delivery and postnatal care for mothers and newborns',
-        'Chronic illness management and palliative care support',
-        'Bedside nursing and continuous patient monitoring',
-        'Physiotherapy and rehabilitation services',
-        'Nutrition assessment, counseling, and individualized dietary planning',
-        'Mental Health and Psychosocial Support for patients and caregivers',
-        'Deployment of professional travel nursing teams'
+        'Elderly & long-term care',
+        'Post-surgical & postnatal care',
+        'Chronic illness management',
+        'Physiotherapy & rehabilitation',
+        'Nutrition counseling & support'
       ]
     },
     {
       id: 'mobile',
       title: '3. Mobile Health Services',
       image: '/images/healthcare.avif',
-      shortDescription: 'QNC\'s Mobile Health Services expand access to essential healthcare by delivering services directly to communities, workplaces, and underserved or hard-to-reach areas. This model strengthens preventive care, early detection, and continuity of treatment.',
+      shortDescription: 'Healthcare delivered directly to communities and underserved areas for preventive care and early detection.',
       fullDescription: '',
       serviceList: [
-        'Patient assessment, monitoring, and follow-up care',
-        'Administration of prescribed medications',
-        'Vital signs monitoring (blood pressure, temperature, pulse, respiration, oxygen saturation)',
-        'Chronic disease management and treatment adherence support',
-        'Health education, counseling, and psychosocial support'
+        'Patient monitoring & follow-up',
+        'Medication administration',
+        'Vital signs monitoring',
+        'Chronic disease management',
+        'Health education & support'
       ]
     }
   ]
@@ -74,10 +67,10 @@ function About() {
       name: 'Stiesy Nankunda',
       position: 'Managing Director & Co-Founder',
       image: '👩‍⚕️',
-      shortBio: 'Stiesy Nankunda is the Managing Director and Lead Nursing Consultant at QNC Solutions Ltd. She combines strong clinical expertise with strategic leadership, bringing advanced competence in maternal, neonatal, and general patient care.',
+      shortBio: 'Lead Nursing Consultant combining clinical expertise with strategic leadership in maternal, neonatal, and patient care.',
       fullBio: [
-        'Her technical expertise includes comprehensive patient assessment, vital signs monitoring, medication administration, IV therapy, wound care, catheterization, pressure sore prevention, fluid balance monitoring, and emergency response (BLS/CPR).',
-        'She provides expert psychosocial support, particularly in high-stress and critical care settings, while ensuring strict adherence to infection prevention, patient safety, confidentiality, and ethical standards.'
+        'Expert in patient assessment, vital signs monitoring, IV therapy, wound care, and emergency response (BLS/CPR).',
+        'Dedicated to quality, safety, and patient-centered care with strong psychosocial support skills.'
       ]
     },
     {
@@ -85,10 +78,10 @@ function About() {
       name: 'Ayesiga Confidence',
       position: 'Director & Co-Founder',
       image: '👩‍⚕️',
-      shortBio: 'Ayesiga Confidence is a Director and Lead Maternal Consulting Midwife at QNC Solutions Ltd, with strong clinical and leadership expertise in maternal, neonatal, and general patient care.',
+      shortBio: 'Lead Maternal Consulting Midwife with expertise in clinical supervision and quality assurance.',
       fullBio: [
-        'In her leadership role, she oversees quality assurance, clinical supervision, client care coordination, and service delivery standards. Her expertise extends to patient triage, emergency response, infection prevention and control, pressure sore management, nutrition support, and chronic disease care.',
-        'She is recognized for her professionalism, adaptability, and commitment to high-quality, client-centered care.'
+        'Oversees service delivery standards, patient triage, and emergency response across all clinical areas.',
+        'Committed to high-quality, client-centered maternal and neonatal care.'
       ]
     },
     {
@@ -96,10 +89,10 @@ function About() {
       name: 'Kapipa Ivan Junior',
       position: 'Nutrition Consultant',
       image: '/images/nutrition pic.jpg',
-      shortBio: 'Kapipa Ivan Junior is a Nutrition Consultant at QNC Solutions Ltd, with expertise in clinical and community-based nutrition, food systems, and livelihoods research.',
+      shortBio: 'Clinical nutrition expert with expertise in community-based nutrition and research.',
       fullBio: [
-        'He provides technical advisory support to ensure the safety, adequacy, and effectiveness of nutrition and health services. His skills in research, data analysis, and programme monitoring support evidence-informed decision-making and continuous quality improvement.',
-        'With experience across hospital, wellness, and community settings, Kapipa strengthens QNC\'s capacity to deliver sustainable, client-centered nutrition services.'
+        'Provides technical advisory to ensure safe and effective nutrition services.',
+        'Drives evidence-informed decision-making and continuous quality improvement.'
       ]
     },
     {
@@ -107,10 +100,10 @@ function About() {
       name: 'Kyomuhendo Brian Gilbert',
       position: 'Administrator',
       image: '/images/Kyomuhendo brian pic.jpg',
-      shortBio: 'Kyomuhendo Brian Gilbert serves as the Administrator at QNC Solutions Ltd, where he supports the coordination and efficient management of the organization\'s operations and service delivery processes.',
+      shortBio: 'Operations expert managing organizational coordination and service delivery systems.',
       fullBio: [
-        'Brian brings strong expertise in operations support, systems strengthening, stakeholder coordination, and results-based management. His background in research and data analysis enables him to support performance monitoring, documentation, and evidence-informed planning.',
-        'Recognized for his analytical skills, organization, and attention to detail, Brian supports the translation of operational priorities into structured systems that strengthen service delivery and organizational performance.'
+        'Skilled in operations support, stakeholder coordination, and results-based management.',
+        'Drives evidence-informed planning and strengthens organizational performance.'
       ]
     }
   ]
@@ -253,12 +246,8 @@ function About() {
           </h2>
           
           <div style={{fontSize: '0.9rem', lineHeight: '1.5', color: '#374151', position: 'relative', zIndex: 2}}>
-            <p style={{marginBottom: '10px', fontWeight: '300'}}>
-              QNC Solutions Ltd is a professional healthcare services provider committed to delivering high-quality, reliable, and compassionate nursing and medical support services across Uganda and beyond. Founded on the principle of Quality Nursing Care, QNC bridges the gap between professional healthcare delivery and accessibility.
-            </p>
-            
             <p style={{marginBottom: '0', fontWeight: '300'}}>
-              Our service delivery model promotes continuity of care, strengthens health and safety compliance, and improves overall health outcomes through responsive, client-centered solutions delivered by qualified and licensed healthcare professionals.
+              QNC Solutions delivers quality nursing and medical support across Uganda. We provide responsive, client-centered care through qualified healthcare professionals.
             </p>
           </div>
         </div>
@@ -331,7 +320,7 @@ function About() {
                   fontWeight: '300',
                   margin: 0
                 }}>
-                  To deliver professional, compassionate, and client-centered healthcare services that uphold safety, dignity, and accessibility for individuals, families, and organizations.
+                  Deliver quality, safe, and accessible healthcare services.
                 </p>
               </div>
               
@@ -446,7 +435,7 @@ function About() {
             margin: '0 auto 40px',
             textShadow: '0 2px 10px rgba(0,0,0,0.2)'
           }}>
-            The principles that guide our commitment to excellence in healthcare delivery
+            Our core principles
           </p>
 
           {/* Core Values Grid */}
@@ -507,7 +496,7 @@ function About() {
                 color: 'rgba(255,255,255,0.9)',
                 margin: 0
               }}>
-                We are committed to delivering the highest standards of healthcare services through evidence-based practices and continuous improvement.
+                Highest standards of quality and care.
               </p>
             </div>
 
@@ -560,7 +549,7 @@ function About() {
                 color: 'rgba(255,255,255,0.9)',
                 margin: 0
               }}>
-                We approach every patient with empathy, understanding, and genuine care, treating each person with dignity and respect.
+                Empathy, dignity, and respect for all.
               </p>
             </div>
 
@@ -613,7 +602,7 @@ function About() {
                 color: 'rgba(255,255,255,0.9)',
                 margin: 0
               }}>
-                We maintain the highest ethical standards, ensuring transparency, honesty, and accountability in all our interactions.
+                Transparency, honesty, and accountability.
               </p>
             </div>
 
@@ -666,7 +655,7 @@ function About() {
                 color: 'rgba(255,255,255,0.9)',
                 margin: 0
               }}>
-                We embrace new technologies and methodologies to enhance healthcare delivery and improve patient outcomes.
+                New technologies for better outcomes.
               </p>
             </div>
 
@@ -719,7 +708,7 @@ function About() {
                 color: 'rgba(255,255,255,0.9)',
                 margin: 0
               }}>
-                We strive to make quality healthcare accessible to all, breaking down barriers and reaching underserved communities.
+                Quality healthcare for all communities.
               </p>
             </div>
 
@@ -772,7 +761,7 @@ function About() {
                 color: 'rgba(255,255,255,0.9)',
                 margin: 0
               }}>
-                We work closely with patients, families, and healthcare partners to ensure coordinated, comprehensive care.
+                Working together for better care.
               </p>
             </div>
 
@@ -834,7 +823,7 @@ function About() {
               zIndex: 2
             }}>
               <p style={{marginBottom: '15px', fontWeight: '300'}}>
-                At QNC Solutions Ltd, we are committed to serving as a trusted bridge between professionalism and accessibility in healthcare. We uphold the highest standards of nursing practice, delivering care with compassion, accountability, and respect.
+                We provide quality nursing care with compassion and accountability.
               </p>
               <div style={{
                 background: 'rgba(124, 45, 18, 0.1)',
@@ -849,7 +838,7 @@ function About() {
                   fontSize: '1rem',
                   margin: 0
                 }}>
-                  QNC Solutions Ltd exists to ensure that quality nursing care is accessible to all, whenever and wherever it is needed.
+                  Quality nursing care, accessible to all.
                 </p>
               </div>
             </div>

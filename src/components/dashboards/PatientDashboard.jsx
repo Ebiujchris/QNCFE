@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useToast } from '../../contexts/ToastContext'
 import LoadingSpinner from '../LoadingSpinner'
 import Sidebar from '../Sidebar'
@@ -11,9 +11,21 @@ function PatientDashboard({ user, logout }) {
   const [notifications, setNotifications] = useState([])
   const [loading, setLoading] = useState(true)
   const [paymentLoading, setPaymentLoading] = useState({})
+  const [editMode, setEditMode] = useState(false)
+  const [editLoading, setEditLoading] = useState(false)
+  const [deleteLoading, setDeleteLoading] = useState(false)
+  const [deleteConfirmModal, setDeleteConfirmModal] = useState(false)
+  const [deletePassword, setDeletePassword] = useState('')
+  const [formData, setFormData] = useState({ name: '', phone: '' })
   const { showSuccess, showError } = useToast()
+  const navigate = useNavigate()
 
-  useEffect(() => { fetchData() }, [])
+  useEffect(() => {
+    fetchData()
+    if (user) {
+      setFormData({ name: user.name || '', phone: user.phone || '' })
+    }
+  }, [user])
 
   const fetchData = async () => {
     try {
@@ -63,13 +75,67 @@ function PatientDashboard({ user, logout }) {
     return map[status] || 'status-badge'
   }
 
+  const handleProfileChange = (e) => {
+    const { name, value } = e.target
+    setFormData(prev => ({ ...prev, [name]: value }))
+  }
+
+  const updateProfile = async () => {
+    if (!formData.name.trim()) {
+      showError('Name is required')
+      return
+    }
+    
+    setEditLoading(true)
+    try {
+      await api.put('/auth/profile', {
+        name: formData.name,
+        phone: formData.phone
+      })
+      showSuccess('Profile updated successfully!')
+      setEditMode(false)
+      window.location.reload()
+    } catch (error) {
+      showError(error.response?.data?.message || 'Failed to update profile')
+    } finally {
+      setEditLoading(false)
+    }
+  }
+
+  const deleteAccount = () => {
+    setDeleteConfirmModal(true)
+    setDeletePassword('')
+  }
+
+  const confirmDeleteAccount = async () => {
+    if (!deletePassword) {
+      showError('Password is required')
+      return
+    }
+
+    setDeleteLoading(true)
+    try {
+      await api.delete('/auth/account', { data: { password: deletePassword } })
+      showSuccess('Account deleted successfully')
+      setDeleteConfirmModal(false)
+      setDeletePassword('')
+      logout()
+      navigate('/')
+    } catch (error) {
+      showError(error.response?.data?.message || 'Failed to delete account')
+    } finally {
+      setDeleteLoading(false)
+    }
+  }
+
 
 
   const tabs = [
     { id: 'overview', label: 'Overview', icon: '', count: 0 },
     { id: 'bookings', label: 'My Bookings', icon: '', count: bookings.length },
     { id: 'notifications', label: 'Notifications', icon: '', count: notifications.filter(n => !n.read).length },
-    { id: 'book', label: 'Book Service', icon: '', count: 0 }
+    { id: 'book', label: 'Book Service', icon: '', count: 0 },
+    { id: 'profile', label: 'Profile & Settings', icon: '', count: 0 }
   ]
 
   const handleTabChange = (tabId) => {
@@ -279,6 +345,152 @@ function PatientDashboard({ user, logout }) {
               <h3 style={{ color: '#1f2937', marginBottom: '12px' }}>Ready to book a service?</h3>
               <p style={{ color: '#6b7280', marginBottom: '24px' }}>Click below to schedule your healthcare appointment</p>
               <Link to="/book" className="btn btn-success btn-large">Schedule New Service</Link>
+            </div>
+          </div>
+        )}
+
+        {/* PROFILE & SETTINGS TAB */}
+        {activeTab === 'profile' && (
+          <div>
+            <div style={{ marginBottom: '32px' }}>
+              <h2 style={{ fontSize: '1.75rem', fontWeight: '700', color: '#1f2937', marginBottom: '4px' }}>Profile & Settings ⚙️</h2>
+              <p style={{ color: '#6b7280' }}>Manage your account information</p>
+            </div>
+
+            {/* Edit Profile Section */}
+            <div className="card" style={{ marginBottom: '32px', border: '1px solid #e5e7eb' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+                <h3 style={{ color: '#1f2937', fontSize: '1.25rem', fontWeight: '600', margin: 0 }}>Edit Profile</h3>
+                {!editMode && <button className="btn btn-primary btn-sm" onClick={() => setEditMode(true)}>Edit</button>}
+              </div>
+
+              {editMode ? (
+                <div>
+                  <div className="form-group" style={{ marginBottom: '16px' }}>
+                    <label style={{ fontWeight: '600', color: '#374151', marginBottom: '8px', display: 'block' }}>Full Name</label>
+                    <input
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleProfileChange}
+                      placeholder="Enter your full name"
+                      style={{ width: '100%', padding: '10px', borderRadius: '8px', border: '1px solid #d1d5db' }}
+                    />
+                  </div>
+
+                  <div className="form-group" style={{ marginBottom: '20px' }}>
+                    <label style={{ fontWeight: '600', color: '#374151', marginBottom: '8px', display: 'block' }}>Phone Number</label>
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleProfileChange}
+                      placeholder="Enter your phone number"
+                      style={{ width: '100%', padding: '10px', borderRadius: '8px', border: '1px solid #d1d5db' }}
+                    />
+                  </div>
+
+                  <div style={{ display: 'flex', gap: '12px' }}>
+                    <button 
+                      className="btn btn-success"
+                      onClick={updateProfile}
+                      disabled={editLoading}
+                    >
+                      {editLoading ? 'Saving...' : 'Save Changes'}
+                    </button>
+                    <button 
+                      className="btn"
+                      onClick={() => {
+                        setEditMode(false)
+                        setFormData({ name: user.name || '', phone: user.phone || '' })
+                      }}
+                      style={{ backgroundColor: '#e5e7eb', color: '#374151' }}
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <div>
+                  <div style={{ marginBottom: '12px' }}>
+                    <strong style={{ color: '#374151' }}>Name:</strong>
+                    <p style={{ color: '#6b7280', margin: '4px 0' }}>{user.name}</p>
+                  </div>
+                  <div style={{ marginBottom: '12px' }}>
+                    <strong style={{ color: '#374151' }}>Email:</strong>
+                    <p style={{ color: '#6b7280', margin: '4px 0' }}>{user.email}</p>
+                  </div>
+                  <div>
+                    <strong style={{ color: '#374151' }}>Phone:</strong>
+                    <p style={{ color: '#6b7280', margin: '4px 0' }}>{user.phone || 'Not set'}</p>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Delete Account Section */}
+            <div className="card" style={{ border: '1px solid #fee2e2', backgroundColor: '#fef2f2' }}>
+              <h3 style={{ color: '#991b1b', fontSize: '1.25rem', fontWeight: '600', marginBottom: '12px' }}>Danger Zone</h3>
+              <p style={{ color: '#7f1d1d', marginBottom: '16px' }}>Once you delete your account, there is no going back. Please be certain.</p>
+              <button 
+                className="btn"
+                onClick={deleteAccount}
+                disabled={deleteLoading}
+                style={{ backgroundColor: '#dc2626', color: 'white', padding: '10px 20px', borderRadius: '8px', border: 'none', cursor: deleteLoading ? 'not-allowed' : 'pointer' }}
+              >
+                {deleteLoading ? 'Deleting...' : '🗑️ Delete My Account'}
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* Delete Account Confirmation Modal */}
+        {deleteConfirmModal && (
+          <div style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(0, 0, 0, 0.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1000 }}>
+            <div style={{ backgroundColor: 'white', borderRadius: '12px', padding: '32px', maxWidth: '500px', width: '90%', boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1)' }}>
+              <h3 style={{ marginBottom: '20px', color: '#dc2626', fontSize: '1.5rem' }}>⚠️ Delete Account</h3>
+              
+              <div style={{ marginBottom: '20px', padding: '16px', backgroundColor: '#fee2e2', borderRadius: '8px', border: '2px solid #dc2626' }}>
+                <p style={{ color: '#991b1b', fontWeight: '600', marginBottom: '8px' }}>WARNING: This action cannot be undone!</p>
+                <p style={{ color: '#7f1d1d', fontSize: '0.875rem', marginBottom: '12px' }}>You are about to permanently delete your account. This will:</p>
+                <ul style={{ color: '#7f1d1d', fontSize: '0.875rem', marginLeft: '20px', marginBottom: '0' }}>
+                  <li>Delete all your personal information</li>
+                  <li>Cancel all active bookings</li>
+                  <li>Remove your access to the platform</li>
+                </ul>
+              </div>
+
+              <div className="form-group" style={{ marginBottom: '20px' }}>
+                <label style={{ fontWeight: '600', color: '#374151', marginBottom: '8px', display: 'block' }}>Enter your password to confirm</label>
+                <input
+                  type="password"
+                  value={deletePassword}
+                  onChange={(e) => setDeletePassword(e.target.value)}
+                  placeholder="Enter your password"
+                  disabled={deleteLoading}
+                  style={{ width: '100%', padding: '10px', borderRadius: '8px', border: '1px solid #d1d5db', fontSize: '1rem' }}
+                />
+              </div>
+
+              <div style={{ display: 'flex', gap: '12px', marginTop: '24px' }}>
+                <button 
+                  onClick={confirmDeleteAccount}
+                  disabled={deleteLoading || !deletePassword}
+                  style={{ flex: 1, backgroundColor: '#dc2626', color: 'white', padding: '10px 20px', borderRadius: '8px', border: 'none', cursor: deleteLoading || !deletePassword ? 'not-allowed' : 'pointer', opacity: deleteLoading || !deletePassword ? 0.6 : 1 }}
+                >
+                  {deleteLoading ? 'Deleting Account...' : 'Delete My Account Permanently'}
+                </button>
+                <button 
+                  onClick={() => {
+                    setDeleteConfirmModal(false)
+                    setDeletePassword('')
+                  }}
+                  disabled={deleteLoading}
+                  style={{ flex: 1, backgroundColor: '#e5e7eb', color: '#374151', padding: '10px 20px', borderRadius: '8px', border: 'none', cursor: deleteLoading ? 'not-allowed' : 'pointer' }}
+                >
+                  Cancel
+                </button>
+              </div>
             </div>
           </div>
         )}

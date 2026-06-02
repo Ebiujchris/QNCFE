@@ -79,7 +79,7 @@ function Contact() {
               opacity: '0.95',
               textShadow: '0 1px 3px rgba(0,0,0,0.3)'
             }}>
-              Get in touch with our team for any questions, support, or partnership opportunities
+              Let's hear from you.
             </p>
           </div>
         </div>
@@ -147,7 +147,7 @@ function Contact() {
               Get In Touch
             </h2>
             <p style={{fontSize: '1rem', color: '#6b7280', marginBottom: '25px', lineHeight: '1.5', position: 'relative', zIndex: 2}}>
-              We're here to help and answer any questions you might have. We look forward to hearing from you.
+              We're here to help. Get in touch anytime.
             </p>
 
             <div style={{marginBottom: '40px', position: 'relative', zIndex: 2}}>

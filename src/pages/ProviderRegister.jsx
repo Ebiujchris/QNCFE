@@ -107,11 +107,11 @@ function ProviderRegister() {
         headers: { 'Content-Type': 'multipart/form-data' }
       })
 
-      showSuccess('Provider application submitted successfully! We will review your application and contact you within 48 hours.')
+      showSuccess('Application submitted! We will review and contact you within 48 hours.')
       navigate('/login')
     } catch (error) {
-      const message = error.response?.data?.message || 'Registration failed. Please try again.'
-      showError(message)
+      const errorMessage = error.response?.data?.message || 'Registration failed. Please try again.'
+      showError(errorMessage)
     } finally {
       setLoading(false)
     }
@@ -491,7 +491,7 @@ function ProviderRegister() {
             <h2 style={{fontSize: '2.2rem', fontWeight: '700', marginBottom: '8px', color: '#1f2937'}}>
               Join Our Healthcare Team
             </h2>
-            <p style={{color: '#6b7280', fontSize: '1.1rem'}}>Apply to become a healthcare provider with QNC Solutions</p>
+            <p style={{color: '#6b7280', fontSize: '1.1rem'}}>Apply as a healthcare provider</p>
           </div>
           
           {renderStepIndicator()}

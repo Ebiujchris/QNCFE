@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useToast } from '../../contexts/ToastContext'
 import LoadingSpinner from '../LoadingSpinner'
 import Sidebar from '../Sidebar'
@@ -11,9 +12,21 @@ function ProviderDashboard({ user, logout }) {
   const [notifications, setNotifications] = useState([])
   const [loading, setLoading] = useState(true)
   const [completionLoading, setCompletionLoading] = useState({})
+  const [editMode, setEditMode] = useState(false)
+  const [editLoading, setEditLoading] = useState(false)
+  const [deleteLoading, setDeleteLoading] = useState(false)
+  const [deleteConfirmModal, setDeleteConfirmModal] = useState(false)
+  const [deletePassword, setDeletePassword] = useState('')
+  const [formData, setFormData] = useState({ name: '', phone: '' })
   const { showSuccess, showError } = useToast()
+  const navigate = useNavigate()
 
-  useEffect(() => { fetchData() }, [])
+  useEffect(() => {
+    fetchData()
+    if (user) {
+      setFormData({ name: user.name || '', phone: user.phone || '' })
+    }
+  }, [user])
 
   const fetchData = async () => {
     try {
@@ -55,12 +68,64 @@ function ProviderDashboard({ user, logout }) {
     return map[status] || 'status-badge'
   }
 
+  const handleProfileChange = (e) => {
+    const { name, value } = e.target
+    setFormData(prev => ({ ...prev, [name]: value }))
+  }
 
+  const updateProfile = async () => {
+    if (!formData.name.trim()) {
+      showError('Name is required')
+      return
+    }
+    
+    setEditLoading(true)
+    try {
+      await api.put('/auth/profile', {
+        name: formData.name,
+        phone: formData.phone
+      })
+      showSuccess('Profile updated successfully!')
+      setEditMode(false)
+      window.location.reload()
+    } catch (error) {
+      showError(error.response?.data?.message || 'Failed to update profile')
+    } finally {
+      setEditLoading(false)
+    }
+  }
+
+  const deleteAccount = () => {
+    setDeleteConfirmModal(true)
+    setDeletePassword('')
+  }
+
+  const confirmDeleteAccount = async () => {
+    if (!deletePassword) {
+      showError('Password is required')
+      return
+    }
+
+    setDeleteLoading(true)
+    try {
+      await api.delete('/auth/account', { data: { password: deletePassword } })
+      showSuccess('Account deleted successfully')
+      setDeleteConfirmModal(false)
+      setDeletePassword('')
+      logout()
+      navigate('/')
+    } catch (error) {
+      showError(error.response?.data?.message || 'Failed to delete account')
+    } finally {
+      setDeleteLoading(false)
+    }
+  }
 
   const tabs = [
     { id: 'assignments', label: 'My Assignments', icon: '', count: 0 },
     { id: 'earnings', label: 'Earnings', icon: '', count: 0 },
-    { id: 'notifications', label: 'Notifications', icon: '', count: notifications.filter(n => !n.read).length }
+    { id: 'notifications', label: 'Notifications', icon: '', count: notifications.filter(n => !n.read).length },
+    { id: 'profile', label: 'Profile & Settings', icon: '', count: 0 }
   ]
 
   const markAllRead = async () => {
@@ -313,6 +378,101 @@ function ProviderDashboard({ user, logout }) {
                   </div>
                 ))
               )}
+            </div>
+          </div>
+        )}
+
+        {/* PROFILE & SETTINGS TAB */}
+        {activeTab === 'profile' && (
+          <div>
+            <div style={{ marginBottom: '32px' }}>
+              <h2 style={{ fontSize: '1.75rem', fontWeight: '700', color: '#1f2937', marginBottom: '4px' }}>Profile & Settings ⚙️</h2>
+              <p style={{ color: '#6b7280' }}>Manage your account information</p>
+            </div>
+
+            {/* Edit Profile Section */}
+            <div className="card" style={{ marginBottom: '32px', border: '1px solid #e5e7eb' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+                <h3 style={{ color: '#1f2937', fontSize: '1.25rem', fontWeight: '600', margin: 0 }}>Edit Profile</h3>
+                {!editMode && <button className="btn btn-primary btn-sm" onClick={() => setEditMode(true)}>Edit</button>}
+              </div>
+
+              {editMode ? (
+                <div>
+                  <div className="form-group" style={{ marginBottom: '16px' }}>
+                    <label style={{ fontWeight: '600', color: '#374151', marginBottom: '8px', display: 'block' }}>Full Name</label>
+                    <input
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleProfileChange}
+                      placeholder="Enter your full name"
+                      style={{ width: '100%', padding: '10px', borderRadius: '8px', border: '1px solid #d1d5db' }}
+                    />
+                  </div>
+
+                  <div className="form-group" style={{ marginBottom: '20px' }}>
+                    <label style={{ fontWeight: '600', color: '#374151', marginBottom: '8px', display: 'block' }}>Phone Number</label>
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleProfileChange}
+                      placeholder="Enter your phone number"
+                      style={{ width: '100%', padding: '10px', borderRadius: '8px', border: '1px solid #d1d5db' }}
+                    />
+                  </div>
+
+                  <div style={{ display: 'flex', gap: '12px' }}>
+                    <button 
+                      className="btn btn-success"
+                      onClick={updateProfile}
+                      disabled={editLoading}
+                    >
+                      {editLoading ? 'Saving...' : 'Save Changes'}
+                    </button>
+                    <button 
+                      className="btn"
+                      onClick={() => {
+                        setEditMode(false)
+                        setFormData({ name: user.name || '', phone: user.phone || '' })
+                      }}
+                      style={{ backgroundColor: '#e5e7eb', color: '#374151' }}
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <div>
+                  <div style={{ marginBottom: '12px' }}>
+                    <strong style={{ color: '#374151' }}>Name:</strong>
+                    <p style={{ color: '#6b7280', margin: '4px 0' }}>{user.name}</p>
+                  </div>
+                  <div style={{ marginBottom: '12px' }}>
+                    <strong style={{ color: '#374151' }}>Email:</strong>
+                    <p style={{ color: '#6b7280', margin: '4px 0' }}>{user.email}</p>
+                  </div>
+                  <div>
+                    <strong style={{ color: '#374151' }}>Phone:</strong>
+                    <p style={{ color: '#6b7280', margin: '4px 0' }}>{user.phone || 'Not set'}</p>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Delete Account Section */}
+            <div className="card" style={{ border: '1px solid #fee2e2', backgroundColor: '#fef2f2' }}>
+              <h3 style={{ color: '#991b1b', fontSize: '1.25rem', fontWeight: '600', marginBottom: '12px' }}>Danger Zone</h3>
+              <p style={{ color: '#7f1d1d', marginBottom: '16px' }}>Once you delete your account, there is no going back. Please be certain.</p>
+              <button 
+                className="btn"
+                onClick={deleteAccount}
+                disabled={deleteLoading}
+                style={{ backgroundColor: '#dc2626', color: 'white', padding: '10px 20px', borderRadius: '8px', border: 'none', cursor: deleteLoading ? 'not-allowed' : 'pointer' }}
+              >
+                {deleteLoading ? 'Deleting...' : '🗑️ Delete My Account'}
+              </button>
             </div>
           </div>
         )}

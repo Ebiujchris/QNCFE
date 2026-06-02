@@ -43,7 +43,7 @@ function Services() {
               opacity: '0.95',
               textShadow: '0 1px 3px rgba(0,0,0,0.3)'
             }}>
-              Comprehensive healthcare solutions delivered with professionalism and compassion
+              Professional healthcare solutions.
             </p>
           </div>
         </div>
@@ -140,24 +140,19 @@ function Services() {
                 🏥 NURSING & HOME-BASED CARE SERVICES
               </h3>
               <p style={{fontSize: '0.85rem', lineHeight: '1.4', color: '#374151', marginBottom: '12px'}}>
-                QNC offers holistic, patient-centered nursing and home-based care services that extend quality healthcare beyond health facilities.
+                Professional home-based nursing care for recovery, long-term support, and improved quality of life.
               </p>
               
               <div style={{fontSize: '0.8rem', lineHeight: '1.4', color: '#4b5563', marginBottom: '12px'}}>
-                <p style={{marginBottom: '8px', fontWeight: '500'}}>
-                  We support recovery, long-term care, and improved quality of life through personalized care delivered in the comfort and dignity of patients' homes.
-                </p>
                 <p style={{marginBottom: '6px', fontWeight: '500'}}>Services include:</p>
                 <ul style={{paddingLeft: '16px', margin: 0}}>
-                  <li>Elderly care and long-term support</li>
-                  <li>Post-surgical care and recovery monitoring</li>
-                  <li>Post-delivery and postnatal care for mothers and newborns</li>
-                  <li>Chronic illness management and palliative care support</li>
-                  <li>Bedside nursing and continuous patient monitoring</li>
-                  <li>Physiotherapy and rehabilitation services</li>
-                  <li>Nutrition assessment, counseling, and individualized dietary planning</li>
-                  <li>Mental Health and Psychosocial Support for patients and caregivers</li>
-                  <li>Deployment of professional travel nursing teams</li>
+                  <li>Elderly & long-term care</li>
+                  <li>Post-surgical & postnatal care</li>
+                  <li>Chronic illness management</li>
+                  <li>Bedside nursing & monitoring</li>
+                  <li>Physiotherapy & rehabilitation</li>
+                  <li>Nutrition counseling</li>
+                  <li>Mental health support</li>
                 </ul>
               </div>
               
@@ -223,24 +218,17 @@ function Services() {
                 🚑 FIELD MEDICAL SUPPORT SERVICES
               </h3>
               <p style={{fontSize: '0.85rem', lineHeight: '1.4', color: '#374151', marginBottom: '12px'}}>
-                QNC delivers comprehensive and integrated field medical support tailored to construction, industrial, infrastructure, and remote operations.
+                Professional medical support for construction, industrial, and remote operations with OHS compliance.
               </p>
               
               <div style={{fontSize: '0.8rem', lineHeight: '1.4', color: '#4b5563', marginBottom: '12px'}}>
-                <p style={{marginBottom: '8px', fontWeight: '500'}}>
-                  Our services ensure compliance with occupational health and safety standards while strengthening on-site medical preparedness, risk management, and emergency response systems.
-                </p>
                 <p style={{marginBottom: '6px', fontWeight: '500'}}>Services include:</p>
                 <ul style={{paddingLeft: '16px', margin: 0}}>
-                  <li>Deployment of qualified field medical teams (nurses and allied professionals)</li>
-                  <li>On-site first aid and emergency medical response</li>
-                  <li>Occupational health screening, monitoring, and medical surveillance</li>
-                  <li>Incident documentation, reporting, and referral coordination</li>
-                  <li>Occupational Health and Safety (OHS) advisory and support services</li>
-                  <li>First Aid and safety training for staff</li>
-                  <li>Mental Health and Psychosocial Support (MHPSS), including psychological first aid, stress management, and referral pathways</li>
-                  <li>Referral coordination with healthcare facilities</li>
-                  <li>Community-based health support and MHPSS referrals</li>
+                  <li>Qualified medical teams on-site</li>
+                  <li>Emergency response & first aid</li>
+                  <li>Health screening & surveillance</li>
+                  <li>OHS advisory services</li>
+                  <li>Safety training & MHPSS</li>
                 </ul>
               </div>
               
@@ -295,20 +283,17 @@ function Services() {
               📱 MOBILE HEALTH SERVICES
             </h3>
             <p style={{fontSize: '0.9rem', lineHeight: '1.4', color: '#374151', marginBottom: '15px', textAlign: 'center'}}>
-              QNC's Mobile Health Services expand access to essential healthcare by delivering services directly to communities, workplaces, and underserved or hard-to-reach areas.
+              Healthcare delivered directly to communities and underserved areas for preventive care and early detection.
             </p>
             
             <div style={{fontSize: '0.8rem', lineHeight: '1.4', color: '#4b5563', marginBottom: '15px'}}>
-              <p style={{marginBottom: '8px', fontWeight: '500', textAlign: 'center'}}>
-                This model strengthens preventive care, early detection, and continuity of treatment.
-              </p>
               <p style={{marginBottom: '6px', fontWeight: '500'}}>Services include:</p>
               <ul style={{paddingLeft: '16px', margin: 0}}>
-                <li>Patient assessment, monitoring, and follow-up care</li>
-                <li>Administration of prescribed medications</li>
-                <li>Vital signs monitoring (blood pressure, temperature, pulse, respiration, oxygen saturation)</li>
-                <li>Chronic disease management and treatment adherence support</li>
-                <li>Health education, counseling, and psychosocial support</li>
+                <li>Patient monitoring & follow-up</li>
+                <li>Medication administration</li>
+                <li>Vital signs monitoring</li>
+                <li>Chronic disease management</li>
+                <li>Health education & support</li>
               </ul>
             </div>
             

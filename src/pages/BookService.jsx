@@ -25,8 +25,7 @@ function BookService({ user }) {
         <div className="card card-elevated" style={{textAlign: 'center'}}>
           <h2 style={{marginBottom: '15px'}}>Schedule Your Healthcare Service</h2>
           <p style={{marginBottom: '25px', color: '#6b7280', lineHeight: '1.6'}}>
-            To book an appointment online, please create an account or login to your existing account. 
-            This helps us serve you better and keep track of your healthcare needs.
+            Create an account or login to book an appointment.
           </p>
           <div style={{display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '25px'}}>
             <Link to="/register" className="btn btn-primary">
@@ -62,7 +61,7 @@ function BookService({ user }) {
               marginTop: '12px',
               lineHeight: '1.5'
             }}>
-              We're happy to assist you over the phone or via email
+              Or call us directly.
             </p>
           </div>
         </div>

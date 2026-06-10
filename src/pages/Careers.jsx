@@ -3,736 +3,452 @@ import { useState } from 'react'
 import SEO from '../components/SEO'
 
 function Careers() {
-  const [expandedOpportunity, setExpandedOpportunity] = useState(null)
+  const [expandedJob, setExpandedJob] = useState(null)
 
-  const toggleOpportunity = (opportunityId) => {
-    setExpandedOpportunity(expandedOpportunity === opportunityId ? null : opportunityId)
+  const jobListings = [
+    {
+      id: 1,
+      title: 'Registered Nurse',
+      type: 'Full-time / Part-time',
+      location: 'Kampala, Uganda',
+      description: 'We are looking for compassionate registered nurses to join our home care team.',
+      requirements: [
+        'Valid nursing license',
+        'Minimum 2 years of clinical experience',
+        'Excellent communication skills',
+        'Ability to work independently'
+      ]
+    },
+    {
+      id: 2,
+      title: 'Field Medical Officer',
+      type: 'Full-time',
+      location: 'Various locations',
+      description: 'Join our mobile health team providing on-site medical support.',
+      requirements: [
+        'Medical degree or diploma',
+        'Experience in field medicine',
+        'Willingness to travel',
+        'Strong problem-solving skills'
+      ]
+    },
+    {
+      id: 3,
+      title: 'Healthcare Assistant',
+      type: 'Part-time',
+      location: 'Kampala, Uganda',
+      description: 'Support our nursing team in delivering quality home-based care.',
+      requirements: [
+        'Certificate in healthcare',
+        'Caring and patient personality',
+        'Good physical stamina',
+        'Basic medical knowledge'
+      ]
+    }
+  ]
+
+  const toggleJob = (id) => {
+    setExpandedJob(expandedJob === id ? null : id)
   }
+
   return (
-    <div style={{background: 'linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)', minHeight: '100vh'}}>
+    <div style={{background: '#ffffff', minHeight: '100vh'}}>
       <SEO 
         title="Careers - Join QNC Solutions Healthcare Team"
-        description="Join our team of healthcare professionals. Career opportunities for nurses, doctors, caregivers, and medical professionals. Make a difference in healthcare delivery across Uganda."
-        keywords="healthcare careers, nursing jobs, medical jobs Uganda, healthcare employment, nursing opportunities, caregiver jobs"
+        description="Join our team of dedicated healthcare professionals. Explore career opportunities at QNC Solutions and make a difference in people's lives."
+        keywords="healthcare jobs Uganda, nursing careers, medical jobs, QNC careers"
         canonical="https://www.qncsolutions.com/careers"
       />
+
       {/* Hero Section */}
-      <section className="hero" style={{
-        background: `linear-gradient(135deg, rgba(30, 64, 175, 0.9), rgba(124, 45, 18, 0.8)), url('/images/photo-1666887360680-9dc27a1d2753.avif')`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        padding: '50px 0',
-        position: 'relative',
-        overflow: 'hidden'
+      <section style={{
+        background: 'linear-gradient(135deg, var(--primary-maroon), #7c2d12)',
+        color: 'white',
+        padding: '80px 0',
+        textAlign: 'center'
       }}>
-        <div className="container" style={{position: 'relative', zIndex: 2}}>
-          <div style={{textAlign: 'center', color: 'white'}}>
-            <h1 style={{
-              fontSize: '2.5rem', 
-              fontWeight: '700', 
-              marginBottom: '15px',
-              background: 'linear-gradient(135deg, #ffffff, #e0e7ff)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              textShadow: '0 2px 10px rgba(0,0,0,0.3)'
-            }}>Join Our Team</h1>
-            <p style={{
-              fontSize: '1.1rem', 
-              maxWidth: '600px', 
-              margin: '0 auto',
-              opacity: '0.95',
-              textShadow: '0 1px 3px rgba(0,0,0,0.3)'
-            }}>
-              Join our healthcare team.
-            </p>
-          </div>
+        <div className="container">
+          <h1 style={{
+            fontSize: '2.5rem',
+            fontWeight: '700',
+            marginBottom: '15px'
+          }}>Join Our Team</h1>
+          <p style={{
+            fontSize: '1.1rem',
+            maxWidth: '700px',
+            margin: '0 auto',
+            opacity: '0.95'
+          }}>
+            Be part of a team that's making healthcare accessible and compassionate for everyone.
+          </p>
         </div>
-        {/* Floating elements */}
-        <div style={{
-          position: 'absolute',
-          top: '20%',
-          left: '10%',
-          width: '80px',
-          height: '80px',
-          background: 'rgba(255,255,255,0.1)',
-          borderRadius: '50%',
-          animation: 'float 6s ease-in-out infinite'
-        }}></div>
-        <div style={{
-          position: 'absolute',
-          bottom: '20%',
-          right: '15%',
-          width: '60px',
-          height: '60px',
-          background: 'rgba(16, 185, 129, 0.2)',
-          borderRadius: '50%',
-          animation: 'float 8s ease-in-out infinite reverse'
-        }}></div>
       </section>
 
       {/* Why Join Us */}
-      <section className="container" style={{padding: '40px 0'}}>
-        <h2 style={{
-          textAlign: 'center', 
-          fontSize: '2rem', 
-          fontWeight: '700', 
-          color: 'var(--primary-blue)', 
-          marginBottom: '30px',
-          textShadow: '0 2px 4px rgba(0,0,0,0.1)'
-        }}>
-          Why Choose QNC Solutions?
-        </h2>
-        
-        <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', marginBottom: '40px'}}>
-          <div style={{
-            background: 'rgba(255, 255, 255, 0.25)',
-            backdropFilter: 'blur(10px)',
-            border: '1px solid rgba(255, 255, 255, 0.3)',
-            borderRadius: '16px',
-            padding: '25px',
-            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
-            transition: 'all 0.3s ease',
+      <section style={{padding: '60px 0', background: '#f9fafb'}}>
+        <div className="container">
+          <h2 style={{
+            fontSize: '2rem',
+            fontWeight: '700',
+            color: 'var(--primary-blue)',
             textAlign: 'center',
-            cursor: 'pointer'
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.transform = 'translateY(-5px)';
-            e.currentTarget.style.boxShadow = '0 12px 40px rgba(0, 0, 0, 0.15)';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.transform = 'translateY(0)';
-            e.currentTarget.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.1)';
-          }}>
-            <span style={{
-              fontSize: '2.5rem', 
-              marginBottom: '15px', 
-              display: 'block',
-              background: 'linear-gradient(135deg, #10b981, #3b82f6)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text'
-            }}>💼</span>
-            <h3 style={{color: '#1f2937', marginBottom: '12px', fontSize: '1.2rem', fontWeight: '600'}}>Flexible Work</h3>
-            <p style={{color: '#6b7280', fontSize: '0.9rem', lineHeight: '1.4'}}>
-              Choose your schedule and make an impact.
-            </p>
-          </div>
-          
+            marginBottom: '50px'
+          }}>Why Work With QNC?</h2>
+
           <div style={{
-            background: 'rgba(255, 255, 255, 0.25)',
-            backdropFilter: 'blur(10px)',
-            border: '1px solid rgba(255, 255, 255, 0.3)',
-            borderRadius: '16px',
-            padding: '25px',
-            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
-            transition: 'all 0.3s ease',
-            textAlign: 'center',
-            cursor: 'pointer'
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.transform = 'translateY(-5px)';
-            e.currentTarget.style.boxShadow = '0 12px 40px rgba(0, 0, 0, 0.15)';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.transform = 'translateY(0)';
-            e.currentTarget.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.1)';
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: '40px'
           }}>
-            <span style={{
-              fontSize: '2.5rem', 
-              marginBottom: '15px', 
-              display: 'block',
-              background: 'linear-gradient(135deg, #fbbf24, #f59e0b)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text'
-            }}>💰</span>
-            <h3 style={{color: '#1f2937', marginBottom: '12px', fontSize: '1.2rem', fontWeight: '600'}}>Competitive Pay</h3>
-            <p style={{color: '#6b7280', fontSize: '0.9rem', lineHeight: '1.4'}}>
-              Competitive compensation with growth opportunities.
-            </p>
-          </div>
-          
-          <div style={{
-            background: 'rgba(255, 255, 255, 0.25)',
-            backdropFilter: 'blur(10px)',
-            border: '1px solid rgba(255, 255, 255, 0.3)',
-            borderRadius: '16px',
-            padding: '25px',
-            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
-            transition: 'all 0.3s ease',
-            textAlign: 'center',
-            cursor: 'pointer'
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.transform = 'translateY(-5px)';
-            e.currentTarget.style.boxShadow = '0 12px 40px rgba(0, 0, 0, 0.15)';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.transform = 'translateY(0)';
-            e.currentTarget.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.1)';
-          }}>
-            <span style={{
-              fontSize: '2.5rem', 
-              marginBottom: '15px', 
-              display: 'block',
-              background: 'linear-gradient(135deg, #ef4444, #f97316)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text'
-            }}>🤝</span>
-            <h3 style={{color: '#1f2937', marginBottom: '12px', fontSize: '1.2rem', fontWeight: '600'}}>Supportive Team</h3>
-            <p style={{color: '#6b7280', fontSize: '0.9rem', lineHeight: '1.4'}}>
-              Collaborative environment with training and mentorship.
-            </p>
+            <div style={{
+              background: 'white',
+              padding: '30px',
+              borderRadius: '8px',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+              textAlign: 'center'
+            }}>
+              <div style={{
+                width: '80px',
+                height: '80px',
+                background: '#eff6ff',
+                borderRadius: '50%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                margin: '0 auto 20px',
+                fontSize: '2.5rem'
+              }}>💼</div>
+              <h3 style={{
+                fontSize: '1.2rem',
+                fontWeight: '600',
+                color: 'var(--primary-blue)',
+                marginBottom: '15px'
+              }}>Professional Growth</h3>
+              <p style={{
+                fontSize: '0.95rem',
+                color: '#6b7280',
+                lineHeight: '1.6'
+              }}>
+                Continuous learning opportunities and career advancement in a supportive environment.
+              </p>
+            </div>
+
+            <div style={{
+              background: 'white',
+              padding: '30px',
+              borderRadius: '8px',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+              textAlign: 'center'
+            }}>
+              <div style={{
+                width: '80px',
+                height: '80px',
+                background: '#fef3c7',
+                borderRadius: '50%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                margin: '0 auto 20px',
+                fontSize: '2.5rem'
+              }}>🤝</div>
+              <h3 style={{
+                fontSize: '1.2rem',
+                fontWeight: '600',
+                color: 'var(--primary-blue)',
+                marginBottom: '15px'
+              }}>Supportive Team</h3>
+              <p style={{
+                fontSize: '0.95rem',
+                color: '#6b7280',
+                lineHeight: '1.6'
+              }}>
+                Work alongside passionate professionals who care about making a difference.
+              </p>
+            </div>
+
+            <div style={{
+              background: 'white',
+              padding: '30px',
+              borderRadius: '8px',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+              textAlign: 'center'
+            }}>
+              <div style={{
+                width: '80px',
+                height: '80px',
+                background: '#fce7f3',
+                borderRadius: '50%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                margin: '0 auto 20px',
+                fontSize: '2.5rem'
+              }}>⚖️</div>
+              <h3 style={{
+                fontSize: '1.2rem',
+                fontWeight: '600',
+                color: 'var(--primary-blue)',
+                marginBottom: '15px'
+              }}>Work-Life Balance</h3>
+              <p style={{
+                fontSize: '0.95rem',
+                color: '#6b7280',
+                lineHeight: '1.6'
+              }}>
+                Flexible schedules and time off to maintain a healthy work-life balance.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Career Opportunities */}
-      <section style={{
-        background: 'linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)',
-        padding: '40px 0',
-        position: 'relative'
-      }}>
+      {/* Job Openings */}
+      <section style={{padding: '60px 0', background: 'white'}}>
         <div className="container">
           <h2 style={{
-            textAlign: 'center', 
-            fontSize: '2rem', 
-            fontWeight: '700', 
-            color: 'var(--primary-blue)', 
-            marginBottom: '30px',
-            textShadow: '0 2px 4px rgba(0,0,0,0.1)'
+            fontSize: '2rem',
+            fontWeight: '700',
+            color: 'var(--primary-blue)',
+            textAlign: 'center',
+            marginBottom: '50px'
+          }}>Current Opportunities</h2>
+
+          <div style={{
+            maxWidth: '900px',
+            margin: '0 auto',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '20px'
           }}>
-            Career Opportunities
-          </h2>
-          
-          <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '20px'}}>
-            
-            {/* Registered Nurses */}
-            <div style={{
-              background: 'rgba(255, 255, 255, 0.3)',
-              backdropFilter: 'blur(15px)',
-              border: '1px solid rgba(255, 255, 255, 0.4)',
-              borderRadius: '16px',
-              padding: '25px',
-              boxShadow: '0 10px 30px rgba(0, 0, 0, 0.12)',
-              transition: 'all 0.3s ease',
-              position: 'relative',
-              overflow: 'hidden'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'translateY(-3px)';
-              e.currentTarget.style.boxShadow = '0 12px 35px rgba(0, 0, 0, 0.15)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.12)';
-            }}>
-              {/* Background decoration */}
-              <div style={{
-                position: 'absolute',
-                top: '-20px',
-                right: '-20px',
-                width: '80px',
-                height: '80px',
-                background: 'rgba(16, 185, 129, 0.1)',
-                borderRadius: '50%',
-                backdropFilter: 'blur(10px)'
-              }}></div>
-              
-              <div style={{display: 'flex', alignItems: 'center', marginBottom: '15px', position: 'relative', zIndex: 2}}>
-                <span style={{
-                  fontSize: '2.5rem', 
-                  marginRight: '12px',
-                  background: 'linear-gradient(135deg, #10b981, #059669)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text'
-                }}>🏥</span>
-                <h3 style={{color: '#1f2937', fontSize: '1.3rem', fontWeight: '600'}}>Registered Nurses</h3>
-              </div>
-              <p style={{color: '#6b7280', marginBottom: '15px', lineHeight: '1.5', fontSize: '0.9rem', position: 'relative', zIndex: 2}}>
-                Deliver professional nursing care in homes.
-              </p>
-              
-              {expandedOpportunity === 'nurses' && (
-                <div style={{
-                  background: 'rgba(255,255,255,0.2)',
-                  borderRadius: '10px',
-                  padding: '15px',
-                  border: '1px solid rgba(255,255,255,0.3)',
-                  marginBottom: '15px',
-                  position: 'relative',
-                  zIndex: 2
-                }}>
-                  <div style={{marginBottom: '15px'}}>
-                    <h4 style={{color: 'var(--primary-blue)', fontSize: '1rem', marginBottom: '8px'}}>Requirements:</h4>
-                    <ul style={{color: '#6b7280', fontSize: '0.85rem', paddingLeft: '18px'}}>
-                      <li>Valid nursing license</li>
-                      <li>2+ years clinical experience</li>
-                      <li>CPR certification</li>
-                      <li>Excellent communication skills</li>
-                    </ul>
-                  </div>
+            {jobListings.map((job) => (
+              <div key={job.id} style={{
+                background: '#f9fafb',
+                borderRadius: '8px',
+                overflow: 'hidden',
+                border: '1px solid #e5e7eb'
+              }}>
+                <div
+                  onClick={() => toggleJob(job.id)}
+                  style={{
+                    padding: '25px',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    transition: 'background 0.3s ease'
+                  }}
+                  onMouseEnter={(e) => e.currentTarget.style.background = '#f3f4f6'}
+                  onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}
+                >
                   <div>
-                    <h4 style={{color: 'var(--primary-blue)', fontSize: '1rem', marginBottom: '8px'}}>Benefits:</h4>
-                    <ul style={{color: '#6b7280', fontSize: '0.85rem', paddingLeft: '18px'}}>
-                      <li>Flexible scheduling</li>
-                      <li>Competitive compensation</li>
-                      <li>Professional development</li>
-                      <li>Health insurance support</li>
-                    </ul>
+                    <h3 style={{
+                      fontSize: '1.3rem',
+                      fontWeight: '600',
+                      color: 'var(--primary-maroon)',
+                      marginBottom: '8px'
+                    }}>{job.title}</h3>
+                    <div style={{
+                      display: 'flex',
+                      gap: '20px',
+                      flexWrap: 'wrap',
+                      fontSize: '0.9rem',
+                      color: '#6b7280'
+                    }}>
+                      <span>📋 {job.type}</span>
+                      <span>📍 {job.location}</span>
+                    </div>
+                  </div>
+                  <div style={{
+                    fontSize: '1.5rem',
+                    color: 'var(--primary-blue)',
+                    transition: 'transform 0.3s ease',
+                    transform: expandedJob === job.id ? 'rotate(180deg)' : 'rotate(0deg)'
+                  }}>
+                    ▼
                   </div>
                 </div>
-              )}
-              
-              <button 
-                onClick={() => toggleOpportunity('nurses')}
-                style={{
-                  background: 'rgba(30, 64, 175, 0.1)',
-                  border: '1px solid rgba(30, 64, 175, 0.3)',
-                  borderRadius: '15px',
-                  color: 'var(--primary-blue)',
-                  fontSize: '0.85rem',
-                  fontWeight: '600',
-                  cursor: 'pointer',
-                  padding: '6px 12px',
-                  transition: 'all 0.3s ease',
-                  position: 'relative',
-                  zIndex: 2
-                }}
-                onMouseEnter={(e) => {
-                  e.target.style.background = 'rgba(30, 64, 175, 0.2)';
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.background = 'rgba(30, 64, 175, 0.1)';
-                }}
-              >
-                {expandedOpportunity === 'nurses' ? 'Read Less' : 'Read More'}
-              </button>
-            </div>
 
-            {/* General Practitioners */}
-            <div style={{
-              background: 'rgba(255, 255, 255, 0.3)',
-              backdropFilter: 'blur(15px)',
-              border: '1px solid rgba(255, 255, 255, 0.4)',
-              borderRadius: '16px',
-              padding: '25px',
-              boxShadow: '0 10px 30px rgba(0, 0, 0, 0.12)',
-              transition: 'all 0.3s ease',
-              position: 'relative',
-              overflow: 'hidden'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'translateY(-3px)';
-              e.currentTarget.style.boxShadow = '0 12px 35px rgba(0, 0, 0, 0.15)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.12)';
-            }}>
-              <div style={{
-                position: 'absolute',
-                top: '-20px',
-                right: '-20px',
-                width: '80px',
-                height: '80px',
-                background: 'rgba(30, 64, 175, 0.1)',
-                borderRadius: '50%',
-                backdropFilter: 'blur(10px)'
-              }}></div>
-              
-              <div style={{display: 'flex', alignItems: 'center', marginBottom: '15px', position: 'relative', zIndex: 2}}>
-                <span style={{
-                  fontSize: '2.5rem', 
-                  marginRight: '12px',
-                  background: 'linear-gradient(135deg, #3b82f6, #1e40af)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text'
-                }}>👨‍⚕️</span>
-                <h3 style={{color: '#1f2937', fontSize: '1.3rem', fontWeight: '600'}}>General Practitioners</h3>
-              </div>
-              <p style={{color: '#6b7280', marginBottom: '15px', lineHeight: '1.5', fontSize: '0.9rem', position: 'relative', zIndex: 2}}>
-                Provide medical consultations in home settings.
-              </p>
-              
-              {expandedOpportunity === 'doctors' && (
-                <div style={{
-                  background: 'rgba(255,255,255,0.2)',
-                  borderRadius: '10px',
-                  padding: '15px',
-                  border: '1px solid rgba(255,255,255,0.3)',
-                  marginBottom: '15px',
-                  position: 'relative',
-                  zIndex: 2
-                }}>
-                  <div style={{marginBottom: '15px'}}>
-                    <h4 style={{color: 'var(--primary-blue)', fontSize: '1rem', marginBottom: '8px'}}>Requirements:</h4>
-                    <ul style={{color: '#6b7280', fontSize: '0.85rem', paddingLeft: '18px'}}>
-                      <li>Medical degree and license</li>
-                      <li>Board certification preferred</li>
-                      <li>Home care experience a plus</li>
-                      <li>Strong diagnostic skills</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 style={{color: 'var(--primary-blue)', fontSize: '1rem', marginBottom: '8px'}}>Benefits:</h4>
-                    <ul style={{color: '#6b7280', fontSize: '0.85rem', paddingLeft: '18px'}}>
-                      <li>Work-life balance</li>
-                      <li>Modern technology support</li>
-                      <li>Growing patient network</li>
-                      <li>Continuing education support</li>
-                    </ul>
-                  </div>
-                </div>
-              )}
-              
-              <button 
-                onClick={() => toggleOpportunity('doctors')}
-                style={{
-                  background: 'rgba(30, 64, 175, 0.1)',
-                  border: '1px solid rgba(30, 64, 175, 0.3)',
-                  borderRadius: '15px',
-                  color: 'var(--primary-blue)',
-                  fontSize: '0.85rem',
-                  fontWeight: '600',
-                  cursor: 'pointer',
-                  padding: '6px 12px',
-                  transition: 'all 0.3s ease',
-                  position: 'relative',
-                  zIndex: 2
-                }}
-                onMouseEnter={(e) => {
-                  e.target.style.background = 'rgba(30, 64, 175, 0.2)';
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.background = 'rgba(30, 64, 175, 0.1)';
-                }}
-              >
-                {expandedOpportunity === 'doctors' ? 'Read Less' : 'Read More'}
-              </button>
-            </div>
+                {expandedJob === job.id && (
+                  <div style={{
+                    padding: '0 25px 25px 25px',
+                    background: 'white'
+                  }}>
+                    <p style={{
+                      fontSize: '1rem',
+                      color: '#4b5563',
+                      lineHeight: '1.6',
+                      marginBottom: '20px'
+                    }}>{job.description}</p>
 
-            {/* Professional Caregivers */}
-            <div style={{
-              background: 'rgba(255, 255, 255, 0.3)',
-              backdropFilter: 'blur(15px)',
-              border: '1px solid rgba(255, 255, 255, 0.4)',
-              borderRadius: '16px',
-              padding: '25px',
-              boxShadow: '0 10px 30px rgba(0, 0, 0, 0.12)',
-              transition: 'all 0.3s ease',
-              position: 'relative',
-              overflow: 'hidden'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'translateY(-3px)';
-              e.currentTarget.style.boxShadow = '0 12px 35px rgba(0, 0, 0, 0.15)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.12)';
-            }}>
-              <div style={{
-                position: 'absolute',
-                top: '-20px',
-                right: '-20px',
-                width: '80px',
-                height: '80px',
-                background: 'rgba(124, 45, 18, 0.1)',
-                borderRadius: '50%',
-                backdropFilter: 'blur(10px)'
-              }}></div>
-              
-              <div style={{display: 'flex', alignItems: 'center', marginBottom: '15px', position: 'relative', zIndex: 2}}>
-                <span style={{
-                  fontSize: '2.5rem', 
-                  marginRight: '12px',
-                  background: 'linear-gradient(135deg, #ef4444, #dc2626)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text'
-                }}>🤝</span>
-                <h3 style={{color: '#1f2937', fontSize: '1.3rem', fontWeight: '600'}}>Professional Caregivers</h3>
+                    <h4 style={{
+                      fontSize: '1.1rem',
+                      fontWeight: '600',
+                      color: 'var(--primary-blue)',
+                      marginBottom: '12px'
+                    }}>Requirements:</h4>
+                    <ul style={{
+                      listStyle: 'none',
+                      padding: 0,
+                      marginBottom: '20px'
+                    }}>
+                      {job.requirements.map((req, index) => (
+                        <li key={index} style={{
+                          fontSize: '0.95rem',
+                          color: '#6b7280',
+                          marginBottom: '8px',
+                          paddingLeft: '20px',
+                          position: 'relative'
+                        }}>
+                          <span style={{
+                            position: 'absolute',
+                            left: 0,
+                            color: 'var(--primary-maroon)'
+                          }}>✓</span>
+                          {req}
+                        </li>
+                      ))}
+                    </ul>
+
+                    <Link to="/contact" style={{
+                      background: 'var(--primary-maroon)',
+                      color: 'white',
+                      textDecoration: 'none',
+                      padding: '10px 25px',
+                      borderRadius: '4px',
+                      fontSize: '0.95rem',
+                      fontWeight: '600',
+                      display: 'inline-block'
+                    }}>
+                      Apply Now
+                    </Link>
+                  </div>
+                )}
               </div>
-              <p style={{color: '#6b7280', marginBottom: '15px', lineHeight: '1.5', fontSize: '0.9rem', position: 'relative', zIndex: 2}}>
-                Provide daily care and assistance for patients.
-              </p>
-              
-              {expandedOpportunity === 'caregivers' && (
-                <div style={{
-                  background: 'rgba(255,255,255,0.2)',
-                  borderRadius: '10px',
-                  padding: '15px',
-                  border: '1px solid rgba(255,255,255,0.3)',
-                  marginBottom: '15px',
-                  position: 'relative',
-                  zIndex: 2
-                }}>
-                  <div style={{marginBottom: '15px'}}>
-                    <h4 style={{color: 'var(--primary-blue)', fontSize: '1rem', marginBottom: '8px'}}>Requirements:</h4>
-                    <ul style={{color: '#6b7280', fontSize: '0.85rem', paddingLeft: '18px'}}>
-                      <li>High school diploma or equivalent</li>
-                      <li>Caregiving experience preferred</li>
-                      <li>First aid certification</li>
-                      <li>Compassionate and patient nature</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 style={{color: 'var(--primary-blue)', fontSize: '1rem', marginBottom: '8px'}}>Benefits:</h4>
-                    <ul style={{color: '#6b7280', fontSize: '0.85rem', paddingLeft: '18px'}}>
-                      <li>Meaningful work</li>
-                      <li>Training provided</li>
-                      <li>Supportive team environment</li>
-                      <li>Flexible hours</li>
-                    </ul>
-                  </div>
-                </div>
-              )}
-              
-              <button 
-                onClick={() => toggleOpportunity('caregivers')}
-                style={{
-                  background: 'rgba(30, 64, 175, 0.1)',
-                  border: '1px solid rgba(30, 64, 175, 0.3)',
-                  borderRadius: '15px',
-                  color: 'var(--primary-blue)',
-                  fontSize: '0.85rem',
-                  fontWeight: '600',
-                  cursor: 'pointer',
-                  padding: '6px 12px',
-                  transition: 'all 0.3s ease',
-                  position: 'relative',
-                  zIndex: 2
-                }}
-                onMouseEnter={(e) => {
-                  e.target.style.background = 'rgba(30, 64, 175, 0.2)';
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.background = 'rgba(30, 64, 175, 0.1)';
-                }}
-              >
-                {expandedOpportunity === 'caregivers' ? 'Read Less' : 'Read More'}
-              </button>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Application Process */}
-      <section className="container" style={{padding: '40px 0'}}>
-        <h2 style={{
-          textAlign: 'center', 
-          fontSize: '2rem', 
-          fontWeight: '700', 
-          color: 'var(--primary-blue)', 
-          marginBottom: '30px',
-          textShadow: '0 2px 4px rgba(0,0,0,0.1)'
-        }}>
-          How to Apply
-        </h2>
-        
-        <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '20px', marginBottom: '30px'}}>
-          <div style={{textAlign: 'center'}}>
-            <div style={{
-              width: '70px', 
-              height: '70px', 
-              background: 'linear-gradient(135deg, var(--primary-blue), #1e40af)', 
-              borderRadius: '50%', 
-              display: 'flex', 
-              alignItems: 'center', 
-              justifyContent: 'center', 
-              margin: '0 auto 15px',
-              color: 'white',
-              fontSize: '1.8rem',
-              boxShadow: '0 8px 25px rgba(30, 64, 175, 0.3)',
-              transition: 'all 0.3s ease'
-            }}
-            onMouseEnter={(e) => {
-              e.target.style.transform = 'scale(1.1)';
-              e.target.style.boxShadow = '0 12px 30px rgba(30, 64, 175, 0.4)';
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.transform = 'scale(1)';
-              e.target.style.boxShadow = '0 8px 25px rgba(30, 64, 175, 0.3)';
-            }}>1</div>
-            <h4 style={{color: '#1f2937', marginBottom: '8px', fontSize: '1.1rem', fontWeight: '600'}}>Register</h4>
-            <p style={{color: '#6b7280', fontSize: '0.85rem', lineHeight: '1.4'}}>
-              Create your provider account and complete your professional profile
-            </p>
-          </div>
-          
-          <div style={{textAlign: 'center'}}>
-            <div style={{
-              width: '70px', 
-              height: '70px', 
-              background: 'linear-gradient(135deg, var(--primary-blue), #1e40af)', 
-              borderRadius: '50%', 
-              display: 'flex', 
-              alignItems: 'center', 
-              justifyContent: 'center', 
-              margin: '0 auto 15px',
-              color: 'white',
-              fontSize: '1.8rem',
-              boxShadow: '0 8px 25px rgba(30, 64, 175, 0.3)',
-              transition: 'all 0.3s ease'
-            }}
-            onMouseEnter={(e) => {
-              e.target.style.transform = 'scale(1.1)';
-              e.target.style.boxShadow = '0 12px 30px rgba(30, 64, 175, 0.4)';
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.transform = 'scale(1)';
-              e.target.style.boxShadow = '0 8px 25px rgba(30, 64, 175, 0.3)';
-            }}>2</div>
-            <h4 style={{color: '#1f2937', marginBottom: '8px', fontSize: '1.1rem', fontWeight: '600'}}>Verification</h4>
-            <p style={{color: '#6b7280', fontSize: '0.85rem', lineHeight: '1.4'}}>
-              We verify your credentials, licenses, and professional background
-            </p>
-          </div>
-          
-          <div style={{textAlign: 'center'}}>
-            <div style={{
-              width: '70px', 
-              height: '70px', 
-              background: 'linear-gradient(135deg, var(--primary-blue), #1e40af)', 
-              borderRadius: '50%', 
-              display: 'flex', 
-              alignItems: 'center', 
-              justifyContent: 'center', 
-              margin: '0 auto 15px',
-              color: 'white',
-              fontSize: '1.8rem',
-              boxShadow: '0 8px 25px rgba(30, 64, 175, 0.3)',
-              transition: 'all 0.3s ease'
-            }}
-            onMouseEnter={(e) => {
-              e.target.style.transform = 'scale(1.1)';
-              e.target.style.boxShadow = '0 12px 30px rgba(30, 64, 175, 0.4)';
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.transform = 'scale(1)';
-              e.target.style.boxShadow = '0 8px 25px rgba(30, 64, 175, 0.3)';
-            }}>3</div>
-            <h4 style={{color: '#1f2937', marginBottom: '8px', fontSize: '1.1rem', fontWeight: '600'}}>Onboarding</h4>
-            <p style={{color: '#6b7280', fontSize: '0.85rem', lineHeight: '1.4'}}>
-              Complete orientation and training to join our healthcare network
-            </p>
-          </div>
-          
-          <div style={{textAlign: 'center'}}>
-            <div style={{
-              width: '70px', 
-              height: '70px', 
-              background: 'linear-gradient(135deg, var(--primary-blue), #1e40af)', 
-              borderRadius: '50%', 
-              display: 'flex', 
-              alignItems: 'center', 
-              justifyContent: 'center', 
-              margin: '0 auto 15px',
-              color: 'white',
-              fontSize: '1.8rem',
-              boxShadow: '0 8px 25px rgba(30, 64, 175, 0.3)',
-              transition: 'all 0.3s ease'
-            }}
-            onMouseEnter={(e) => {
-              e.target.style.transform = 'scale(1.1)';
-              e.target.style.boxShadow = '0 12px 30px rgba(30, 64, 175, 0.4)';
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.transform = 'scale(1)';
-              e.target.style.boxShadow = '0 8px 25px rgba(30, 64, 175, 0.3)';
-            }}>4</div>
-            <h4 style={{color: '#1f2937', marginBottom: '8px', fontSize: '1.1rem', fontWeight: '600'}}>Start Working</h4>
-            <p style={{color: '#6b7280', fontSize: '0.85rem', lineHeight: '1.4'}}>
-              Begin accepting assignments and making a difference in patients' lives
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Enlist as Provider Section */}
-      <section style={{
-        background: 'linear-gradient(135deg, rgba(124, 45, 18, 0.05), rgba(124, 45, 18, 0.1))',
-        padding: '40px 0',
-        position: 'relative'
-      }}>
+      <section style={{padding: '60px 0', background: '#f9fafb'}}>
         <div className="container">
-          <div style={{
-            background: 'rgba(255, 255, 255, 0.4)',
-            backdropFilter: 'blur(15px)',
-            border: '1px solid rgba(255, 255, 255, 0.5)',
-            borderRadius: '20px',
-            padding: '40px',
+          <h2 style={{
+            fontSize: '2rem',
+            fontWeight: '700',
+            color: 'var(--primary-blue)',
             textAlign: 'center',
-            boxShadow: '0 15px 40px rgba(0, 0, 0, 0.1)',
-            maxWidth: '800px',
+            marginBottom: '50px'
+          }}>Our Hiring Process</h2>
+
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+            gap: '30px',
+            maxWidth: '1000px',
             margin: '0 auto'
           }}>
-            <div style={{
-              fontSize: '3rem',
-              marginBottom: '20px',
-              background: 'linear-gradient(135deg, var(--primary-maroon), #991b1b)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text'
-            }}>👩‍⚕️</div>
-            
-            <h2 style={{
-              fontSize: '2.2rem',
-              fontWeight: '700',
-              color: '#1f2937',
-              marginBottom: '16px'
-            }}>
-              Ready to Enlist as a Provider?
-            </h2>
-            
-            <p style={{
-              fontSize: '1.1rem',
-              color: '#6b7280',
-              marginBottom: '30px',
-              lineHeight: '1.6',
-              maxWidth: '600px',
-              margin: '0 auto 30px'
-            }}>
-              Complete our provider registration to get started.
-            </p>
-            
-            <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px'}}>
-              <Link to="/provider-register" style={{
-                background: 'linear-gradient(135deg, var(--primary-maroon), #991b1b)',
+            <div style={{textAlign: 'center'}}>
+              <div style={{
+                width: '60px',
+                height: '60px',
+                background: 'var(--primary-blue)',
                 color: 'white',
-                textDecoration: 'none',
-                padding: '16px 32px',
-                borderRadius: '30px',
-                fontWeight: '600',
-                fontSize: '1.1rem',
-                transition: 'all 0.3s ease',
-                boxShadow: '0 6px 20px rgba(124, 45, 18, 0.3)',
-                display: 'inline-flex',
+                borderRadius: '50%',
+                display: 'flex',
                 alignItems: 'center',
-                gap: '8px'
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.transform = 'translateY(-3px)';
-                e.target.style.boxShadow = '0 8px 25px rgba(124, 45, 18, 0.4)';
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.transform = 'translateY(0)';
-                e.target.style.boxShadow = '0 6px 20px rgba(124, 45, 18, 0.3)';
-              }}>
-                🚀 Start Provider Application
-              </Link>
-              
+                justifyContent: 'center',
+                margin: '0 auto 15px',
+                fontSize: '1.5rem',
+                fontWeight: '700'
+              }}>1</div>
+              <h3 style={{
+                fontSize: '1.1rem',
+                fontWeight: '600',
+                color: 'var(--primary-blue)',
+                marginBottom: '10px'
+              }}>Apply</h3>
               <p style={{
                 fontSize: '0.9rem',
-                color: '#9ca3af',
-                fontStyle: 'italic'
-              }}>
-                Complete registration with document upload • Professional verification • Quick approval process
-              </p>
+                color: '#6b7280'
+              }}>Submit your application</p>
+            </div>
+
+            <div style={{textAlign: 'center'}}>
+              <div style={{
+                width: '60px',
+                height: '60px',
+                background: 'var(--primary-blue)',
+                color: 'white',
+                borderRadius: '50%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                margin: '0 auto 15px',
+                fontSize: '1.5rem',
+                fontWeight: '700'
+              }}>2</div>
+              <h3 style={{
+                fontSize: '1.1rem',
+                fontWeight: '600',
+                color: 'var(--primary-blue)',
+                marginBottom: '10px'
+              }}>Review</h3>
+              <p style={{
+                fontSize: '0.9rem',
+                color: '#6b7280'
+              }}>We review your profile</p>
+            </div>
+
+            <div style={{textAlign: 'center'}}>
+              <div style={{
+                width: '60px',
+                height: '60px',
+                background: 'var(--primary-blue)',
+                color: 'white',
+                borderRadius: '50%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                margin: '0 auto 15px',
+                fontSize: '1.5rem',
+                fontWeight: '700'
+              }}>3</div>
+              <h3 style={{
+                fontSize: '1.1rem',
+                fontWeight: '600',
+                color: 'var(--primary-blue)',
+                marginBottom: '10px'
+              }}>Interview</h3>
+              <p style={{
+                fontSize: '0.9rem',
+                color: '#6b7280'
+              }}>Meet with our team</p>
+            </div>
+
+            <div style={{textAlign: 'center'}}>
+              <div style={{
+                width: '60px',
+                height: '60px',
+                background: 'var(--primary-blue)',
+                color: 'white',
+                borderRadius: '50%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                margin: '0 auto 15px',
+                fontSize: '1.5rem',
+                fontWeight: '700'
+              }}>4</div>
+              <h3 style={{
+                fontSize: '1.1rem',
+                fontWeight: '600',
+                color: 'var(--primary-blue)',
+                marginBottom: '10px'
+              }}>Join Us</h3>
+              <p style={{
+                fontSize: '0.9rem',
+                color: '#6b7280'
+              }}>Welcome to the team!</p>
             </div>
           </div>
         </div>
@@ -741,71 +457,105 @@ function Careers() {
       {/* CTA Section */}
       <section style={{
         background: 'linear-gradient(135deg, var(--primary-blue), #1e40af)',
-        padding: '35px 0',
-        position: 'relative',
-        overflow: 'hidden'
+        color: 'white',
+        padding: '60px 0',
+        textAlign: 'center'
       }}>
-        <div className="container" style={{textAlign: 'center', position: 'relative', zIndex: 2}}>
-          <h2 style={{
-            fontSize: '2rem', 
-            marginBottom: '15px', 
-            color: 'white',
-            textShadow: '0 2px 4px rgba(0,0,0,0.3)'
-          }}>Ready to Join Our Team?</h2>
-          <p style={{
-            fontSize: '1rem', 
-            marginBottom: '20px', 
-            color: 'white', 
-            maxWidth: '500px', 
-            margin: '0 auto 20px',
-            opacity: '0.95'
-          }}>
-            Start your journey with QNC Solutions and become part of a team that's transforming healthcare delivery.
+        <div className="container">
+          <h2 style={{fontSize: '1.8rem', fontWeight: '700', marginBottom: '15px'}}>
+            Ready to Make a Difference?
+          </h2>
+          <p style={{fontSize: '1rem', marginBottom: '25px', opacity: '0.95'}}>
+            Join our team and help us deliver quality healthcare to those who need it most.
           </p>
-          <Link to="/register" style={{
-            background: 'linear-gradient(135deg, var(--primary-maroon), #991b1b)',
-            color: 'white',
+          <Link to="/contact" style={{
+            background: 'white',
+            color: 'var(--primary-blue)',
             textDecoration: 'none',
-            padding: '12px 24px',
-            borderRadius: '25px',
+            padding: '12px 35px',
+            borderRadius: '4px',
+            fontSize: '1rem',
             fontWeight: '600',
-            fontSize: '0.9rem',
-            transition: 'all 0.3s ease',
-            boxShadow: '0 4px 15px rgba(124, 45, 18, 0.3)',
             display: 'inline-block'
-          }}
-          onMouseEnter={(e) => {
-            e.target.style.transform = 'translateY(-2px)';
-            e.target.style.boxShadow = '0 6px 20px rgba(124, 45, 18, 0.4)';
-          }}
-          onMouseLeave={(e) => {
-            e.target.style.transform = 'translateY(0)';
-            e.target.style.boxShadow = '0 4px 15px rgba(124, 45, 18, 0.3)';
           }}>
-            🚀 Get Started
+            Get In Touch
           </Link>
         </div>
-        {/* Floating elements */}
-        <div style={{
-          position: 'absolute',
-          top: '15%',
-          left: '8%',
-          width: '50px',
-          height: '50px',
-          background: 'rgba(255,255,255,0.1)',
-          borderRadius: '50%',
-          animation: 'float 8s ease-in-out infinite'
-        }}></div>
-        <div style={{
-          position: 'absolute',
-          bottom: '20%',
-          right: '12%',
-          width: '40px',
-          height: '40px',
-          background: 'rgba(124, 45, 18, 0.3)',
-          borderRadius: '50%',
-          animation: 'float 6s ease-in-out infinite reverse'
-        }}></div>
+      </section>
+
+      {/* Footer */}
+      <section style={{backgroundColor: 'var(--primary-blue)', color: 'white', padding: '40px 0'}}>
+        <div className="container">
+          <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '30px'}}>
+            
+            <div>
+              <h4 style={{fontSize: '1.2rem', marginBottom: '15px'}}>Quick Links</h4>
+              <ul style={{listStyle: 'none', padding: 0, margin: 0}}>
+                <li style={{marginBottom: '10px'}}><Link to="/" style={{color: '#d1d5db', textDecoration: 'none'}}>Home</Link></li>
+                <li style={{marginBottom: '10px'}}><Link to="/about" style={{color: '#d1d5db', textDecoration: 'none'}}>About Us</Link></li>
+                <li style={{marginBottom: '10px'}}><Link to="/services" style={{color: '#d1d5db', textDecoration: 'none'}}>Services & Solutions</Link></li>
+                <li style={{marginBottom: '10px'}}><Link to="/careers" style={{color: '#d1d5db', textDecoration: 'none'}}>Careers</Link></li>
+                <li style={{marginBottom: '10px'}}><Link to="/contact" style={{color: '#d1d5db', textDecoration: 'none'}}>Contact Us</Link></li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 style={{fontSize: '1.2rem', marginBottom: '15px'}}>Our Services</h4>
+              <ul style={{listStyle: 'none', padding: 0, margin: 0}}>
+                <li style={{marginBottom: '10px'}}><span style={{color: '#d1d5db'}}>Nursing Care</span></li>
+                <li style={{marginBottom: '10px'}}><span style={{color: '#d1d5db'}}>Medical Consultation</span></li>
+                <li style={{marginBottom: '10px'}}><span style={{color: '#d1d5db'}}>Caregiver Support</span></li>
+                <li style={{marginBottom: '10px'}}><span style={{color: '#d1d5db'}}>Mobile Health</span></li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 style={{fontSize: '1.2rem', marginBottom: '15px'}}>Contact Info</h4>
+              <div style={{fontSize: '0.9rem', color: '#d1d5db', lineHeight: '1.8'}}>
+                <p style={{marginBottom: '10px'}}>📍 Buziga Katuso<br />P.O. Box: 201036 Kampala GPO, Uganda</p>
+                <p style={{marginBottom: '10px'}}>📞 <a href="tel:+256791785931" style={{color: '#d1d5db', textDecoration: 'none'}}>+256-791-785931</a></p>
+                <p>✉️ <a href="mailto:qncsolutions3@gmail.com" style={{color: '#d1d5db', textDecoration: 'none'}}>qncsolutions3@gmail.com</a></p>
+              </div>
+            </div>
+
+            <div>
+              <h4 style={{fontSize: '1.2rem', marginBottom: '15px'}}>Our Location</h4>
+              <div style={{
+                width: '100%',
+                height: '180px',
+                backgroundColor: '#374151',
+                borderRadius: '8px',
+                overflow: 'hidden'
+              }}>
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7520895823944!2d32.6078!3d0.2619!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbc0f9c3b5555%3A0x1234567890abcdef!2sBuziga%2C%20Kampala%2C%20Uganda!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+                  width="100%"
+                  height="100%"
+                  style={{border: 0}}
+                  allowFullScreen=""
+                  loading="lazy"
+                  title="QNC Location"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+
+          <div style={{
+            borderTop: '1px solid #374151',
+            marginTop: '30px',
+            paddingTop: '20px',
+            textAlign: 'center',
+            fontSize: '0.85rem',
+            color: '#9ca3af'
+          }}>
+            <p style={{margin: '0 0 8px 0'}}>
+              © 2026 QNC Solutions. All rights reserved. | Join us in our mission to provide quality healthcare for all.
+            </p>
+            <p style={{margin: 0, fontStyle: 'italic'}}>
+              Made by <span style={{fontWeight: '700', color: '#ffffff'}}>INFINITI ANALYTICS</span>
+            </p>
+          </div>
+        </div>
       </section>
     </div>
   )

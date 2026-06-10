@@ -1,1157 +1,431 @@
 import { Link } from 'react-router-dom'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import SEO from '../components/SEO'
 
 function About() {
-  const [expandedService, setExpandedService] = useState(null)
-  const [expandedTeamMember, setExpandedTeamMember] = useState(null)
   const [currentTeamIndex, setCurrentTeamIndex] = useState(0)
-  const [currentServiceIndex, setCurrentServiceIndex] = useState(0)
-
-  const toggleService = (serviceId) => {
-    setExpandedService(expandedService === serviceId ? null : serviceId)
-  }
-
-  const toggleTeamMember = (memberId) => {
-    setExpandedTeamMember(expandedTeamMember === memberId ? null : memberId)
-  }
-
-  const services = [
-    {
-      id: 'field',
-      title: '1. Field Medical Support Services',
-      image: '/images/medical services pic.jpg',
-      shortDescription: 'Professional field medical support for construction, industrial, and remote operations with occupational health compliance.',
-      fullDescription: 'Risk management and emergency response for operational environments.',
-      serviceList: [
-        'Qualified medical teams on-site',
-        'Emergency response & first aid',
-        'Health screening & surveillance',
-        'OHS advisory services',
-        'Safety training & MHPSS support'
-      ]
-    },
-    {
-      id: 'nursing',
-      title: '2. Professional Nursing & Home-Based Care',
-      image: '/images/bedside nursing pic.jpg',
-      shortDescription: 'Personalized home-based nursing care for recovery, long-term support, and improved quality of life.',
-      fullDescription: '',
-      serviceList: [
-        'Elderly & long-term care',
-        'Post-surgical & postnatal care',
-        'Chronic illness management',
-        'Physiotherapy & rehabilitation',
-        'Nutrition counseling & support'
-      ]
-    },
-    {
-      id: 'mobile',
-      title: '3. Mobile Health Services',
-      image: '/images/healthcare.avif',
-      shortDescription: 'Healthcare delivered directly to communities and underserved areas for preventive care and early detection.',
-      fullDescription: '',
-      serviceList: [
-        'Patient monitoring & follow-up',
-        'Medication administration',
-        'Vital signs monitoring',
-        'Chronic disease management',
-        'Health education & support'
-      ]
-    }
-  ]
 
   const teamMembers = [
     {
-      id: 'stiesy',
-      name: 'Stiesy Nankunda',
-      position: 'Managing Director & Co-Founder',
+      id: 1,
+      name: 'Brenda Nankunda',
+      position: 'CEO & Co-Founder',
       image: '👩‍⚕️',
-      shortBio: 'Lead Nursing Consultant combining clinical expertise with strategic leadership in maternal, neonatal, and patient care.',
-      fullBio: [
-        'Expert in patient assessment, vital signs monitoring, IV therapy, wound care, and emergency response (BLS/CPR).',
-        'Dedicated to quality, safety, and patient-centered care with strong psychosocial support skills.'
-      ]
+      bio: 'Leading QNC with vision for accessible, professional, and compassionate healthcare across Uganda and beyond.'
     },
     {
-      id: 'ayesiga',
-      name: 'Ayesiga Confidence',
-      position: 'Director & Co-Founder',
-      image: '👩‍⚕️',
-      shortBio: 'Lead Maternal Consulting Midwife with expertise in clinical supervision and quality assurance.',
-      fullBio: [
-        'Oversees service delivery standards, patient triage, and emergency response across all clinical areas.',
-        'Committed to high-quality, client-centered maternal and neonatal care.'
-      ]
+      id: 2,
+      name: 'Kyeyune Certification',
+      position: 'Program Coordinator',
+      image: '👨‍💼',
+      bio: 'Ensuring seamless coordination of our healthcare programs and service delivery excellence.'
     },
     {
-      id: 'kapipa',
-      name: 'Kapipa Ivan Junior',
-      position: 'Nutrition Consultant',
-      image: '/images/nutrition pic.jpg',
-      shortBio: 'Clinical nutrition expert with expertise in community-based nutrition and research.',
-      fullBio: [
-        'Provides technical advisory to ensure safe and effective nutrition services.',
-        'Drives evidence-informed decision-making and continuous quality improvement.'
-      ]
-    },
-    {
-      id: 'brian',
-      name: 'Kyomuhendo Brian Gilbert',
-      position: 'Administrator',
+      id: 3,
+      name: 'Kyomuhendo Brian',
+      position: 'Engagement Director',
       image: '/images/Kyomuhendo brian pic.jpg',
-      shortBio: 'Operations expert managing organizational coordination and service delivery systems.',
-      fullBio: [
-        'Skilled in operations support, stakeholder coordination, and results-based management.',
-        'Drives evidence-informed planning and strengthens organizational performance.'
-      ]
+      bio: 'Managing stakeholder relationships and expanding our reach to serve more communities.'
+    },
+    {
+      id: 4,
+      name: 'Kapinga Ivan Junior',
+      position: 'Monitoring',
+      image: '👨‍⚕️',
+      bio: 'Overseeing quality standards and ensuring consistent delivery of exceptional healthcare services.'
     }
   ]
 
-  const nextTeamMember = () => {
-    setCurrentTeamIndex((prev) => (prev + 1) % teamMembers.length)
-    setExpandedTeamMember(null) // Close any expanded bio when navigating
-  }
-
-  const prevTeamMember = () => {
-    setCurrentTeamIndex((prev) => (prev - 1 + teamMembers.length) % teamMembers.length)
-    setExpandedTeamMember(null) // Close any expanded bio when navigating
-  }
-
-  const nextService = () => {
-    setCurrentServiceIndex((prev) => (prev + 1) % services.length)
-    setExpandedService(null) // Close any expanded service when navigating
-  }
-
-  const prevService = () => {
-    setCurrentServiceIndex((prev) => (prev - 1 + services.length) % services.length)
-    setExpandedService(null) // Close any expanded service when navigating
-  }
-
-  // Auto-flip services every 5 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentServiceIndex((prev) => (prev + 1) % services.length)
-      setExpandedService(null) // Close any expanded service when auto-flipping
-    }, 5000) // Change service every 5 seconds
-
-    return () => clearInterval(interval) // Cleanup on unmount
-  }, [services.length])
   return (
-    <div style={{background: 'linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)', minHeight: '100vh'}}>
+    <div style={{background: '#ffffff', minHeight: '100vh'}}>
       <SEO 
         title="About QNC Solutions - Professional Healthcare Services"
-        description="Learn about QNC Solutions Ltd, a professional healthcare provider delivering quality nursing and medical support services across Uganda. Field medical support, home care, and community health services."
-        keywords="about QNC, healthcare provider Uganda, nursing services, field medical support, home healthcare, professional medical services"
+        description="Learn about QNC Solutions, our mission to deliver professional, reliable, and compassionate nursing and medical support services across Uganda and beyond."
+        keywords="about QNC, healthcare services Uganda, nursing care, medical support"
         canonical="https://www.qncsolutions.com/about"
       />
-      {/* Modern Hero Section */}
-      <div 
-        className="page-header" 
-        style={{
-          backgroundImage: `linear-gradient(135deg, rgba(30, 64, 175, 0.9), rgba(124, 45, 18, 0.9)), url('/images/new background image.avif')`,
-          height: '40vh',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          position: 'relative',
-          overflow: 'hidden'
-        }}
-      >
-        <div className="page-header-content" style={{textAlign: 'center', zIndex: 2}}>
-          <h1 style={{
-            fontSize: '2.5rem', 
-            fontWeight: '800', 
-            marginBottom: '12px',
-            background: 'linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text',
-            textShadow: '0 4px 20px rgba(0,0,0,0.3)'
-          }}>
-            About QNC Solutions
-          </h1>
-          <p style={{
-            fontSize: '1rem', 
-            opacity: '0.95',
-            maxWidth: '600px',
-            margin: '0 auto',
-            fontWeight: '300',
-            lineHeight: '1.4'
-          }}>
-            Professional healthcare services committed to quality, reliability, and compassionate care
-          </p>
-        </div>
-        
-        {/* Floating Elements */}
-        <div style={{
-          position: 'absolute',
-          top: '20%',
-          right: '10%',
-          width: '60px',
-          height: '60px',
-          background: 'rgba(255,255,255,0.1)',
-          borderRadius: '50%',
-          animation: 'float 6s ease-in-out infinite'
-        }}></div>
-        <div style={{
-          position: 'absolute',
-          bottom: '20%',
-          left: '15%',
-          width: '40px',
-          height: '40px',
-          background: 'rgba(255,255,255,0.08)',
-          borderRadius: '50%',
-          animation: 'float 8s ease-in-out infinite reverse'
-        }}></div>
-      </div>
 
-      {/* Company Profile Section - Modern Card */}
-      <section className="container" style={{padding: '20px 0 15px', position: 'relative', zIndex: 1}}>
-        <div style={{
-          background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
-          borderRadius: '16px',
-          padding: '20px',
-          boxShadow: '0 20px 40px -12px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255,255,255,0.8)',
-          border: '1px solid rgba(255,255,255,0.2)',
-          backdropFilter: 'blur(10px)',
-          position: 'relative',
-          overflow: 'hidden'
-        }}>
-          {/* Background Pattern */}
-          <div style={{
-            position: 'absolute',
-            top: 0,
-            right: 0,
-            width: '100px',
-            height: '100px',
-            background: 'linear-gradient(135deg, rgba(30, 64, 175, 0.05), rgba(124, 45, 18, 0.05))',
-            borderRadius: '50%',
-            transform: 'translate(50%, -50%)'
-          }}></div>
-          
-          <h2 style={{
-            fontSize: '1.8rem', 
-            fontWeight: '700', 
-            background: 'linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-maroon) 100%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text',
-            marginBottom: '12px', 
-            textAlign: 'center',
-            position: 'relative',
-            zIndex: 2
-          }}>
-            Company Profile
-          </h2>
-          
-          <div style={{fontSize: '0.9rem', lineHeight: '1.5', color: '#374151', position: 'relative', zIndex: 2}}>
-            <p style={{marginBottom: '0', fontWeight: '300'}}>
-              QNC Solutions delivers quality nursing and medical support across Uganda. We provide responsive, client-centered care through qualified healthcare professionals.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Core Mission Section - Ultra Modern */}
-      <section style={{padding: '15px 0'}}>
-        <div className="container">
-          <div style={{
-            background: 'linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%)',
-            borderRadius: '20px',
-            padding: '25px',
-            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.1)',
-            border: '1px solid rgba(255,255,255,0.3)',
-            position: 'relative',
-            overflow: 'hidden'
-          }}>
-            {/* Animated Background Elements */}
-            <div style={{
-              position: 'absolute',
-              top: '-30px',
-              left: '-30px',
-              width: '100px',
-              height: '100px',
-              background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(30, 64, 175, 0.1))',
-              borderRadius: '50%',
-              animation: 'pulse 4s ease-in-out infinite'
-            }}></div>
-            
-            <div style={{textAlign: 'center', marginBottom: '20px', position: 'relative', zIndex: 2}}>
-              <div style={{
-                fontSize: '2rem', 
-                marginBottom: '8px',
-                background: 'linear-gradient(135deg, #10b981, #3b82f6)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text'
-              }}>🎯</div>
-              <h3 style={{
-                fontSize: '1.7rem', 
-                fontWeight: '700', 
-                background: 'linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-maroon) 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-                marginBottom: '6px'
-              }}>
-                Our Mission
-              </h3>
-            </div>
-            
-            <div style={{
-              display: 'grid', 
-              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
-              gap: '20px', 
-              alignItems: 'start',
-              position: 'relative',
-              zIndex: 2
-            }}>
-              <div style={{
-                background: 'linear-gradient(135deg, rgba(30, 64, 175, 0.05), rgba(124, 45, 18, 0.05))',
-                padding: '15px',
-                borderRadius: '12px',
-                border: '1px solid rgba(255,255,255,0.2)'
-              }}>
-                <p style={{
-                  fontSize: '0.95rem', 
-                  lineHeight: '1.4', 
-                  color: '#374151',
-                  fontWeight: '300',
-                  margin: 0
-                }}>
-                  Deliver quality, safe, and accessible healthcare services.
-                </p>
-              </div>
-              
-              <div>
-                <h4 style={{
-                  fontSize: '1.1rem', 
-                  fontWeight: '600', 
-                  color: 'var(--primary-maroon)', 
-                  marginBottom: '12px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '6px'
-                }}>
-                  <span style={{
-                    background: 'linear-gradient(135deg, #10b981, #059669)',
-                    color: 'white',
-                    borderRadius: '50%',
-                    width: '20px',
-                    height: '20px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontSize: '0.7rem'
-                  }}>✓</span>
-                  Our Core Services
-                </h4>
-                <div style={{display: 'flex', flexDirection: 'column', gap: '8px'}}>
-                  {[
-                    'Field Medical Support Services',
-                    'Professional Nursing & Home-Based Care Services',
-                    'Mobile Health Services',
-                    'General Medical Consultancy'
-                  ].map((service, index) => (
-                    <div key={index} style={{
-                      display: 'flex', 
-                      alignItems: 'center', 
-                      gap: '8px',
-                      padding: '8px 12px',
-                      background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.05), rgba(16, 185, 129, 0.02))',
-                      borderRadius: '8px',
-                      border: '1px solid rgba(16, 185, 129, 0.1)',
-                      transition: 'all 0.3s ease',
-                      cursor: 'default'
-                    }}
-                    onMouseEnter={(e) => {
-                      e.target.style.transform = 'translateX(2px)'
-                      e.target.style.boxShadow = '0 4px 15px rgba(16, 185, 129, 0.1)'
-                    }}
-                    onMouseLeave={(e) => {
-                      e.target.style.transform = 'translateX(0)'
-                      e.target.style.boxShadow = 'none'
-                    }}>
-                      <span style={{
-                        color: '#10b981', 
-                        fontSize: '1rem',
-                        fontWeight: 'bold'
-                      }}>✓</span>
-                      <span style={{
-                        fontSize: '0.85rem', 
-                        lineHeight: '1.2', 
-                        color: '#374151',
-                        fontWeight: '400'
-                      }}>
-                        {service}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Core Values Section - Modern Design with Background */}
+      {/* Hero Section */}
       <section style={{
-        backgroundImage: `linear-gradient(135deg, rgba(30, 64, 175, 0.9), rgba(124, 45, 18, 0.9)), url('/images/help image.avif')`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundAttachment: 'fixed',
-        padding: '60px 0',
+        background: 'var(--primary-blue)',
+        color: 'white',
+        padding: '80px 0',
         position: 'relative',
         overflow: 'hidden'
       }}>
-        {/* Background Overlay Pattern */}
-        <div style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          background: 'url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'%3E%3Cdefs%3E%3Cpattern id=\'dots\' width=\'20\' height=\'20\' patternUnits=\'userSpaceOnUse\'%3E%3Ccircle cx=\'10\' cy=\'10\' r=\'1\' fill=\'white\' opacity=\'0.1\'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width=\'100\' height=\'100\' fill=\'url(%23dots)\'/%3E%3C/svg%3E")',
-          opacity: 0.3
-        }}></div>
-        
-        <div className="container" style={{position: 'relative', zIndex: 2}}>
-          <h2 style={{
-            fontSize: '2.5rem', 
-            fontWeight: '700', 
-            color: 'white',
-            marginBottom: '20px', 
-            textAlign: 'center',
-            textShadow: '0 4px 20px rgba(0,0,0,0.3)'
-          }}>
-            Our Core Values
-          </h2>
-          <p style={{
-            fontSize: '1.1rem',
-            color: 'rgba(255,255,255,0.9)',
-            textAlign: 'center',
-            maxWidth: '600px',
-            margin: '0 auto 40px',
-            textShadow: '0 2px 10px rgba(0,0,0,0.2)'
-          }}>
-            Our core principles
-          </p>
-
-          {/* Core Values Grid */}
+        <div className="container">
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '25px',
-            maxWidth: '1200px',
+            gap: '40px',
+            alignItems: 'center'
+          }}>
+            <div>
+              <h1 style={{
+                fontSize: '2.5rem',
+                fontWeight: '700',
+                marginBottom: '20px',
+                color: 'white'
+              }}>About QNC<br/>Solutions Ltd</h1>
+              <p style={{
+                fontSize: '1rem',
+                lineHeight: '1.8',
+                marginBottom: '20px',
+                opacity: '0.95'
+              }}>
+                We are a dedicated to providing high-quality, reliable, and compassionate nursing and medical support services across Uganda and beyond.
+              </p>
+            </div>
+            <div>
+              <img 
+                src="/images/homepage photo new.jpg" 
+                alt="QNC Team" 
+                style={{
+                  width: '100%',
+                  borderRadius: '8px',
+                  boxShadow: '0 10px 30px rgba(0,0,0,0.3)'
+                }}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Mission, Vision, Values */}
+      <section style={{padding: '60px 0', background: '#f9fafb'}}>
+        <div className="container">
+          <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '40px'}}>
+            
+            {/* Mission */}
+            <div style={{textAlign: 'center'}}>
+              <div style={{
+                width: '100px',
+                height: '100px',
+                background: 'var(--primary-maroon)',
+                borderRadius: '50%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                margin: '0 auto 20px',
+                fontSize: '3rem'
+              }}>🎯</div>
+              <h3 style={{
+                fontSize: '1.5rem',
+                fontWeight: '700',
+                color: 'var(--primary-blue)',
+                marginBottom: '15px'
+              }}>Our Mission</h3>
+              <p style={{
+                fontSize: '1rem',
+                color: '#4b5563',
+                lineHeight: '1.6'
+              }}>
+                To provide high-quality, professional, and compassionate nursing care that supports the well-being of our clients.
+              </p>
+            </div>
+
+            {/* Vision */}
+            <div style={{textAlign: 'center'}}>
+              <div style={{
+                width: '100px',
+                height: '100px',
+                background: 'var(--primary-blue)',
+                borderRadius: '50%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                margin: '0 auto 20px',
+                fontSize: '3rem'
+              }}>👁️</div>
+              <h3 style={{
+                fontSize: '1.5rem',
+                fontWeight: '700',
+                color: 'var(--primary-blue)',
+                marginBottom: '15px'
+              }}>Our Vision</h3>
+              <p style={{
+                fontSize: '1rem',
+                color: '#4b5563',
+                lineHeight: '1.6'
+              }}>
+                To become the most trusted name in the balance between professionalism and accessible accountability.
+              </p>
+            </div>
+
+            {/* Values */}
+            <div style={{textAlign: 'center'}}>
+              <div style={{
+                width: '100px',
+                height: '100px',
+                background: '#10b981',
+                borderRadius: '50%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                margin: '0 auto 20px',
+                fontSize: '3rem'
+              }}>❤️</div>
+              <h3 style={{
+                fontSize: '1.5rem',
+                fontWeight: '700',
+                color: 'var(--primary-blue)',
+                marginBottom: '15px'
+              }}>Our Values</h3>
+              <ul style={{
+                listStyle: 'none',
+                padding: 0,
+                fontSize: '1rem',
+                color: '#4b5563',
+                lineHeight: '2'
+              }}>
+                <li>✓ Compassion</li>
+                <li>✓ Integrity</li>
+                <li>✓ Excellence</li>
+                <li>✓ Accountability</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Leadership Team */}
+      <section style={{padding: '60px 0', background: 'white'}}>
+        <div className="container">
+          <h2 style={{
+            fontSize: '2rem',
+            fontWeight: '700',
+            color: 'var(--primary-blue)',
+            textAlign: 'center',
+            marginBottom: '50px'
+          }}>Our Leadership Team</h2>
+
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+            gap: '40px',
+            maxWidth: '1000px',
             margin: '0 auto'
           }}>
-            
-            {/* Quality */}
-            <div style={{
-              background: 'rgba(255,255,255,0.1)',
-              borderRadius: '20px',
-              padding: '30px',
-              backdropFilter: 'blur(20px)',
-              border: '1px solid rgba(255,255,255,0.2)',
-              boxShadow: '0 20px 40px -12px rgba(0, 0, 0, 0.25)',
-              textAlign: 'center',
-              transition: 'all 0.3s ease',
-              cursor: 'pointer'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'translateY(-10px)';
-              e.currentTarget.style.background = 'rgba(255,255,255,0.15)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
-            }}>
-              <div style={{
-                width: '80px',
-                height: '80px',
-                background: 'linear-gradient(135deg, #10b981, #059669)',
-                borderRadius: '50%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                margin: '0 auto 20px',
-                fontSize: '2rem',
-                boxShadow: '0 10px 30px rgba(16, 185, 129, 0.4)'
+            {teamMembers.map((member) => (
+              <div key={member.id} style={{
+                textAlign: 'center',
+                background: '#f9fafb',
+                padding: '30px',
+                borderRadius: '8px',
+                transition: 'transform 0.3s ease, box-shadow 0.3s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-5px)';
+                e.currentTarget.style.boxShadow = '0 10px 25px rgba(0,0,0,0.15)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = 'none';
               }}>
-                ⭐
-              </div>
-              <h3 style={{
-                fontSize: '1.4rem',
-                fontWeight: '600',
-                color: 'white',
-                marginBottom: '15px',
-                textShadow: '0 2px 10px rgba(0,0,0,0.3)'
-              }}>
-                Quality
-              </h3>
-              <p style={{
-                fontSize: '0.95rem',
-                lineHeight: '1.5',
-                color: 'rgba(255,255,255,0.9)',
-                margin: 0
-              }}>
-                Highest standards of quality and care.
-              </p>
-            </div>
-
-            {/* Compassion */}
-            <div style={{
-              background: 'rgba(255,255,255,0.1)',
-              borderRadius: '20px',
-              padding: '30px',
-              backdropFilter: 'blur(20px)',
-              border: '1px solid rgba(255,255,255,0.2)',
-              boxShadow: '0 20px 40px -12px rgba(0, 0, 0, 0.25)',
-              textAlign: 'center',
-              transition: 'all 0.3s ease',
-              cursor: 'pointer'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'translateY(-10px)';
-              e.currentTarget.style.background = 'rgba(255,255,255,0.15)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
-            }}>
-              <div style={{
-                width: '80px',
-                height: '80px',
-                background: 'linear-gradient(135deg, #f59e0b, #d97706)',
-                borderRadius: '50%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                margin: '0 auto 20px',
-                fontSize: '2rem',
-                boxShadow: '0 10px 30px rgba(245, 158, 11, 0.4)'
-              }}>
-                ❤️
-              </div>
-              <h3 style={{
-                fontSize: '1.4rem',
-                fontWeight: '600',
-                color: 'white',
-                marginBottom: '15px',
-                textShadow: '0 2px 10px rgba(0,0,0,0.3)'
-              }}>
-                Compassion
-              </h3>
-              <p style={{
-                fontSize: '0.95rem',
-                lineHeight: '1.5',
-                color: 'rgba(255,255,255,0.9)',
-                margin: 0
-              }}>
-                Empathy, dignity, and respect for all.
-              </p>
-            </div>
-
-            {/* Integrity */}
-            <div style={{
-              background: 'rgba(255,255,255,0.1)',
-              borderRadius: '20px',
-              padding: '30px',
-              backdropFilter: 'blur(20px)',
-              border: '1px solid rgba(255,255,255,0.2)',
-              boxShadow: '0 20px 40px -12px rgba(0, 0, 0, 0.25)',
-              textAlign: 'center',
-              transition: 'all 0.3s ease',
-              cursor: 'pointer'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'translateY(-10px)';
-              e.currentTarget.style.background = 'rgba(255,255,255,0.15)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
-            }}>
-              <div style={{
-                width: '80px',
-                height: '80px',
-                background: 'linear-gradient(135deg, #3b82f6, #1d4ed8)',
-                borderRadius: '50%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                margin: '0 auto 20px',
-                fontSize: '2rem',
-                boxShadow: '0 10px 30px rgba(59, 130, 246, 0.4)'
-              }}>
-                🛡️
-              </div>
-              <h3 style={{
-                fontSize: '1.4rem',
-                fontWeight: '600',
-                color: 'white',
-                marginBottom: '15px',
-                textShadow: '0 2px 10px rgba(0,0,0,0.3)'
-              }}>
-                Integrity
-              </h3>
-              <p style={{
-                fontSize: '0.95rem',
-                lineHeight: '1.5',
-                color: 'rgba(255,255,255,0.9)',
-                margin: 0
-              }}>
-                Transparency, honesty, and accountability.
-              </p>
-            </div>
-
-            {/* Innovation */}
-            <div style={{
-              background: 'rgba(255,255,255,0.1)',
-              borderRadius: '20px',
-              padding: '30px',
-              backdropFilter: 'blur(20px)',
-              border: '1px solid rgba(255,255,255,0.2)',
-              boxShadow: '0 20px 40px -12px rgba(0, 0, 0, 0.25)',
-              textAlign: 'center',
-              transition: 'all 0.3s ease',
-              cursor: 'pointer'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'translateY(-10px)';
-              e.currentTarget.style.background = 'rgba(255,255,255,0.15)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
-            }}>
-              <div style={{
-                width: '80px',
-                height: '80px',
-                background: 'linear-gradient(135deg, #8b5cf6, #7c3aed)',
-                borderRadius: '50%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                margin: '0 auto 20px',
-                fontSize: '2rem',
-                boxShadow: '0 10px 30px rgba(139, 92, 246, 0.4)'
-              }}>
-                💡
-              </div>
-              <h3 style={{
-                fontSize: '1.4rem',
-                fontWeight: '600',
-                color: 'white',
-                marginBottom: '15px',
-                textShadow: '0 2px 10px rgba(0,0,0,0.3)'
-              }}>
-                Innovation
-              </h3>
-              <p style={{
-                fontSize: '0.95rem',
-                lineHeight: '1.5',
-                color: 'rgba(255,255,255,0.9)',
-                margin: 0
-              }}>
-                New technologies for better outcomes.
-              </p>
-            </div>
-
-            {/* Accessibility */}
-            <div style={{
-              background: 'rgba(255,255,255,0.1)',
-              borderRadius: '20px',
-              padding: '30px',
-              backdropFilter: 'blur(20px)',
-              border: '1px solid rgba(255,255,255,0.2)',
-              boxShadow: '0 20px 40px -12px rgba(0, 0, 0, 0.25)',
-              textAlign: 'center',
-              transition: 'all 0.3s ease',
-              cursor: 'pointer'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'translateY(-10px)';
-              e.currentTarget.style.background = 'rgba(255,255,255,0.15)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
-            }}>
-              <div style={{
-                width: '80px',
-                height: '80px',
-                background: 'linear-gradient(135deg, #ef4444, #dc2626)',
-                borderRadius: '50%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                margin: '0 auto 20px',
-                fontSize: '2rem',
-                boxShadow: '0 10px 30px rgba(239, 68, 68, 0.4)'
-              }}>
-                🌍
-              </div>
-              <h3 style={{
-                fontSize: '1.4rem',
-                fontWeight: '600',
-                color: 'white',
-                marginBottom: '15px',
-                textShadow: '0 2px 10px rgba(0,0,0,0.3)'
-              }}>
-                Accessibility
-              </h3>
-              <p style={{
-                fontSize: '0.95rem',
-                lineHeight: '1.5',
-                color: 'rgba(255,255,255,0.9)',
-                margin: 0
-              }}>
-                Quality healthcare for all communities.
-              </p>
-            </div>
-
-            {/* Collaboration */}
-            <div style={{
-              background: 'rgba(255,255,255,0.1)',
-              borderRadius: '20px',
-              padding: '30px',
-              backdropFilter: 'blur(20px)',
-              border: '1px solid rgba(255,255,255,0.2)',
-              boxShadow: '0 20px 40px -12px rgba(0, 0, 0, 0.25)',
-              textAlign: 'center',
-              transition: 'all 0.3s ease',
-              cursor: 'pointer'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'translateY(-10px)';
-              e.currentTarget.style.background = 'rgba(255,255,255,0.15)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
-            }}>
-              <div style={{
-                width: '80px',
-                height: '80px',
-                background: 'linear-gradient(135deg, #06b6d4, #0891b2)',
-                borderRadius: '50%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                margin: '0 auto 20px',
-                fontSize: '2rem',
-                boxShadow: '0 10px 30px rgba(6, 182, 212, 0.4)'
-              }}>
-                🤝
-              </div>
-              <h3 style={{
-                fontSize: '1.4rem',
-                fontWeight: '600',
-                color: 'white',
-                marginBottom: '15px',
-                textShadow: '0 2px 10px rgba(0,0,0,0.3)'
-              }}>
-                Collaboration
-              </h3>
-              <p style={{
-                fontSize: '0.95rem',
-                lineHeight: '1.5',
-                color: 'rgba(255,255,255,0.9)',
-                margin: 0
-              }}>
-                Working together for better care.
-              </p>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* Our Commitment Section */}
-      <section style={{
-        background: 'linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)',
-        padding: '25px 0',
-        position: 'relative'
-      }}>
-        <div className="container">
-          <div style={{
-            background: 'rgba(255, 255, 255, 0.3)',
-            backdropFilter: 'blur(15px)',
-            border: '1px solid rgba(255, 255, 255, 0.4)',
-            borderRadius: '16px',
-            padding: '25px',
-            boxShadow: '0 10px 30px rgba(0, 0, 0, 0.12)',
-            position: 'relative',
-            overflow: 'hidden'
-          }}>
-            {/* Background decoration */}
-            <div style={{
-              position: 'absolute',
-              top: '-20px',
-              right: '-20px',
-              width: '80px',
-              height: '80px',
-              background: 'rgba(30, 64, 175, 0.1)',
-              borderRadius: '50%',
-              backdropFilter: 'blur(10px)'
-            }}></div>
-            
-            <h2 style={{
-              fontSize: '1.8rem', 
-              fontWeight: '700', 
-              background: 'linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-maroon) 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-              marginBottom: '20px', 
-              textAlign: 'center',
-              position: 'relative',
-              zIndex: 2
-            }}>
-              Our Commitment
-            </h2>
-            <div style={{
-              fontSize: '0.9rem', 
-              lineHeight: '1.5', 
-              color: '#374151', 
-              textAlign: 'center', 
-              maxWidth: '700px', 
-              margin: '0 auto',
-              position: 'relative',
-              zIndex: 2
-            }}>
-              <p style={{marginBottom: '15px', fontWeight: '300'}}>
-                We provide quality nursing care with compassion and accountability.
-              </p>
-              <div style={{
-                background: 'rgba(124, 45, 18, 0.1)',
-                borderRadius: '10px',
-                padding: '15px',
-                border: '1px solid rgba(124, 45, 18, 0.2)',
-                marginTop: '15px'
-              }}>
-                <p style={{
-                  fontWeight: '600', 
-                  color: 'var(--primary-maroon)',
-                  fontSize: '1rem',
-                  margin: 0
-                }}>
-                  Quality nursing care, accessible to all.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Meet Our Core Team Section */}
-      <section className="container" style={{padding: '20px 0'}}>
-        <h2 style={{
-          fontSize: '1.8rem', 
-          fontWeight: '700', 
-          color: 'var(--primary-blue)', 
-          marginBottom: '20px', 
-          textAlign: 'center',
-          textShadow: '0 2px 4px rgba(0,0,0,0.1)'
-        }}>
-          Meet Our Core Team
-        </h2>
-
-        {/* Team Carousel */}
-        <div className="team-carousel-container" style={{position: 'relative', maxWidth: '800px', margin: '0 auto'}}>
-          {/* Navigation Arrows */}
-          <button
-            className="team-carousel-nav"
-            onClick={prevTeamMember}
-            style={{
-              position: 'absolute',
-              left: '-60px',
-              top: '50%',
-              transform: 'translateY(-50%)',
-              background: 'rgba(30, 64, 175, 0.2)',
-              color: 'var(--primary-blue)',
-              border: '2px solid rgba(30, 64, 175, 0.3)',
-              borderRadius: '50%',
-              width: '45px',
-              height: '45px',
-              cursor: 'pointer',
-              fontSize: '18px',
-              zIndex: 3,
-              backdropFilter: 'blur(10px)',
-              transition: 'all 0.3s ease',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center'
-            }}
-            onMouseEnter={(e) => {
-              e.target.style.background = 'rgba(30, 64, 175, 0.3)';
-              e.target.style.transform = 'translateY(-50%) scale(1.1)';
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.background = 'rgba(30, 64, 175, 0.2)';
-              e.target.style.transform = 'translateY(-50%) scale(1)';
-            }}
-          >
-            ‹
-          </button>
-
-          <button
-            className="team-carousel-nav"
-            onClick={nextTeamMember}
-            style={{
-              position: 'absolute',
-              right: '-60px',
-              top: '50%',
-              transform: 'translateY(-50%)',
-              background: 'rgba(30, 64, 175, 0.2)',
-              color: 'var(--primary-blue)',
-              border: '2px solid rgba(30, 64, 175, 0.3)',
-              borderRadius: '50%',
-              width: '45px',
-              height: '45px',
-              cursor: 'pointer',
-              fontSize: '18px',
-              zIndex: 3,
-              backdropFilter: 'blur(10px)',
-              transition: 'all 0.3s ease',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center'
-            }}
-            onMouseEnter={(e) => {
-              e.target.style.background = 'rgba(30, 64, 175, 0.3)';
-              e.target.style.transform = 'translateY(-50%) scale(1.1)';
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.background = 'rgba(30, 64, 175, 0.2)';
-              e.target.style.transform = 'translateY(-50%) scale(1)';
-            }}
-          >
-            ›
-          </button>
-
-          {/* Team Member Card */}
-          <div style={{
-            background: 'rgba(255, 255, 255, 0.3)',
-            backdropFilter: 'blur(15px)',
-            border: '1px solid rgba(255, 255, 255, 0.4)',
-            borderRadius: '16px',
-            padding: '25px',
-            boxShadow: '0 10px 30px rgba(0, 0, 0, 0.12)',
-            transition: 'all 0.3s ease',
-            position: 'relative',
-            overflow: 'hidden'
-          }}>
-            {/* Background decoration */}
-            <div style={{
-              position: 'absolute',
-              top: '-30px',
-              right: '-30px',
-              width: '80px',
-              height: '80px',
-              background: 'rgba(16, 185, 129, 0.1)',
-              borderRadius: '50%',
-              backdropFilter: 'blur(10px)'
-            }}></div>
-            
-            <div style={{
-              display: 'grid', 
-              gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', 
-              gap: '20px', 
-              alignItems: 'center',
-              position: 'relative',
-              zIndex: 2
-            }}>
-              <div style={{textAlign: 'center'}}>
-                {teamMembers[currentTeamIndex].image.startsWith('/') ? (
+                {member.image.startsWith('/') ? (
                   <img 
-                    className="team-member-image"
-                    src={teamMembers[currentTeamIndex].image}
-                    alt={teamMembers[currentTeamIndex].name}
-                    style={{
-                      width: '120px', 
-                      height: '120px', 
-                      borderRadius: '50%',
-                      objectFit: 'cover',
-                      margin: '0 auto 12px',
-                      boxShadow: '0 8px 20px rgba(0,0,0,0.15)',
-                      border: '2px solid rgba(255,255,255,0.3)'
-                    }} 
-                  />
-                ) : (
-                  <div 
-                    className="team-member-emoji"
+                    src={member.image}
+                    alt={member.name}
                     style={{
                       width: '120px',
                       height: '120px',
                       borderRadius: '50%',
-                      background: currentTeamIndex % 2 === 0 
-                        ? 'linear-gradient(135deg, var(--primary-blue), #1e40af)' 
-                        : 'linear-gradient(135deg, var(--primary-maroon), #991b1b)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      margin: '0 auto 12px',
-                      fontSize: '2.5rem',
-                      color: 'white',
-                      boxShadow: '0 8px 20px rgba(0,0,0,0.15)',
-                      border: '2px solid rgba(255,255,255,0.3)'
+                      objectFit: 'cover',
+                      margin: '0 auto 15px',
+                      border: '4px solid var(--primary-blue)'
                     }}
-                  >
-                    {teamMembers[currentTeamIndex].image}
-                  </div>
-                )}
-                <h3 style={{fontSize: '1.2rem', fontWeight: '600', color: 'var(--primary-maroon)', marginBottom: '4px'}}>
-                  {teamMembers[currentTeamIndex].name}
-                </h3>
-                <p style={{fontSize: '0.9rem', color: 'var(--primary-blue)', fontWeight: '500'}}>
-                  {teamMembers[currentTeamIndex].position}
-                </p>
-              </div>
-              
-              <div>
-                <p style={{fontSize: '0.9rem', lineHeight: '1.5', color: '#374151', marginBottom: '12px', fontWeight: '300'}}>
-                  {teamMembers[currentTeamIndex].shortBio}
-                </p>
-                
-                {expandedTeamMember === teamMembers[currentTeamIndex].id && (
+                  />
+                ) : (
                   <div style={{
-                    marginBottom: '12px',
-                    background: 'rgba(255,255,255,0.2)',
-                    borderRadius: '10px',
-                    padding: '12px',
-                    border: '1px solid rgba(255,255,255,0.3)'
+                    width: '120px',
+                    height: '120px',
+                    borderRadius: '50%',
+                    background: 'linear-gradient(135deg, var(--primary-blue), var(--primary-maroon))',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    margin: '0 auto 15px',
+                    fontSize: '3rem'
                   }}>
-                    {teamMembers[currentTeamIndex].fullBio.map((paragraph, index) => (
-                      <p key={index} style={{fontSize: '0.85rem', lineHeight: '1.4', color: '#4b5563', marginBottom: '8px'}}>
-                        {paragraph}
-                      </p>
-                    ))}
+                    {member.image}
                   </div>
                 )}
-                
-                <button 
-                  onClick={() => toggleTeamMember(teamMembers[currentTeamIndex].id)}
-                  style={{
-                    background: 'rgba(30, 64, 175, 0.1)',
-                    border: '1px solid rgba(30, 64, 175, 0.3)',
-                    borderRadius: '15px',
-                    color: 'var(--primary-blue)',
-                    fontSize: '0.85rem',
-                    fontWeight: '600',
-                    cursor: 'pointer',
-                    padding: '6px 12px',
-                    transition: 'all 0.3s ease'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.target.style.background = 'rgba(30, 64, 175, 0.2)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.background = 'rgba(30, 64, 175, 0.1)';
-                  }}
-                >
-                  {expandedTeamMember === teamMembers[currentTeamIndex].id ? 'Read Less' : 'Read More'}
-                </button>
+                <h3 style={{
+                  fontSize: '1.2rem',
+                  fontWeight: '600',
+                  color: 'var(--primary-maroon)',
+                  marginBottom: '5px'
+                }}>{member.name}</h3>
+                <p style={{
+                  fontSize: '0.95rem',
+                  color: 'var(--primary-blue)',
+                  fontWeight: '500',
+                  marginBottom: '10px'
+                }}>{member.position}</p>
+                <p style={{
+                  fontSize: '0.9rem',
+                  color: '#6b7280',
+                  lineHeight: '1.5'
+                }}>{member.bio}</p>
               </div>
-            </div>
-          </div>
-
-          {/* Carousel Indicators */}
-          <div style={{display: 'flex', justifyContent: 'center', gap: '10px', marginTop: '20px'}}>
-            {teamMembers.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => {
-                  setCurrentTeamIndex(index)
-                  setExpandedTeamMember(null)
-                }}
-                style={{
-                  width: index === currentTeamIndex ? '30px' : '12px',
-                  height: '12px',
-                  borderRadius: '6px',
-                  border: '2px solid rgba(30, 64, 175, 0.3)',
-                  background: index === currentTeamIndex 
-                    ? 'linear-gradient(135deg, var(--primary-blue), #1e40af)' 
-                    : 'rgba(30, 64, 175, 0.2)',
-                  cursor: 'pointer',
-                  transition: 'all 0.3s ease',
-                  backdropFilter: 'blur(10px)'
-                }}
-              />
             ))}
           </div>
         </div>
       </section>
 
-      {/* Call to Action */}
+      {/* Commitment Section */}
       <section style={{
-        background: 'linear-gradient(135deg, var(--primary-blue), #1e40af)',
-        color: 'white', 
-        padding: '25px 0', 
-        textAlign: 'center',
-        position: 'relative',
-        overflow: 'hidden'
+        background: 'linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%)',
+        padding: '60px 0'
       }}>
-        <div className="container" style={{position: 'relative', zIndex: 2}}>
-          <h2 style={{
-            fontSize: '1.6rem', 
-            fontWeight: '700', 
-            marginBottom: '10px',
-            textShadow: '0 2px 4px rgba(0,0,0,0.3)'
+        <div className="container">
+          <div style={{
+            maxWidth: '800px',
+            margin: '0 auto',
+            textAlign: 'center',
+            background: 'white',
+            padding: '40px',
+            borderRadius: '8px',
+            boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
           }}>
-            Ready to Experience Quality Healthcare?
-          </h2>
-          <p style={{fontSize: '0.9rem', marginBottom: '15px', opacity: '0.95'}}>
-            Connect with our professional healthcare team today
-          </p>
-          <div style={{display: 'flex', gap: '15px', justifyContent: 'center', flexWrap: 'wrap'}}>
-            <Link to="/contact" style={{
-              background: 'rgba(255, 255, 255, 0.2)',
-              backdropFilter: 'blur(10px)',
-              border: '1px solid rgba(255, 255, 255, 0.3)',
-              color: 'white',
-              textDecoration: 'none',
-              padding: '8px 16px',
-              borderRadius: '20px',
-              fontWeight: '600',
-              transition: 'all 0.3s ease',
-              fontSize: '0.85rem'
-            }}
-            onMouseEnter={(e) => {
-              e.target.style.background = 'rgba(255, 255, 255, 0.3)';
-              e.target.style.transform = 'translateY(-1px)';
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.background = 'rgba(255, 255, 255, 0.2)';
-              e.target.style.transform = 'translateY(0)';
+            <h2 style={{
+              fontSize: '1.8rem',
+              fontWeight: '700',
+              color: 'var(--primary-blue)',
+              marginBottom: '20px'
+            }}>Our Commitment</h2>
+            <p style={{
+              fontSize: '1rem',
+              color: '#4b5563',
+              lineHeight: '1.8',
+              marginBottom: '20px'
             }}>
-              Contact Us
-            </Link>
+              We provide quality nursing care with compassion and accountability.
+            </p>
+            <div style={{
+              background: '#fef3c7',
+              borderRadius: '8px',
+              padding: '20px',
+              border: '2px solid #fbbf24'
+            }}>
+              <p style={{
+                fontSize: '1.1rem',
+                fontWeight: '600',
+                color: 'var(--primary-maroon)',
+                margin: 0
+              }}>
+                Quality nursing care, accessible to all.
+              </p>
+            </div>
           </div>
         </div>
-        {/* Floating elements */}
-        <div style={{
-          position: 'absolute',
-          top: '15%',
-          left: '8%',
-          width: '40px',
-          height: '40px',
-          background: 'rgba(255,255,255,0.1)',
-          borderRadius: '50%',
-          animation: 'float 8s ease-in-out infinite'
-        }}></div>
-        <div style={{
-          position: 'absolute',
-          bottom: '20%',
-          right: '12%',
-          width: '30px',
-          height: '30px',
-          background: 'rgba(16, 185, 129, 0.3)',
-          borderRadius: '50%',
-          animation: 'float 6s ease-in-out infinite reverse'
-        }}></div>
+      </section>
+
+      {/* CTA Section */}
+      <section style={{
+        background: 'linear-gradient(135deg, var(--primary-blue), #1e40af)',
+        color: 'white',
+        padding: '60px 0',
+        textAlign: 'center'
+      }}>
+        <div className="container">
+          <h2 style={{
+            fontSize: '1.8rem',
+            fontWeight: '700',
+            marginBottom: '15px'
+          }}>Ready to Experience Quality Healthcare?</h2>
+          <p style={{fontSize: '1rem', marginBottom: '25px', opacity: '0.95'}}>
+            Connect with our professional healthcare team today
+          </p>
+          <Link to="/contact" style={{
+            background: 'white',
+            color: 'var(--primary-blue)',
+            textDecoration: 'none',
+            padding: '12px 35px',
+            borderRadius: '4px',
+            fontSize: '1rem',
+            fontWeight: '600',
+            display: 'inline-block',
+            transition: 'all 0.3s ease'
+          }}>
+            Contact Us
+          </Link>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <section style={{backgroundColor: 'var(--primary-blue)', color: 'white', padding: '40px 0'}}>
+        <div className="container">
+          <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '30px'}}>
+            
+            <div>
+              <h4 style={{fontSize: '1.2rem', marginBottom: '15px'}}>Quick Links</h4>
+              <ul style={{listStyle: 'none', padding: 0, margin: 0}}>
+                <li style={{marginBottom: '10px'}}><Link to="/" style={{color: '#d1d5db', textDecoration: 'none'}}>Home</Link></li>
+                <li style={{marginBottom: '10px'}}><Link to="/about" style={{color: '#d1d5db', textDecoration: 'none'}}>About Us</Link></li>
+                <li style={{marginBottom: '10px'}}><Link to="/services" style={{color: '#d1d5db', textDecoration: 'none'}}>Services & Solutions</Link></li>
+                <li style={{marginBottom: '10px'}}><Link to="/careers" style={{color: '#d1d5db', textDecoration: 'none'}}>Careers</Link></li>
+                <li style={{marginBottom: '10px'}}><Link to="/contact" style={{color: '#d1d5db', textDecoration: 'none'}}>Contact Us</Link></li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 style={{fontSize: '1.2rem', marginBottom: '15px'}}>Our Services</h4>
+              <ul style={{listStyle: 'none', padding: 0, margin: 0}}>
+                <li style={{marginBottom: '10px'}}><span style={{color: '#d1d5db'}}>Nursing Care</span></li>
+                <li style={{marginBottom: '10px'}}><span style={{color: '#d1d5db'}}>Medical Consultation</span></li>
+                <li style={{marginBottom: '10px'}}><span style={{color: '#d1d5db'}}>Caregiver Support</span></li>
+                <li style={{marginBottom: '10px'}}><span style={{color: '#d1d5db'}}>Mobile Health</span></li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 style={{fontSize: '1.2rem', marginBottom: '15px'}}>Contact Info</h4>
+              <div style={{fontSize: '0.9rem', color: '#d1d5db', lineHeight: '1.8'}}>
+                <p style={{marginBottom: '10px'}}>📍 Buziga Katuso<br />P.O. Box: 201036 Kampala GPO, Uganda</p>
+                <p style={{marginBottom: '10px'}}>📞 <a href="tel:+256791785931" style={{color: '#d1d5db', textDecoration: 'none'}}>+256-791-785931</a></p>
+                <p>✉️ <a href="mailto:qncsolutions3@gmail.com" style={{color: '#d1d5db', textDecoration: 'none'}}>qncsolutions3@gmail.com</a></p>
+              </div>
+            </div>
+
+            <div>
+              <h4 style={{fontSize: '1.2rem', marginBottom: '15px'}}>Our Location</h4>
+              <div style={{
+                width: '100%',
+                height: '180px',
+                backgroundColor: '#374151',
+                borderRadius: '8px',
+                overflow: 'hidden'
+              }}>
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7520895823944!2d32.6078!3d0.2619!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbc0f9c3b5555%3A0x1234567890abcdef!2sBuziga%2C%20Kampala%2C%20Uganda!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+                  width="100%"
+                  height="100%"
+                  style={{border: 0}}
+                  allowFullScreen=""
+                  loading="lazy"
+                  title="QNC Location"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+
+          <div style={{
+            borderTop: '1px solid #374151',
+            marginTop: '30px',
+            paddingTop: '20px',
+            textAlign: 'center',
+            fontSize: '0.85rem',
+            color: '#9ca3af'
+          }}>
+            <p style={{margin: '0 0 8px 0'}}>
+              © 2026 QNC Solutions. All rights reserved. | We are committed to compassion, professionalism, and dignity in every service we provide.
+            </p>
+            <p style={{margin: 0, fontStyle: 'italic'}}>
+              Made by <span style={{fontWeight: '700', color: '#ffffff'}}>INFINITI ANALYTICS</span>
+            </p>
+          </div>
+        </div>
       </section>
     </div>
   )

@@ -36,32 +36,51 @@ function Home() {
       
       {/* Hero Section */}
       <section style={{
-        background: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('${backgroundImages[currentImageIndex]}')`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
         position: 'relative',
         overflow: 'hidden',
-        transition: 'background-image 1s ease-in-out',
-        padding: '100px 0'
+        padding: '100px 0',
+        minHeight: '500px'
       }}>
+        {/* Background image layer */}
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundImage: `url('${backgroundImages[currentImageIndex]}')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          transition: 'background-image 1s ease-in-out',
+          zIndex: 0
+        }} />
+        {/* White-to-transparent gradient overlay (left to right) */}
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: 'linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 30%, rgba(255,255,255,0.85) 45%, rgba(255,255,255,0.4) 60%, rgba(255,255,255,0) 75%)',
+          zIndex: 1
+        }} />
         <div className="container" style={{position: 'relative', zIndex: 2}}>
           <div style={{
             textAlign: 'left',
-            color: 'white',
-            maxWidth: '600px'
+            maxWidth: '550px'
           }}>
             <h1 style={{
               fontSize: '2.8rem',
               fontWeight: '700',
               marginBottom: '20px',
-              color: 'white',
+              color: 'var(--primary-blue)',
               lineHeight: '1.2'
-            }}>Quality Nursing Care<br/>Delivered with<br/>Compassion & Excellence</h1>
+            }}>Quality Nursing Care<br/>Delivered with<br/><span style={{color: 'var(--primary-maroon)'}}>Compassion & Excellence</span></h1>
             <p style={{
               fontSize: '1rem',
               marginBottom: '30px',
               lineHeight: '1.6',
-              color: 'white'
+              color: 'var(--primary-blue)'
             }}>Professional home nursing, field medical support, healthcare advising, nutrition, and reliable medical services across Uganda and beyond.</p>
             <div style={{display: 'flex', gap: '15px'}}>
               <Link to="/book" style={{
@@ -74,17 +93,17 @@ function Home() {
                 fontWeight: '600',
                 transition: 'all 0.3s ease'
               }}>
-                Request Care
+                Book Appointment
               </Link>
               <Link to="/contact" style={{
-                background: 'transparent',
+                background: 'var(--primary-blue)',
                 color: 'white',
                 textDecoration: 'none',
                 padding: '10px 26px',
                 borderRadius: '4px',
                 fontSize: '1rem',
                 fontWeight: '600',
-                border: '2px solid white',
+                border: 'none',
                 transition: 'all 0.3s ease'
               }}>
                 Contact Us
@@ -120,12 +139,12 @@ function Home() {
         </div>
       </section>
 
-      {/* Services Overview */}
+      {/* Our Home-Based Services */}
       <section style={{padding: '60px 0', background: '#f9fafb'}}>
         <div className="container">
           <div style={{textAlign: 'center', marginBottom: '50px'}}>
             <h2 style={{fontSize: '2rem', fontWeight: '700', color: 'var(--primary-blue)', marginBottom: '10px'}}>
-              Our Core Services
+              Our Home-Based Services
             </h2>
             <p style={{fontSize: '1rem', color: '#6b7280'}}>
               Professional care. Wherever you are. Whenever you need it.
@@ -133,26 +152,24 @@ function Home() {
           </div>
 
           <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px'}}>
-            {/* Nursing Card */}
+            {/* Nursing & Home-Based Care */}
             <div style={{
               background: 'white',
-              borderRadius: '8px',
+              borderRadius: '12px',
               overflow: 'hidden',
-              boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+              boxShadow: '0 2px 12px rgba(0,0,0,0.08)',
               transition: 'transform 0.3s ease'
             }}>
-              <div style={{
-                background: 'var(--primary-maroon)',
-                padding: '40px 20px',
-                textAlign: 'center'
-              }}>
-                <div style={{fontSize: '3rem', marginBottom: '10px'}}>🏠</div>
-                <h3 style={{fontSize: '1.3rem', fontWeight: '600', color: 'white'}}>
-                  NURSING &<br/>HOME-BASED<br/>CARE SERVICES
+              <img
+                src="/images/bedside nursing pic.jpg"
+                alt="Nursing and Home-Based Care"
+                style={{width: '100%', height: '220px', objectFit: 'cover'}}
+              />
+              <div style={{padding: '24px'}}>
+                <h3 style={{fontSize: '1.2rem', fontWeight: '700', color: 'var(--primary-blue)', marginBottom: '12px'}}>
+                  Nursing & Home-Based Care Services
                 </h3>
-              </div>
-              <div style={{padding: '20px'}}>
-                <p style={{fontSize: '0.9rem', color: '#4b5563', lineHeight: '1.6', marginBottom: '15px'}}>
+                <p style={{fontSize: '0.9rem', color: '#4b5563', lineHeight: '1.7', marginBottom: '15px'}}>
                   Get the care you need, right in the comfort of your home. Our professionals deliver skilled, reliable, and compassionate care tailored to support your health, dignity, and well-being every step of the way.
                 </p>
                 <Link to="/services" style={{
@@ -166,26 +183,24 @@ function Home() {
               </div>
             </div>
 
-            {/* Field Medical Card */}
+            {/* Field Medical Support */}
             <div style={{
               background: 'white',
-              borderRadius: '8px',
+              borderRadius: '12px',
               overflow: 'hidden',
-              boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+              boxShadow: '0 2px 12px rgba(0,0,0,0.08)',
               transition: 'transform 0.3s ease'
             }}>
-              <div style={{
-                background: 'var(--primary-maroon)',
-                padding: '40px 20px',
-                textAlign: 'center'
-              }}>
-                <div style={{fontSize: '3rem', marginBottom: '10px'}}>🏥</div>
-                <h3 style={{fontSize: '1.3rem', fontWeight: '600', color: 'white'}}>
-                  FIELD MEDICAL<br/>SUPPORT SERVICES
+              <img
+                src="/images/medical services pic.jpg"
+                alt="Field Medical Support Services"
+                style={{width: '100%', height: '220px', objectFit: 'cover'}}
+              />
+              <div style={{padding: '24px'}}>
+                <h3 style={{fontSize: '1.2rem', fontWeight: '700', color: 'var(--primary-blue)', marginBottom: '12px'}}>
+                  Field Medical Support Services
                 </h3>
-              </div>
-              <div style={{padding: '20px'}}>
-                <p style={{fontSize: '0.9rem', color: '#4b5563', lineHeight: '1.6', marginBottom: '15px'}}>
+                <p style={{fontSize: '0.9rem', color: '#4b5563', lineHeight: '1.7', marginBottom: '15px'}}>
                   Whether on-site medical support for construction sites, events, schools, offices, emergency response, health monitoring, or first aid — we bring care where you need it most.
                 </p>
                 <Link to="/services" style={{
@@ -199,27 +214,25 @@ function Home() {
               </div>
             </div>
 
-            {/* Mobile Health Card */}
+            {/* Mobile Health Services */}
             <div style={{
               background: 'white',
-              borderRadius: '8px',
+              borderRadius: '12px',
               overflow: 'hidden',
-              boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+              boxShadow: '0 2px 12px rgba(0,0,0,0.08)',
               transition: 'transform 0.3s ease'
             }}>
-              <div style={{
-                background: 'var(--primary-maroon)',
-                padding: '40px 20px',
-                textAlign: 'center'
-              }}>
-                <div style={{fontSize: '3rem', marginBottom: '10px'}}>💉</div>
-                <h3 style={{fontSize: '1.3rem', fontWeight: '600', color: 'white'}}>
-                  MOBILE HEALTH<br/>SERVICES
+              <img
+                src="/images/healthcare.avif"
+                alt="Mobile Health Services"
+                style={{width: '100%', height: '220px', objectFit: 'cover'}}
+              />
+              <div style={{padding: '24px'}}>
+                <h3 style={{fontSize: '1.2rem', fontWeight: '700', color: 'var(--primary-blue)', marginBottom: '12px'}}>
+                  Mobile Health Services
                 </h3>
-              </div>
-              <div style={{padding: '20px'}}>
-                <p style={{fontSize: '0.9rem', color: '#4b5563', lineHeight: '1.6', marginBottom: '15px'}}>
-                  Our fully mobile health team provides flexible, on-site, on-call, delivery, administration of injections, and comprehensive health monitoring, right at your home, workplace, or community, healthcare at your fingertips.
+                <p style={{fontSize: '0.9rem', color: '#4b5563', lineHeight: '1.7', marginBottom: '15px'}}>
+                  Our fully mobile health team provides flexible, on-site, on-call, delivery, administration of injections, and comprehensive health monitoring — healthcare at your fingertips.
                 </p>
                 <Link to="/services" style={{
                   color: 'var(--primary-maroon)',
@@ -235,33 +248,6 @@ function Home() {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section style={{background: 'var(--primary-blue)', color: 'white', padding: '50px 0'}}>
-        <div className="container">
-          <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: '40px', textAlign: 'center'}}>
-            <div>
-              <div style={{fontSize: '2.5rem', fontWeight: '700', marginBottom: '8px'}}>👥</div>
-              <div style={{fontSize: '2.5rem', fontWeight: '700', marginBottom: '8px'}}>500+</div>
-              <div style={{fontSize: '1rem', opacity: '0.9'}}>Clients Served</div>
-            </div>
-            <div>
-              <div style={{fontSize: '2.5rem', fontWeight: '700', marginBottom: '8px'}}>🤝</div>
-              <div style={{fontSize: '2.5rem', fontWeight: '700', marginBottom: '8px'}}>100+</div>
-              <div style={{fontSize: '1rem', opacity: '0.9'}}>Healthcare Professionals</div>
-            </div>
-            <div>
-              <div style={{fontSize: '2.5rem', fontWeight: '700', marginBottom: '8px'}}>📋</div>
-              <div style={{fontSize: '2.5rem', fontWeight: '700', marginBottom: '8px'}}>10+</div>
-              <div style={{fontSize: '1rem', opacity: '0.9'}}>Years of Experience</div>
-            </div>
-            <div>
-              <div style={{fontSize: '2.5rem', fontWeight: '700', marginBottom: '8px'}}>🌍</div>
-              <div style={{fontSize: '2.5rem', fontWeight: '700', marginBottom: '8px'}}>24/7</div>
-              <div style={{fontSize: '1rem', opacity: '0.9'}}>Support Available</div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Why Choose QNC */}
       <section style={{padding: '60px 0', background: 'white'}}>

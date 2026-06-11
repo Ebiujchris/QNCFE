@@ -169,9 +169,6 @@ function Home() {
                 <h3 style={{fontSize: '1.2rem', fontWeight: '700', color: 'var(--primary-blue)', marginBottom: '12px'}}>
                   Nursing & Home-Based Care Services
                 </h3>
-                <p style={{fontSize: '0.9rem', color: '#4b5563', lineHeight: '1.7', marginBottom: '15px'}}>
-                  Get the care you need, right in the comfort of your home. Our professionals deliver skilled, reliable, and compassionate care tailored to support your health, dignity, and well-being every step of the way.
-                </p>
                 <Link to="/services" style={{
                   color: 'var(--primary-maroon)',
                   textDecoration: 'none',
@@ -200,9 +197,6 @@ function Home() {
                 <h3 style={{fontSize: '1.2rem', fontWeight: '700', color: 'var(--primary-blue)', marginBottom: '12px'}}>
                   Field Medical Support Services
                 </h3>
-                <p style={{fontSize: '0.9rem', color: '#4b5563', lineHeight: '1.7', marginBottom: '15px'}}>
-                  Whether on-site medical support for construction sites, events, schools, offices, emergency response, health monitoring, or first aid — we bring care where you need it most.
-                </p>
                 <Link to="/services" style={{
                   color: 'var(--primary-maroon)',
                   textDecoration: 'none',
@@ -231,9 +225,89 @@ function Home() {
                 <h3 style={{fontSize: '1.2rem', fontWeight: '700', color: 'var(--primary-blue)', marginBottom: '12px'}}>
                   Mobile Health Services
                 </h3>
-                <p style={{fontSize: '0.9rem', color: '#4b5563', lineHeight: '1.7', marginBottom: '15px'}}>
-                  Our fully mobile health team provides flexible, on-site, on-call, delivery, administration of injections, and comprehensive health monitoring — healthcare at your fingertips.
-                </p>
+                <Link to="/services" style={{
+                  color: 'var(--primary-maroon)',
+                  textDecoration: 'none',
+                  fontWeight: '600',
+                  fontSize: '0.9rem'
+                }}>
+                  Learn More →
+                </Link>
+              </div>
+            </div>
+            {/* Elderly Care */}
+            <div style={{
+              background: 'white',
+              borderRadius: '12px',
+              overflow: 'hidden',
+              boxShadow: '0 2px 12px rgba(0,0,0,0.08)',
+              transition: 'transform 0.3s ease'
+            }}>
+              <img
+                src="/images/elderly care pic.jpg"
+                alt="Elderly Care"
+                style={{width: '100%', height: '220px', objectFit: 'cover'}}
+              />
+              <div style={{padding: '24px'}}>
+                <h3 style={{fontSize: '1.2rem', fontWeight: '700', color: 'var(--primary-blue)', marginBottom: '12px'}}>
+                  Elderly Care
+                </h3>
+                <Link to="/services" style={{
+                  color: 'var(--primary-maroon)',
+                  textDecoration: 'none',
+                  fontWeight: '600',
+                  fontSize: '0.9rem'
+                }}>
+                  Learn More →
+                </Link>
+              </div>
+            </div>
+
+            {/* Post-surgery care */}
+            <div style={{
+              background: 'white',
+              borderRadius: '12px',
+              overflow: 'hidden',
+              boxShadow: '0 2px 12px rgba(0,0,0,0.08)',
+              transition: 'transform 0.3s ease'
+            }}>
+              <img
+                src="/images/post sergery pics.jpg"
+                alt="Post-surgery care"
+                style={{width: '100%', height: '220px', objectFit: 'cover'}}
+              />
+              <div style={{padding: '24px'}}>
+                <h3 style={{fontSize: '1.2rem', fontWeight: '700', color: 'var(--primary-blue)', marginBottom: '12px'}}>
+                  Post-surgery care
+                </h3>
+                <Link to="/services" style={{
+                  color: 'var(--primary-maroon)',
+                  textDecoration: 'none',
+                  fontWeight: '600',
+                  fontSize: '0.9rem'
+                }}>
+                  Learn More →
+                </Link>
+              </div>
+            </div>
+
+            {/* Nutrition */}
+            <div style={{
+              background: 'white',
+              borderRadius: '12px',
+              overflow: 'hidden',
+              boxShadow: '0 2px 12px rgba(0,0,0,0.08)',
+              transition: 'transform 0.3s ease'
+            }}>
+              <img
+                src="/images/nttrition pic.jfif"
+                alt="Nutrition"
+                style={{width: '100%', height: '220px', objectFit: 'cover'}}
+              />
+              <div style={{padding: '24px'}}>
+                <h3 style={{fontSize: '1.2rem', fontWeight: '700', color: 'var(--primary-blue)', marginBottom: '12px'}}>
+                  Nutrition
+                </h3>
                 <Link to="/services" style={{
                   color: 'var(--primary-maroon)',
                   textDecoration: 'none',
@@ -256,19 +330,9 @@ function Home() {
             Why Families & Organizations Choose QNC
           </h2>
 
-          <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '40px'}}>
+          <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '30px'}}>
             <div style={{textAlign: 'center'}}>
-              <div style={{
-                width: '80px',
-                height: '80px',
-                background: '#eff6ff',
-                borderRadius: '50%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                margin: '0 auto 20px',
-                fontSize: '2rem'
-              }}>👨‍⚕️</div>
+
               <h3 style={{fontSize: '1.1rem', fontWeight: '600', color: 'var(--primary-blue)', marginBottom: '10px'}}>
                 Qualified Professionals
               </h3>
@@ -278,17 +342,7 @@ function Home() {
             </div>
 
             <div style={{textAlign: 'center'}}>
-              <div style={{
-                width: '80px',
-                height: '80px',
-                background: '#fef3c7',
-                borderRadius: '50%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                margin: '0 auto 20px',
-                fontSize: '2rem'
-              }}>💯</div>
+
               <h3 style={{fontSize: '1.1rem', fontWeight: '600', color: 'var(--primary-blue)', marginBottom: '10px'}}>
                 Compassionate Responsiveness
               </h3>
@@ -298,17 +352,7 @@ function Home() {
             </div>
 
             <div style={{textAlign: 'center'}}>
-              <div style={{
-                width: '80px',
-                height: '80px',
-                background: '#fce7f3',
-                borderRadius: '50%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                margin: '0 auto 20px',
-                fontSize: '2rem'
-              }}>✅</div>
+
               <h3 style={{fontSize: '1.1rem', fontWeight: '600', color: 'var(--primary-blue)', marginBottom: '10px'}}>
                 Proven & Trusted Experience
               </h3>
@@ -318,17 +362,7 @@ function Home() {
             </div>
 
             <div style={{textAlign: 'center'}}>
-              <div style={{
-                width: '80px',
-                height: '80px',
-                background: '#d1fae5',
-                borderRadius: '50%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                margin: '0 auto 20px',
-                fontSize: '2rem'
-              }}>💰</div>
+
               <h3 style={{fontSize: '1.1rem', fontWeight: '600', color: 'var(--primary-blue)', marginBottom: '10px'}}>
                 Flexible & Affordable Pricing
               </h3>
@@ -342,10 +376,10 @@ function Home() {
 
       {/* CTA Section */}
       <section style={{
-        background: 'linear-gradient(135deg, var(--primary-maroon), #7c2d12)',
+        background: 'white',
         padding: '60px 0',
         textAlign: 'center',
-        color: 'white'
+        color: 'var(--primary-blue)'
       }}>
         <div className="container">
           <div style={{
@@ -356,15 +390,15 @@ function Home() {
             gap: '30px'
           }}>
             <div style={{flex: '1', minWidth: '300px', textAlign: 'left'}}>
-              <div style={{fontSize: '2.5rem', marginBottom: '15px'}}>❤️</div>
+
               <h2 style={{fontSize: '1.8rem', fontWeight: '700', marginBottom: '10px'}}>
                 Need healthcare support for your family, organization, or project?
               </h2>
             </div>
             <div>
               <Link to="/contact" style={{
-                background: 'white',
-                color: 'var(--primary-maroon)',
+                background: 'var(--primary-blue)',
+                color: 'white',
                 textDecoration: 'none',
                 padding: '15px 35px',
                 borderRadius: '4px',

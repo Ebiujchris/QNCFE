@@ -29,7 +29,7 @@ function About() {
     },
     {
       id: 4,
-      name: 'Kapinga Ivan Junior',
+      name: 'Kapipa Ivan Junior',
       position: 'Nutritionist',
       image: '/images/ivans pic.jpeg',
       bio: 'Overseeing quality standards and ensuring consistent delivery of exceptional healthcare services.'

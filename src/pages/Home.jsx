@@ -391,7 +391,7 @@ function Home() {
           }}>
             <div style={{flex: '1', minWidth: '300px', textAlign: 'left'}}>
 
-              <h2 style={{fontSize: '1.8rem', fontWeight: '700', marginBottom: '10px'}}>
+              <h2 style={{fontSize: '1.8rem', fontWeight: '700', color: 'var(--primary-maroon)', marginBottom: '10px'}}>
                 Need healthcare support for your family, organization, or project?
               </h2>
             </div>

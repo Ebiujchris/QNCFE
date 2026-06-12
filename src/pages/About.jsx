@@ -8,7 +8,7 @@ function About() {
   const teamMembers = [
     {
       id: 1,
-      name: 'Brenda Nankunda',
+      name: 'Steicy Nankunda',
       position: 'CEO & Co-Founder',
       image: '👩‍⚕️',
       bio: 'Leading QNC with vision for accessible, professional, and compassionate healthcare across Uganda and beyond.'

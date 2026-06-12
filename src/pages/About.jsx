@@ -10,14 +10,14 @@ function About() {
       id: 1,
       name: 'Steicy Nankunda',
       position: 'CEO & Co-Founder',
-      image: '👩‍⚕️',
+      image: '/images/staicys pic.jpeg',
       bio: 'Leading QNC with vision for accessible, professional, and compassionate healthcare across Uganda and beyond.'
     },
     {
       id: 2,
       name: 'Ayesiga Confidence',
       position: 'Co-founder and Director',
-      image: '👨‍💼',
+      image: '/images/confidences pic.jpeg',
       bio: 'Ensuring seamless coordination of our healthcare programs and service delivery excellence.'
     },
     {
@@ -31,7 +31,7 @@ function About() {
       id: 4,
       name: 'Kapinga Ivan Junior',
       position: 'Nutritionist',
-      image: '👨‍⚕️',
+      image: '/images/ivans pic.jpeg',
       bio: 'Overseeing quality standards and ensuring consistent delivery of exceptional healthcare services.'
     }
   ]

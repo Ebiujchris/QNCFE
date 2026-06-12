@@ -15,22 +15,22 @@ function About() {
     },
     {
       id: 2,
-      name: 'Kyeyune Certification',
-      position: 'Program Coordinator',
+      name: 'Ayesiga Confidence',
+      position: 'Co-founder and Director',
       image: '👨‍💼',
       bio: 'Ensuring seamless coordination of our healthcare programs and service delivery excellence.'
     },
     {
       id: 3,
       name: 'Kyomuhendo Brian',
-      position: 'Engagement Director',
+      position: 'Administrator',
       image: '/images/Kyomuhendo brian pic.jpg',
       bio: 'Managing stakeholder relationships and expanding our reach to serve more communities.'
     },
     {
       id: 4,
       name: 'Kapinga Ivan Junior',
-      position: 'Monitoring',
+      position: 'Nutritionist',
       image: '👨‍⚕️',
       bio: 'Overseeing quality standards and ensuring consistent delivery of exceptional healthcare services.'
     }
@@ -47,46 +47,32 @@ function About() {
 
       {/* Hero Section */}
       <section style={{
-        background: 'var(--primary-blue)',
-        color: 'white',
-        padding: '80px 0',
+        backgroundImage: 'linear-gradient(to right, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 100%), url("/images/post sergery pics.jpg")',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        padding: '120px 0',
         position: 'relative',
         overflow: 'hidden'
       }}>
         <div className="container">
           <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '40px',
-            alignItems: 'center'
+            maxWidth: '600px'
           }}>
-            <div>
-              <h1 style={{
-                fontSize: '2.5rem',
-                fontWeight: '700',
-                marginBottom: '20px',
-                color: 'white'
-              }}>About QNC<br/>Solutions Ltd</h1>
-              <p style={{
-                fontSize: '1rem',
-                lineHeight: '1.8',
-                marginBottom: '20px',
-                opacity: '0.95'
-              }}>
-                We are a dedicated to providing high-quality, reliable, and compassionate nursing and medical support services across Uganda and beyond.
-              </p>
-            </div>
-            <div>
-              <img 
-                src="/images/homepage photo new.jpg" 
-                alt="QNC Team" 
-                style={{
-                  width: '100%',
-                  borderRadius: '8px',
-                  boxShadow: '0 10px 30px rgba(0,0,0,0.3)'
-                }}
-              />
-            </div>
+            <h1 style={{
+              fontSize: '3rem',
+              fontWeight: '700',
+              marginBottom: '20px',
+              color: 'var(--primary-blue)',
+              lineHeight: '1.2'
+            }}>About QNC<br/>Solutions Ltd</h1>
+            <p style={{
+              fontSize: '1.1rem',
+              lineHeight: '1.8',
+              color: 'var(--primary-maroon)',
+              opacity: '0.95'
+            }}>
+              We are dedicated to providing high-quality, reliable, and compassionate nursing and medical support services across Uganda and beyond.
+            </p>
           </div>
         </div>
       </section>
@@ -112,12 +98,12 @@ function About() {
               <h3 style={{
                 fontSize: '1.5rem',
                 fontWeight: '700',
-                color: 'var(--primary-blue)',
+                color: 'var(--primary-maroon)',
                 marginBottom: '15px'
               }}>Our Mission</h3>
               <p style={{
                 fontSize: '1rem',
-                color: '#4b5563',
+                color: 'var(--primary-blue)',
                 lineHeight: '1.6'
               }}>
                 To provide high-quality, professional, and compassionate nursing care that supports the well-being of our clients.
@@ -140,12 +126,12 @@ function About() {
               <h3 style={{
                 fontSize: '1.5rem',
                 fontWeight: '700',
-                color: 'var(--primary-blue)',
+                color: 'var(--primary-maroon)',
                 marginBottom: '15px'
               }}>Our Vision</h3>
               <p style={{
                 fontSize: '1rem',
-                color: '#4b5563',
+                color: 'var(--primary-blue)',
                 lineHeight: '1.6'
               }}>
                 To become the most trusted name in the balance between professionalism and accessible accountability.
@@ -157,25 +143,26 @@ function About() {
               <div style={{
                 width: '100px',
                 height: '100px',
-                background: '#10b981',
+                background: 'var(--primary-maroon)',
                 borderRadius: '50%',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 margin: '0 auto 20px',
-                fontSize: '3rem'
-              }}>❤️</div>
+                fontSize: '3rem',
+                color: 'white'
+              }}>💎</div>
               <h3 style={{
                 fontSize: '1.5rem',
                 fontWeight: '700',
-                color: 'var(--primary-blue)',
+                color: 'var(--primary-maroon)',
                 marginBottom: '15px'
               }}>Our Values</h3>
               <ul style={{
                 listStyle: 'none',
                 padding: 0,
                 fontSize: '1rem',
-                color: '#4b5563',
+                color: 'var(--primary-blue)',
                 lineHeight: '2'
               }}>
                 <li>✓ Compassion</li>
@@ -201,10 +188,9 @@ function About() {
 
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-            gap: '40px',
-            maxWidth: '1000px',
-            margin: '0 auto'
+            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+            gap: '30px',
+            width: '100%'
           }}>
             {teamMembers.map((member) => (
               <div key={member.id} style={{
@@ -323,33 +309,43 @@ function About() {
 
       {/* CTA Section */}
       <section style={{
-        background: 'linear-gradient(135deg, var(--primary-blue), #1e40af)',
-        color: 'white',
+        background: 'white',
         padding: '60px 0',
-        textAlign: 'center'
+        textAlign: 'center',
+        color: 'var(--primary-blue)'
       }}>
         <div className="container">
-          <h2 style={{
-            fontSize: '1.8rem',
-            fontWeight: '700',
-            marginBottom: '15px'
-          }}>Ready to Experience Quality Healthcare?</h2>
-          <p style={{fontSize: '1rem', marginBottom: '25px', opacity: '0.95'}}>
-            Connect with our professional healthcare team today
-          </p>
-          <Link to="/contact" style={{
-            background: 'white',
-            color: 'var(--primary-blue)',
-            textDecoration: 'none',
-            padding: '12px 35px',
-            borderRadius: '4px',
-            fontSize: '1rem',
-            fontWeight: '600',
-            display: 'inline-block',
-            transition: 'all 0.3s ease'
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            flexWrap: 'wrap',
+            gap: '30px'
           }}>
-            Contact Us
-          </Link>
+            <div style={{flex: '1', minWidth: '300px', textAlign: 'left'}}>
+              <h2 style={{fontSize: '1.8rem', fontWeight: '700', color: 'var(--primary-maroon)', marginBottom: '10px'}}>
+                Ready to Experience Quality Healthcare?
+              </h2>
+              <p style={{fontSize: '1rem', color: '#4b5563', marginBottom: '0'}}>
+                Connect with our professional healthcare team today
+              </p>
+            </div>
+            <div>
+              <Link to="/contact" style={{
+                background: 'var(--primary-blue)',
+                color: 'white',
+                textDecoration: 'none',
+                padding: '15px 35px',
+                borderRadius: '4px',
+                fontSize: '1.1rem',
+                fontWeight: '600',
+                display: 'inline-block',
+                transition: 'all 0.3s ease'
+              }}>
+                Contact Us
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 

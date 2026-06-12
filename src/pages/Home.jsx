@@ -333,7 +333,7 @@ function Home() {
           <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '30px'}}>
             <div style={{textAlign: 'center'}}>
 
-              <h3 style={{fontSize: '1.1rem', fontWeight: '600', color: 'var(--primary-blue)', marginBottom: '10px'}}>
+              <h3 style={{fontSize: '1.1rem', fontWeight: '600', color: 'var(--primary-maroon)', marginBottom: '10px'}}>
                 Qualified Professionals
               </h3>
               <p style={{fontSize: '0.9rem', color: '#6b7280', lineHeight: '1.6'}}>
@@ -343,7 +343,7 @@ function Home() {
 
             <div style={{textAlign: 'center'}}>
 
-              <h3 style={{fontSize: '1.1rem', fontWeight: '600', color: 'var(--primary-blue)', marginBottom: '10px'}}>
+              <h3 style={{fontSize: '1.1rem', fontWeight: '600', color: 'var(--primary-maroon)', marginBottom: '10px'}}>
                 Compassionate Responsiveness
               </h3>
               <p style={{fontSize: '0.9rem', color: '#6b7280', lineHeight: '1.6'}}>
@@ -353,7 +353,7 @@ function Home() {
 
             <div style={{textAlign: 'center'}}>
 
-              <h3 style={{fontSize: '1.1rem', fontWeight: '600', color: 'var(--primary-blue)', marginBottom: '10px'}}>
+              <h3 style={{fontSize: '1.1rem', fontWeight: '600', color: 'var(--primary-maroon)', marginBottom: '10px'}}>
                 Proven & Trusted Experience
               </h3>
               <p style={{fontSize: '0.9rem', color: '#6b7280', lineHeight: '1.6'}}>
@@ -363,7 +363,7 @@ function Home() {
 
             <div style={{textAlign: 'center'}}>
 
-              <h3 style={{fontSize: '1.1rem', fontWeight: '600', color: 'var(--primary-blue)', marginBottom: '10px'}}>
+              <h3 style={{fontSize: '1.1rem', fontWeight: '600', color: 'var(--primary-maroon)', marginBottom: '10px'}}>
                 Flexible & Affordable Pricing
               </h3>
               <p style={{fontSize: '0.9rem', color: '#6b7280', lineHeight: '1.6'}}>

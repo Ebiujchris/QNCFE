@@ -13,25 +13,31 @@ function Services() {
 
       {/* Hero Section */}
       <section style={{
-        background: 'linear-gradient(135deg, var(--primary-maroon), #7c2d12)',
-        color: 'white',
-        padding: '80px 0',
-        textAlign: 'center'
+        backgroundImage: 'linear-gradient(to right, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 100%), url("/images/healthcare.avif")',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        padding: '120px 0',
+        position: 'relative',
+        overflow: 'hidden'
       }}>
         <div className="container">
-          <h1 style={{
-            fontSize: '2.5rem',
-            fontWeight: '700',
-            marginBottom: '15px'
-          }}>Our Core Services</h1>
-          <p style={{
-            fontSize: '1.1rem',
-            maxWidth: '700px',
-            margin: '0 auto',
-            opacity: '0.95'
-          }}>
-            Professional care. Wherever you are. Whenever you need it.
-          </p>
+          <div style={{ maxWidth: '600px' }}>
+            <h1 style={{
+              fontSize: '3rem',
+              fontWeight: '700',
+              marginBottom: '15px',
+              color: 'var(--primary-maroon)',
+              lineHeight: '1.2'
+            }}>Our Core Services</h1>
+            <p style={{
+              fontSize: '1.1rem',
+              color: 'var(--primary-blue)',
+              opacity: '0.95',
+              lineHeight: '1.8'
+            }}>
+              Professional care. Wherever you are. Whenever you need it.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -48,7 +54,7 @@ function Services() {
               boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
             }}>
               <div style={{
-                background: 'var(--primary-maroon)',
+                background: 'var(--primary-blue)',
                 padding: '40px 20px',
                 textAlign: 'center'
               }}>
@@ -114,7 +120,7 @@ function Services() {
               boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
             }}>
               <div style={{
-                background: 'var(--primary-maroon)',
+                background: 'var(--primary-blue)',
                 padding: '40px 20px',
                 textAlign: 'center'
               }}>
@@ -180,7 +186,7 @@ function Services() {
               boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
             }}>
               <div style={{
-                background: 'var(--primary-maroon)',
+                background: 'var(--primary-blue)',
                 padding: '40px 20px',
                 textAlign: 'center'
               }}>
@@ -269,10 +275,10 @@ function Services() {
                   marginBottom: '15px'
                 }}
               />
-              <h3 style={{fontSize: '1.1rem', fontWeight: '600', color: 'var(--primary-blue)', marginBottom: '8px'}}>
+              <h3 style={{fontSize: '1.1rem', fontWeight: '600', color: 'var(--primary-maroon)', marginBottom: '8px'}}>
                 Elderly care
               </h3>
-              <p style={{fontSize: '0.9rem', color: '#6b7280', lineHeight: '1.5'}}>
+              <p style={{fontSize: '0.9rem', color: 'var(--primary-blue)', lineHeight: '1.5'}}>
                 Personalized support for daily living activities with dignity and respect.
               </p>
             </div>
@@ -289,10 +295,10 @@ function Services() {
                   marginBottom: '15px'
                 }}
               />
-              <h3 style={{fontSize: '1.1rem', fontWeight: '600', color: 'var(--primary-blue)', marginBottom: '8px'}}>
+              <h3 style={{fontSize: '1.1rem', fontWeight: '600', color: 'var(--primary-maroon)', marginBottom: '8px'}}>
                 Post-support care and recovery monitoring
               </h3>
-              <p style={{fontSize: '0.9rem', color: '#6b7280', lineHeight: '1.5'}}>
+              <p style={{fontSize: '0.9rem', color: 'var(--primary-blue)', lineHeight: '1.5'}}>
                 Professional care during your important recovery phase.
               </p>
             </div>
@@ -309,17 +315,17 @@ function Services() {
                   marginBottom: '15px'
                 }}
               />
-              <h3 style={{fontSize: '1.1rem', fontWeight: '600', color: 'var(--primary-blue)', marginBottom: '8px'}}>
+              <h3 style={{fontSize: '1.1rem', fontWeight: '600', color: 'var(--primary-maroon)', marginBottom: '8px'}}>
                 Chronic and medication care
               </h3>
-              <p style={{fontSize: '0.9rem', color: '#6b7280', lineHeight: '1.5'}}>
+              <p style={{fontSize: '0.9rem', color: 'var(--primary-blue)', lineHeight: '1.5'}}>
                 Ongoing support for chronic conditions and medication administration.
               </p>
             </div>
 
             <div style={{textAlign: 'center'}}>
               <img 
-                src="/images/nutrition pic.jpg" 
+                src="/images/help image.avif" 
                 alt="Chronic disease management"
                 style={{
                   width: '100%',
@@ -329,10 +335,10 @@ function Services() {
                   marginBottom: '15px'
                 }}
               />
-              <h3 style={{fontSize: '1.1rem', fontWeight: '600', color: 'var(--primary-blue)', marginBottom: '8px'}}>
+              <h3 style={{fontSize: '1.1rem', fontWeight: '600', color: 'var(--primary-maroon)', marginBottom: '8px'}}>
                 Chronic disease management and palliative care support
               </h3>
-              <p style={{fontSize: '0.9rem', color: '#6b7280', lineHeight: '1.5'}}>
+              <p style={{fontSize: '0.9rem', color: 'var(--primary-blue)', lineHeight: '1.5'}}>
                 Compassionate care for long-term health conditions with dignity.
               </p>
             </div>
@@ -349,10 +355,10 @@ function Services() {
                   marginBottom: '15px'
                 }}
               />
-              <h3 style={{fontSize: '1.1rem', fontWeight: '600', color: 'var(--primary-blue)', marginBottom: '8px'}}>
+              <h3 style={{fontSize: '1.1rem', fontWeight: '600', color: 'var(--primary-maroon)', marginBottom: '8px'}}>
                 Rehabilitation and counseling services
               </h3>
-              <p style={{fontSize: '0.9rem', color: '#6b7280', lineHeight: '1.5'}}>
+              <p style={{fontSize: '0.9rem', color: 'var(--primary-blue)', lineHeight: '1.5'}}>
                 Structured programs to support your journey to wellness.
               </p>
             </div>
@@ -369,10 +375,10 @@ function Services() {
                   marginBottom: '15px'
                 }}
               />
-              <h3 style={{fontSize: '1.1rem', fontWeight: '600', color: 'var(--primary-blue)', marginBottom: '8px'}}>
+              <h3 style={{fontSize: '1.1rem', fontWeight: '600', color: 'var(--primary-maroon)', marginBottom: '8px'}}>
                 Physiotherapist Support
               </h3>
-              <p style={{fontSize: '0.9rem', color: '#6b7280', lineHeight: '1.5'}}>
+              <p style={{fontSize: '0.9rem', color: 'var(--primary-blue)', lineHeight: '1.5'}}>
                 Specialized support for mobility, pain management, and recovery.
               </p>
             </div>
@@ -382,30 +388,43 @@ function Services() {
 
       {/* CTA Section */}
       <section style={{
-        background: 'linear-gradient(135deg, var(--primary-blue), #1e40af)',
-        color: 'white',
+        background: 'white',
         padding: '60px 0',
-        textAlign: 'center'
+        textAlign: 'center',
+        color: 'var(--primary-blue)'
       }}>
         <div className="container">
-          <h2 style={{fontSize: '1.8rem', fontWeight: '700', marginBottom: '15px'}}>
-            Need Professional Healthcare Services?
-          </h2>
-          <p style={{fontSize: '1rem', marginBottom: '25px', opacity: '0.95'}}>
-            Our professional nurses are committed to providing impactful, meaningful care
-          </p>
-          <Link to="/contact" style={{
-            background: 'white',
-            color: 'var(--primary-blue)',
-            textDecoration: 'none',
-            padding: '12px 35px',
-            borderRadius: '4px',
-            fontSize: '1rem',
-            fontWeight: '600',
-            display: 'inline-block'
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            flexWrap: 'wrap',
+            gap: '30px'
           }}>
-            Get Started
-          </Link>
+            <div style={{flex: '1', minWidth: '300px', textAlign: 'left'}}>
+              <h2 style={{fontSize: '1.8rem', fontWeight: '700', color: 'var(--primary-maroon)', marginBottom: '10px'}}>
+                Need Professional Healthcare Services?
+              </h2>
+              <p style={{fontSize: '1rem', color: '#4b5563', marginBottom: '0'}}>
+                Our professional nurses are committed to providing impactful, meaningful care
+              </p>
+            </div>
+            <div>
+              <Link to="/contact" style={{
+                background: 'var(--primary-blue)',
+                color: 'white',
+                textDecoration: 'none',
+                padding: '15px 35px',
+                borderRadius: '4px',
+                fontSize: '1.1rem',
+                fontWeight: '600',
+                display: 'inline-block',
+                transition: 'all 0.3s ease'
+              }}>
+                Get Started
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 

@@ -1,30 +1,7 @@
 import { Link } from 'react-router-dom'
-import { useState, useEffect } from 'react'
 import SEO from '../components/SEO'
 
 function Home() {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0)
-
-  const backgroundImages = [
-    '/images/horizontal homepage image put i n the background.avif',
-    '/images/home page image.avif',
-    '/images/home page image 2.avif',
-    '/images/homepage photo new.jpg',
-    '/images/homepage backgorund photo 2.jpg',
-    '/images/homepage background photo 3.jpg',
-    '/images/healthcare.avif',
-    '/images/new background image.avif'
-  ]
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => 
-        (prevIndex + 1) % backgroundImages.length
-      )
-    }, 5000)
-    return () => clearInterval(interval)
-  }, [backgroundImages.length])
-
   return (
     <div style={{background: '#ffffff', minHeight: '100vh'}}>
       <SEO 
@@ -39,7 +16,7 @@ function Home() {
         position: 'relative',
         overflow: 'hidden',
         padding: '100px 0',
-        minHeight: '500px'
+        minHeight: '75vh'
       }}>
         {/* Background image layer */}
         <div style={{
@@ -48,10 +25,9 @@ function Home() {
           left: 0,
           right: 0,
           bottom: 0,
-          backgroundImage: `url('${backgroundImages[currentImageIndex]}')`,
+          backgroundImage: "url('/images/group photo.jpeg')",
           backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          transition: 'background-image 1s ease-in-out',
+          backgroundPosition: 'center 25%',
           zIndex: 0
         }} />
         {/* White-to-transparent gradient overlay (left to right) */}
@@ -112,31 +88,6 @@ function Home() {
           </div>
         </div>
 
-        {/* Indicators */}
-        <div style={{
-          position: 'absolute',
-          bottom: '30px',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          display: 'flex',
-          gap: '8px',
-          zIndex: 3
-        }}>
-          {backgroundImages.map((_, index) => (
-            <div
-              key={index}
-              onClick={() => setCurrentImageIndex(index)}
-              style={{
-                width: index === currentImageIndex ? '30px' : '10px',
-                height: '10px',
-                borderRadius: '5px',
-                background: index === currentImageIndex ? 'white' : 'rgba(255,255,255,0.5)',
-                cursor: 'pointer',
-                transition: 'all 0.3s ease'
-              }}
-            />
-          ))}
-        </div>
       </section>
 
       {/* Our Home-Based Services */}
@@ -163,7 +114,7 @@ function Home() {
               <img
                 src="/images/bedside nursing pic.jpg"
                 alt="Nursing and Home-Based Care"
-                style={{width: '100%', height: '220px', objectFit: 'cover'}}
+                style={{width: '100%', height: '320px', objectFit: 'cover'}}
               />
               <div style={{padding: '24px'}}>
                 <h3 style={{fontSize: '1.2rem', fontWeight: '700', color: 'var(--primary-blue)', marginBottom: '12px'}}>
@@ -191,7 +142,7 @@ function Home() {
               <img
                 src="/images/medical services pic.jpg"
                 alt="Field Medical Support Services"
-                style={{width: '100%', height: '220px', objectFit: 'cover'}}
+                style={{width: '100%', height: '320px', objectFit: 'cover'}}
               />
               <div style={{padding: '24px'}}>
                 <h3 style={{fontSize: '1.2rem', fontWeight: '700', color: 'var(--primary-blue)', marginBottom: '12px'}}>
@@ -219,7 +170,7 @@ function Home() {
               <img
                 src="/images/healthcare.avif"
                 alt="Mobile Health Services"
-                style={{width: '100%', height: '220px', objectFit: 'cover'}}
+                style={{width: '100%', height: '320px', objectFit: 'cover'}}
               />
               <div style={{padding: '24px'}}>
                 <h3 style={{fontSize: '1.2rem', fontWeight: '700', color: 'var(--primary-blue)', marginBottom: '12px'}}>
@@ -244,9 +195,9 @@ function Home() {
               transition: 'transform 0.3s ease'
             }}>
               <img
-                src="/images/elderly care pic.jpg"
-                alt="Elderly Care"
-                style={{width: '100%', height: '220px', objectFit: 'cover'}}
+                src="/images/nurse with elder.jfif"
+                alt="Nurse caring for elderly patient"
+                style={{width: '100%', height: '320px', objectFit: 'cover'}}
               />
               <div style={{padding: '24px'}}>
                 <h3 style={{fontSize: '1.2rem', fontWeight: '700', color: 'var(--primary-blue)', marginBottom: '12px'}}>
@@ -274,7 +225,7 @@ function Home() {
               <img
                 src="/images/post sergery pics.jpg"
                 alt="Post-surgery care"
-                style={{width: '100%', height: '220px', objectFit: 'cover'}}
+                style={{width: '100%', height: '320px', objectFit: 'cover'}}
               />
               <div style={{padding: '24px'}}>
                 <h3 style={{fontSize: '1.2rem', fontWeight: '700', color: 'var(--primary-blue)', marginBottom: '12px'}}>
@@ -302,7 +253,7 @@ function Home() {
               <img
                 src="/images/nttrition pic.jfif"
                 alt="Nutrition"
-                style={{width: '100%', height: '220px', objectFit: 'cover'}}
+                style={{width: '100%', height: '320px', objectFit: 'cover'}}
               />
               <div style={{padding: '24px'}}>
                 <h3 style={{fontSize: '1.2rem', fontWeight: '700', color: 'var(--primary-blue)', marginBottom: '12px'}}>

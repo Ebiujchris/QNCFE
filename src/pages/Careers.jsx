@@ -62,25 +62,97 @@ function Careers() {
 
       {/* Hero Section */}
       <section style={{
-        background: 'linear-gradient(135deg, var(--primary-maroon), #7c2d12)',
-        color: 'white',
-        padding: '80px 0',
-        textAlign: 'center'
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+        minHeight: '520px',
+        background: '#ffffff',
+        overflow: 'hidden'
       }}>
-        <div className="container">
-          <h1 style={{
-            fontSize: '2.5rem',
-            fontWeight: '700',
-            marginBottom: '15px'
-          }}>Join Our Team</h1>
-          <p style={{
-            fontSize: '1.1rem',
-            maxWidth: '700px',
-            margin: '0 auto',
-            opacity: '0.95'
-          }}>
-            Be part of a team that's making healthcare accessible and compassionate for everyone.
-          </p>
+        <div style={{
+          padding: '60px 48px',
+          display: 'flex',
+          alignItems: 'center',
+          position: 'relative'
+        }}>
+          <div style={{
+            position: 'absolute',
+            left: 0,
+            top: '18%',
+            bottom: '18%',
+            width: '4px',
+            background: 'var(--primary-maroon)',
+            borderRadius: '2px'
+          }} />
+          <div style={{paddingLeft: '28px', maxWidth: '480px'}}>
+            <span style={{
+              display: 'inline-block',
+              fontSize: '0.8rem',
+              fontWeight: '600',
+              letterSpacing: '0.1em',
+              textTransform: 'uppercase',
+              color: 'var(--primary-maroon)',
+              marginBottom: '16px'
+            }}>
+              Careers at QNC
+            </span>
+            <h1 style={{
+              fontSize: '2.8rem',
+              fontWeight: '700',
+              lineHeight: '1.15',
+              marginBottom: '20px',
+              color: 'var(--primary-blue)'
+            }}>
+              Join Our <span style={{color: 'var(--primary-maroon)'}}>Team</span>
+            </h1>
+            <p style={{
+              fontSize: '1.05rem',
+              lineHeight: '1.8',
+              color: '#4b5563',
+              marginBottom: '28px'
+            }}>
+              Be part of a team that's making healthcare accessible and compassionate for everyone.
+            </p>
+            <a
+              href="#opportunities"
+              style={{
+                display: 'inline-block',
+                color: 'var(--primary-maroon)',
+                fontWeight: '600',
+                fontSize: '0.95rem',
+                textDecoration: 'none',
+                borderBottom: '2px solid var(--primary-maroon)',
+                paddingBottom: '4px'
+              }}
+            >
+              View Open Roles →
+            </a>
+          </div>
+        </div>
+        <div style={{
+          position: 'relative',
+          minHeight: '420px',
+          overflow: 'hidden'
+        }}>
+          <img
+            src="/images/registerred nurse.jfif"
+            alt="QNC registered nurse in professional scrubs"
+            style={{
+              width: '100%',
+              height: '100%',
+              minHeight: '420px',
+              objectFit: 'cover',
+              objectPosition: 'center top',
+              display: 'block'
+            }}
+          />
+          <div style={{
+            position: 'absolute',
+            bottom: 0,
+            left: 0,
+            right: 0,
+            height: '5px',
+            background: 'linear-gradient(to right, var(--primary-maroon) 0%, var(--primary-blue) 100%)'
+          }} />
         </div>
       </section>
 
@@ -203,7 +275,7 @@ function Careers() {
       </section>
 
       {/* Job Openings */}
-      <section style={{padding: '60px 0', background: 'white'}}>
+      <section id="opportunities" style={{padding: '60px 0', background: 'white'}}>
         <div className="container">
           <h2 style={{
             fontSize: '2rem',

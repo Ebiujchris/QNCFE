@@ -47,17 +47,27 @@ function About() {
 
       {/* Hero Section */}
       <section style={{
-        backgroundImage: 'linear-gradient(to right, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 100%), url("/images/post sergery pics.jpg")',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        padding: '120px 0',
         position: 'relative',
-        overflow: 'hidden'
+        overflow: 'hidden',
+        minHeight: '75vh'
       }}>
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundImage: "url('/images/group photo.jpeg')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center 25%',
+          zIndex: 0
+        }} />
+      </section>
+
+      {/* About Intro */}
+      <section style={{padding: '60px 0', background: '#ffffff'}}>
         <div className="container">
-          <div style={{
-            maxWidth: '600px'
-          }}>
+          <div style={{maxWidth: '800px', margin: '0 auto', textAlign: 'center'}}>
             <h1 style={{
               fontSize: '3rem',
               fontWeight: '700',

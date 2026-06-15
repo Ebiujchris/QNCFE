@@ -44,22 +44,7 @@ function Contact() {
         canonical="https://www.qncsolutions.com/contact"
       />
 
-      {/* Hero Section */}
-      <section style={{
-        background: 'linear-gradient(135deg, var(--primary-maroon), var(--primary-blue))',
-        color: 'white',
-        padding: '80px 0',
-        textAlign: 'center'
-      }}>
-        <div className="container">
-          <h1 style={{fontSize: '3rem', fontWeight: '700', marginBottom: '20px'}}>
-            Contact Us
-          </h1>
-          <p style={{fontSize: '1.1rem', opacity: '0.95', maxWidth: '600px', margin: '0 auto'}}>
-            We're here to provide the care and support you need. Reach out to our professional team today.
-          </p>
-        </div>
-      </section>
+
 
       {/* Contact Content */}
       <section style={{padding: '60px 0', background: '#f9fafb'}}>
@@ -364,56 +349,12 @@ function Contact() {
                 </div>
               </div>
 
-            </div>
-          </div>
-        </div>
-      </section>
-
-
-
-      {/* Footer */}
-      <section style={{backgroundColor: 'var(--primary-blue)', color: 'white', padding: '40px 0'}}>
-        <div className="container">
-          <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '30px'}}>
-            
-            <div>
-              <h4 style={{fontSize: '1.2rem', marginBottom: '15px'}}>Quick Links</h4>
-              <ul style={{listStyle: 'none', padding: 0, margin: 0}}>
-                <li style={{marginBottom: '10px'}}><a href="/" style={{color: '#d1d5db', textDecoration: 'none'}}>Home</a></li>
-                <li style={{marginBottom: '10px'}}><a href="/about" style={{color: '#d1d5db', textDecoration: 'none'}}>About Us</a></li>
-                <li style={{marginBottom: '10px'}}><a href="/services" style={{color: '#d1d5db', textDecoration: 'none'}}>Services & Solutions</a></li>
-                <li style={{marginBottom: '10px'}}><a href="/careers" style={{color: '#d1d5db', textDecoration: 'none'}}>Careers</a></li>
-                <li style={{marginBottom: '10px'}}><a href="/contact" style={{color: '#d1d5db', textDecoration: 'none'}}>Contact Us</a></li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 style={{fontSize: '1.2rem', marginBottom: '15px'}}>Our Services</h4>
-              <ul style={{listStyle: 'none', padding: 0, margin: 0}}>
-                <li style={{marginBottom: '10px'}}><span style={{color: '#d1d5db'}}>Nursing Care</span></li>
-                <li style={{marginBottom: '10px'}}><span style={{color: '#d1d5db'}}>Medical Consultation</span></li>
-                <li style={{marginBottom: '10px'}}><span style={{color: '#d1d5db'}}>Caregiver Support</span></li>
-                <li style={{marginBottom: '10px'}}><span style={{color: '#d1d5db'}}>Mobile Health</span></li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 style={{fontSize: '1.2rem', marginBottom: '15px'}}>Contact Info</h4>
-              <div style={{fontSize: '0.9rem', color: '#d1d5db', lineHeight: '1.8'}}>
-                <p style={{marginBottom: '10px'}}>📍 Buziga Katuso<br />P.O. Box: 201036 Kampala GPO, Uganda</p>
-                <p style={{marginBottom: '10px'}}>📞 <a href="tel:+256791785931" style={{color: '#d1d5db', textDecoration: 'none'}}>+256-791-785931</a></p>
-                <p>✉️ <a href="mailto:qncsolutions3@gmail.com" style={{color: '#d1d5db', textDecoration: 'none'}}>qncsolutions3@gmail.com</a></p>
-              </div>
-            </div>
-
-            <div>
-              <h4 style={{fontSize: '1.2rem', marginBottom: '15px'}}>Our Location</h4>
+              {/* Map */}
               <div style={{
-                width: '100%',
-                height: '180px',
-                backgroundColor: '#374151',
+                height: '300px',
                 borderRadius: '8px',
-                overflow: 'hidden'
+                overflow: 'hidden',
+                boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
               }}>
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7520895823944!2d32.6078!3d0.2619!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbc0f9c3b5555%3A0x1234567890abcdef!2sBuziga%2C%20Kampala%2C%20Uganda!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
@@ -427,24 +368,25 @@ function Contact() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
 
-          <div style={{
-            borderTop: '1px solid #374151',
-            marginTop: '30px',
-            paddingTop: '20px',
+      {/* Small Footer */}
+      <section style={{backgroundColor: 'var(--primary-blue)', color: 'white', padding: '20px 0'}}>
+        <div className="container" style={{
             textAlign: 'center',
             fontSize: '0.85rem',
             color: '#9ca3af'
-          }}>
+        }}>
             <p style={{margin: '0 0 8px 0'}}>
               © 2026 QNC Solutions. All rights reserved. | Professional Healthcare Services in Uganda
             </p>
             <p style={{margin: 0, fontStyle: 'italic'}}>
               Made by <span style={{fontWeight: '700', color: '#ffffff'}}>INFINITI ANALYTICS</span>
             </p>
-          </div>
         </div>
       </section>
+
     </div>
   )
 }

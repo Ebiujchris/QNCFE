@@ -62,32 +62,34 @@ function Careers() {
 
       {/* Hero Section */}
       <section style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+        display: 'flex',
+        flexWrap: 'wrap',
         minHeight: '520px',
         background: '#ffffff',
         overflow: 'hidden'
       }}>
         <div style={{
+          flex: '1.2 1 400px',
           padding: '60px 48px',
           display: 'flex',
           alignItems: 'center',
+          justifyContent: 'center',
           position: 'relative'
         }}>
-          <div style={{
-            position: 'absolute',
-            left: 0,
-            top: '18%',
-            bottom: '18%',
-            width: '4px',
-            background: 'var(--primary-maroon)',
-            borderRadius: '2px'
-          }} />
-          <div style={{paddingLeft: '28px', maxWidth: '480px'}}>
+          <div style={{position: 'relative', paddingLeft: '28px', maxWidth: '500px'}}>
+            <div style={{
+              position: 'absolute',
+              left: 0,
+              top: '5%',
+              bottom: '5%',
+              width: '4px',
+              background: 'var(--primary-maroon)',
+              borderRadius: '2px'
+            }} />
             <span style={{
               display: 'inline-block',
-              fontSize: '0.8rem',
-              fontWeight: '600',
+              fontSize: '1.1rem',
+              fontWeight: '700',
               letterSpacing: '0.1em',
               textTransform: 'uppercase',
               color: 'var(--primary-maroon)',
@@ -96,19 +98,19 @@ function Careers() {
               Careers at QNC
             </span>
             <h1 style={{
-              fontSize: '2.8rem',
-              fontWeight: '700',
+              fontSize: '3.6rem',
+              fontWeight: '800',
               lineHeight: '1.15',
-              marginBottom: '20px',
+              marginBottom: '24px',
               color: 'var(--primary-blue)'
             }}>
               Join Our <span style={{color: 'var(--primary-maroon)'}}>Team</span>
             </h1>
             <p style={{
-              fontSize: '1.05rem',
+              fontSize: '1.3rem',
               lineHeight: '1.8',
               color: '#4b5563',
-              marginBottom: '28px'
+              marginBottom: '32px'
             }}>
               Be part of a team that's making healthcare accessible and compassionate for everyone.
             </p>
@@ -117,10 +119,10 @@ function Careers() {
               style={{
                 display: 'inline-block',
                 color: 'var(--primary-maroon)',
-                fontWeight: '600',
-                fontSize: '0.95rem',
+                fontWeight: '700',
+                fontSize: '1.2rem',
                 textDecoration: 'none',
-                borderBottom: '2px solid var(--primary-maroon)',
+                borderBottom: '3px solid var(--primary-maroon)',
                 paddingBottom: '4px'
               }}
             >
@@ -129,6 +131,7 @@ function Careers() {
           </div>
         </div>
         <div style={{
+          flex: '1 1 320px',
           position: 'relative',
           minHeight: '420px',
           overflow: 'hidden'
@@ -156,123 +159,6 @@ function Careers() {
         </div>
       </section>
 
-      {/* Why Join Us */}
-      <section style={{padding: '60px 0', background: '#f9fafb'}}>
-        <div className="container">
-          <h2 style={{
-            fontSize: '2rem',
-            fontWeight: '700',
-            color: 'var(--primary-blue)',
-            textAlign: 'center',
-            marginBottom: '50px'
-          }}>Why Work With QNC?</h2>
-
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: '40px'
-          }}>
-            <div style={{
-              background: 'white',
-              padding: '30px',
-              borderRadius: '8px',
-              boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-              textAlign: 'center'
-            }}>
-              <div style={{
-                width: '80px',
-                height: '80px',
-                background: '#eff6ff',
-                borderRadius: '50%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                margin: '0 auto 20px',
-                fontSize: '2.5rem'
-              }}>💼</div>
-              <h3 style={{
-                fontSize: '1.2rem',
-                fontWeight: '600',
-                color: 'var(--primary-blue)',
-                marginBottom: '15px'
-              }}>Professional Growth</h3>
-              <p style={{
-                fontSize: '0.95rem',
-                color: '#6b7280',
-                lineHeight: '1.6'
-              }}>
-                Continuous learning opportunities and career advancement in a supportive environment.
-              </p>
-            </div>
-
-            <div style={{
-              background: 'white',
-              padding: '30px',
-              borderRadius: '8px',
-              boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-              textAlign: 'center'
-            }}>
-              <div style={{
-                width: '80px',
-                height: '80px',
-                background: '#fef3c7',
-                borderRadius: '50%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                margin: '0 auto 20px',
-                fontSize: '2.5rem'
-              }}>🤝</div>
-              <h3 style={{
-                fontSize: '1.2rem',
-                fontWeight: '600',
-                color: 'var(--primary-blue)',
-                marginBottom: '15px'
-              }}>Supportive Team</h3>
-              <p style={{
-                fontSize: '0.95rem',
-                color: '#6b7280',
-                lineHeight: '1.6'
-              }}>
-                Work alongside passionate professionals who care about making a difference.
-              </p>
-            </div>
-
-            <div style={{
-              background: 'white',
-              padding: '30px',
-              borderRadius: '8px',
-              boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-              textAlign: 'center'
-            }}>
-              <div style={{
-                width: '80px',
-                height: '80px',
-                background: '#fce7f3',
-                borderRadius: '50%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                margin: '0 auto 20px',
-                fontSize: '2.5rem'
-              }}>⚖️</div>
-              <h3 style={{
-                fontSize: '1.2rem',
-                fontWeight: '600',
-                color: 'var(--primary-blue)',
-                marginBottom: '15px'
-              }}>Work-Life Balance</h3>
-              <p style={{
-                fontSize: '0.95rem',
-                color: '#6b7280',
-                lineHeight: '1.6'
-              }}>
-                Flexible schedules and time off to maintain a healthy work-life balance.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Job Openings */}
       <section id="opportunities" style={{padding: '60px 0', background: 'white'}}>
@@ -423,7 +309,7 @@ function Careers() {
               <div style={{
                 width: '60px',
                 height: '60px',
-                background: 'var(--primary-blue)',
+                background: 'var(--primary-maroon)',
                 color: 'white',
                 borderRadius: '50%',
                 display: 'flex',
@@ -436,7 +322,7 @@ function Careers() {
               <h3 style={{
                 fontSize: '1.1rem',
                 fontWeight: '600',
-                color: 'var(--primary-blue)',
+                color: 'var(--primary-maroon)',
                 marginBottom: '10px'
               }}>Apply</h3>
               <p style={{
@@ -449,7 +335,7 @@ function Careers() {
               <div style={{
                 width: '60px',
                 height: '60px',
-                background: 'var(--primary-blue)',
+                background: 'var(--primary-maroon)',
                 color: 'white',
                 borderRadius: '50%',
                 display: 'flex',
@@ -462,7 +348,7 @@ function Careers() {
               <h3 style={{
                 fontSize: '1.1rem',
                 fontWeight: '600',
-                color: 'var(--primary-blue)',
+                color: 'var(--primary-maroon)',
                 marginBottom: '10px'
               }}>Review</h3>
               <p style={{
@@ -475,7 +361,7 @@ function Careers() {
               <div style={{
                 width: '60px',
                 height: '60px',
-                background: 'var(--primary-blue)',
+                background: 'var(--primary-maroon)',
                 color: 'white',
                 borderRadius: '50%',
                 display: 'flex',
@@ -488,7 +374,7 @@ function Careers() {
               <h3 style={{
                 fontSize: '1.1rem',
                 fontWeight: '600',
-                color: 'var(--primary-blue)',
+                color: 'var(--primary-maroon)',
                 marginBottom: '10px'
               }}>Interview</h3>
               <p style={{
@@ -501,7 +387,7 @@ function Careers() {
               <div style={{
                 width: '60px',
                 height: '60px',
-                background: 'var(--primary-blue)',
+                background: 'var(--primary-maroon)',
                 color: 'white',
                 borderRadius: '50%',
                 display: 'flex',
@@ -514,7 +400,7 @@ function Careers() {
               <h3 style={{
                 fontSize: '1.1rem',
                 fontWeight: '600',
-                color: 'var(--primary-blue)',
+                color: 'var(--primary-maroon)',
                 marginBottom: '10px'
               }}>Join Us</h3>
               <p style={{
@@ -555,78 +441,19 @@ function Careers() {
         </div>
       </section>
 
-      {/* Footer */}
-      <section style={{backgroundColor: 'var(--primary-blue)', color: 'white', padding: '40px 0'}}>
-        <div className="container">
-          <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '30px'}}>
-            
-            <div>
-              <h4 style={{fontSize: '1.2rem', marginBottom: '15px'}}>Quick Links</h4>
-              <ul style={{listStyle: 'none', padding: 0, margin: 0}}>
-                <li style={{marginBottom: '10px'}}><Link to="/" style={{color: '#d1d5db', textDecoration: 'none'}}>Home</Link></li>
-                <li style={{marginBottom: '10px'}}><Link to="/about" style={{color: '#d1d5db', textDecoration: 'none'}}>About Us</Link></li>
-                <li style={{marginBottom: '10px'}}><Link to="/services" style={{color: '#d1d5db', textDecoration: 'none'}}>Services & Solutions</Link></li>
-                <li style={{marginBottom: '10px'}}><Link to="/careers" style={{color: '#d1d5db', textDecoration: 'none'}}>Careers</Link></li>
-                <li style={{marginBottom: '10px'}}><Link to="/contact" style={{color: '#d1d5db', textDecoration: 'none'}}>Contact Us</Link></li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 style={{fontSize: '1.2rem', marginBottom: '15px'}}>Our Services</h4>
-              <ul style={{listStyle: 'none', padding: 0, margin: 0}}>
-                <li style={{marginBottom: '10px'}}><span style={{color: '#d1d5db'}}>Nursing Care</span></li>
-                <li style={{marginBottom: '10px'}}><span style={{color: '#d1d5db'}}>Medical Consultation</span></li>
-                <li style={{marginBottom: '10px'}}><span style={{color: '#d1d5db'}}>Caregiver Support</span></li>
-                <li style={{marginBottom: '10px'}}><span style={{color: '#d1d5db'}}>Mobile Health</span></li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 style={{fontSize: '1.2rem', marginBottom: '15px'}}>Contact Info</h4>
-              <div style={{fontSize: '0.9rem', color: '#d1d5db', lineHeight: '1.8'}}>
-                <p style={{marginBottom: '10px'}}>📍 Buziga Katuso<br />P.O. Box: 201036 Kampala GPO, Uganda</p>
-                <p style={{marginBottom: '10px'}}>📞 <a href="tel:+256791785931" style={{color: '#d1d5db', textDecoration: 'none'}}>+256-791-785931</a></p>
-                <p>✉️ <a href="mailto:qncsolutions3@gmail.com" style={{color: '#d1d5db', textDecoration: 'none'}}>qncsolutions3@gmail.com</a></p>
-              </div>
-            </div>
-
-            <div>
-              <h4 style={{fontSize: '1.2rem', marginBottom: '15px'}}>Our Location</h4>
-              <div style={{
-                width: '100%',
-                height: '180px',
-                backgroundColor: '#374151',
-                borderRadius: '8px',
-                overflow: 'hidden'
-              }}>
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7520895823944!2d32.6078!3d0.2619!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbc0f9c3b5555%3A0x1234567890abcdef!2sBuziga%2C%20Kampala%2C%20Uganda!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
-                  width="100%"
-                  height="100%"
-                  style={{border: 0}}
-                  allowFullScreen=""
-                  loading="lazy"
-                  title="QNC Location"
-                ></iframe>
-              </div>
-            </div>
-          </div>
-
-          <div style={{
-            borderTop: '1px solid #374151',
-            marginTop: '30px',
-            paddingTop: '20px',
+      {/* Small Footer */}
+      <section style={{backgroundColor: 'var(--primary-blue)', color: 'white', padding: '20px 0'}}>
+        <div className="container" style={{
             textAlign: 'center',
             fontSize: '0.85rem',
             color: '#9ca3af'
-          }}>
+        }}>
             <p style={{margin: '0 0 8px 0'}}>
-              © 2026 QNC Solutions. All rights reserved. | Join us in our mission to provide quality healthcare for all.
+              © 2026 QNC Solutions. All rights reserved. | Professional Healthcare Services in Uganda
             </p>
             <p style={{margin: 0, fontStyle: 'italic'}}>
               Made by <span style={{fontWeight: '700', color: '#ffffff'}}>INFINITI ANALYTICS</span>
             </p>
-          </div>
         </div>
       </section>
     </div>

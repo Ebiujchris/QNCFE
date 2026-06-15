@@ -50,18 +50,33 @@ function Login({ setUser }) {
   }
 
   return (
-    <div className="container" style={{maxWidth: '450px', marginTop: '60px'}}>
-      <div className="card card-elevated">
+    <div style={{
+      minHeight: 'calc(100vh - 80px)',
+      backgroundImage: "url('/images/group photo.jpeg')",
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: '40px 20px'
+    }}>
+      <div className="card card-elevated" style={{
+        maxWidth: '450px', 
+        width: '100%', 
+        margin: 0, 
+        backgroundColor: 'rgba(255, 255, 255, 0.92)',
+        backdropFilter: 'blur(8px)'
+      }}>
         <div style={{textAlign: 'center', marginBottom: '32px'}}>
-          <h2 style={{fontSize: '2rem', fontWeight: '700', marginBottom: '8px', color: '#1f2937'}}>
+          <h2 style={{fontSize: '2rem', fontWeight: '700', marginBottom: '8px', color: 'var(--primary-maroon)'}}>
             Welcome Back
           </h2>
-          <p style={{color: '#6b7280'}}>Sign in to your QNC Solutions account</p>
+          <p style={{color: 'var(--primary-blue)'}}>Sign in to your QNC Solutions account</p>
         </div>
         
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label>Email Address</label>
+            <label style={{color: 'var(--primary-blue)'}}>Email Address</label>
             <input
               type="email"
               name="email"
@@ -74,7 +89,7 @@ function Login({ setUser }) {
           </div>
 
           <div className="form-group">
-            <label>Password</label>
+            <label style={{color: 'var(--primary-blue)'}}>Password</label>
             <div className="password-input-container">
               <input
                 type={showPassword ? "text" : "password"}

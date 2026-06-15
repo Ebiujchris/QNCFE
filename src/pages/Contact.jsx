@@ -46,17 +46,17 @@ function Contact() {
 
       {/* Hero Section */}
       <section style={{
-        background: 'linear-gradient(135deg, var(--primary-blue), #1e40af)',
+        background: 'linear-gradient(135deg, var(--primary-maroon), var(--primary-blue))',
         color: 'white',
-        padding: '60px 0',
+        padding: '80px 0',
         textAlign: 'center'
       }}>
         <div className="container">
-          <h1 style={{fontSize: '2.5rem', fontWeight: '700', marginBottom: '15px'}}>
+          <h1 style={{fontSize: '3rem', fontWeight: '700', marginBottom: '20px'}}>
             Contact Us
           </h1>
-          <p style={{fontSize: '1.1rem', opacity: '0.95'}}>
-            We're here to provide the care and support you need.
+          <p style={{fontSize: '1.1rem', opacity: '0.95', maxWidth: '600px', margin: '0 auto'}}>
+            We're here to provide the care and support you need. Reach out to our professional team today.
           </p>
         </div>
       </section>
@@ -66,7 +66,7 @@ function Contact() {
         <div className="container">
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 350px), 1fr))',
             gap: '50px',
             alignItems: 'start'
           }}>
@@ -254,7 +254,7 @@ function Contact() {
                       <h3 style={{
                         fontSize: '1.1rem',
                         fontWeight: '600',
-                        color: 'var(--primary-blue)',
+                        color: 'var(--primary-maroon)',
                         marginBottom: '8px'
                       }}>Buziga Katuso</h3>
                       <p style={{
@@ -287,7 +287,7 @@ function Contact() {
                       <h3 style={{
                         fontSize: '1.1rem',
                         fontWeight: '600',
-                        color: 'var(--primary-blue)',
+                        color: 'var(--primary-maroon)',
                         marginBottom: '8px'
                       }}>+256 791 785 931</h3>
                       <p style={{
@@ -318,7 +318,7 @@ function Contact() {
                       <h3 style={{
                         fontSize: '1.1rem',
                         fontWeight: '600',
-                        color: 'var(--primary-blue)',
+                        color: 'var(--primary-maroon)',
                         marginBottom: '8px'
                       }}>qncsolutions3@gmail.com</h3>
                       <p style={{
@@ -349,7 +349,7 @@ function Contact() {
                       <h3 style={{
                         fontSize: '1.1rem',
                         fontWeight: '600',
-                        color: 'var(--primary-blue)',
+                        color: 'var(--primary-maroon)',
                         marginBottom: '8px'
                       }}>24/7 - We never close</h3>
                       <p style={{
@@ -364,49 +364,12 @@ function Contact() {
                 </div>
               </div>
 
-              {/* Map */}
-              <div style={{
-                height: '300px',
-                borderRadius: '8px',
-                overflow: 'hidden',
-                boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
-              }}>
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7520895823944!2d32.6078!3d0.2619!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbc0f9c3b5555%3A0x1234567890abcdef!2sBuziga%2C%20Kampala%2C%20Uganda!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
-                  width="100%"
-                  height="100%"
-                  style={{border: 0}}
-                  allowFullScreen=""
-                  loading="lazy"
-                  title="QNC Location"
-                ></iframe>
-              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Bottom Banner */}
-      <section style={{
-        background: 'linear-gradient(135deg, var(--primary-maroon), #7c2d12)',
-        padding: '40px 0',
-        textAlign: 'center',
-        color: 'white'
-      }}>
-        <div className="container">
-          <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '20px', marginBottom: '15px'}}>
-            <div style={{fontSize: '2rem'}}>💚</div>
-            <h2 style={{fontSize: '1.5rem', fontWeight: '600', margin: 0}}>
-              Quality care, Compassionate service, Always with you.
-            </h2>
-          </div>
-          <div style={{display: 'flex', gap: '30px', justifyContent: 'center', fontSize: '2rem'}}>
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" style={{color: 'white', textDecoration: 'none'}}>📘</a>
-            <a href="https://wa.me/256791785931" target="_blank" rel="noopener noreferrer" style={{color: 'white', textDecoration: 'none'}}>💬</a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" style={{color: 'white', textDecoration: 'none'}}>💼</a>
-          </div>
-        </div>
-      </section>
+
 
       {/* Footer */}
       <section style={{backgroundColor: 'var(--primary-blue)', color: 'white', padding: '40px 0'}}>

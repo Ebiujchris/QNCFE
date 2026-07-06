@@ -112,7 +112,7 @@ function Home() {
               transition: 'transform 0.3s ease'
             }}>
               <img
-                src="/images/bedside nursing pic.jpg"
+                src="/images/nursing and home based care image.jpeg"
                 alt="Nursing and Home-Based Care"
                 style={{width: '100%', height: '320px', objectFit: 'cover'}}
               />

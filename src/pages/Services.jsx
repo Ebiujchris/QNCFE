@@ -265,7 +265,7 @@ function Services() {
           }}>
             <div style={{textAlign: 'center'}}>
               <img 
-                src="/images/bedside nursing pic.jpg" 
+                src="/images/nurse with elder.jfif" 
                 alt="Elderly care"
                 style={{
                   width: '100%',

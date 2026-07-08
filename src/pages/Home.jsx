@@ -113,20 +113,14 @@ function Home() {
               background: 'white',
               borderRadius: '12px',
               padding: '28px',
-              boxShadow: '0 2px 12px rgba(0,0,0,0.07)',
-              display: 'flex',
-              gap: '18px',
-              alignItems: 'flex-start'
+              border: '2px solid var(--primary-blue)',
             }}>
-              <span style={{fontSize: '2.4rem', flexShrink: 0}}>👴</span>
-              <div>
-                <h3 style={{fontSize: '1rem', fontWeight: '700', color: 'var(--primary-maroon)', marginBottom: '8px', textTransform: 'uppercase'}}>
-                  Elderly Care and Support
-                </h3>
-                <p style={{fontSize: '0.9rem', color: '#4b5563', lineHeight: '1.6', margin: 0}}>
-                  Personalized assistance to help older adults maintain comfort, independence, and quality of life.
-                </p>
-              </div>
+              <h3 style={{fontSize: '1rem', fontWeight: '700', color: 'var(--primary-maroon)', marginBottom: '8px', textTransform: 'uppercase'}}>
+                Elderly Care and Support
+              </h3>
+              <p style={{fontSize: '0.9rem', color: '#4b5563', lineHeight: '1.6', margin: 0}}>
+                Personalized assistance to help older adults maintain comfort, independence, and quality of life.
+              </p>
             </div>
 
             {/* Post-Surgery Recovery and Monitoring */}
@@ -134,20 +128,14 @@ function Home() {
               background: 'white',
               borderRadius: '12px',
               padding: '28px',
-              boxShadow: '0 2px 12px rgba(0,0,0,0.07)',
-              display: 'flex',
-              gap: '18px',
-              alignItems: 'flex-start'
+              border: '2px solid var(--primary-blue)',
             }}>
-              <span style={{fontSize: '2.4rem', flexShrink: 0}}>🏥</span>
-              <div>
-                <h3 style={{fontSize: '1rem', fontWeight: '700', color: 'var(--primary-maroon)', marginBottom: '8px', textTransform: 'uppercase'}}>
-                  Post-Surgery Recovery and Monitoring
-                </h3>
-                <p style={{fontSize: '0.9rem', color: '#4b5563', lineHeight: '1.6', margin: 0}}>
-                  Professional follow-up care to support safe and effective recovery after hospitalization or surgical procedures.
-                </p>
-              </div>
+              <h3 style={{fontSize: '1rem', fontWeight: '700', color: 'var(--primary-maroon)', marginBottom: '8px', textTransform: 'uppercase'}}>
+                Post-Surgery Recovery and Monitoring
+              </h3>
+              <p style={{fontSize: '0.9rem', color: '#4b5563', lineHeight: '1.6', margin: 0}}>
+                Professional follow-up care to support safe and effective recovery after hospitalization or surgical procedures.
+              </p>
             </div>
 
             {/* Chronic Illness and Medication Management */}
@@ -155,20 +143,14 @@ function Home() {
               background: 'white',
               borderRadius: '12px',
               padding: '28px',
-              boxShadow: '0 2px 12px rgba(0,0,0,0.07)',
-              display: 'flex',
-              gap: '18px',
-              alignItems: 'flex-start'
+              border: '2px solid var(--primary-blue)',
             }}>
-              <span style={{fontSize: '2.4rem', flexShrink: 0}}>💊</span>
-              <div>
-                <h3 style={{fontSize: '1rem', fontWeight: '700', color: 'var(--primary-maroon)', marginBottom: '8px', textTransform: 'uppercase'}}>
-                  Chronic Illness and Medication Management
-                </h3>
-                <p style={{fontSize: '0.9rem', color: '#4b5563', lineHeight: '1.6', margin: 0}}>
-                  Ongoing support for individuals living with long-term health conditions, ensuring proper treatment adherence and improved health outcomes.
-                </p>
-              </div>
+              <h3 style={{fontSize: '1rem', fontWeight: '700', color: 'var(--primary-maroon)', marginBottom: '8px', textTransform: 'uppercase'}}>
+                Chronic Illness and Medication Management
+              </h3>
+              <p style={{fontSize: '0.9rem', color: '#4b5563', lineHeight: '1.6', margin: 0}}>
+                Ongoing support for individuals living with long-term health conditions, ensuring proper treatment adherence and improved health outcomes.
+              </p>
             </div>
 
             {/* Chronic Disease Management and Palliative Care Support */}
@@ -176,20 +158,14 @@ function Home() {
               background: 'white',
               borderRadius: '12px',
               padding: '28px',
-              boxShadow: '0 2px 12px rgba(0,0,0,0.07)',
-              display: 'flex',
-              gap: '18px',
-              alignItems: 'flex-start'
+              border: '2px solid var(--primary-blue)',
             }}>
-              <span style={{fontSize: '2.4rem', flexShrink: 0}}>❤️</span>
-              <div>
-                <h3 style={{fontSize: '1rem', fontWeight: '700', color: 'var(--primary-maroon)', marginBottom: '8px', textTransform: 'uppercase'}}>
-                  Chronic Disease Management and Palliative Care Support
-                </h3>
-                <p style={{fontSize: '0.9rem', color: '#4b5563', lineHeight: '1.6', margin: 0}}>
-                  Compassionate care focused on symptom management, comfort, and enhancing quality of life for individuals with serious or life-limiting illnesses.
-                </p>
-              </div>
+              <h3 style={{fontSize: '1rem', fontWeight: '700', color: 'var(--primary-maroon)', marginBottom: '8px', textTransform: 'uppercase'}}>
+                Chronic Disease Management and Palliative Care Support
+              </h3>
+              <p style={{fontSize: '0.9rem', color: '#4b5563', lineHeight: '1.6', margin: 0}}>
+                Compassionate care focused on symptom management, comfort, and enhancing quality of life for individuals with serious or life-limiting illnesses.
+              </p>
             </div>
 
             {/* Nutrition Assessment and Counseling */}
@@ -197,20 +173,14 @@ function Home() {
               background: 'white',
               borderRadius: '12px',
               padding: '28px',
-              boxShadow: '0 2px 12px rgba(0,0,0,0.07)',
-              display: 'flex',
-              gap: '18px',
-              alignItems: 'flex-start'
+              border: '2px solid var(--primary-blue)',
             }}>
-              <span style={{fontSize: '2.4rem', flexShrink: 0}}>🥗</span>
-              <div>
-                <h3 style={{fontSize: '1rem', fontWeight: '700', color: 'var(--primary-maroon)', marginBottom: '8px', textTransform: 'uppercase'}}>
-                  Nutrition Assessment and Counseling
-                </h3>
-                <p style={{fontSize: '0.9rem', color: '#4b5563', lineHeight: '1.6', margin: 0}}>
-                  Professional nutritional screening, assessment, and personalized dietary guidance to support healthy living, disease prevention, recovery, and overall well-being.
-                </p>
-              </div>
+              <h3 style={{fontSize: '1rem', fontWeight: '700', color: 'var(--primary-maroon)', marginBottom: '8px', textTransform: 'uppercase'}}>
+                Nutrition Assessment and Counseling
+              </h3>
+              <p style={{fontSize: '0.9rem', color: '#4b5563', lineHeight: '1.6', margin: 0}}>
+                Professional nutritional screening, assessment, and personalized dietary guidance to support healthy living, disease prevention, recovery, and overall well-being.
+              </p>
             </div>
 
             {/* Pre-Natal and Post-Natal Care */}
@@ -218,20 +188,14 @@ function Home() {
               background: 'white',
               borderRadius: '12px',
               padding: '28px',
-              boxShadow: '0 2px 12px rgba(0,0,0,0.07)',
-              display: 'flex',
-              gap: '18px',
-              alignItems: 'flex-start'
+              border: '2px solid var(--primary-blue)',
             }}>
-              <span style={{fontSize: '2.4rem', flexShrink: 0}}>🤰</span>
-              <div>
-                <h3 style={{fontSize: '1rem', fontWeight: '700', color: 'var(--primary-maroon)', marginBottom: '8px', textTransform: 'uppercase'}}>
-                  Pre-Natal and Post-Natal Care
-                </h3>
-                <p style={{fontSize: '0.9rem', color: '#4b5563', lineHeight: '1.6', margin: 0}}>
-                  Comprehensive maternal and newborn support, including health monitoring, education, breastfeeding support, and guidance to ensure the well-being of both mother and baby before and after delivery.
-                </p>
-              </div>
+              <h3 style={{fontSize: '1rem', fontWeight: '700', color: 'var(--primary-maroon)', marginBottom: '8px', textTransform: 'uppercase'}}>
+                Pre-Natal and Post-Natal Care
+              </h3>
+              <p style={{fontSize: '0.9rem', color: '#4b5563', lineHeight: '1.6', margin: 0}}>
+                Comprehensive maternal and newborn support, including health monitoring, education, breastfeeding support, and guidance to ensure the well-being of both mother and baby before and after delivery.
+              </p>
             </div>
 
           </div>

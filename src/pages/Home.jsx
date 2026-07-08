@@ -90,185 +90,150 @@ function Home() {
 
       </section>
 
-      {/* Our Home-Based Services */}
+      {/* Our Services Include */}
       <section style={{padding: '60px 0', background: '#f9fafb'}}>
         <div className="container">
-          <div style={{textAlign: 'center', marginBottom: '50px'}}>
-            <h2 style={{fontSize: '2rem', fontWeight: '700', color: 'var(--primary-blue)', marginBottom: '10px'}}>
-              Our Home-Based Services
-            </h2>
-            <p style={{fontSize: '1rem', color: '#6b7280'}}>
-              Professional care. Wherever you are. Whenever you need it.
-            </p>
+          <div style={{textAlign: 'center', marginBottom: '40px'}}>
+            <span style={{
+              display: 'inline-block',
+              background: 'var(--primary-blue)',
+              color: 'white',
+              fontWeight: '700',
+              fontSize: '1.1rem',
+              padding: '10px 30px',
+              borderRadius: '30px',
+              letterSpacing: '1px'
+            }}>OUR SERVICES INCLUDE:</span>
           </div>
 
-          <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px'}}>
-            {/* Nursing & Home-Based Care */}
+          <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px'}}>
+
+            {/* Elderly Care and Support */}
             <div style={{
               background: 'white',
               borderRadius: '12px',
-              overflow: 'hidden',
-              boxShadow: '0 2px 12px rgba(0,0,0,0.08)',
-              transition: 'transform 0.3s ease'
+              padding: '28px',
+              boxShadow: '0 2px 12px rgba(0,0,0,0.07)',
+              display: 'flex',
+              gap: '18px',
+              alignItems: 'flex-start'
             }}>
-              <img
-                src="/images/nursing and home based care image.jpeg"
-                alt="Nursing and Home-Based Care"
-                style={{width: '100%', height: '320px', objectFit: 'cover'}}
-              />
-              <div style={{padding: '24px'}}>
-                <h3 style={{fontSize: '1.2rem', fontWeight: '700', color: 'var(--primary-blue)', marginBottom: '12px'}}>
-                  Nursing & Home-Based Care Services
+              <span style={{fontSize: '2.4rem', flexShrink: 0}}>👴</span>
+              <div>
+                <h3 style={{fontSize: '1rem', fontWeight: '700', color: 'var(--primary-maroon)', marginBottom: '8px', textTransform: 'uppercase'}}>
+                  Elderly Care and Support
                 </h3>
-                <Link to="/services" style={{
-                  color: 'var(--primary-maroon)',
-                  textDecoration: 'none',
-                  fontWeight: '600',
-                  fontSize: '0.9rem'
-                }}>
-                  Learn More →
-                </Link>
+                <p style={{fontSize: '0.9rem', color: '#4b5563', lineHeight: '1.6', margin: 0}}>
+                  Personalized assistance to help older adults maintain comfort, independence, and quality of life.
+                </p>
               </div>
             </div>
 
-            {/* Field Medical Support */}
+            {/* Post-Surgery Recovery and Monitoring */}
             <div style={{
               background: 'white',
               borderRadius: '12px',
-              overflow: 'hidden',
-              boxShadow: '0 2px 12px rgba(0,0,0,0.08)',
-              transition: 'transform 0.3s ease'
+              padding: '28px',
+              boxShadow: '0 2px 12px rgba(0,0,0,0.07)',
+              display: 'flex',
+              gap: '18px',
+              alignItems: 'flex-start'
             }}>
-              <img
-                src="/images/medical services pic.jpg"
-                alt="Field Medical Support Services"
-                style={{width: '100%', height: '320px', objectFit: 'cover'}}
-              />
-              <div style={{padding: '24px'}}>
-                <h3 style={{fontSize: '1.2rem', fontWeight: '700', color: 'var(--primary-blue)', marginBottom: '12px'}}>
-                  Field Medical Support Services
+              <span style={{fontSize: '2.4rem', flexShrink: 0}}>🏥</span>
+              <div>
+                <h3 style={{fontSize: '1rem', fontWeight: '700', color: 'var(--primary-maroon)', marginBottom: '8px', textTransform: 'uppercase'}}>
+                  Post-Surgery Recovery and Monitoring
                 </h3>
-                <Link to="/services" style={{
-                  color: 'var(--primary-maroon)',
-                  textDecoration: 'none',
-                  fontWeight: '600',
-                  fontSize: '0.9rem'
-                }}>
-                  Learn More →
-                </Link>
+                <p style={{fontSize: '0.9rem', color: '#4b5563', lineHeight: '1.6', margin: 0}}>
+                  Professional follow-up care to support safe and effective recovery after hospitalization or surgical procedures.
+                </p>
               </div>
             </div>
 
-            {/* Mobile Health Services */}
+            {/* Chronic Illness and Medication Management */}
             <div style={{
               background: 'white',
               borderRadius: '12px',
-              overflow: 'hidden',
-              boxShadow: '0 2px 12px rgba(0,0,0,0.08)',
-              transition: 'transform 0.3s ease'
+              padding: '28px',
+              boxShadow: '0 2px 12px rgba(0,0,0,0.07)',
+              display: 'flex',
+              gap: '18px',
+              alignItems: 'flex-start'
             }}>
-              <img
-                src="/images/healthcare.avif"
-                alt="Mobile Health Services"
-                style={{width: '100%', height: '320px', objectFit: 'cover'}}
-              />
-              <div style={{padding: '24px'}}>
-                <h3 style={{fontSize: '1.2rem', fontWeight: '700', color: 'var(--primary-blue)', marginBottom: '12px'}}>
-                  Mobile Health Services
+              <span style={{fontSize: '2.4rem', flexShrink: 0}}>💊</span>
+              <div>
+                <h3 style={{fontSize: '1rem', fontWeight: '700', color: 'var(--primary-maroon)', marginBottom: '8px', textTransform: 'uppercase'}}>
+                  Chronic Illness and Medication Management
                 </h3>
-                <Link to="/services" style={{
-                  color: 'var(--primary-maroon)',
-                  textDecoration: 'none',
-                  fontWeight: '600',
-                  fontSize: '0.9rem'
-                }}>
-                  Learn More →
-                </Link>
-              </div>
-            </div>
-            {/* Elderly Care */}
-            <div style={{
-              background: 'white',
-              borderRadius: '12px',
-              overflow: 'hidden',
-              boxShadow: '0 2px 12px rgba(0,0,0,0.08)',
-              transition: 'transform 0.3s ease'
-            }}>
-              <img
-                src="/images/nurse with elder.jfif"
-                alt="Nurse caring for elderly patient"
-                style={{width: '100%', height: '320px', objectFit: 'cover'}}
-              />
-              <div style={{padding: '24px'}}>
-                <h3 style={{fontSize: '1.2rem', fontWeight: '700', color: 'var(--primary-blue)', marginBottom: '12px'}}>
-                  Elderly Care
-                </h3>
-                <Link to="/services" style={{
-                  color: 'var(--primary-maroon)',
-                  textDecoration: 'none',
-                  fontWeight: '600',
-                  fontSize: '0.9rem'
-                }}>
-                  Learn More →
-                </Link>
+                <p style={{fontSize: '0.9rem', color: '#4b5563', lineHeight: '1.6', margin: 0}}>
+                  Ongoing support for individuals living with long-term health conditions, ensuring proper treatment adherence and improved health outcomes.
+                </p>
               </div>
             </div>
 
-            {/* Post-surgery care */}
+            {/* Chronic Disease Management and Palliative Care Support */}
             <div style={{
               background: 'white',
               borderRadius: '12px',
-              overflow: 'hidden',
-              boxShadow: '0 2px 12px rgba(0,0,0,0.08)',
-              transition: 'transform 0.3s ease'
+              padding: '28px',
+              boxShadow: '0 2px 12px rgba(0,0,0,0.07)',
+              display: 'flex',
+              gap: '18px',
+              alignItems: 'flex-start'
             }}>
-              <img
-                src="/images/post sergery pics.jpg"
-                alt="Post-surgery care"
-                style={{width: '100%', height: '320px', objectFit: 'cover'}}
-              />
-              <div style={{padding: '24px'}}>
-                <h3 style={{fontSize: '1.2rem', fontWeight: '700', color: 'var(--primary-blue)', marginBottom: '12px'}}>
-                  Post-surgery care
+              <span style={{fontSize: '2.4rem', flexShrink: 0}}>❤️</span>
+              <div>
+                <h3 style={{fontSize: '1rem', fontWeight: '700', color: 'var(--primary-maroon)', marginBottom: '8px', textTransform: 'uppercase'}}>
+                  Chronic Disease Management and Palliative Care Support
                 </h3>
-                <Link to="/services" style={{
-                  color: 'var(--primary-maroon)',
-                  textDecoration: 'none',
-                  fontWeight: '600',
-                  fontSize: '0.9rem'
-                }}>
-                  Learn More →
-                </Link>
+                <p style={{fontSize: '0.9rem', color: '#4b5563', lineHeight: '1.6', margin: 0}}>
+                  Compassionate care focused on symptom management, comfort, and enhancing quality of life for individuals with serious or life-limiting illnesses.
+                </p>
               </div>
             </div>
 
-            {/* Nutrition */}
+            {/* Nutrition Assessment and Counseling */}
             <div style={{
               background: 'white',
               borderRadius: '12px',
-              overflow: 'hidden',
-              boxShadow: '0 2px 12px rgba(0,0,0,0.08)',
-              transition: 'transform 0.3s ease'
+              padding: '28px',
+              boxShadow: '0 2px 12px rgba(0,0,0,0.07)',
+              display: 'flex',
+              gap: '18px',
+              alignItems: 'flex-start'
             }}>
-              <img
-                src="/images/nttrition pic.jfif"
-                alt="Nutrition"
-                style={{width: '100%', height: '320px', objectFit: 'cover'}}
-              />
-              <div style={{padding: '24px'}}>
-                <h3 style={{fontSize: '1.2rem', fontWeight: '700', color: 'var(--primary-blue)', marginBottom: '12px'}}>
-                  Nutrition
+              <span style={{fontSize: '2.4rem', flexShrink: 0}}>🥗</span>
+              <div>
+                <h3 style={{fontSize: '1rem', fontWeight: '700', color: 'var(--primary-maroon)', marginBottom: '8px', textTransform: 'uppercase'}}>
+                  Nutrition Assessment and Counseling
                 </h3>
-                <Link to="/services" style={{
-                  color: 'var(--primary-maroon)',
-                  textDecoration: 'none',
-                  fontWeight: '600',
-                  fontSize: '0.9rem'
-                }}>
-                  Learn More →
-                </Link>
+                <p style={{fontSize: '0.9rem', color: '#4b5563', lineHeight: '1.6', margin: 0}}>
+                  Professional nutritional screening, assessment, and personalized dietary guidance to support healthy living, disease prevention, recovery, and overall well-being.
+                </p>
               </div>
             </div>
+
+            {/* Pre-Natal and Post-Natal Care */}
+            <div style={{
+              background: 'white',
+              borderRadius: '12px',
+              padding: '28px',
+              boxShadow: '0 2px 12px rgba(0,0,0,0.07)',
+              display: 'flex',
+              gap: '18px',
+              alignItems: 'flex-start'
+            }}>
+              <span style={{fontSize: '2.4rem', flexShrink: 0}}>🤰</span>
+              <div>
+                <h3 style={{fontSize: '1rem', fontWeight: '700', color: 'var(--primary-maroon)', marginBottom: '8px', textTransform: 'uppercase'}}>
+                  Pre-Natal and Post-Natal Care
+                </h3>
+                <p style={{fontSize: '0.9rem', color: '#4b5563', lineHeight: '1.6', margin: 0}}>
+                  Comprehensive maternal and newborn support, including health monitoring, education, breastfeeding support, and guidance to ensure the well-being of both mother and baby before and after delivery.
+                </p>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>

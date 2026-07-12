@@ -2207,3 +2207,33 @@ body {
     font-size: 0.95rem;
   }
 }
+
+/* Services Page Responsive - Two Column Layout */
+@media (max-width: 900px) {
+  .services-two-col {
+    grid-template-columns: 1fr !important;
+  }
+  .services-two-col img {
+    height: 250px !important;
+  }
+}
+
+/* Services Page - Card Grid Responsive */
+@media (max-width: 700px) {
+  .services-card-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .services-card-grid .service-left-col {
+    padding: 20px !important;
+    flex-direction: row !important;
+    gap: 15px !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+  }
+  .services-card-grid .service-left-col h2 {
+    text-align: left !important;
+  }
+  .services-checklist {
+    grid-template-columns: 1fr !important;
+  }
+}

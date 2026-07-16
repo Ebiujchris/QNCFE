@@ -488,7 +488,7 @@ function Services() {
       </section>
 
       {/* ── Footer ── */}
-      <footer style={{backgroundColor: '#0f2057', color: 'white', padding: '16px 0'}}>
+      <footer style={{backgroundColor: '#4a1208', color: 'white', padding: '16px 0'}}>
         <div className="container" style={{display:'flex', justifyContent:'space-between', alignItems:'center', flexWrap:'wrap', gap:'8px'}}>
           <p style={{margin:0, fontSize:'0.82rem', color:'rgba(255,255,255,0.6)'}}>
             © 2026 QNC Solutions. All rights reserved. | Professional Healthcare Services in Uganda

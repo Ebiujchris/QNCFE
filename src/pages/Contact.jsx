@@ -313,37 +313,14 @@ function Contact() {
       </section>
 
       {/* ── Footer ── */}
-      <footer style={{backgroundColor: '#0f2057', color: 'white', padding: '56px 0 0'}}>
-        <div className="container">
-          <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '40px', paddingBottom: '48px'}}>
-            <div>
-              <div style={{fontSize: '1.1rem', fontWeight: '800', color: 'white', marginBottom: '6px'}}>QNC Solutions</div>
-              <p style={{fontSize: '0.82rem', color: 'rgba(255,255,255,0.5)', marginBottom: '20px', lineHeight: '1.6'}}>Exceptional care for every journey. Health with Heart.</p>
-              <div style={{width: '36px', height: '3px', background: 'var(--primary-maroon)', borderRadius: '2px'}} />
-            </div>
-            <div>
-              <h4 style={{fontSize: '0.78rem', fontWeight: '700', letterSpacing: '2px', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)', marginBottom: '18px'}}>Quick Links</h4>
-              <ul style={{listStyle: 'none', padding: 0, margin: 0}}>
-                {[{to:'/',label:'Home'},{to:'/about',label:'About Us'},{to:'/services',label:'Services'},{to:'/careers',label:'Careers'},{to:'/contact',label:'Contact Us'}].map(l => (
-                  <li key={l.to} style={{marginBottom: '10px'}}>
-                    <Link to={l.to} style={{color: 'rgba(255,255,255,0.7)', textDecoration: 'none', fontSize: '0.9rem'}}>{l.label}</Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h4 style={{fontSize: '0.78rem', fontWeight: '700', letterSpacing: '2px', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)', marginBottom: '18px'}}>Contact Info</h4>
-              <div style={{fontSize: '0.88rem', color: 'rgba(255,255,255,0.7)', lineHeight: '1.9'}}>
-                <p style={{marginBottom: '8px'}}>Buziga Katuso, Kampala GPO<br/>P.O. Box 201036, Uganda</p>
-                <p style={{marginBottom: '8px'}}><a href="tel:+256791785931" style={{color: 'rgba(255,255,255,0.7)', textDecoration: 'none'}}>+256-791-785931</a></p>
-                <p><a href="mailto:qncsolutions3@gmail.com" style={{color: 'rgba(255,255,255,0.7)', textDecoration: 'none'}}>qncsolutions3@gmail.com</a></p>
-              </div>
-            </div>
-          </div>
-          <div style={{borderTop: '1px solid rgba(255,255,255,0.08)', padding: '20px 0', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '10px'}}>
-            <p style={{margin: 0, fontSize: '0.82rem', color: 'rgba(255,255,255,0.4)'}}>© 2026 QNC Solutions. All rights reserved.</p>
-            <p style={{margin: 0, fontSize: '0.82rem', color: 'rgba(255,255,255,0.4)', fontStyle: 'italic'}}>Made by <span style={{fontWeight: '700', color: 'rgba(255,255,255,0.7)'}}>INFINITI ANALYTICS</span></p>
-          </div>
+      <footer style={{backgroundColor: '#0f2057', color: 'white', padding: '16px 0'}}>
+        <div className="container" style={{display:'flex', justifyContent:'space-between', alignItems:'center', flexWrap:'wrap', gap:'8px'}}>
+          <p style={{margin:0, fontSize:'0.82rem', color:'rgba(255,255,255,0.6)'}}>
+            © 2026 QNC Solutions. All rights reserved. | Professional Healthcare Services in Uganda
+          </p>
+          <p style={{margin:0, fontSize:'0.82rem', color:'rgba(255,255,255,0.5)', fontStyle:'italic'}}>
+            Made by <span style={{fontWeight:'700', color:'white'}}>INFINITI ANALYTICS</span>
+          </p>
         </div>
       </footer>
     </div>

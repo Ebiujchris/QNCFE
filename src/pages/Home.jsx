@@ -160,16 +160,10 @@ function Home() {
           }}>
 
             {/* Nursing & Home-Based Care */}
-            <div style={{background: 'white', borderRadius: '14px', overflow: 'hidden', border: '1px solid #e8edf5', transition: 'box-shadow 0.25s ease, transform 0.25s ease'}}
+            <div style={{background: 'white', borderRadius: '14px', border: '1px solid #e8edf5', borderTop: '4px solid var(--primary-blue)', transition: 'box-shadow 0.25s ease, transform 0.25s ease'}}
               onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 12px 32px rgba(30,64,175,0.12)'; e.currentTarget.style.transform = 'translateY(-3px)'; }}
               onMouseLeave={e => { e.currentTarget.style.boxShadow = 'none'; e.currentTarget.style.transform = 'translateY(0)'; }}>
-              <div style={{position: 'relative', height: '200px', overflow: 'hidden'}}>
-                <img src="/images/nursing and home based care image.jpeg" alt="Nursing and Home-Based Care" style={{width: '100%', height: '100%', objectFit: 'cover', display: 'block'}} />
-                <div style={{position: 'absolute', bottom: '12px', left: '12px', width: '36px', height: '36px', background: 'var(--primary-maroon)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-                </div>
-              </div>
-              <div style={{padding: '22px'}}>
+              <div style={{padding: '26px 22px'}}>
                 <h3 style={{fontSize: '1rem', fontWeight: '800', color: 'var(--primary-blue)', marginBottom: '10px'}}>Nursing &amp; Home-Based Care</h3>
                 <p style={{fontSize: '0.85rem', color: '#6b7280', lineHeight: '1.65', marginBottom: '16px'}}>
                   Professional and personalized home healthcare that supports recovery, long-term care, and improved quality of life in the comfort of your home.
@@ -187,16 +181,10 @@ function Home() {
             </div>
 
             {/* Field Medical Support */}
-            <div style={{background: 'white', borderRadius: '14px', overflow: 'hidden', border: '1px solid #e8edf5', transition: 'box-shadow 0.25s ease, transform 0.25s ease'}}
+            <div style={{background: 'white', borderRadius: '14px', border: '1px solid #e8edf5', borderTop: '4px solid var(--primary-blue)', transition: 'box-shadow 0.25s ease, transform 0.25s ease'}}
               onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 12px 32px rgba(30,64,175,0.12)'; e.currentTarget.style.transform = 'translateY(-3px)'; }}
               onMouseLeave={e => { e.currentTarget.style.boxShadow = 'none'; e.currentTarget.style.transform = 'translateY(0)'; }}>
-              <div style={{position: 'relative', height: '200px', overflow: 'hidden'}}>
-                <img src="/images/medical services pic.jpg" alt="Field Medical Support" style={{width: '100%', height: '100%', objectFit: 'cover', display: 'block'}} />
-                <div style={{position: 'absolute', bottom: '12px', left: '12px', width: '36px', height: '36px', background: 'var(--primary-maroon)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 8v8M8 12h8"/></svg>
-                </div>
-              </div>
-              <div style={{padding: '22px'}}>
+              <div style={{padding: '26px 22px'}}>
                 <h3 style={{fontSize: '1rem', fontWeight: '800', color: 'var(--primary-blue)', marginBottom: '10px'}}>Field Medical Support</h3>
                 <p style={{fontSize: '0.85rem', color: '#6b7280', lineHeight: '1.65', marginBottom: '16px'}}>
                   Reliable on-site medical services that strengthen workplace safety, emergency preparedness, and occupational health for organizations and field projects.
@@ -214,16 +202,10 @@ function Home() {
             </div>
 
             {/* Mobile Health Services */}
-            <div style={{background: 'white', borderRadius: '14px', overflow: 'hidden', border: '1px solid #e8edf5', transition: 'box-shadow 0.25s ease, transform 0.25s ease'}}
+            <div style={{background: 'white', borderRadius: '14px', border: '1px solid #e8edf5', borderTop: '4px solid var(--primary-blue)', transition: 'box-shadow 0.25s ease, transform 0.25s ease'}}
               onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 12px 32px rgba(30,64,175,0.12)'; e.currentTarget.style.transform = 'translateY(-3px)'; }}
               onMouseLeave={e => { e.currentTarget.style.boxShadow = 'none'; e.currentTarget.style.transform = 'translateY(0)'; }}>
-              <div style={{position: 'relative', height: '200px', overflow: 'hidden'}}>
-                <img src="/images/healthcare.avif" alt="Mobile Health Services" style={{width: '100%', height: '100%', objectFit: 'cover', display: 'block'}} />
-                <div style={{position: 'absolute', bottom: '12px', left: '12px', width: '36px', height: '36px', background: 'var(--primary-maroon)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-                </div>
-              </div>
-              <div style={{padding: '22px'}}>
+              <div style={{padding: '26px 22px'}}>
                 <h3 style={{fontSize: '1rem', fontWeight: '800', color: 'var(--primary-blue)', marginBottom: '10px'}}>Mobile Health Services</h3>
                 <p style={{fontSize: '0.85rem', color: '#6b7280', lineHeight: '1.65', marginBottom: '16px'}}>
                   Essential healthcare delivered directly to homes, workplaces, and underserved communities, improving access to preventive and follow-up care.
@@ -241,16 +223,10 @@ function Home() {
             </div>
 
             {/* Nutrition Services */}
-            <div style={{background: 'white', borderRadius: '14px', overflow: 'hidden', border: '1px solid #e8edf5', transition: 'box-shadow 0.25s ease, transform 0.25s ease'}}
+            <div style={{background: 'white', borderRadius: '14px', border: '1px solid #e8edf5', borderTop: '4px solid var(--primary-blue)', transition: 'box-shadow 0.25s ease, transform 0.25s ease'}}
               onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 12px 32px rgba(30,64,175,0.12)'; e.currentTarget.style.transform = 'translateY(-3px)'; }}
               onMouseLeave={e => { e.currentTarget.style.boxShadow = 'none'; e.currentTarget.style.transform = 'translateY(0)'; }}>
-              <div style={{position: 'relative', height: '200px', overflow: 'hidden'}}>
-                <img src="/images/nttrition pic.jfif" alt="Nutrition Services" style={{width: '100%', height: '100%', objectFit: 'cover', display: 'block'}} />
-                <div style={{position: 'absolute', bottom: '12px', left: '12px', width: '36px', height: '36px', background: 'var(--primary-maroon)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2z"/><path d="M12 6v6l4 2"/></svg>
-                </div>
-              </div>
-              <div style={{padding: '22px'}}>
+              <div style={{padding: '26px 22px'}}>
                 <h3 style={{fontSize: '1rem', fontWeight: '800', color: 'var(--primary-blue)', marginBottom: '10px'}}>Nutrition Services</h3>
                 <p style={{fontSize: '0.85rem', color: '#6b7280', lineHeight: '1.65', marginBottom: '16px'}}>
                   Evidence-based nutrition services designed to promote healthier lifestyles, better recovery, and long-term wellness for individuals and families.
@@ -267,33 +243,6 @@ function Home() {
               </div>
             </div>
 
-          </div>
-        </div>
-      </section>
-
-      {/* ── Stats Bar ── */}
-      <section style={{background: 'var(--primary-blue)', padding: '36px 0'}}>
-        <div className="container">
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
-            gap: '0',
-            textAlign: 'center'
-          }}>
-            {[
-              {num: '500+', label: 'Clients Supported'},
-              {num: '100+', label: 'Qualified Healthcare Professionals'},
-              {num: '24/7', label: 'Emergency Response'},
-              {num: 'Nationwide', label: 'Service Coverage'}
-            ].map((stat, i, arr) => (
-              <div key={i} style={{
-                padding: '20px 16px',
-                borderRight: i < arr.length - 1 ? '1px solid rgba(255,255,255,0.15)' : 'none'
-              }}>
-                <div style={{fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', fontWeight: '800', color: 'white', lineHeight: '1.1', marginBottom: '6px'}}>{stat.num}</div>
-                <div style={{fontSize: '0.82rem', color: 'rgba(255,255,255,0.7)', fontWeight: '500', lineHeight: '1.4'}}>{stat.label}</div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -512,83 +461,14 @@ function Home() {
       </section>
 
       {/* ── Footer ── */}
-      <footer style={{backgroundColor: '#0f2057', color: 'white', padding: '56px 0 0'}}>
-        <div className="container">
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-            gap: '40px',
-            paddingBottom: '48px'
-          }}>
-
-            <div>
-              <div style={{
-                fontSize: '1.1rem',
-                fontWeight: '800',
-                color: 'white',
-                marginBottom: '6px',
-                letterSpacing: '-0.3px'
-              }}>QNC Solutions</div>
-              <p style={{fontSize: '0.82rem', color: 'rgba(255,255,255,0.5)', marginBottom: '20px', lineHeight: '1.6'}}>
-                Exceptional care for every journey. Health with Heart.
-              </p>
-              <div style={{width: '36px', height: '3px', background: 'var(--primary-maroon)', borderRadius: '2px'}} />
-            </div>
-
-            <div>
-              <h4 style={{fontSize: '0.78rem', fontWeight: '700', letterSpacing: '2px', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)', marginBottom: '18px'}}>Quick Links</h4>
-              <ul style={{listStyle: 'none', padding: 0, margin: 0}}>
-                {[
-                  {to: '/', label: 'Home'},
-                  {to: '/about', label: 'About Us'},
-                  {to: '/services', label: 'Services & Solutions'},
-                  {to: '/careers', label: 'Careers'},
-                  {to: '/contact', label: 'Contact Us'}
-                ].map(l => (
-                  <li key={l.to} style={{marginBottom: '10px'}}>
-                    <Link to={l.to} style={{color: 'rgba(255,255,255,0.7)', textDecoration: 'none', fontSize: '0.9rem', transition: 'color 0.2s'}}>{l.label}</Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <h4 style={{fontSize: '0.78rem', fontWeight: '700', letterSpacing: '2px', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)', marginBottom: '18px'}}>Contact Info</h4>
-              <div style={{fontSize: '0.88rem', color: 'rgba(255,255,255,0.7)', lineHeight: '1.9'}}>
-                <p style={{marginBottom: '8px'}}>Buziga Katuso, Kampala GPO<br/>P.O. Box 201036, Uganda</p>
-                <p style={{marginBottom: '8px'}}><a href="tel:+256791785931" style={{color: 'rgba(255,255,255,0.7)', textDecoration: 'none'}}>+256-791-785931</a></p>
-                <p><a href="mailto:qncsolutions3@gmail.com" style={{color: 'rgba(255,255,255,0.7)', textDecoration: 'none'}}>qncsolutions3@gmail.com</a></p>
-              </div>
-            </div>
-
-            <div>
-              <h4 style={{fontSize: '0.78rem', fontWeight: '700', letterSpacing: '2px', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)', marginBottom: '18px'}}>Our Location</h4>
-              <div style={{width: '100%', height: '160px', borderRadius: '10px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)'}}>
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7520895823944!2d32.6078!3d0.2619!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbc0f9c3b5555%3A0x1234567890abcdef!2sBuziga%2C%20Kampala%2C%20Uganda!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
-                  width="100%" height="100%"
-                  style={{border: 0}} allowFullScreen="" loading="lazy" title="QNC Location"
-                />
-              </div>
-            </div>
-          </div>
-
-          <div style={{
-            borderTop: '1px solid rgba(255,255,255,0.08)',
-            padding: '20px 0',
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            flexWrap: 'wrap',
-            gap: '10px'
-          }}>
-            <p style={{margin: 0, fontSize: '0.82rem', color: 'rgba(255,255,255,0.4)'}}>
-              © 2026 QNC Solutions. All rights reserved. | Professional Healthcare Services in Uganda
-            </p>
-            <p style={{margin: 0, fontSize: '0.82rem', color: 'rgba(255,255,255,0.4)', fontStyle: 'italic'}}>
-              Made by <span style={{fontWeight: '700', color: 'rgba(255,255,255,0.7)'}}>INFINITI ANALYTICS</span>
-            </p>
-          </div>
+      <footer style={{backgroundColor: '#0f2057', color: 'white', padding: '16px 0'}}>
+        <div className="container" style={{display:'flex', justifyContent:'space-between', alignItems:'center', flexWrap:'wrap', gap:'8px'}}>
+          <p style={{margin:0, fontSize:'0.82rem', color:'rgba(255,255,255,0.6)'}}>
+            © 2026 QNC Solutions. All rights reserved. | Professional Healthcare Services in Uganda
+          </p>
+          <p style={{margin:0, fontSize:'0.82rem', color:'rgba(255,255,255,0.5)', fontStyle:'italic'}}>
+            Made by <span style={{fontWeight:'700', color:'white'}}>INFINITI ANALYTICS</span>
+          </p>
         </div>
       </footer>
     </div>

@@ -59,13 +59,13 @@ function Home() {
               lineHeight: '1.18',
               letterSpacing: '-0.5px'
             }}>
-              Quality Nursing Care<br/>
-              Delivered with<br/>
+              Exceptional Care<br/>
+              for Every Journey<br/>
               <span style={{
                 color: 'var(--primary-maroon)',
                 position: 'relative',
                 display: 'inline-block'
-              }}>Compassion &amp; Excellence</span>
+              }}>Health with Heart</span>
             </h1>
 
             <p style={{
@@ -104,24 +104,6 @@ function Home() {
               }}>Contact Us</Link>
             </div>
 
-            {/* Trust bar */}
-            <div style={{
-              display: 'flex',
-              gap: '28px',
-              marginTop: '44px',
-              flexWrap: 'wrap'
-            }}>
-              {[
-                {num: '500+', label: 'Clients Served'},
-                {num: '10+', label: 'Services Offered'},
-                {num: '24/7', label: 'Support Available'}
-              ].map(s => (
-                <div key={s.label}>
-                  <div style={{fontSize: '1.5rem', fontWeight: '800', color: 'var(--primary-blue)'}}>{s.num}</div>
-                  <div style={{fontSize: '0.78rem', color: '#6b7280', fontWeight: '500', marginTop: '2px'}}>{s.label}</div>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>

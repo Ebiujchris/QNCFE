@@ -261,61 +261,6 @@ function Services() {
         canonical="https://www.qncsolutions.com/services"
       />
 
-      {/* ── Hero ── */}
-      <section style={{
-        position: 'relative',
-        overflow: 'hidden',
-        minHeight: '52vh',
-        display: 'flex',
-        alignItems: 'center'
-      }}>
-        <div style={{
-          position: 'absolute', inset: 0,
-          backgroundImage: "url('/images/medical services pic.jpg')",
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          zIndex: 0
-        }} />
-        <div style={{
-          position: 'absolute', inset: 0,
-          background: 'linear-gradient(105deg, rgba(15,32,87,0.92) 0%, rgba(15,32,87,0.75) 55%, rgba(15,32,87,0.35) 100%)',
-          zIndex: 1
-        }} />
-        <div className="container" style={{position: 'relative', zIndex: 2, padding: '80px 24px'}}>
-          <span style={{
-            display: 'inline-block',
-            background: 'rgba(255,255,255,0.12)',
-            color: 'rgba(255,255,255,0.9)',
-            fontSize: '0.78rem',
-            fontWeight: '700',
-            letterSpacing: '2px',
-            textTransform: 'uppercase',
-            padding: '6px 16px',
-            borderRadius: '20px',
-            marginBottom: '22px',
-            border: '1px solid rgba(255,255,255,0.2)'
-          }}>What We Offer</span>
-          <h1 style={{
-            fontSize: 'clamp(2.2rem, 4vw, 3.4rem)',
-            fontWeight: '800',
-            color: 'white',
-            marginBottom: '18px',
-            lineHeight: '1.15',
-            letterSpacing: '-0.5px',
-            maxWidth: '600px'
-          }}>Our Services</h1>
-          <p style={{
-            fontSize: '1.05rem',
-            color: 'rgba(255,255,255,0.8)',
-            maxWidth: '500px',
-            lineHeight: '1.75'
-          }}>
-            Compassionate care. Professional service.<br />
-            Better health for individuals, communities, and workplaces.
-          </p>
-        </div>
-      </section>
-
       {/* ── Services List ── */}
       <section style={{padding: '60px 0', background: '#f8fafd'}}>
         <div className="container">

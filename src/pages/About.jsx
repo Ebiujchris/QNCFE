@@ -4,7 +4,7 @@ import SEO from '../components/SEO'
 const teamMembers = [
   {
     id: 1,
-    name: 'Steicy Nankunda',
+    name: 'Steisy Nankunda',
     position: 'CEO & Co-Founder',
     image: '/images/Steicy in uniform wear.jpeg',
     bio: 'Leading QNC with vision for accessible, professional, and compassionate healthcare across Uganda and beyond.'

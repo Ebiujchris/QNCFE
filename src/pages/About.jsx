@@ -331,18 +331,9 @@ function About() {
               padding: '20px 28px'
             }}>
               <p style={{
-                fontSize: '1.05rem',
-                fontWeight: '700',
-                color: 'white',
-                margin: '0 0 6px',
-                letterSpacing: '0.2px'
-              }}>
-                Quality nursing care, accessible to all.
-              </p>
-              <p style={{
                 fontSize: '0.95rem',
                 fontWeight: '600',
-                color: 'rgba(255,255,255,0.8)',
+                color: 'rgba(255,255,255,0.9)',
                 margin: 0,
                 fontStyle: 'italic'
               }}>

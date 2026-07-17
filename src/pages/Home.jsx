@@ -59,13 +59,13 @@ function Home() {
               lineHeight: '1.18',
               letterSpacing: '-0.5px'
             }}>
-              Exceptional Care<br/>
-              for Every Journey<br/>
+              Quality Nursing Care<br/>
+              Delivered with<br/>
               <span style={{
                 color: 'var(--primary-maroon)',
                 position: 'relative',
                 display: 'inline-block'
-              }}>Health with Heart</span>
+              }}>Compassion &amp; Excellence</span>
             </h1>
 
             <p style={{

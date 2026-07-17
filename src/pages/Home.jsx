@@ -169,14 +169,14 @@ function Home() {
                   Professional and personalized home healthcare that supports recovery, long-term care, and improved quality of life in the comfort of your home.
                 </p>
                 <ul style={{listStyle: 'none', padding: 0, margin: '0 0 18px'}}>
-                  {['Elderly Care', 'Post-Surgical Care', 'Postnatal Care', 'Chronic Disease Management', 'Bedside Nursing', 'Physiotherapy'].map(item => (
+                  {['Elderly Care', 'Post-Surgical Care', 'Postnatal Care'].map(item => (
                     <li key={item} style={{fontSize: '0.83rem', color: '#374151', padding: '4px 0', display: 'flex', alignItems: 'center', gap: '8px'}}>
                       <span style={{width: '6px', height: '6px', borderRadius: '50%', background: 'var(--primary-maroon)', flexShrink: 0, display: 'inline-block'}} />
                       {item}
                     </li>
                   ))}
                 </ul>
-                <Link to="/services" style={{color: 'var(--primary-maroon)', fontWeight: '700', fontSize: '0.85rem', textDecoration: 'none', borderBottom: '1.5px solid var(--primary-maroon)', paddingBottom: '1px'}}>Explore Service →</Link>
+                <Link to="/services" style={{color: 'var(--primary-maroon)', fontWeight: '700', fontSize: '0.85rem', textDecoration: 'none', borderBottom: '1.5px solid var(--primary-maroon)', paddingBottom: '1px'}}>Explore More →</Link>
               </div>
             </div>
 
@@ -190,14 +190,14 @@ function Home() {
                   Reliable on-site medical services that strengthen workplace safety, emergency preparedness, and occupational health for organizations and field projects.
                 </p>
                 <ul style={{listStyle: 'none', padding: 0, margin: '0 0 18px'}}>
-                  {['On-site Medical Teams', 'Emergency Response', 'Occupational Health', 'First Aid Training', 'Medical Surveillance', 'MHPSS Support'].map(item => (
+                  {['On-site Medical Teams', 'Emergency Response', 'Occupational Health'].map(item => (
                     <li key={item} style={{fontSize: '0.83rem', color: '#374151', padding: '4px 0', display: 'flex', alignItems: 'center', gap: '8px'}}>
                       <span style={{width: '6px', height: '6px', borderRadius: '50%', background: 'var(--primary-maroon)', flexShrink: 0, display: 'inline-block'}} />
                       {item}
                     </li>
                   ))}
                 </ul>
-                <Link to="/services" style={{color: 'var(--primary-maroon)', fontWeight: '700', fontSize: '0.85rem', textDecoration: 'none', borderBottom: '1.5px solid var(--primary-maroon)', paddingBottom: '1px'}}>Explore Service →</Link>
+                <Link to="/services" style={{color: 'var(--primary-maroon)', fontWeight: '700', fontSize: '0.85rem', textDecoration: 'none', borderBottom: '1.5px solid var(--primary-maroon)', paddingBottom: '1px'}}>Read More →</Link>
               </div>
             </div>
 
@@ -211,14 +211,14 @@ function Home() {
                   Essential healthcare delivered directly to homes, workplaces, and underserved communities, improving access to preventive and follow-up care.
                 </p>
                 <ul style={{listStyle: 'none', padding: 0, margin: '0 0 18px'}}>
-                  {['Patient Assessment', 'Medication Administration', 'Vital Signs Monitoring', 'Follow-up Care', 'Health Education', 'Chronic Disease Support'].map(item => (
+                  {['Patient Assessment', 'Medication Administration', 'Vital Signs Monitoring'].map(item => (
                     <li key={item} style={{fontSize: '0.83rem', color: '#374151', padding: '4px 0', display: 'flex', alignItems: 'center', gap: '8px'}}>
                       <span style={{width: '6px', height: '6px', borderRadius: '50%', background: 'var(--primary-maroon)', flexShrink: 0, display: 'inline-block'}} />
                       {item}
                     </li>
                   ))}
                 </ul>
-                <Link to="/services" style={{color: 'var(--primary-maroon)', fontWeight: '700', fontSize: '0.85rem', textDecoration: 'none', borderBottom: '1.5px solid var(--primary-maroon)', paddingBottom: '1px'}}>Explore Service →</Link>
+                <Link to="/services" style={{color: 'var(--primary-maroon)', fontWeight: '700', fontSize: '0.85rem', textDecoration: 'none', borderBottom: '1.5px solid var(--primary-maroon)', paddingBottom: '1px'}}>Read More →</Link>
               </div>
             </div>
 
@@ -232,14 +232,14 @@ function Home() {
                   Evidence-based nutrition services designed to promote healthier lifestyles, better recovery, and long-term wellness for individuals and families.
                 </p>
                 <ul style={{listStyle: 'none', padding: 0, margin: '0 0 18px'}}>
-                  {['Nutrition Assessment', 'Diet Planning', 'Maternal & Child Nutrition', 'Clinical Nutrition', 'Lifestyle Nutrition', 'Nutrition Counseling'].map(item => (
+                  {['Nutrition Assessment', 'Diet Planning', 'Maternal & Child Nutrition'].map(item => (
                     <li key={item} style={{fontSize: '0.83rem', color: '#374151', padding: '4px 0', display: 'flex', alignItems: 'center', gap: '8px'}}>
                       <span style={{width: '6px', height: '6px', borderRadius: '50%', background: 'var(--primary-maroon)', flexShrink: 0, display: 'inline-block'}} />
                       {item}
                     </li>
                   ))}
                 </ul>
-                <Link to="/services" style={{color: 'var(--primary-maroon)', fontWeight: '700', fontSize: '0.85rem', textDecoration: 'none', borderBottom: '1.5px solid var(--primary-maroon)', paddingBottom: '1px'}}>Explore Service →</Link>
+                <Link to="/services" style={{color: 'var(--primary-maroon)', fontWeight: '700', fontSize: '0.85rem', textDecoration: 'none', borderBottom: '1.5px solid var(--primary-maroon)', paddingBottom: '1px'}}>Read More →</Link>
               </div>
             </div>
 
@@ -310,18 +310,9 @@ function Home() {
                   fontSize: '1.4rem',
                   fontWeight: '800',
                   color: 'var(--primary-maroon)',
-                  marginBottom: '6px',
+                  marginBottom: '0',
                   letterSpacing: '-0.3px'
                 }}>Steisy Nankunda</h3>
-                <p style={{
-                  fontSize: '0.88rem',
-                  color: '#6b7280',
-                  fontWeight: '500',
-                  marginBottom: '16px'
-                }}>Managing Director &amp; Co-Founder</p>
-                <p style={{fontSize: '0.88rem', color: '#4b5563', lineHeight: '1.7', margin: 0}}>
-                  Leading QNC with a vision for accessible, professional, and compassionate healthcare across Uganda and beyond.
-                </p>
               </div>
               <div style={{flexShrink: 0}}>
                 <img

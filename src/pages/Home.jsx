@@ -268,50 +268,6 @@ function Home() {
               </p>
             </div>
 
-            {/* Meet the Director */}
-            <div style={{
-              background: '#f8fafd',
-              borderRadius: '16px',
-              padding: '40px 32px',
-              border: '1px solid #e8edf5',
-              display: 'flex',
-              gap: '28px',
-              alignItems: 'center',
-              flexWrap: 'wrap'
-            }}>
-              <div style={{flex: '1', minWidth: '180px'}}>
-                <p style={{
-                  fontSize: '0.78rem',
-                  fontWeight: '700',
-                  color: 'var(--primary-blue)',
-                  letterSpacing: '2px',
-                  textTransform: 'uppercase',
-                  marginBottom: '10px'
-                }}>Meet Our Director</p>
-                <h3 style={{
-                  fontSize: '1.4rem',
-                  fontWeight: '800',
-                  color: 'var(--primary-maroon)',
-                  marginBottom: '0',
-                  letterSpacing: '-0.3px'
-                }}>Steisy Nankunda</h3>
-              </div>
-              <div style={{flexShrink: 0}}>
-                <img
-                  src="/images/Steicy in uniform wear.jpeg"
-                  alt="Steisy Nankunda"
-                  style={{
-                    width: '130px',
-                    height: '150px',
-                    objectFit: 'cover',
-                    objectPosition: 'top',
-                    borderRadius: '10px',
-                    display: 'block',
-                    border: '3px solid var(--primary-blue)'
-                  }}
-                />
-              </div>
-            </div>
           </div>
         </div>
       </section>

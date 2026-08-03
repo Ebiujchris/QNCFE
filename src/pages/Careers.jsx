@@ -133,26 +133,6 @@ function Careers() {
           </div>
         </div>
 
-        {/* Image side */}
-        <div style={{flex: '1 1 320px', position: 'relative', minHeight: '420px', overflow: 'hidden'}}>
-          <img
-            src="/images/registerred nurse.jfif"
-            alt="QNC registered nurse"
-            style={{
-              width: '100%', height: '100%', minHeight: '420px',
-              objectFit: 'cover', objectPosition: 'center top', display: 'block'
-            }}
-          />
-          <div style={{
-            position: 'absolute', inset: 0,
-            background: 'linear-gradient(180deg, transparent 60%, rgba(15,32,87,0.4) 100%)'
-          }} />
-          <div style={{
-            position: 'absolute', bottom: 0, left: 0, right: 0,
-            height: '4px',
-            background: 'linear-gradient(to right, var(--primary-maroon), var(--primary-blue))'
-          }} />
-        </div>
       </section>
 
       {/* ── Job Openings ── */}
